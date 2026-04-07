@@ -1,0 +1,226 @@
+# 版型擷取與復刻 — 標準作業提示詞
+
+> 每次擷取新版型時，把此文件內容作為 prompt 的一部分傳入。
+> 最後更新：2026-04-07
+
+---
+
+## 任務描述
+
+你要復刻 `https://joy.star-link-rel.cc/` 的首頁。這個網站會定期更換版型（skin），每次換版型時都要：
+1. 截圖並與所有現有版型比對（odiff, >90% 相似 = 重複，跳過）
+2. 如果是新版型 → 完整復刻成可互動的 HTML
+3. 加入 Gallery 展示系統
+4. 驗證品質達 90%+ 後才交付
+
+---
+
+## 關鍵原則（踩坑教訓）
+
+### 復刻 = 用原始素材，不造輪子
+- **背景圖**：直接用原始 URL（如 `cjc1_style_2_bg.webp`），不要用 CSS 漸層模擬
+- **Icon 圖片**：直接用原始站的圖片 URL，不要用 emoji 替代
+- **「更多」選單**：從原始站擷取所有 icon URL + 文字，不要自己編
+- **字體/顏色**：從原始站的 CSS 變數擷取精確值，不要猜
+
+### 寬度必須精確
+- 原始站 HTML `max-width: 449.775px`，實際渲染 **450px**
+- 復刻版 `.page` 設 `max-width: 450px; margin: 0 auto;`
+- 桌面版要居中顯示 H5 手機版型，`body { background: #e8e8e8; }`
+- **不要用 viewport-based media query 改 grid 列數**（因為容器固定 450px）
+
+### 佈局結構
+- **遊戲分類側邊欄**：貫穿整個遊戲區域（熱門 + 所有分類），`position: sticky`
+- **分類平台卡片**：全寬橫幅（一行一張），不是 3 列 grid
+- **熱門遊戲卡片**：3 列 grid，方形縮圖
+- **底部 Tab Bar + Cookie Banner**：都要限制在 450px 居中
+
+### 動態內容處理
+- Jackpot 數字、跑馬燈、中獎輪播是動態的，每次截圖都不同
+- HTML 加入**凍結模式**（`?freeze=true`）：停止動畫、固定假數據
+- 比對時用 `--ignore-dynamic` 排除動態區域
+
+---
+
+## 擷取流程（Step by Step）
+
+### Phase 1：探索原始站
+
+```
+1. 用 Playwright 打開原始站（450x900 viewport）
+2. 關閉所有彈窗（.ui-dialog, .ui-overlay 等）
+3. 截取 viewport 截圖
+4. 用 JS 擷取：
+   - 所有 <img> 的 src + alt
+   - 所有 background-image URL
+   - CSS 變數（--skin__primary 等）
+   - 關鍵元素的 boundingBox（header, jackpot, marquee, winner, login, game-area）
+5. 點「更多」按鈕，擷取選單項目的 icon URL + 文字
+6. 滾動到底部，觸發 lazy loading，截取各分類區塊
+7. 存原始 HTML 原始碼
+```
+
+### Phase 2：與現有版型比對
+
+```
+1. 截取 viewport 截圖存到 /tmp/new-capture.png
+2. 對每個現有版型執行：
+   odiff /tmp/new-capture.png templates/{id}/screenshot.png diff.png --antialiasing --threshold 0.1
+3. 如果任何版型相似度 > 90% → 判定重複，報告後結束
+4. 如果全部 < 90% → 進入 Phase 3
+```
+
+### Phase 3：建立新版型
+
+```
+1. 建立 templates/{date}-{name}/ 目錄
+2. 下載所有圖片到 assets/ 子目錄
+3. 建立 index.html（單頁，CSS/JS 全 inline）
+4. 建立 metadata.json
+5. 建立 screenshot.png（原始站截圖）
+```
+
+### Phase 4：復刻 HTML
+
+**必須遵守的規則：**
+- 所有圖片用原始 URL 作為 src
+- CSS 變數從原始站精確提取
+- Jackpot 背景用 CSS `background-image: url(原始URL)` + `background-size: cover`
+- 遊戲分類側邊欄 `position: sticky; top: 0; align-self: flex-start;`
+- 分類平台卡片用 `flex-direction: column`（一行一張全寬橫幅）
+- 加入凍結模式（`?freeze=true`）
+- 加入 `<meta http-equiv="Cache-Control" content="no-cache">`
+- `.page { max-width: 450px; margin: 0 auto; overflow: hidden; }`
+
+### Phase 5：分段比對驗證
+
+**分 3 段比對（用元素定位，不用固定 y 座標）：**
+
+```bash
+# 用 JS 找到「登 录」按鈕的 y 位置作為分界點
+# A-top: 從頂部到登入按鈕
+# B-login: 登入按鈕 80px 區域
+# C-games: 登入按鈕以下到 viewport 底部
+
+# 比對時 A-top 和 C-games 要用 ignore regions 排除動態內容
+odiff origin/A-top.png clone/A-top.png diff.png --antialiasing -i "80:55-370:145,25:150-420:200,0:200-450:HEIGHT"
+```
+
+**達標標準：每段 >= 90%（忽略動態內容後）**
+
+### Phase 6：更新 Gallery
+
+```
+1. 更新 templates/registry.json 加入新版型
+2. 更新 screenshot.png（原始站截圖）
+3. git add + commit + push
+4. kubectl rollout restart deployment sitegallery -n dt-rel
+```
+
+---
+
+## 比對工具使用
+
+### odiff（主要工具）
+```bash
+# 基本比對
+odiff original.png clone.png diff.png --antialiasing --threshold 0.1
+
+# 忽略動態區域（格式：x1:y1-x2:y2,x3:y3-x4:y4）
+odiff original.png clone.png diff.png --antialiasing -i "80:55-370:145"
+
+# 輸出的 diff percentage 越小越好（0% = 完全相同）
+# similarity = 100 - diff_percentage
+```
+
+### ImageMagick（輔助）
+```bash
+# 並排對照圖（藍條=原始，紅條=復刻）
+magick \
+  \( -size 450x20 xc:'#003BD5' \) \( origin.png \) -append /tmp/o.png
+magick \
+  \( -size 450x20 xc:'#EA4E3D' \) \( clone.png \) -append /tmp/c.png
+magick /tmp/o.png \( -size 4x920 xc:'#333' \) /tmp/c.png +append compare.png
+```
+
+### 分段截圖（Playwright）
+```javascript
+// 用元素定位找分界點，不用固定 y 座標
+const loginY = await page.evaluate(() => {
+  for (const el of document.querySelectorAll('*')) {
+    if (el.textContent.trim() === '登 录' && el.offsetHeight > 0)
+      return el.getBoundingClientRect().y;
+  }
+});
+await page.screenshot({ clip: { x: 0, y: 0, width: 450, height: loginY } });
+```
+
+---
+
+## 原始站技術細節
+
+- **框架**：Vue 3 SPA + Vite
+- **CSS**：CSS Modules（hash class 如 `._jackpot_v3l6m`）
+- **滾動**：虛擬滾動（`.tab-game-list-scroll-box`），fullPage 截圖只截到 viewport
+- **彈窗**：進入後彈出宣傳彈窗 + 幸運抽獎彈窗，必須先關閉
+- **Cookie banner**：底部固定，擋住內容
+- **客服按鈕**：右下角浮動，可拖動
+- **Jackpot**：數字用 CSS 翻牌動畫，sprite sheet
+- **背景**：`bg_pattern_tile.avif`（菱形紋理）
+
+### 已知的 CSS 變數
+```
+--skin__primary: #003BD5（藍）
+--skin__accent_2: #EA4E3D（紅）
+--skin__bg_1: #F8F8F8（背景灰）
+--skin__neutral_1: #666666
+--skin__neutral_3: #CCCCCC
+```
+
+---
+
+## 專案結構
+
+```
+joy-homepage-clone/
+├── index.html                 ← Gallery 展示頁
+├── templates/
+│   ├── registry.json          ← 版型註冊表
+│   └── {date}-{name}/
+│       ├── index.html         ← 復刻 HTML（含凍結模式）
+│       ├── screenshot.png     ← 原始站截圖
+│       ├── metadata.json      ← 版型元資料 + similarity
+│       └── assets/            ← 圖片資源
+├── scripts/
+│   ├── compare.sh             ← odiff 比對（支援 --ignore-dynamic）
+│   ├── update-similarity.sh   ← 更新 registry.json 相似度
+│   ├── freeze-compare.sh      ← 凍結模式比對
+│   └── capture-and-compare.sh ← 新版型偵測
+├── docs/
+│   ├── homepage-features.md   ← 功能說明
+│   ├── structure-analysis.md  ← DOM/CSS 結構分析
+│   └── flutter-conversion-guide.md ← Flutter 轉換指南
+├── Dockerfile + nginx.conf    ← Docker 配置
+└── docker-compose.yml         ← 本機 port 9090
+```
+
+### 部署
+- **本機**：`docker compose up -d`（port 9090）
+- **REL**：`https://site-gallery.star-link-rel.cc`（K8s, `kubectl rollout restart`）
+- **GitHub**：`davidhsieh-axiom-tw-rd/site-template-gallery`（public）
+
+---
+
+## 常見錯誤與修正
+
+| 錯誤 | 原因 | 修正 |
+|------|------|------|
+| 分類卡片用 3 列 grid | 沒看原始站的分類區塊 | 改為 flex-column 全寬橫幅 |
+| Jackpot 用 CSS 漸層背景 | 自己造輪子 | 用原始 webp 背景圖 |
+| 「更多」選單用 emoji | 自己造輪子 | 從原始站擷取 icon URL |
+| 寬度 420px | 沒量原始站 | 原始站是 450px |
+| Jackpot 紅底金字 | 沒看原始站顏色 | 原始站是綠底白字 |
+| 桌面版 5 列遊戲 | viewport media query | 刪除 min-width media query |
+| 側邊欄只在熱門區 | 結構沒復刻對 | category-sections 放進 game-area |
+| 比對分數很低 | 用整頁 SSIM | 用分段 odiff + ignore 動態區域 |
+| 截圖對不齊 | 用固定 y 座標 | 用元素定位找分界點 |
