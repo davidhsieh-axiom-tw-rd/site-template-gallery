@@ -1,0 +1,19 @@
+{
+  "name": "Joy Blue V1",
+  "description": "開元棋牌首頁 - 藍色主題（初版復刻）",
+  "date": "2026-04-07",
+  "source_url": "https://joy.star-link-rel.cc/",
+  "features": [
+    "Jackpot 獎池動畫",
+    "跑馬燈公告",
+    "中獎輪播",
+    "11 個遊戲分類",
+    "9 個平台分類區塊",
+    "底部 Tab Bar"
+  ],
+  "color_scheme": {
+    "primary": "#003BD5",
+    "accent": "#EA4E3D",
+    "background": "#F8F8F8"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "templates": [
+    {
+      "id": "2026-04-07-joy-blue-v1",
+      "name": "Joy Blue V1",
+      "date": "2026-04-07",
+      "description": "開元棋牌首頁 - 藍色主題（初版復刻）",
+      "primaryColor": "#003BD5",
+      "similarity": 91,
+      "features": [
+        "Jackpot 動畫",
+        "遊戲分類",
+        "Tab Bar"
+      ]
+    }
+  ]
+}

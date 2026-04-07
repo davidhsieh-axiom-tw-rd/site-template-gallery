@@ -1,0 +1,11 @@
+version: '3'
+services:
+  gallery:
+    build: .
+    container_name: joy-gallery
+    ports:
+      - "9090:80"
+    volumes:
+      - ./templates:/usr/share/nginx/html/templates:ro
+      - ./index.html:/usr/share/nginx/html/index.html:ro
+    restart: unless-stopped

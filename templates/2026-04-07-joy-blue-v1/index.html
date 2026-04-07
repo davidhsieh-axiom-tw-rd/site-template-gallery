@@ -1,0 +1,2080 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<title>GAMING - www.188.com</title>
+<link rel="icon" href="assets/icons/img_dt_logo_mr1.avif">
+<style>
+/* ============================================
+   CSS Reset & Variables
+   ============================================ */
+:root {
+  --skin-primary: #003BD5;
+  --skin-accent: #EA4E3D;
+  --skin-neutral-1: #666666;
+  --skin-neutral-3: #CCCCCC;
+  --skin-alt-neutral-1: #666666;
+  --skin-alt-neutral-2: #999999;
+  --background: #F8F8F8;
+  --card-bg: #FFFFFF;
+  --tab-bar-height: 56px;
+  --header-height: 54px;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: #e8e8e8;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Roboto, sans-serif;
+  color: #333;
+  line-height: 1.5;
+  padding-bottom: var(--tab-bar-height);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Diamond pattern background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('assets/bg/bg_pattern_tile.avif');
+  background-repeat: repeat;
+  background-size: 40px 40px;
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Page wrapper */
+.page {
+  max-width: 450px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: #fff;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* ============================================
+   1. Header
+   ============================================ */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 54px;
+  padding: 0 12px;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.header-brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.header-brand-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+  letter-spacing: 1px;
+}
+
+.header-brand-url {
+  font-size: 11px;
+  color: var(--skin-alt-neutral-2);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-search {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-search img {
+  width: 24px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.header-search-text {
+  font-size: 12px;
+  color: var(--skin-neutral-1);
+}
+
+/* ============================================
+   2. Jackpot Section
+   ============================================ */
+.jackpot-section {
+  position: relative;
+  width: 100%;
+  height: 98px;
+  overflow: visible;
+  background: url('https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/common/common/home/cjc1_style_2_bg.webp') center/cover no-repeat;
+  background-color: #f0f4f8;
+}
+
+.jackpot-bg {
+  display: none;
+}
+
+.jackpot-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 4px 0;
+}
+
+.jackpot-title {
+  width: 180px;
+  height: 28px;
+  margin-bottom: 4px;
+  object-fit: contain;
+}
+
+/* Fallback text when jackpot title image fails */
+.jackpot-title-text {
+  display: none;
+  font-size: 28px;
+  font-weight: 900;
+  color: #ff2222;
+  text-shadow: 0 0 10px rgba(255,215,0,0.6), 2px 2px 4px rgba(0,0,0,0.3);
+  font-family: 'Impact', 'Arial Black', sans-serif;
+  letter-spacing: 6px;
+  margin-bottom: 8px;
+}
+
+.jackpot-number-wrap {
+  background: linear-gradient(180deg, #2ecc71 0%, #1a9f56 100%);
+  border: 3px solid #e74c3c;
+  border-radius: 20px;
+  padding: 3px 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.jackpot-number-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,0.3);
+  pointer-events: none;
+}
+
+.jackpot-number {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  font-style: italic;
+  letter-spacing: 1px;
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+/* Jackpot wave decoration at bottom - removed to match original */
+.jackpot-section::after {
+  display: none;
+}
+
+/* ============================================
+   3. Announcement Marquee
+   ============================================ */
+.marquee-bar {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 12px;
+  background: #fff;
+  gap: 8px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.marquee-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--skin-primary);
+}
+
+.marquee-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.marquee-content {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  height: 20px;
+}
+
+.marquee-text {
+  position: absolute;
+  white-space: nowrap;
+  font-size: 13px;
+  color: var(--skin-neutral-1);
+  animation: marquee-scroll 20s linear infinite;
+  line-height: 20px;
+}
+
+@keyframes marquee-scroll {
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.marquee-mail {
+  flex-shrink: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.marquee-mail img {
+  width: 24px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.marquee-mail svg {
+  width: 22px;
+  height: 20px;
+  color: var(--skin-primary);
+}
+
+.marquee-badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background: var(--skin-accent);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  min-width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+}
+
+/* ============================================
+   4. Winner Ticker
+   ============================================ */
+.winner-ticker {
+  position: relative;
+  height: 84px;
+  padding: 10px 0;
+  overflow: hidden;
+  background: linear-gradient(180deg, #e8f4fd 0%, #d4eaf7 100%);
+}
+
+/* Mountain/tree silhouette decoration at bottom */
+.winner-ticker::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 50px;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 50"><path d="M0,50 L0,35 Q20,28 40,32 Q60,22 90,28 L120,18 L150,30 Q170,20 200,25 L240,12 L270,22 Q290,18 310,24 L350,14 L380,26 Q400,20 430,28 L460,16 L490,28 Q510,22 540,26 L570,18 L600,30 Q620,24 650,28 L680,20 L710,32 Q730,26 760,30 L800,22 L800,50 Z" fill="%23b5d9ec" opacity="0.35"/><path d="M0,50 L0,40 Q30,34 60,38 Q90,30 120,35 L160,25 L190,36 Q220,30 250,34 L290,22 L320,34 Q350,28 380,32 L420,24 L450,36 Q480,30 510,34 L540,26 L570,38 Q600,32 640,36 L670,28 L700,38 Q730,32 760,36 L800,30 L800,50 Z" fill="%23a2cfb0" opacity="0.25"/><circle cx="80" cy="18" r="3" fill="%23449966" opacity="0.15"/><circle cx="250" cy="12" r="4" fill="%23449966" opacity="0.12"/><circle cx="450" cy="15" r="3" fill="%23449966" opacity="0.15"/><circle cx="650" cy="10" r="3.5" fill="%23449966" opacity="0.12"/></svg>') repeat-x;
+  background-size: 800px 50px;
+  pointer-events: none;
+}
+
+.winner-scroll-wrap {
+  overflow: hidden;
+}
+
+.winner-scroll {
+  display: flex;
+  gap: 10px;
+  animation: winner-scroll 30s linear infinite;
+  width: max-content;
+}
+
+@keyframes winner-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.winner-card {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.85);
+  border-radius: 20px;
+  padding: 4px 10px 4px 4px;
+  gap: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.winner-card-thumb {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #ddd;
+}
+
+.winner-card-info {
+  font-size: 11px;
+  color: #555;
+  white-space: nowrap;
+}
+
+.winner-card-info .highlight {
+  color: var(--skin-accent);
+  font-weight: 600;
+}
+
+.winner-card-arrow {
+  color: #ccc;
+  font-size: 10px;
+  margin-left: 2px;
+}
+
+/* ============================================
+   5. Login/Register + Quick Actions
+   ============================================ */
+.auth-section {
+  display: flex;
+  align-items: center;
+  padding: 12px 12px;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.btn-login {
+  padding: 5px 18px;
+  min-width: 72px;
+  border: 1px solid var(--skin-primary);
+  border-radius: 4px;
+  color: var(--skin-primary);
+  font-size: 13px;
+  font-weight: 500;
+  background: #fff;
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+.btn-register {
+  padding: 5px 18px;
+  min-width: 72px;
+  border: 1px solid var(--skin-primary);
+  border-radius: 4px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  background: var(--skin-primary);
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+.quick-actions {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  gap: 2px;
+}
+
+.quick-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 2px 10px;
+  cursor: pointer;
+}
+
+.quick-action img {
+  width: 30px;
+  height: 26px;
+  object-fit: contain;
+}
+
+.quick-action span {
+  font-size: 10px;
+  color: var(--skin-neutral-1);
+  white-space: nowrap;
+}
+
+/* ============================================
+   6. Game Area (Sidebar + Content)
+   ============================================ */
+.game-area {
+  display: flex;
+  min-height: 400px;
+  background: #fff;
+}
+
+/* 6.1 Category Sidebar */
+.category-sidebar {
+  width: 80px;
+  flex-shrink: 0;
+  background: #fafafa;
+  border-right: 1px solid #f0f0f0;
+  padding: 4px 0;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.category-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 6px;
+  margin: 3px 4px;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.15s;
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.category-item:hover {
+  background: #f0f0f0;
+}
+
+.category-item.active {
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.category-item.active::before {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: 25%;
+  bottom: 25%;
+  width: 3px;
+  background: var(--skin-primary);
+  border-radius: 0 3px 3px 0;
+}
+
+.category-item img {
+  width: 24px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.category-item span {
+  font-size: 12px;
+  color: var(--skin-neutral-1);
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+
+.category-item.active span {
+  color: var(--skin-primary);
+  font-weight: 600;
+}
+
+/* 6.2 Game Content */
+.game-content {
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+}
+
+/* Game Tabs */
+.game-tabs {
+  display: flex;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 0 12px;
+}
+
+.game-tab {
+  flex: 1;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 14px;
+  color: var(--skin-neutral-1);
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s;
+}
+
+.game-tab.active {
+  color: var(--skin-primary);
+  font-weight: 600;
+}
+
+.game-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  right: 25%;
+  height: 2.5px;
+  background: var(--skin-primary);
+  border-radius: 2px;
+}
+
+/* Game Grid */
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 12px;
+}
+
+.game-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.game-card-thumb {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(135deg, #e8e8e8 0%, #d0d0d0 100%);
+}
+
+.game-card-thumb img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.game-card-star {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.game-card-name {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #444;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+/* Load More */
+.load-more-section {
+  text-align: center;
+  padding: 12px;
+  font-size: 12px;
+  color: var(--skin-alt-neutral-2);
+}
+
+.load-more-info {
+  margin-bottom: 6px;
+}
+
+.load-more-btn {
+  color: var(--skin-primary);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 6px 16px;
+}
+
+.load-more-btn:hover {
+  text-decoration: underline;
+}
+
+/* ============================================
+   6.3 Category Game Sections
+   ============================================ */
+.category-sections {
+  padding: 0 0 20px 0;
+}
+
+.category-game-section {
+  padding: 16px 12px 8px;
+}
+
+.category-game-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.category-game-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.category-game-title img {
+  width: 28px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.category-game-title span {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+}
+
+.category-game-all {
+  font-size: 13px;
+  color: var(--skin-primary);
+}
+
+.platform-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.platform-card {
+  display: block;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.platform-card-thumb {
+  width: 100%;
+  aspect-ratio: 2.5 / 1;
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #e8e8e8 0%, #d0d0d0 100%);
+  position: relative;
+}
+
+.platform-card-thumb img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.platform-card-name {
+  display: none;
+}
+
+.section-load-more {
+  text-align: center;
+  padding: 8px 0;
+  font-size: 12px;
+  color: var(--skin-alt-neutral-2);
+}
+
+.section-load-more .count {
+  margin-bottom: 4px;
+}
+
+.section-load-more .more-link {
+  color: var(--skin-primary);
+  cursor: pointer;
+  font-size: 13px;
+}
+
+/* ============================================
+   7. Footer
+   ============================================ */
+.footer {
+  background: #fff;
+  padding: 20px 16px;
+  margin-top: 8px;
+}
+
+/* 7.1 Footer Nav */
+.footer-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.footer-nav-group h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.footer-nav-group a {
+  display: block;
+  font-size: 12px;
+  color: var(--skin-alt-neutral-2);
+  padding: 3px 0;
+}
+
+.footer-nav-group a:hover {
+  color: var(--skin-primary);
+}
+
+/* 7.2 Compliance */
+.footer-compliance {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.footer-compliance-text {
+  font-size: 13px;
+  color: var(--skin-neutral-1);
+  font-weight: 500;
+}
+
+.footer-compliance img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.footer-compliance a {
+  font-size: 12px;
+  color: var(--skin-primary);
+  margin-left: auto;
+}
+
+/* 7.3 Contact */
+.footer-contact {
+  padding-top: 14px;
+}
+
+.footer-contact h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.footer-contact-items {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.footer-contact-item img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.footer-contact-item span {
+  font-size: 12px;
+  color: var(--skin-alt-neutral-2);
+}
+
+/* ============================================
+   8. Bottom Tab Bar
+   ============================================ */
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 450px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #fff;
+  box-shadow: 0 -1px 6px rgba(0,0,0,0.08);
+  padding: 4px 0 calc(4px + env(safe-area-inset-bottom, 0px));
+  z-index: 200;
+  height: var(--tab-bar-height);
+}
+
+.tab-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  cursor: pointer;
+  flex: 1;
+  padding: 2px 0;
+}
+
+.tab-item svg {
+  width: 24px;
+  height: 24px;
+}
+
+.tab-item span {
+  font-size: 10px;
+  color: var(--skin-alt-neutral-2);
+}
+
+.tab-item.active svg {
+  color: var(--skin-primary);
+}
+
+.tab-item.active span {
+  color: var(--skin-primary);
+  font-weight: 600;
+}
+
+/* ============================================
+   9. Floating Elements
+   ============================================ */
+/* Customer Service Button */
+.cs-float {
+  position: fixed;
+  bottom: calc(var(--tab-bar-height) + 16px);
+  right: calc(50% - 210px + 16px);
+  width: 50px;
+  height: 50px;
+  background: var(--skin-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0,59,213,0.35);
+  cursor: pointer;
+  z-index: 150;
+  transition: transform 0.2s;
+}
+
+@media (max-width: 420px) {
+  .cs-float {
+    right: 16px;
+  }
+}
+
+.cs-float:hover {
+  transform: scale(1.08);
+}
+
+.cs-float svg {
+  width: 26px;
+  height: 26px;
+  color: #fff;
+}
+
+/* Cookie Banner */
+.cookie-banner {
+  position: fixed;
+  bottom: var(--tab-bar-height);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 450px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  gap: 10px;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.08);
+  z-index: 190;
+  font-size: 12px;
+  color: var(--skin-neutral-1);
+  transition: transform 0.3s;
+  border-top: 1px solid #f0f0f0;
+}
+
+.cookie-banner.hidden {
+  transform: translateX(-50%) translateY(100%);
+  pointer-events: none;
+}
+
+.cookie-banner p {
+  flex: 1;
+  line-height: 1.4;
+}
+
+.cookie-banner a {
+  color: var(--skin-primary);
+  text-decoration: underline;
+}
+
+.cookie-btn {
+  flex-shrink: 0;
+  background: var(--skin-primary);
+  color: #fff;
+  padding: 6px 20px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+/* ============================================
+   More Menu Overlay
+   ============================================ */
+.more-menu-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  z-index: 999;
+}
+
+.more-menu-overlay.active {
+  display: block;
+}
+
+.more-menu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 380px;
+  width: 90%;
+  background: white;
+  border-radius: 16px;
+  padding: 20px 12px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.more-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px 8px;
+  text-align: center;
+}
+
+.more-menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.more-menu-item .more-icon-img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.more-menu-item span {
+  font-size: 11px;
+  color: #333;
+  line-height: 1.2;
+}
+
+/* ============================================
+   Freeze Mode (activated via ?freeze=true)
+   ============================================ */
+body.freeze-mode * {
+  animation-play-state: paused !important;
+  transition: none !important;
+}
+
+body.freeze-mode .marquee-text {
+  animation: none !important;
+  position: static !important;
+  white-space: normal !important;
+}
+
+body.freeze-mode .winner-scroll {
+  animation: none !important;
+}
+
+body.freeze-mode .cookie-banner {
+  display: none !important;
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ==========================================
+       1. Header
+       ========================================== -->
+  <header class="header">
+    <div class="header-left">
+      <img class="header-logo"
+           src="https://joy.star-link-rel.cc/siteadmin/upload/img/img_dt_logo_mr1.avif"
+           onerror="this.onerror=null;this.src='assets/icons/img_dt_logo_mr1.avif'"
+           alt="logo">
+      <div class="header-brand">
+        <span class="header-brand-name">GAMING</span>
+        <span class="header-brand-url">www.188.com</span>
+      </div>
+    </div>
+    <div class="header-right">
+      <button class="header-search" aria-label="搜索">
+        <img src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-55/common/_sprite/icon_dt_1ss.avif"
+             onerror="this.onerror=null;this.src='assets/icons/icon_dt_1ss.avif'"
+             alt="搜索">
+      </button>
+      <span class="header-search-text">搜索</span>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       2. Jackpot Section
+       ========================================== -->
+  <section class="jackpot-section">
+    <img class="jackpot-bg"
+         src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/common/common/home/cjc1_style_2_bg.webp"
+         onerror="this.onerror=null;this.src='assets/bg/cjc1_style_2_bg.webp'"
+         alt="jackpot background">
+    <div class="jackpot-content">
+      <img class="jackpot-title"
+           src="assets/bg/cjc1_style_1_font_sprite.avif"
+           alt="JACKPOT"
+           onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="jackpot-title-text">JACKPOT</span>
+      <div class="jackpot-number-wrap">
+        <span class="jackpot-number" id="jackpotNumber">8,558,397</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       3. Announcement Marquee
+       ========================================== -->
+  <div class="marquee-bar">
+    <div class="marquee-icon">
+      <!-- Speaker SVG -->
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+      </svg>
+    </div>
+    <div class="marquee-content">
+      <span class="marquee-text">🧧快要过年了！！！祝贺大家马年行大运！！by 辛西雅</span>
+    </div>
+    <div class="marquee-mail">
+      <!-- Envelope SVG -->
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+      </svg>
+      <span class="marquee-badge">10</span>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       4. Winner Ticker
+       ========================================== -->
+  <section class="winner-ticker">
+    <div class="winner-scroll-wrap">
+      <div class="winner-scroll" id="winnerScroll">
+        <!-- Duplicated sets for seamless scroll -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       5. Login/Register + Quick Actions
+       ========================================== -->
+  <section class="auth-section">
+    <div class="auth-buttons">
+      <button class="btn-login">登 录</button>
+      <button class="btn-register">注 册</button>
+    </div>
+    <div class="quick-actions">
+      <div class="quick-action">
+        <img src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-55/common/_sprite/icon_dt_1vip.avif"
+             onerror="this.onerror=null;this.src='assets/icons/icon_dt_1vip.avif'"
+             alt="VIP">
+        <span>VIP</span>
+      </div>
+      <div class="quick-action">
+        <img src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-55/common/_sprite/icon_dt_1tg.avif"
+             onerror="this.onerror=null;this.src='assets/icons/icon_dt_1tg.avif'"
+             alt="分享赚钱">
+        <span>分享赚钱</span>
+      </div>
+      <div class="quick-action">
+        <img src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-55/common/_sprite/icon_dt_1gd.avif"
+             onerror="this.onerror=null;this.src='assets/icons/icon_dt_1gd.avif'"
+             alt="更多">
+        <span>更多</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       6. Game Area
+       ========================================== -->
+  <section class="game-area">
+
+    <!-- 6.1 Category Sidebar -->
+    <aside class="category-sidebar" id="categorySidebar">
+      <div class="category-item active" data-cat="hot">
+        <img src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_rm_1.avif"
+             onerror="this.onerror=null;this.src='assets/icons/icon_dtfl_rm_1.avif'" alt="热门">
+        <span>热门</span>
+      </div>
+      <div class="category-item" data-cat="fish">
+        <img src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_by_1.avif"
+             onerror="this.onerror=null;this.src='assets/icons/icon_dtfl_by_1.avif'" alt="捕鱼">
+        <span>捕鱼</span>
+      </div>
+      <div class="category-item" data-cat="slot">
+        <img src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_dz_1.avif"
+             onerror="this.onerror=null;this.src='assets/icons/icon_dtfl_dz_1.avif'" alt="电子">
+        <span>电子</span>
+      </div>
+      <div class="category-item" data-cat="chess">
+        <img src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_qp_1.avif"
+             onerror="this.onerror=null;this.src='assets/icons/icon_dtfl_qp_1.avif'" alt="棋牌">
+        <span>棋牌</span>
+      </div>
+      <div class="category-item" data-cat="live">
+        <img src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_zr_1.avif"
+             onerror="this.onerror=null;this.src='assets/icons/icon_dtfl_zr_1.avif'" alt="真人">
+        <span>真人</span>
+      </div>
+      <div class="category-item" data-cat="sport">
+        <img src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_ty_1.avif"
+             onerror="this.onerror=null;this.src='assets/icons/icon_dtfl_ty_1.avif'" alt="体育">
+        <span>体育</span>
+      </div>
+      <div class="category-item" data-cat="lottery">
+        <img src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_cp_1.avif"
+             onerror="this.onerror=null;this.src='assets/icons/icon_dtfl_cp_1.avif'" alt="彩票">
+        <span>彩票</span>
+      </div>
+      <div class="category-item" data-cat="esport">
+        <img src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_dianjing_1.avif"
+             onerror="this.onerror=null;this.src='assets/icons/icon_dtfl_dianjing_1.avif'" alt="电竞">
+        <span>电竞</span>
+      </div>
+      <div class="category-item" data-cat="cockfight">
+        <img src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_douji_1.avif"
+             onerror="this.onerror=null;this.src='assets/icons/icon_dtfl_douji_1.avif'" alt="斗鸡">
+        <span>斗鸡</span>
+      </div>
+      <div class="category-item" data-cat="blockchain">
+        <img src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_qkl_1.avif"
+             onerror="this.onerror=null;this.src='assets/icons/icon_dtfl_qkl_1.avif'" alt="区块链">
+        <span>区块链</span>
+      </div>
+      <div class="category-item" data-cat="demo">
+        <img src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_sw_1.avif"
+             onerror="this.onerror=null;this.src='assets/icons/icon_dtfl_sw_1.avif'" alt="试玩">
+        <span>试玩</span>
+      </div>
+    </aside>
+
+    <!-- 6.2 Game Content -->
+    <div class="game-content">
+      <!-- Tabs -->
+      <div class="game-tabs" id="gameTabs">
+        <div class="game-tab active" data-tab="hot">热门</div>
+        <div class="game-tab" data-tab="recent">最近</div>
+        <div class="game-tab" data-tab="fav">收藏</div>
+      </div>
+
+      <!-- Game Grid -->
+      <div class="game-grid" id="gameGrid">
+        <div class="game-card">
+          <div class="game-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/g/CL/13/3/3029/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/game-3029.avif'"
+                 alt="麻将胡了">
+            <span class="game-card-star">☆</span>
+          </div>
+          <span class="game-card-name">麻将胡了</span>
+        </div>
+        <div class="game-card">
+          <div class="game-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/p/CL/hot/200/3/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/hot-200-3.avif'"
+                 alt="PG电子">
+          </div>
+          <span class="game-card-name">PG电子</span>
+        </div>
+        <div class="game-card">
+          <div class="game-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/g/CL/200/3/2000065/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/game-2000065.avif'"
+                 alt="麻将胡了">
+          </div>
+          <span class="game-card-name">麻将胡了</span>
+        </div>
+        <div class="game-card">
+          <div class="game-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/g/CL/200/3/2000074/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/game-2000074.avif'"
+                 alt="麻将胡了2">
+          </div>
+          <span class="game-card-name">麻将胡了2</span>
+        </div>
+        <div class="game-card">
+          <div class="game-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/p/CL/hot/127/4/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/hot-127-4.avif'"
+                 alt="PA真人">
+          </div>
+          <span class="game-card-name">PA真人</span>
+        </div>
+        <div class="game-card">
+          <div class="game-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/g/CL/1006/3/10060035/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/game-10060035.avif'"
+                 alt="至尊麻将">
+          </div>
+          <span class="game-card-name">至尊麻将</span>
+        </div>
+        <div class="game-card">
+          <div class="game-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/g/CL/200/3/2000084/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/game-2000084.avif'"
+                 alt="赏金女王">
+          </div>
+          <span class="game-card-name">赏金女王</span>
+        </div>
+        <div class="game-card">
+          <div class="game-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/g/CL/310/2/3100003/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/game-3100003.avif'"
+                 alt="财神捕鱼">
+          </div>
+          <span class="game-card-name">财神捕鱼</span>
+        </div>
+        <div class="game-card">
+          <div class="game-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/g/CL/200/3/2000135/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/game-2000135.avif'"
+                 alt="赏金大对决">
+          </div>
+          <span class="game-card-name">赏金大对决</span>
+        </div>
+      </div>
+
+      <!-- Load More -->
+      <div class="load-more-section">
+        <div class="load-more-info">正在显示 79 款游戏中的 15 款</div>
+        <div class="load-more-btn" id="loadMoreBtn">加载更多 &gt;</div>
+      </div>
+
+    <!-- ==========================================
+         6.3 Category Game Sections
+         ========================================== -->
+    <div class="category-sections">
+
+    <!-- 捕鱼 -->
+    <div class="category-game-section">
+      <div class="category-game-header">
+        <div class="category-game-title">
+          <img src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_by_1.avif"
+               onerror="this.onerror=null;this.src='assets/icons/icon_dtfl_by_1.avif'" alt="捕鱼">
+          <span>捕鱼游戏</span>
+        </div>
+        <a class="category-game-all" href="javascript:void(0)">全部 &gt;</a>
+      </div>
+      <div class="platform-grid">
+        <div class="platform-card">
+          <div class="platform-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/p/L1/310/2/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/platforms/platform-310-2.avif'" alt="JDB捕鱼">
+          </div>
+          <span class="platform-card-name">JDB捕鱼</span>
+        </div>
+        <div class="platform-card">
+          <div class="platform-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/p/L1/13/2/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/platforms/platform-13-2.avif'" alt="WG捕鱼">
+          </div>
+          <span class="platform-card-name">WG捕鱼</span>
+        </div>
+        <div class="platform-card">
+          <div class="platform-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/p/L1/27/2/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/platforms/platform-27-2.avif'" alt="KA捕鱼">
+          </div>
+          <span class="platform-card-name">KA捕鱼</span>
+        </div>
+        <div class="platform-card">
+          <div class="platform-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/p/L1/331/2/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/platforms/platform-331-2.avif'" alt="BG捕鱼">
+          </div>
+          <span class="platform-card-name">BG捕鱼</span>
+        </div>
+        <div class="platform-card">
+          <div class="platform-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/p/L1/303/2/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/platforms/platform-303-2.avif'" alt="RSG捕鱼">
+          </div>
+          <span class="platform-card-name">RSG捕鱼</span>
+        </div>
+      </div>
+      <div class="section-load-more">
+        <div class="count">正在显示 14 款捕鱼游戏中的 5 款</div>
+        <div class="more-link">加载更多 &gt;</div>
+      </div>
+    </div>
+
+    <!-- 电子 -->
+    <div class="category-game-section">
+      <div class="category-game-header">
+        <div class="category-game-title">
+          <img src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_dz_1.avif"
+               onerror="this.onerror=null;this.src='assets/icons/icon_dtfl_dz_1.avif'" alt="电子">
+          <span>电子游戏</span>
+        </div>
+        <a class="category-game-all" href="javascript:void(0)">全部 &gt;</a>
+      </div>
+      <div class="platform-grid">
+        <div class="platform-card">
+          <div class="platform-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/p/L1/200/3/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/platforms/platform-200-3.avif'" alt="PG电子">
+          </div>
+          <span class="platform-card-name">PG电子</span>
+        </div>
+        <div class="platform-card">
+          <div class="platform-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/p/L1/13/3/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/platforms/platform-13-3.avif'" alt="WG电子">
+          </div>
+          <span class="platform-card-name">WG电子</span>
+        </div>
+        <div class="platform-card">
+          <div class="platform-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/p/L1/1006/3/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/platforms/platform-1006-3.avif'" alt="LG电子">
+          </div>
+          <span class="platform-card-name">LG电子</span>
+        </div>
+        <div class="platform-card">
+          <div class="platform-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/p/L1/313/3/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/platforms/platform-313-3.avif'" alt="MG电子">
+          </div>
+          <span class="platform-card-name">MG电子</span>
+        </div>
+        <div class="platform-card">
+          <div class="platform-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/p/L1/316/3/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/platforms/platform-316-3.avif'" alt="CQ9电子">
+          </div>
+          <span class="platform-card-name">CQ9电子</span>
+        </div>
+      </div>
+      <div class="section-load-more">
+        <div class="count">正在显示 26 款电子游戏中的 5 款</div>
+        <div class="more-link">加载更多 &gt;</div>
+      </div>
+    </div>
+
+    <!-- 棋牌 -->
+    <div class="category-game-section">
+      <div class="category-game-header">
+        <div class="category-game-title">
+          <img src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_qp_1.avif"
+               onerror="this.onerror=null;this.src='assets/icons/icon_dtfl_qp_1.avif'" alt="棋牌">
+          <span>棋牌游戏</span>
+        </div>
+        <a class="category-game-all" href="javascript:void(0)">全部 &gt;</a>
+      </div>
+      <div class="platform-grid">
+        <div class="platform-card">
+          <div class="platform-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/p/L1/13/1/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/platforms/platform-13-1.avif'" alt="WG棋牌">
+          </div>
+          <span class="platform-card-name">WG棋牌</span>
+        </div>
+        <div class="platform-card">
+          <div class="platform-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/p/L1/2/1/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/platforms/platform-2-1.avif'" alt="开元棋牌">
+          </div>
+          <span class="platform-card-name">开元棋牌</span>
+        </div>
+        <div class="platform-card">
+          <div class="platform-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/p/L1/52/1/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/platforms/platform-52-1.avif'" alt="WL棋牌">
+          </div>
+          <span class="platform-card-name">WL棋牌</span>
+        </div>
+        <div class="platform-card">
+          <div class="platform-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/p/L1/9/1/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/platforms/platform-9-1.avif'" alt="LEG棋牌">
+          </div>
+          <span class="platform-card-name">LEG棋牌</span>
+        </div>
+        <div class="platform-card">
+          <div class="platform-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/p/L1/21/1/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/platforms/platform-21-1.avif'" alt="百胜棋牌">
+          </div>
+          <span class="platform-card-name">百胜棋牌</span>
+        </div>
+      </div>
+      <div class="section-load-more">
+        <div class="count">正在显示 10 款棋牌游戏中的 5 款</div>
+        <div class="more-link">加载更多 &gt;</div>
+      </div>
+    </div>
+
+    <!-- 真人 -->
+    <div class="category-game-section">
+      <div class="category-game-header">
+        <div class="category-game-title">
+          <img src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_zr_1.avif"
+               onerror="this.onerror=null;this.src='assets/icons/icon_dtfl_zr_1.avif'" alt="真人">
+          <span>真人游戏</span>
+        </div>
+        <a class="category-game-all" href="javascript:void(0)">全部 &gt;</a>
+      </div>
+      <div class="platform-grid">
+        <div class="platform-card">
+          <div class="platform-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/p/L1/127/4/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/platforms/platform-127-4.avif'" alt="PA真人">
+          </div>
+          <span class="platform-card-name">PA真人</span>
+        </div>
+        <div class="platform-card">
+          <div class="platform-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/p/L1/75/4/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/platforms/platform-75-4.avif'" alt="BBIN真人">
+          </div>
+          <span class="platform-card-name">BBIN真人</span>
+        </div>
+        <div class="platform-card">
+          <div class="platform-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/p/L1/79/4/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/platforms/platform-79-4.avif'" alt="DG真人">
+          </div>
+          <span class="platform-card-name">DG真人</span>
+        </div>
+        <div class="platform-card">
+          <div class="platform-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/p/L1/331/4/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/platforms/platform-331-4.avif'" alt="BG真人">
+          </div>
+          <span class="platform-card-name">BG真人</span>
+        </div>
+        <div class="platform-card">
+          <div class="platform-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/p/L1/1020/4/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/platforms/platform-1020-4.avif'" alt="DB真人">
+          </div>
+          <span class="platform-card-name">DB真人</span>
+        </div>
+      </div>
+      <div class="section-load-more">
+        <div class="count">正在显示 12 款真人游戏中的 5 款</div>
+        <div class="more-link">加载更多 &gt;</div>
+      </div>
+    </div>
+
+    <!-- 体育 -->
+    <div class="category-game-section">
+      <div class="category-game-header">
+        <div class="category-game-title">
+          <img src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_ty_1.avif"
+               onerror="this.onerror=null;this.src='assets/icons/icon_dtfl_ty_1.avif'" alt="体育">
+          <span>体育游戏</span>
+        </div>
+        <a class="category-game-all" href="javascript:void(0)">全部 &gt;</a>
+      </div>
+      <div class="platform-grid">
+        <div class="platform-card">
+          <div class="platform-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/p/L1/47/5/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/platforms/platform-47-5.avif'" alt="IM体育">
+          </div>
+          <span class="platform-card-name">IM体育</span>
+        </div>
+        <div class="platform-card">
+          <div class="platform-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/p/L1/43/5/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/platforms/platform-43-5.avif'" alt="熊猫体育">
+          </div>
+          <span class="platform-card-name">熊猫体育</span>
+        </div>
+        <div class="platform-card">
+          <div class="platform-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/p/L1/328/5/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/platforms/platform-328-5.avif'" alt="沙巴体育">
+          </div>
+          <span class="platform-card-name">沙巴体育</span>
+        </div>
+        <div class="platform-card">
+          <div class="platform-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/p/L1/76/5/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/platforms/platform-76-5.avif'" alt="皇冠体育">
+          </div>
+          <span class="platform-card-name">皇冠体育</span>
+        </div>
+        <div class="platform-card">
+          <div class="platform-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/p/L1/13/5/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/platforms/platform-13-5.avif'" alt="WG体育">
+          </div>
+          <span class="platform-card-name">WG体育</span>
+        </div>
+      </div>
+      <div class="section-load-more">
+        <div class="count">正在显示 6 款体育游戏中的 5 款</div>
+        <div class="more-link">加载更多 &gt;</div>
+      </div>
+    </div>
+
+    <!-- 彩票 -->
+    <div class="category-game-section">
+      <div class="category-game-header">
+        <div class="category-game-title">
+          <img src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_cp_1.avif"
+               onerror="this.onerror=null;this.src='assets/icons/icon_dtfl_cp_1.avif'" alt="彩票">
+          <span>彩票游戏</span>
+        </div>
+        <a class="category-game-all" href="javascript:void(0)">全部 &gt;</a>
+      </div>
+      <div class="platform-grid">
+        <div class="platform-card">
+          <div class="platform-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/p/L1/29/8/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/platforms/platform-29-8.avif'" alt="DB彩票">
+          </div>
+          <span class="platform-card-name">DB彩票</span>
+        </div>
+        <div class="platform-card">
+          <div class="platform-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/p/L1/75/8/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/platforms/platform-75-8.avif'" alt="BBIN彩票">
+          </div>
+          <span class="platform-card-name">BBIN彩票</span>
+        </div>
+        <div class="platform-card">
+          <div class="platform-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/p/L1/11/8/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/platforms/platform-11-8.avif'" alt="双赢彩票">
+          </div>
+          <span class="platform-card-name">双赢彩票</span>
+        </div>
+        <div class="platform-card">
+          <div class="platform-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/p/L1/13/8/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/platforms/platform-13-8.avif'" alt="WG彩票">
+          </div>
+          <span class="platform-card-name">WG彩票</span>
+        </div>
+      </div>
+      <div class="section-load-more">
+        <div class="count">正在显示 4 款彩票游戏</div>
+        <div class="more-link">加载更多 &gt;</div>
+      </div>
+    </div>
+
+    <!-- 电竞 -->
+    <div class="category-game-section">
+      <div class="category-game-header">
+        <div class="category-game-title">
+          <img src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_dianjing_1.avif"
+               onerror="this.onerror=null;this.src='assets/icons/icon_dtfl_dianjing_1.avif'" alt="电竞">
+          <span>电竞游戏</span>
+        </div>
+        <a class="category-game-all" href="javascript:void(0)">全部 &gt;</a>
+      </div>
+      <div class="platform-grid">
+        <div class="platform-card">
+          <div class="platform-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/p/L1/328/7/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/platforms/platform-328-7.avif'" alt="沙巴电竞">
+          </div>
+          <span class="platform-card-name">沙巴电竞</span>
+        </div>
+        <div class="platform-card">
+          <div class="platform-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/p/L1/74/7/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/platforms/platform-74-7.avif'" alt="DB电竞">
+          </div>
+          <span class="platform-card-name">DB电竞</span>
+        </div>
+      </div>
+      <div class="section-load-more">
+        <div class="count">正在显示 2 款电竞游戏</div>
+        <div class="more-link">加载更多 &gt;</div>
+      </div>
+    </div>
+
+    <!-- 斗鸡 -->
+    <div class="category-game-section">
+      <div class="category-game-header">
+        <div class="category-game-title">
+          <img src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_douji_1.avif"
+               onerror="this.onerror=null;this.src='assets/icons/icon_dtfl_douji_1.avif'" alt="斗鸡">
+          <span>斗鸡游戏</span>
+        </div>
+        <a class="category-game-all" href="javascript:void(0)">全部 &gt;</a>
+      </div>
+      <div class="platform-grid">
+        <div class="platform-card">
+          <div class="platform-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/p/L1/87/6/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/platforms/platform-87-6.avif'" alt="SV388斗鸡">
+          </div>
+          <span class="platform-card-name">SV388斗鸡</span>
+        </div>
+      </div>
+      <div class="section-load-more">
+        <div class="count">正在显示 1 款斗鸡游戏</div>
+        <div class="more-link">加载更多 &gt;</div>
+      </div>
+    </div>
+
+    <!-- 区块链 -->
+    <div class="category-game-section">
+      <div class="category-game-header">
+        <div class="category-game-title">
+          <img src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_qkl_1.avif"
+               onerror="this.onerror=null;this.src='assets/icons/icon_dtfl_qkl_1.avif'" alt="区块链">
+          <span>区块链游戏</span>
+        </div>
+        <a class="category-game-all" href="javascript:void(0)">全部 &gt;</a>
+      </div>
+      <div class="platform-grid">
+        <div class="platform-card">
+          <div class="platform-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/p/L1/13/11/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/platforms/platform-13-11.avif'" alt="WG区块链">
+          </div>
+          <span class="platform-card-name">WG区块链</span>
+        </div>
+        <div class="platform-card">
+          <div class="platform-card-thumb">
+            <img src="https://joy.star-link-rel.cc/game_pictures/p/L1/95/11/default.avif"
+                 onerror="this.onerror=null;this.src='assets/games/platforms/platform-95-11.avif'" alt="T1区块链">
+          </div>
+          <span class="platform-card-name">T1区块链</span>
+        </div>
+      </div>
+      <div class="section-load-more">
+        <div class="count">正在显示 2 款区块链游戏</div>
+        <div class="more-link">加载更多 &gt;</div>
+      </div>
+    </div>
+
+    </div><!-- /.category-sections -->
+    </div><!-- /.game-content -->
+  </section><!-- /.game-area -->
+
+  <!-- ==========================================
+       7. Footer
+       ========================================== -->
+  <footer class="footer">
+
+    <!-- 7.1 Footer Nav -->
+    <nav class="footer-nav">
+      <div class="footer-nav-group">
+        <h4>娱乐城</h4>
+        <a href="javascript:void(0)">分享赚钱</a>
+        <a href="javascript:void(0)">任务</a>
+        <a href="javascript:void(0)">返水</a>
+        <a href="javascript:void(0)">待领取</a>
+        <a href="javascript:void(0)">VIP</a>
+        <a href="javascript:void(0)">活动</a>
+        <a href="javascript:void(0)">公积金</a>
+        <a href="javascript:void(0)">盲盒抽奖</a>
+        <a href="javascript:void(0)">信用借款</a>
+        <a href="javascript:void(0)">幸运转盘</a>
+      </div>
+      <div class="footer-nav-group">
+        <h4>游戏</h4>
+        <a href="javascript:void(0)">热门</a>
+        <a href="javascript:void(0)">捕鱼</a>
+        <a href="javascript:void(0)">电子</a>
+        <a href="javascript:void(0)">棋牌</a>
+        <a href="javascript:void(0)">真人</a>
+        <a href="javascript:void(0)">体育</a>
+        <a href="javascript:void(0)">彩票</a>
+        <a href="javascript:void(0)">电竞</a>
+        <a href="javascript:void(0)">斗鸡</a>
+        <a href="javascript:void(0)">区块链</a>
+        <a href="javascript:void(0)">试玩</a>
+      </div>
+      <div class="footer-nav-group">
+        <h4>支持</h4>
+        <a href="javascript:void(0)">在线客服</a>
+        <a href="javascript:void(0)">帮助中心</a>
+        <a href="javascript:void(0)">有奖反馈</a>
+      </div>
+    </nav>
+
+    <!-- 7.2 Compliance -->
+    <div class="footer-compliance">
+      <span class="footer-compliance-text">牌照合规</span>
+      <img src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/common/common/common/18plus.avif"
+           onerror="this.onerror=null;this.src='assets/icons/18plus.avif'"
+           alt="18+">
+      <a href="javascript:void(0)">自我禁止</a>
+    </div>
+
+    <!-- 7.3 Contact -->
+    <div class="footer-contact">
+      <h4>联系我们</h4>
+      <div class="footer-contact-items">
+        <div class="footer-contact-item">
+          <img src="https://joy.star-link-rel.cc/siteadmin/upload/img/telegram.avif"
+               onerror="this.onerror=null;this.src='assets/icons/telegram.avif'"
+               alt="Telegram">
+          <span>小飞机专员</span>
+        </div>
+        <div class="footer-contact-item">
+          <img src="https://joy.star-link-rel.cc/siteadmin/upload/img/telegram.avif"
+               onerror="this.onerror=null;this.src='assets/icons/telegram.avif'"
+               alt="Telegram">
+          <span>小飞机客服</span>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- More Menu Overlay -->
+  <div class="more-menu-overlay" id="moreMenuOverlay">
+    <div class="more-menu">
+      <div class="more-menu-grid">
+        <div class="more-menu-item"><img class="more-icon-img" src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-55/common/_sprite/icon_dt_1kf.avif?manualVersion=1&version=934f689627" alt="客服"><span>客服</span></div>
+        <div class="more-menu-item"><img class="more-icon-img" src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-55/common/_sprite/icon_dt_1tx.avif?manualVersion=1&version=14692031ba" alt="提现"><span>提现</span></div>
+        <div class="more-menu-item"><img class="more-icon-img" src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-55/common/_sprite/icon_dt_1cz.avif?manualVersion=1&version=205725d022" alt="存款"><span>存款</span></div>
+        <div class="more-menu-item"><img class="more-icon-img" src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-55/common/_sprite/icon_dt_1yh.avif?manualVersion=1&version=5e22c93c18" alt="活动"><span>活动</span></div>
+        <div class="more-menu-item"><img class="more-icon-img" src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-55/common/_sprite/icon_dt_1rw.avif?manualVersion=1&version=51cdd6ff24" alt="任务"><span>任务</span></div>
+        <div class="more-menu-item"><img class="more-icon-img" src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-55/common/_sprite/icon_dt_1fs.avif?manualVersion=1&version=1b4fe12606" alt="返水"><span>返水</span></div>
+        <div class="more-menu-item"><img class="more-icon-img" src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-55/common/_sprite/icon_dt_1yjfq.avif?manualVersion=1&version=b284a56f1b" alt="有奖反馈"><span>有奖反馈</span></div>
+        <div class="more-menu-item"><img class="more-icon-img" src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-55/common/_sprite/icon_dt_1aqzx.avif?manualVersion=1&version=b8976b7f87" alt="安全中心"><span>安全中心</span></div>
+        <div class="more-menu-item"><img class="more-icon-img" src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-55/common/_sprite/icon_dt_1app.avif?manualVersion=1&version=f56eb879e3" alt="APP下载"><span>APP下载</span></div>
+        <div class="more-menu-item"><img class="more-icon-img" src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-55/common/_sprite/icon_dt_1sz.avif?manualVersion=1&version=44c1f05e16" alt="个人资料"><span>个人资料</span></div>
+        <div class="more-menu-item"><img class="more-icon-img" src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-55/common/_sprite/icon_dt_1zhmx.avif?manualVersion=1&version=2f7f1d9d4b" alt="账户明细"><span>账户明细</span></div>
+        <div class="more-menu-item"><img class="more-icon-img" src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-55/common/_sprite/icon_dt_1tzjl.avif?manualVersion=1&version=f411e8ef92" alt="投注记录"><span>投注记录</span></div>
+        <div class="more-menu-item"><img class="more-icon-img" src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-55/common/_sprite/icon_dt_1grbb.avif?manualVersion=1&version=7fdcff3206" alt="个人报表"><span>个人报表</span></div>
+        <div class="more-menu-item"><img class="more-icon-img" src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-55/common/_sprite/icon_dt_1jl.avif?manualVersion=1&version=b93fe66f85" alt="待领取"><span>待领取</span></div>
+        <div class="more-menu-item"><img class="more-icon-img" src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-55/common/_sprite/icon_dt_1txgl.avif?manualVersion=1&version=4a5bf51504" alt="提现管理"><span>提现管理</span></div>
+        <div class="more-menu-item"><img class="more-icon-img" src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-55/common/_sprite/icon_dt_1yuyuan.avif?manualVersion=1&version=c8a381e442" alt="语言"><span>语言</span></div>
+        <div class="more-menu-item"><img class="more-icon-img" src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-55/common/_sprite/icon_dt_1jh.avif?manualVersion=1&version=1500def9d6" alt="投注任务"><span>投注任务</span></div>
+        <div class="more-menu-item"><img class="more-icon-img" src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-55/common/_sprite/icon_dt_1lqjl.avif?manualVersion=1&version=478c4fa0f0" alt="领取记录"><span>领取记录</span></div>
+        <div class="more-menu-item"><img class="more-icon-img" src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/web/home/apng_icon_mhcj.webp?manualVersion=1&version=0ed9dbdcec@apng" alt="盲盒抽奖"><span>盲盒抽奖</span></div>
+        <div class="more-menu-item"><img class="more-icon-img" src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/web/home/apng_icon_kyd.webp?manualVersion=1&version=612d05b484@apng" alt="新砍一刀"><span>新砍一刀</span></div>
+        <div class="more-menu-item"><img class="more-icon-img" src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-55/common/_sprite/icon_dt_1ljfx.avif?manualVersion=1&version=9668e492ee" alt="立即分享"><span>立即分享</span></div>
+        <div class="more-menu-item"><img class="more-icon-img" src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-55/common/_sprite/icon_dt_1zj.avif?manualVersion=1&version=37d6fe71c6" alt="最近游戏"><span>最近游戏</span></div>
+        <div class="more-menu-item"><img class="more-icon-img" src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-55/common/_sprite/icon_dt_1sc.avif?manualVersion=1&version=1285ea20bc" alt="收藏游戏"><span>收藏游戏</span></div>
+        <div class="more-menu-item"><img class="more-icon-img" src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-55/common/_sprite/icon_dt_1sw.avif?manualVersion=1&version=045369bf9b" alt="免费试玩"><span>免费试玩</span></div>
+        <div class="more-menu-item"><img class="more-icon-img" src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dt_1fx.avif?manualVersion=1&version=d098d18619" alt="朋友圈"><span>朋友圈</span></div>
+        <div class="more-menu-item"><img class="more-icon-img" src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-55/common/_sprite/icon_dt_1zwjz.avif?manualVersion=1&version=e5c3053fe9" alt="自我禁止"><span>自我禁止</span></div>
+        <div class="more-menu-item"><img class="more-icon-img" src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/web/home/apng_icon_xyzp_alpha.webp?manualVersion=1&version=7a4aa7557f@apng" alt="幸运转盘"><span>幸运转盘</span></div>
+        <div class="more-menu-item"><img class="more-icon-img" src="https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-55/common/_sprite/icon_dt_1kfdc.avif?manualVersion=1&version=f6ad476ea6" alt="客服代充"><span>客服代充</span></div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /.page -->
+
+<!-- ==========================================
+     8. Bottom Tab Bar
+     ========================================== -->
+<nav class="tab-bar">
+  <div class="tab-item active">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+    <span>首页</span>
+  </div>
+  <div class="tab-item">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm11 15H4v-2h16v2zm0-5H4V8h5.08L7 10.83 8.62 12 12 7.4 15.38 12 17 10.83 14.92 8H20v6z"/></svg>
+    <span>优惠</span>
+  </div>
+  <div class="tab-item">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 7L9.6 8.4l2.6 2.6H2v2h10.2l-2.6 2.6L11 17l5-5-5-5zm9 12h-8v2h8c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-8v2h8v14z"/></svg>
+    <span>登录</span>
+  </div>
+  <div class="tab-item">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+    <span>注册</span>
+  </div>
+  <div class="tab-item">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+    <span>我的</span>
+  </div>
+</nav>
+
+<!-- ==========================================
+     9. Floating Elements
+     ========================================== -->
+<!-- Customer Service -->
+<div class="cs-float" id="csFloat">
+  <svg viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 1c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"/>
+  </svg>
+</div>
+
+<!-- Cookie Banner -->
+<div class="cookie-banner" id="cookieBanner">
+  <p>我们使用cookie为您提供最佳的浏览体验。继续浏览表示您同意使用cookie。详见<a href="javascript:void(0)">Cookies政策</a></p>
+  <button class="cookie-btn" id="cookieAccept">确 认</button>
+</div>
+
+<!-- ==========================================
+     JavaScript
+     ========================================== -->
+<script>
+(function() {
+  'use strict';
+
+  /* ========================================
+     0. Freeze Mode Detection
+     ======================================== */
+  var urlParams = new URLSearchParams(window.location.search);
+  var FREEZE_MODE = urlParams.get('freeze') === 'true';
+
+  if (FREEZE_MODE) {
+    document.body.classList.add('freeze-mode');
+  }
+
+  /* ========================================
+     1. Jackpot Number Increment
+     ======================================== */
+  var jackpotEl = document.getElementById('jackpotNumber');
+
+  if (FREEZE_MODE) {
+    // Freeze: fixed jackpot value
+    jackpotEl.textContent = '8,888,888';
+  } else {
+    var jackpotValue = 8558397;
+
+    function formatNumber(n) {
+      return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+
+    setInterval(function() {
+      jackpotValue += Math.floor(Math.random() * 100) + 1;
+      jackpotEl.textContent = formatNumber(jackpotValue);
+    }, 1000);
+  }
+
+  /* ========================================
+     2. Winner Ticker (auto-scroll)
+     ======================================== */
+  var winnerData = [
+    { name: 'A***88', prize: '中奖 138倍', thumb: 'https://joy.star-link-rel.cc/game_pictures/g/CL/13/3/3029/default.avif' },
+    { name: 'X***XX', prize: '赢得 2,580.5', thumb: 'https://joy.star-link-rel.cc/game_pictures/g/CL/200/3/2000065/default.avif' },
+    { name: 'M***23', prize: '中奖 66倍', thumb: 'https://joy.star-link-rel.cc/game_pictures/g/CL/200/3/2000074/default.avif' },
+    { name: 'K***99', prize: '赢得 9,120.0', thumb: 'https://joy.star-link-rel.cc/game_pictures/g/CL/200/3/2000084/default.avif' },
+    { name: 'T***77', prize: '中奖 88倍', thumb: 'https://joy.star-link-rel.cc/game_pictures/g/CL/1006/3/10060035/default.avif' },
+    { name: 'L***05', prize: '赢得 4,350.0', thumb: 'https://joy.star-link-rel.cc/game_pictures/g/CL/310/2/3100003/default.avif' },
+    { name: 'W***12', prize: '中奖 200倍', thumb: 'https://joy.star-link-rel.cc/game_pictures/g/CL/200/3/2000135/default.avif' },
+    { name: 'Z***66', prize: '赢得 1,888.8', thumb: 'https://joy.star-link-rel.cc/game_pictures/p/CL/hot/200/3/default.avif' },
+  ];
+
+  var winnerScroll = document.getElementById('winnerScroll');
+  var winnerHTML = '';
+
+  if (FREEZE_MODE) {
+    // Freeze: show first visible card (X***XX), no duplication, no animation
+    for (var i = 0; i < 3; i++) {
+      var w = winnerData[i];
+      winnerHTML += '<div class="winner-card">' +
+        '<img class="winner-card-thumb" src="' + w.thumb + '" alt="game" onerror="this.style.background=\'#ddd\'">' +
+        '<span class="winner-card-info">恭喜 <span class="highlight">' + w.name + '</span> ' + w.prize + ' <span class="winner-card-arrow">&gt;</span></span>' +
+        '</div>';
+    }
+  } else {
+    // Duplicate for seamless loop
+    for (var r = 0; r < 2; r++) {
+      for (var i = 0; i < winnerData.length; i++) {
+        var w = winnerData[i];
+        winnerHTML += '<div class="winner-card">' +
+          '<img class="winner-card-thumb" src="' + w.thumb + '" alt="game" onerror="this.style.background=\'#ddd\'">' +
+          '<span class="winner-card-info">恭喜 <span class="highlight">' + w.name + '</span> ' + w.prize + ' <span class="winner-card-arrow">&gt;</span></span>' +
+          '</div>';
+      }
+    }
+  }
+  winnerScroll.innerHTML = winnerHTML;
+
+  /* ========================================
+     2.5. Marquee Freeze
+     ======================================== */
+  if (FREEZE_MODE) {
+    // Marquee text is frozen via CSS (animation: none, position: static)
+    // Content stays as-is from the HTML, fully visible and static
+  }
+
+  /* ========================================
+     3. Category Sidebar Click
+     ======================================== */
+  var sidebar = document.getElementById('categorySidebar');
+  var catItems = sidebar.querySelectorAll('.category-item');
+
+  sidebar.addEventListener('click', function(e) {
+    var item = e.target.closest('.category-item');
+    if (!item) return;
+    catItems.forEach(function(ci) { ci.classList.remove('active'); });
+    item.classList.add('active');
+  });
+
+  /* ========================================
+     4. Game Tab Switch
+     ======================================== */
+  var tabsContainer = document.getElementById('gameTabs');
+  var tabs = tabsContainer.querySelectorAll('.game-tab');
+
+  tabsContainer.addEventListener('click', function(e) {
+    var tab = e.target.closest('.game-tab');
+    if (!tab) return;
+    tabs.forEach(function(t) { t.classList.remove('active'); });
+    tab.classList.add('active');
+  });
+
+  /* ========================================
+     5. Load More Button
+     ======================================== */
+  var loadMoreBtn = document.getElementById('loadMoreBtn');
+  loadMoreBtn.addEventListener('click', function() {
+    var originalText = this.textContent;
+    this.textContent = '加载中...';
+    var btn = this;
+    setTimeout(function() {
+      btn.textContent = originalText;
+    }, 1500);
+  });
+
+  // Section load more buttons
+  document.querySelectorAll('.section-load-more .more-link').forEach(function(link) {
+    link.addEventListener('click', function() {
+      var originalText = this.textContent;
+      this.textContent = '加载中...';
+      var el = this;
+      setTimeout(function() {
+        el.textContent = originalText;
+      }, 1500);
+    });
+  });
+
+  /* ========================================
+     6. More Menu Toggle
+     ======================================== */
+  var moreOverlay = document.getElementById('moreMenuOverlay');
+  if (moreOverlay) {
+    // 「更多」是 .quick-actions 裡的最後一個 .quick-action
+    var quickActions = document.querySelectorAll('.quick-action');
+    var moreButton = quickActions[quickActions.length - 1];
+    if (moreButton) {
+      moreButton.addEventListener('click', function() {
+        moreOverlay.classList.add('active');
+      });
+    }
+    moreOverlay.addEventListener('click', function(e) {
+      if (e.target === moreOverlay) {
+        moreOverlay.classList.remove('active');
+      }
+    });
+  }
+
+  /* ========================================
+     7. Cookie Banner
+     ======================================== */
+  var cookieBanner = document.getElementById('cookieBanner');
+  var cookieAccept = document.getElementById('cookieAccept');
+
+  cookieAccept.addEventListener('click', function() {
+    cookieBanner.classList.add('hidden');
+  });
+
+})();
+</script>
+
+</body>
+</html>

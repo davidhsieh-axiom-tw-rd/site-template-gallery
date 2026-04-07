@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Site Template Gallery</title>
+<style>
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-primary: #0f0f23;
+  --bg-secondary: #1a1a3e;
+  --bg-card: #16162e;
+  --bg-card-hover: #1e1e42;
+  --text-primary: #e8e8f0;
+  --text-secondary: #9999bb;
+  --text-muted: #666688;
+  --accent: #6c5ce7;
+  --accent-hover: #7d6ff0;
+  --accent-glow: rgba(108, 92, 231, 0.3);
+  --border: #2a2a4a;
+  --border-hover: #3a3a6a;
+  --success: #00cec9;
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+  --shadow-card-hover: 0 8px 40px rgba(0, 0, 0, 0.6);
+  --radius: 12px;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* Loading overlay */
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loading-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.loading-text {
+  margin-top: 16px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Header */
+.header {
+  background: linear-gradient(180deg, #12122a 0%, var(--bg-primary) 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 48px 24px 40px;
+  text-align: center;
+  position: relative;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 300px;
+  background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%);
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.header-title {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #e8e8f0, #a8a8d0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header-subtitle {
+  font-size: 16px;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.header-badge {
+  position: absolute;
+  top: 8px;
+  right: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  box-shadow: 0 2px 12px var(--accent-glow);
+}
+
+/* Main content */
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+@media (max-width: 1024px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .grid { grid-template-columns: 1fr; }
+  .header { padding: 32px 16px 28px; }
+  .header-title { font-size: 26px; }
+  .header-badge { position: static; display: inline-block; margin-top: 12px; }
+  .main { padding: 24px 16px 60px; }
+}
+
+/* Card */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--border-hover);
+}
+
+.card-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  background: var(--bg-secondary);
+  cursor: pointer;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover .card-image {
+  transform: scale(1.02);
+}
+
+.card-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(0, 0, 0, 0.4) 100%);
+  opacity: 0;
+  transition: opacity var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card:hover .card-image-overlay {
+  opacity: 1;
+}
+
+.card-image-overlay-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card-body {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-date {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.card-name {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.card-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.card-tag {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 12px;
+  background: rgba(108, 92, 231, 0.12);
+  color: var(--accent);
+  border: 1px solid rgba(108, 92, 231, 0.2);
+  white-space: nowrap;
+}
+
+.card-color {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.card-color-swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  flex-shrink: 0;
+}
+
+.card-color-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-family: "SF Mono", "Fira Code", monospace;
+}
+
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.btn {
+  flex: 1;
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background var(--transition), box-shadow var(--transition), transform 0.15s ease;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+  box-shadow: 0 4px 16px var(--accent-glow);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-secondary);
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 80px 24px;
+  color: var(--text-muted);
+}
+
+.empty-state-icon {
+  font-size: 64px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.empty-state-title {
+  font-size: 20px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.empty-state-desc {
+  font-size: 14px;
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  cursor: pointer;
+}
+
+.lightbox.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  cursor: default;
+}
+
+.lightbox-image {
+  max-width: 100%;
+  max-height: 85vh;
+  border-radius: 8px;
+  box-shadow: 0 16px 64px rgba(0, 0, 0, 0.5);
+  transform: scale(0.95);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lightbox.active .lightbox-image {
+  transform: scale(1);
+}
+
+.lightbox-caption {
+  text-align: center;
+  margin-top: 16px;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 24px;
+  color: var(--text-muted);
+  font-size: 12px;
+  border-top: 1px solid var(--border);
+}
+
+/* Similarity badge */
+.card-similarity {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 800;
+  color: #fff;
+  z-index: 10;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  pointer-events: none;
+}
+
+.card-similarity.sim-high {
+  background: #00b894;
+}
+
+.card-similarity.sim-mid {
+  background: #fdcb6e;
+  color: #222;
+}
+
+.card-similarity.sim-low {
+  background: #d63031;
+}
+
+.card-similarity.sim-pending {
+  background: #636e72;
+  font-size: 10px;
+  letter-spacing: 0.3px;
+}
+
+/* Export button icon */
+.btn-export-icon {
+  display: inline-block;
+  margin-right: 4px;
+  font-size: 14px;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+/* Card entrance animation */
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: cardIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+</style>
+</head>
+<body>
+
+<!-- Loading -->
+<div class="loading-overlay" id="loading">
+  <div class="loading-spinner"></div>
+  <div class="loading-text">Loading templates...</div>
+</div>
+
+<!-- Header -->
+<header class="header">
+  <div class="header-content">
+    <h1 class="header-title">Site Template Gallery</h1>
+    <p class="header-subtitle">首頁版型展示與管理</p>
+    <div class="header-badge" id="templateCount">0 templates</div>
+  </div>
+</header>
+
+<!-- Main -->
+<main class="main">
+  <div class="grid" id="grid"></div>
+</main>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-content">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+    <img class="lightbox-image" id="lightboxImage" src="" alt="Screenshot">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  Site Template Gallery &mdash; Clone &amp; Archive Tool
+</footer>
+
+<script>
+(function() {
+  "use strict";
+
+  var grid = document.getElementById("grid");
+  var loading = document.getElementById("loading");
+  var templateCount = document.getElementById("templateCount");
+  var lightbox = document.getElementById("lightbox");
+  var lightboxImage = document.getElementById("lightboxImage");
+  var lightboxCaption = document.getElementById("lightboxCaption");
+  var lightboxClose = document.getElementById("lightboxClose");
+
+  // Lightbox controls
+  function openLightbox(src, caption) {
+    lightboxImage.src = src;
+    lightboxCaption.textContent = caption;
+    lightbox.classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+
+  lightbox.addEventListener("click", function(e) {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  lightboxClose.addEventListener("click", function(e) {
+    e.stopPropagation();
+    closeLightbox();
+  });
+
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") closeLightbox();
+  });
+
+  // Escape HTML
+  function esc(str) {
+    var el = document.createElement("span");
+    el.textContent = str;
+    return el.innerHTML;
+  }
+
+  // Similarity badge helper
+  function simBadge(similarity) {
+    if (typeof similarity !== "number" || similarity <= 0) {
+      return '<div class="card-similarity sim-pending">待測量</div>';
+    }
+    var pct = Math.round(similarity) + "%";
+    var cls = "sim-low";
+    if (similarity >= 95) cls = "sim-high";
+    else if (similarity >= 90) cls = "sim-mid";
+    return '<div class="card-similarity ' + cls + '">' + esc(pct) + '</div>';
+  }
+
+  // Export HTML helper
+  function exportHTML(templateId, templateName) {
+    var htmlPath = "templates/" + templateId + "/index.html";
+    var fileName = templateName.replace(/[^a-zA-Z0-9\u4e00-\u9fff_-]/g, "_") + ".html";
+
+    fetch(htmlPath)
+      .then(function(res) {
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        return res.text();
+      })
+      .then(function(html) {
+        var blob = new Blob([html], { type: "text/html;charset=utf-8" });
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement("a");
+        a.href = url;
+        a.download = fileName;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      })
+      .catch(function(err) {
+        console.error("Export failed:", err);
+        alert("匯出失敗：" + err.message);
+      });
+  }
+
+  // Render card
+  function renderCard(t, index) {
+    var card = document.createElement("div");
+    card.className = "card";
+    card.style.animationDelay = (index * 0.08) + "s";
+
+    var screenshotPath = "templates/" + t.id + "/screenshot.png";
+    var viewPath = "templates/" + t.id + "/index.html";
+
+    var tagsHTML = "";
+    if (t.features && t.features.length) {
+      tagsHTML = '<div class="card-tags">';
+      t.features.forEach(function(f) {
+        tagsHTML += '<span class="card-tag">' + esc(f) + '</span>';
+      });
+      tagsHTML += '</div>';
+    }
+
+    card.innerHTML =
+      '<div class="card-image-wrapper" data-screenshot="' + esc(screenshotPath) + '" data-name="' + esc(t.name) + '">' +
+        simBadge(t.similarity) +
+        '<img class="card-image" src="' + esc(screenshotPath) + '" alt="' + esc(t.name) + '" loading="lazy">' +
+        '<div class="card-image-overlay">' +
+          '<div class="card-image-overlay-icon">&#128269;</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="card-body">' +
+        '<div class="card-date">' + esc(t.date) + '</div>' +
+        '<div class="card-name">' + esc(t.name) + '</div>' +
+        '<div class="card-desc">' + esc(t.description) + '</div>' +
+        tagsHTML +
+        '<div class="card-color">' +
+          '<div class="card-color-swatch" style="background:' + esc(t.primaryColor) + '"></div>' +
+          '<span class="card-color-label">' + esc(t.primaryColor) + '</span>' +
+        '</div>' +
+        '<div class="card-actions">' +
+          '<a class="btn btn-primary" href="' + esc(viewPath) + '">查看版型</a>' +
+          '<button class="btn btn-secondary btn-screenshot" data-screenshot="' + esc(screenshotPath) + '" data-name="' + esc(t.name) + '">查看截圖</button>' +
+          '<button class="btn btn-secondary btn-export" data-id="' + esc(t.id) + '" data-tname="' + esc(t.name) + '"><span class="btn-export-icon">&#11015;</span>匯出</button>' +
+        '</div>' +
+      '</div>';
+
+    // Lightbox from image click
+    var imageWrapper = card.querySelector(".card-image-wrapper");
+    imageWrapper.addEventListener("click", function() {
+      openLightbox(this.dataset.screenshot, this.dataset.name);
+    });
+
+    // Lightbox from button click
+    var screenshotBtn = card.querySelector(".btn-screenshot");
+    screenshotBtn.addEventListener("click", function() {
+      openLightbox(this.dataset.screenshot, this.dataset.name);
+    });
+
+    // Export button click
+    var exportBtn = card.querySelector(".btn-export");
+    exportBtn.addEventListener("click", function() {
+      exportHTML(this.dataset.id, this.dataset.tname);
+    });
+
+    return card;
+  }
+
+  // Render empty state
+  function renderEmpty() {
+    grid.innerHTML =
+      '<div class="empty-state">' +
+        '<div class="empty-state-icon">&#128450;</div>' +
+        '<div class="empty-state-title">尚無版型</div>' +
+        '<div class="empty-state-desc">在 templates/ 目錄新增版型，並更新 registry.json</div>' +
+      '</div>';
+  }
+
+  // Load templates
+  fetch("templates/registry.json")
+    .then(function(res) {
+      if (!res.ok) throw new Error("Failed to load registry.json: " + res.status);
+      return res.json();
+    })
+    .then(function(data) {
+      var templates = data.templates || [];
+
+      templateCount.textContent = templates.length + " template" + (templates.length !== 1 ? "s" : "");
+
+      if (templates.length === 0) {
+        renderEmpty();
+      } else {
+        // Sort by date descending (newest first)
+        templates.sort(function(a, b) {
+          return b.date.localeCompare(a.date);
+        });
+
+        templates.forEach(function(t, i) {
+          grid.appendChild(renderCard(t, i));
+        });
+      }
+
+      loading.classList.add("hidden");
+    })
+    .catch(function(err) {
+      console.error("Error loading templates:", err);
+      grid.innerHTML =
+        '<div class="empty-state">' +
+          '<div class="empty-state-icon">&#9888;&#65039;</div>' +
+          '<div class="empty-state-title">載入失敗</div>' +
+          '<div class="empty-state-desc">無法讀取 templates/registry.json，請確認檔案存在。</div>' +
+        '</div>';
+      loading.classList.add("hidden");
+    });
+})();
+</script>
+</body>
+</html>
