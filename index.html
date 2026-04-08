@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Site Template Gallery</title>
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 <style>
 *, *::before, *::after {
   box-sizing: border-box;
@@ -607,22 +608,111 @@ body {
     return '<div class="card-similarity ' + cls + '">' + esc(pct) + '</div>';
   }
 
-  // Export HTML helper
+  // Export ZIP helper — 打包版型完整資料夾（HTML + docs + metadata + assets）
   function exportHTML(templateId, templateName) {
-    var htmlPath = "templates/" + templateId + "/index.html";
-    var fileName = templateName.replace(/[^a-zA-Z0-9\u4e00-\u9fff_-]/g, "_") + ".html";
+    var basePath = "templates/" + templateId + "/";
+    var zipName = templateName.replace(/[^a-zA-Z0-9\u4e00-\u9fff_-]/g, "_") + ".zip";
 
-    fetch(htmlPath)
-      .then(function(res) {
-        if (!res.ok) throw new Error("HTTP " + res.status);
-        return res.text();
+    // 需要打包的文字檔案（相對於版型目錄）
+    var textFiles = [
+      "index.html",
+      "metadata.json",
+      "docs/flutter-token-mapping.md",
+      "docs/flutter-conversion-guide.md",
+      "docs/structure-analysis.md",
+      "docs/homepage-features.md",
+      "docs/typography.md",
+      "docs/assets-inventory.json"
+    ];
+
+    // 需要打包的二進位檔案
+    var binaryFiles = [
+      "screenshot.png"
+    ];
+
+    var zip = new JSZip();
+    var folder = zip.folder(templateId);
+    var promises = [];
+
+    // 載入文字檔案
+    textFiles.forEach(function(file) {
+      var p = fetch(basePath + file)
+        .then(function(res) {
+          if (!res.ok) return null; // 檔案不存在就跳過
+          return res.text();
+        })
+        .then(function(content) {
+          if (content !== null) {
+            folder.file(file, content);
+          }
+        })
+        .catch(function() { /* 跳過不存在的檔案 */ });
+      promises.push(p);
+    });
+
+    // 載入二進位檔案（圖片）
+    binaryFiles.forEach(function(file) {
+      var p = fetch(basePath + file)
+        .then(function(res) {
+          if (!res.ok) return null;
+          return res.blob();
+        })
+        .then(function(blob) {
+          if (blob !== null) {
+            folder.file(file, blob);
+          }
+        })
+        .catch(function() { /* 跳過 */ });
+      promises.push(p);
+    });
+
+    // 嘗試載入 assets 目錄的檔案（從 metadata 或已知清單）
+    var assetsP = fetch(basePath + "metadata.json")
+      .then(function(res) { return res.ok ? res.json() : null; })
+      .then(function(meta) {
+        if (!meta) return;
+        // 載入 assets 目錄下已知的子目錄
+        var assetDirs = ["assets/icons/", "assets/bg/", "assets/images/", "assets/banners/", "assets/games/", "assets/platforms/"];
+        // 由於靜態站無法列目錄，改用 index.html 中引用的 asset 路徑
+        return fetch(basePath + "index.html").then(function(r) { return r.text(); });
       })
       .then(function(html) {
-        var blob = new Blob([html], { type: "text/html;charset=utf-8" });
+        if (!html) return;
+        // 從 HTML 中提取所有 assets/ 引用（含 src=、url()、JS 字串中的路徑）
+        var assetRefs = [];
+        var regex = /['"]?(assets\/[^'")\s,<>]+\.\w+)/g;
+        var match;
+        while ((match = regex.exec(html)) !== null) {
+          var path = match[1];
+          if (assetRefs.indexOf(path) === -1) {
+            assetRefs.push(path);
+          }
+        }
+        // 批次下載 assets
+        var assetPromises = assetRefs.map(function(assetPath) {
+          return fetch(basePath + assetPath)
+            .then(function(res) {
+              if (!res.ok) return null;
+              return res.blob().then(function(blob) {
+                folder.file(assetPath, blob);
+              });
+            })
+            .catch(function() { /* 跳過 */ });
+        });
+        return Promise.all(assetPromises);
+      })
+      .catch(function() { /* 跳過 */ });
+    promises.push(assetsP);
+
+    Promise.all(promises)
+      .then(function() {
+        return zip.generateAsync({ type: "blob" });
+      })
+      .then(function(blob) {
         var url = URL.createObjectURL(blob);
         var a = document.createElement("a");
         a.href = url;
-        a.download = fileName;
+        a.download = zipName;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
@@ -672,7 +762,7 @@ body {
         '<div class="card-actions">' +
           '<a class="btn btn-primary" href="' + esc(viewPath) + '">查看版型</a>' +
           '<button class="btn btn-secondary btn-screenshot" data-screenshot="' + esc(screenshotPath) + '" data-name="' + esc(t.name) + '">查看截圖</button>' +
-          '<button class="btn btn-secondary btn-export" data-id="' + esc(t.id) + '" data-tname="' + esc(t.name) + '"><span class="btn-export-icon">&#11015;</span>匯出</button>' +
+          '<button class="btn btn-secondary btn-export" data-id="' + esc(t.id) + '" data-tname="' + esc(t.name) + '"><span class="btn-export-icon">&#11015;</span>匯出 ZIP</button>' +
         '</div>' +
       '</div>';
 

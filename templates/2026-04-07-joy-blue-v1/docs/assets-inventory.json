@@ -1,0 +1,457 @@
+{
+  "imgSrcs": [
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/upload/img/img_dt_logo_mr1.avif",
+      "alt": "logo",
+      "width": 330,
+      "height": 100
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-55/common/_sprite/icon_dt_1ss.avif?manualVersion=1&version=v7.1.199",
+      "alt": "搜索",
+      "width": 80,
+      "height": 70
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/web/home/icon_dt_pmd.webp?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 37,
+      "height": 34
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-55/common/_sprite/icon_dt_1xx_wd.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 80,
+      "height": 70
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-55/common/_sprite/icon_dt_1vip.avif?manualVersion=1&version=v7.1.199",
+      "alt": "VIP",
+      "width": 80,
+      "height": 70
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-55/common/_sprite/icon_dt_1tg.avif?manualVersion=1&version=v7.1.199",
+      "alt": "分享赚钱",
+      "width": 80,
+      "height": 70
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-55/common/_sprite/icon_dt_1gd.avif?manualVersion=1&version=v7.1.199",
+      "alt": "更多",
+      "width": 80,
+      "height": 70
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_rm_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_rm_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_by_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_by_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_dz_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_dz_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_qp_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_qp_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_zr_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_zr_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_ty_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_ty_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_cp_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_cp_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_dianjing_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_dianjing_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_douji_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_douji_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_qkl_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_qkl_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_sw_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_sw_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/common/img_none_sj.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 300,
+      "height": 300
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_by_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_dz_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_qp_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_zr_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_ty_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_cp_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_dianjing_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_douji_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_qkl_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/common/common/common/18plus.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 100,
+      "height": 100
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/upload/img/telegram.avif",
+      "alt": "小飛機專員",
+      "width": 144,
+      "height": 144
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/upload/img/telegram.avif",
+      "alt": "小飛機客服",
+      "width": 144,
+      "height": 144
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/upload/img/2035926460737204225.avif",
+      "alt": ".",
+      "width": 240,
+      "height": 240
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/active/chop_active_3.avif",
+      "alt": ".",
+      "width": 132,
+      "height": 132
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/active/chop_active_6.avif",
+      "alt": ".",
+      "width": 132,
+      "height": 132
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/active/chop_active_7.avif",
+      "alt": ".",
+      "width": 132,
+      "height": 132
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/active/chop_active_8.avif",
+      "alt": ".",
+      "width": 132,
+      "height": 132
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/common/common/event/kyd/zpzy01/onlinegreen/xkyd_zp_03_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 915,
+      "height": 915
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/common/common/event/kyd/zpzy01/onlinegreen/xkyd_zp_03_2.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 915,
+      "height": 915
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/common/common/event/kyd/lihe/style1/xkyd_shou.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 150,
+      "height": 150
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/common/common/event/kyd/zpzy01/xkyd_icon_tg.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 72,
+      "height": 72
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/common/common/event/kyd/zpzy01/xkyd_zpcs.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 72,
+      "height": 72
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/common/img_none_sj.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 300,
+      "height": 300
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/common/common/event/kyd/lihe/style1/xkyd_shou.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 150,
+      "height": 150
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/common/common/event/kyd/lihe/style1/xkyd_shou.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 150,
+      "height": 150
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/common/common/event/kyd/lihe/style1/xkyd_shou.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 150,
+      "height": 150
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/common/common/event/kyd/lihe/style1/xkyd_shou.avif?manualVersion=1&version=v7.1.199",
+      "alt": ".",
+      "width": 150,
+      "height": 150
+    }
+  ],
+  "bgImages": [
+    "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-55/common/common/bg_pattern_tile.avif?manualVersion=1&version=v7.1.199",
+    "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/common/common/home/cjc1_style_2_bg.webp?manualVersion=1&version=v7.1.199",
+    "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/common/web/home/cjc1_style_1_font_sprite.avif?manualVersion=1&version=v7.1.199",
+    "https://joy.star-link-rel.cc/siteadmin/upload/img/2016087926218625025.avif",
+    "https://joy.star-link-rel.cc/game_pictures/g/CL/9/1/90003/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/g/CL/33/3/330580/default.avif?web_v=v7.1.199",
+    "data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==",
+    "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-55/web/common/btn_zc1_1.avif?manualVersion=1&version=v7.1.199",
+    "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-55/web/common/btn_zc1_2.avif?manualVersion=1&version=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/g/CL/13/3/3029/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/common/web/home/btn_sc_off_2.avif?manualVersion=1&version=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/p/CL/hot/200/3/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/g/CL/200/3/2000065/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/g/CL/200/3/2000074/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/p/CL/hot/127/4/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/g/CL/1006/3/10060035/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/g/CL/200/3/2000084/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/g/CL/310/2/3100003/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/g/CL/200/3/2000135/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/g/CL/200/3/2000087/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/g/CL/75/3/750103/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/g/CL/310/2/3100004/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/g/CL/200/3/2000104/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/g/CL/200/3/2000067/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/g/CL/200/3/2000054/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/p/L1/310/2/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/p/L1/13/2/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/p/L1/27/2/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/p/L1/331/2/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/p/L1/303/2/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/p/L1/200/3/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/p/L1/13/3/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/p/L1/1006/3/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/p/L1/313/3/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/p/L1/316/3/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/p/L1/13/1/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/p/L1/2/1/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/p/L1/52/1/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/p/L1/9/1/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/p/L1/21/1/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/p/L1/127/4/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/p/L1/75/4/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/p/L1/79/4/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/p/L1/331/4/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/p/L1/1020/4/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/p/L1/47/5/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/p/L1/43/5/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/p/L1/328/5/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/p/L1/76/5/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/p/L1/13/5/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/p/L1/29/8/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/p/L1/75/8/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/p/L1/11/8/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/p/L1/13/8/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/p/L1/328/7/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/p/L1/74/7/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/p/L1/87/6/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/p/L1/13/11/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/game_pictures/p/L1/95/11/default.avif?web_v=v7.1.199",
+    "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/common/common/event/kyd/zpzy01/onlinegreen/xkyd_bg.avif?manualVersion=1&version=v7.1.199",
+    "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/common/common/event/kyd/zpzy01/onlinegreen/xkyd_zp_01_4.avif?manualVersion=1&version=v7.1.199",
+    "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/common/common/event/kyd/zpzy01/onlinegreen/xkyd_zp_04.avif?manualVersion=1&version=v7.1.199"
+  ],
+  "stylesheets": [
+    "https://joy.star-link-rel.cc/assets/theme-0/commonChunk.BBzOiUWO.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/0_EntryLoginRegisterChunk.D5xW4ilX.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/FloatBarIndex.BTHHkJ4e.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/CodeStyleIndex.mHMCuOM7.css",
+    "https://joy.star-link-rel.cc/assets/vendors/vendor-swiper.BzW6-hgz.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/Common.Cq_rfEa0.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/WinnerIndex.B0ivpkWa.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/L1Index.D-YkKyTo.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/0_RechargeDialogsChunk.HCsQeGIN.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/2_RechargeDialogsChunk.D2mQM0Sm.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/GlobalLazyInitIndex.DT6xm3Nh.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/FixedInBottomNoClose.PzL4ilx5.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/SportDialogChunk.xyCDGz5N.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/DragChatButtonWidgetIndex.CIdLVCNo.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/0_WithdrawChunk.DBcne3kV.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/1_PromoteChunk.BOEdyiOY.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/1_PromotionChunk.CjNN3ojo.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/1_SearchGameChunk.BTvRiBsZ.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/2_EventDialogsChunk.ajR4u_Ct.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/2_DownloadDialogsChunk.bSgaDMBc.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/2_SettingChunk.hTgKWGKE.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/useSuggestion.BiaV77aV.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/Fragment.IuCsDFZH.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/LoginRegisterIndex.Dqce9sxr.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/FindUsIndex.DOJtvHGN.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/1_SubGameChunk.Cb11jyl2.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/2_NoticePageChunk.4csibOBp.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/MessagePopupIndex.CkNKMlA6.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/Devtools.BypGV8xg.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/NoBackgroundPopopIndex.ZfTh-aPr.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/SlashOnceReceiveIndex.BaYZWx3l.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/2_EventOthersChunk.DTL4c76x.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/UserProfileTipsIndex.B5nNkIm3.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/AsyncFooter.BelkaW-M.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/AssemblyIndex.DJpJG6J4.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/PhotographIndex.D45P84uv.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/ContactUsIndex.BHgW7kT-.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/LinkIndex.j0ymf4s1.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/OfficeChannelIndex.DDPP9SOG.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/StyleIndex.DX2V9ao8.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/MixinTextIndex.BoMg-jjG.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/useMarketing.D-LNZMQ6.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/FastEntryIndex.D-x_uP1B.css",
+    "https://joy.star-link-rel.cc/assets/theme-0/SlashOnceReceiveFirstIndex.B-UJMLEp.css"
+  ],
+  "fonts": []
+}
