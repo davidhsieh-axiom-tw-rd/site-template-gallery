@@ -96,10 +96,37 @@ python3 -m http.server 8080
 # odiff 三段比對應全部 "Images are identical"
 ```
 
+## E2E 測試腳本
+
+建立了可複用的 `scripts/e2e-verify.sh`，每次交付前必跑：
+
+```bash
+./scripts/e2e-verify.sh                        # 測試所有版型
+./scripts/e2e-verify.sh 2026-04-07-joy-blue-v1 # 測試指定版型
+```
+
+### 測試清單（20 項）
+
+| # | 測試 | 說明 |
+|---|------|------|
+| T1 | Gallery 頁面載入 | HTTP 200 + registry.json + JSZip CDN |
+| T2 | 版型頁面載入 | 正常模式 + 凍結模式 + metadata.json + screenshot.png |
+| T3 | ZIP 匯出完整性 | 10 個必要檔案 + assets 非空 + HTML 引用 assets 對應 + Flutter Token 註解 + line-height 1.3 + Token 對照表 8/8 節 + README 快速開始 |
+| T4 | ZIP 解壓可渲染 | Python HTTP server + 凍結模式 + 所有 assets HTTP 可存取 |
+| T5 | 分段截圖一致性 | HTML 原始碼 diff + Assets MD5 + Playwright MCP 視覺比對（odiff identical） |
+
+### macOS 相容注意
+
+- 不能用 `grep -P`（PCRE），macOS 不支援，改用 `grep -oE`
+- Playwright 不在全域 node_modules，視覺截圖比對用 Playwright MCP 另外做
+- `zip` 指令打包時用 `-x ".*"` 排除隱藏檔
+
 ## 關鍵教訓
 
 1. **每個版型必須獨立資料夾** — 文件、assets、metadata 全部自包含，不依賴外部路徑
 2. **匯出必須包含完整參考文件** — 只給 HTML 不夠，轉換者需要 Token 對照和樣式表
 3. **asset 打包用 HTML 引用掃描** — 不要打包目錄下所有檔案，只打包 HTML 中實際引用的
 4. **凍結模式 + odiff 是驗證匯出完整性的最佳方式** — 確保匯出包在獨立環境下渲染完全一致
-5. **原站為主的設計原則很重要** — Flutter Token 名稱用來溝通，但值以原站為準，避免「是要跟 Flutter 還是跟原站」的模糊地帶
+5. **原站為主的設計原則很重要** — Flutter Token 名稱用來溝通，但值以原站為準
+6. **所有比對都要列入 E2E 測試** — 不是一次性驗證，是可複用的自動化測試，每次交付前必跑
+7. **macOS grep 不支援 -P** — 用 `grep -oE` 替代，避免腳本在 macOS 上靜默失敗
