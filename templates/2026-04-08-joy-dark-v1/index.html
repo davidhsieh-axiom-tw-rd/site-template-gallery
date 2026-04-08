@@ -811,7 +811,8 @@ body.freeze-mode .hot-games-track {
   align-items: center;
   height: 44px;
   padding: 0 16px;
-  background: var(--header-bg);
+  background: var(--body-bg);
+  border-bottom: 1px solid rgba(197, 221, 240, 0.1);
   position: sticky;
   top: 0;
   z-index: 10;
@@ -831,19 +832,21 @@ body.freeze-mode .hot-games-track {
 }
 
 .more-section {
-  padding: 12px 18px 0;
+  padding: 0 15px;
+  margin-bottom: 12px;
 }
 
 .more-section-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
 }
 
 .more-section-name {
-  font-size: 14px;
+  font-size: 14.4px;
+  font-weight: 400;
   color: #C5DDF0;
+  padding: 12px 0 8px;
 }
 
 .more-section-edit {
@@ -853,29 +856,32 @@ body.freeze-mode .hot-games-track {
 }
 
 .more-section-card {
-  background: var(--card-bg);
+  background: #132636;
   border-radius: 12px;
-  padding: 16px;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 16px 8px;
+  padding: 12px 5.4px 7.8px;
+  width: 420px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.more-section-card.cols-4 {
-  grid-template-columns: repeat(4, 1fr);
+.more-section-card.no-bg {
+  background: transparent;
+  border-radius: 0;
 }
 
 .more-item {
+  width: 80px;
+  height: 74px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  justify-content: center;
   cursor: pointer;
 }
 
 .more-item-icon {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border-radius: 10px;
   background: #1a3a50;
 }
@@ -1605,7 +1611,7 @@ body.freeze-mode .hot-games-track {
       <span class="more-section-name">首页常用功能</span>
       <span class="more-section-edit">编辑</span>
     </div>
-    <div class="more-section-card cols-4">
+    <div class="more-section-card no-bg">
       <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">分享赚钱</span></div>
       <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">返水</span></div>
       <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">VIP</span></div>
@@ -1649,7 +1655,7 @@ body.freeze-mode .hot-games-track {
     <div class="more-section-header">
       <span class="more-section-name">支持中心</span>
     </div>
-    <div class="more-section-card cols-4">
+    <div class="more-section-card">
       <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">语言</span></div>
       <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">APP下载</span></div>
       <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">有奖反馈</span></div>
@@ -1657,11 +1663,11 @@ body.freeze-mode .hot-games-track {
     </div>
   </div>
 
-  <div class="more-section" style="padding-bottom: 20px;">
+  <div class="more-section">
     <div class="more-section-header">
       <span class="more-section-name">账户安全</span>
     </div>
-    <div class="more-section-card" style="grid-template-columns: repeat(3, 1fr);">
+    <div class="more-section-card">
       <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">个人资料</span></div>
       <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">安全中心</span></div>
       <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">自我禁止</span></div>
