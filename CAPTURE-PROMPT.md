@@ -213,19 +213,46 @@ joy-homepage-clone/
 
 ## 擷取前必做（Phase 0）
 
-1. **觀察動態行為**：打開原站觀察 5 秒，記錄哪些區塊有動畫（滾動、跑馬燈、輪播）
-2. **點擊「更多」tab**：擷取左側 drawer 選單的完整結構（不是 `/more-menu` 路由頁面）
-3. **icon 必須從原站提取**：SVG path / image URL 直接複製，絕對不用通用 icon library
-4. **所有 assets 必須下載到本地**：HTML 可用遠端 URL，但 `assets/` 目錄要有完整本地備份
-5. **精確量測**：用 `page.evaluate()` + `getBoundingClientRect()` + `getComputedStyle()` 量測每個元素
+1. **移除所有彈窗遮罩**：進入首頁後，移除所有 z-index > 10 的 fixed/absolute 元素（宣傳彈窗、抽獎、cookie consent 的遮罩會讓背景模糊）
+2. **滾動載入全部 lazy content**：原站用虛擬滾動，必須找到主滾動容器（`_main_pjnd2` 等），慢速滾動到最底部（step 500px, delay 200ms），等 1 秒讓 lazy content 載入，再滾回頂部
+3. **觀察動態行為**：打開原站觀察 5 秒，記錄哪些區塊有動畫（滾動、跑馬燈、輪播）
+4. **展開所有選單**：點擊側邊欄每個可展開項目（电子游戏、娱乐城等），擷取完整子選單內容
+5. **icon 必須從原站提取**：SVG path / image URL 直接複製，絕對不用通用 icon library。複雜 SVG（多層 transform）用 Canvas 渲染成 PNG
+6. **精確量測**：用 `page.evaluate()` + `getBoundingClientRect()` + `getComputedStyle()` 量測每個元素
+7. **擷取底部內容**：滾到最底部，擷取 footer 區域（三欄連結、牌照合規、联系我们等）
+
+## 下載 assets 必做
+
+1. **所有圖片必須下載到本地**：HTML 中所有 `<img src>` 和 CSS `background-image: url()` 都必須指向本地 `assets/` 路徑，**零遠端 URL**
+2. **下載後驗證格式**：
+   ```bash
+   find assets/ -type f \( -name "*.avif" -o -name "*.webp" \) -exec sh -c \
+     'file "$1" | grep -q "text" && echo "BROKEN: $1"' _ {} \;
+   ```
+   原站不同路徑會返回 HTML 錯誤頁但 HTTP 200，必須用 `file` 指令確認不是 HTML text
+3. **路徑變體注意**：同一張圖可能在 `11-1-2/web/home/`、`11-1-2/common/home/`、`11-1-common/common/home/` 等不同路徑。下載失敗時要試其他路徑
+4. **HTML 中零遠端 URL 確認**：
+   ```bash
+   grep -c "joy\.star-link-rel\.cc" index.html  # 必須為 0
+   ```
 
 ## 交付前必過
 
-1. E2E 測試全部 PASS（`scripts/e2e-verify.sh`）
-2. 分段比對每個靜態區塊 ≥ 90% 相似度
-3. 「更多」Drawer 截圖比對 ≥ 90%
-4. 匯出 ZIP 包含所有 assets（≥ bg:1, icons:1, games:5, platforms:10）
-5. similarity 分數已填入 registry.json（非 0）
+1. E2E 測試全部 PASS（`scripts/e2e-verify.sh`，含 9 項回歸測試）
+2. 分段比對每個靜態區塊 ≥ 90% 相似度（用 `odiff --antialiasing --threshold 0.3`）
+3. 若相似度 < 90%，registry.json 加 `similarityNote` 說明原因，Gallery hover 會顯示 tooltip
+4. 「更多」Drawer 截圖比對 ≥ 90%
+5. 匯出 ZIP 包含所有 assets（≥ bg:1, icons:1, games:5, platforms:10）
+6. similarity 分數已填入 registry.json（誠實數字，不造假）
+7. ZIP 匯出後啟動 Web，HTML 和 assets 必須 100% 一致
+8. **零遠端 URL**、**零假圖片（HTML text）**
+
+## odiff 比對方法
+
+- **threshold 0.3**（推薦）：正常視覺容差，過濾亞像素色差，適合跨來源比對
+- **threshold 0.1**：嚴格比對，只適合同來源完全相同的圖片
+- AVIF 圖片從 CDN vs 本地載入會有不可消除的解碼差異（單卡 ~29% diff at 0.1），這是瀏覽器渲染引擎限制
+- 分段比對排除動態區域（winner cards 等），加權平均計算整體相似度
 
 ## 常見錯誤與修正
 
@@ -235,8 +262,13 @@ joy-homepage-clone/
 | Jackpot 用 CSS 漸層背景 | 自己造輪子 | 用原始 webp 背景圖 |
 | 「更多」選單用 emoji | 自己造輪子 | 從原始站擷取 icon URL |
 | 寬度 420px | 沒量原始站 | 原始站是 450px |
-| Jackpot 紅底金字 | 沒看原始站顏色 | 原始站是綠底白字 |
 | 桌面版 5 列遊戲 | viewport media query | 刪除 min-width media query |
-| 側邊欄只在熱門區 | 結構沒復刻對 | category-sections 放進 game-area |
 | 比對分數很低 | 用整頁 SSIM | 用分段 odiff + ignore 動態區域 |
 | 截圖對不齊 | 用固定 y 座標 | 用元素定位找分界點 |
+| **圖片破圖** | 下載到 HTML 錯誤頁 | 下載後用 `file` 驗證格式 |
+| **部分圖破** | CSS background-image 仍用遠端 URL | 全部改本地路徑，grep 確認零殘留 |
+| **缺少平台遊戲區** | 沒滾動載入 lazy content | Phase 0 滾到底再回頂 |
+| **截圖模糊** | 前景 Dialog 遮罩未移除 | 移除 z-index > 10 的 fixed/absolute 元素 |
+| **SVG icon 不顯示** | 多層 transform 座標偏移 | Canvas 渲染成 PNG |
+| **遊戲名用漸層遮罩** | 原站沒用遮罩 | 精確量測後再實作，不要假設 |
+| **similarity 造假** | 用寬鬆 threshold 或手動填數字 | 誠實分段比對，< 90% 加 similarityNote |
