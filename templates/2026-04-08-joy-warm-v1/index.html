@@ -1,0 +1,2148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<title>JOY - Warm Theme</title>
+<style>
+/* ============================================
+   CSS Reset & Variables
+   Flutter Token mapping: docs/flutter-token-mapping.md
+   ============================================ */
+:root {
+  /* Flutter: skin__bg_1, skin__home_bg */
+  --body-bg: #783D21;
+  /* Flutter: transparent header */
+  --header-bg: transparent;
+  /* Flutter: skin__bg_2 */
+  --card-bg: #8F4B2B;
+  /* Flutter: skin__bg_1 */
+  --section-bg: #783D21;
+  /* Flutter: skin__primary */
+  --primary: #FF6F00;
+  /* Flutter: skin__accent_1 */
+  --accent-green: #54BE20;
+  /* Flutter: skin__accent_2 */
+  --accent-red: #EE401E;
+  /* Flutter: skin__accent_3 */
+  --accent-gold: #FFBB00;
+  /* Flutter: skin__lead, skin__text_primary */
+  --text-primary: #FFFFFF;
+  /* Flutter: skin__neutral_1 */
+  --text-secondary: #F5C5A8;
+  /* Flutter: skin__neutral_2, skin__neutral_3 */
+  --text-muted: #DB9A74;
+  /* Flutter: skin__border */
+  --border: #9C5432;
+  --tab-bar-height: 89px;
+  --header-height: 68px;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  /* Flutter: body background = desktop wrapper */
+  background: #e8e8e8;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Roboto, sans-serif;
+  color: var(--text-primary);
+  line-height: 1.3;
+  overflow-x: hidden;
+  position: relative;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Page wrapper -- 450px centered H5 mobile layout */
+.page {
+  max-width: 450px;
+  margin: 0 auto;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  /* Flutter: img_db_dt_bg.avif full-page background */
+  background-image: url('assets/bg/img_db_dt_bg.avif');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-color: var(--body-bg);
+  padding-bottom: var(--tab-bar-height);
+}
+
+/* ============================================
+   1. Header (68px)
+   Flutter: HomeAppBar
+   ============================================ */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+  padding: 0 10px;
+  /* Flutter: img_topnav_bg.avif */
+  background-image: url('assets/bg/img_topnav_bg.avif');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-menu-btn {
+  width: 37px;
+  height: 38px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.header-logo {
+  /* Flutter: img_dt_logo_mr1.avif, 139x42px */
+  width: 139px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.btn-login {
+  /* Flutter: btn_topnav_dl.avif — 原站 93×43px */
+  background-image: url('assets/ui/btn_topnav_dl.avif');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  color: #F5C5A8;
+  font-size: 14.4px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  width: 93px;
+  height: 43px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+}
+
+.btn-register {
+  /* Flutter: btn_topnav_zc.avif — 原站 91×43px */
+  background-image: url('assets/ui/btn_topnav_zc.avif');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  color: #F5C5A8;
+  font-size: 14.4px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  width: 91px;
+  height: 43px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+}
+
+/* ============================================
+   2. Marquee / Ticker
+   Flutter: HomeAnnouncement + AppMarquee
+   Original: x:12, y:72, 426x39px
+   ============================================ */
+.marquee-bar {
+  display: flex;
+  align-items: center;
+  height: 39px;
+  margin: 4px 12px 0;
+  /* Flutter: rgba(0,0,0,0.3) capsule background */
+  background: rgba(0,0,0,0.3);
+  border-radius: 70.8px;
+  padding: 4.8px 9px 4.8px 6px;
+  gap: 8px;
+}
+
+.marquee-icon {
+  flex-shrink: 0;
+  width: 34px;
+  height: 29px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.marquee-icon img {
+  width: 34px;
+  height: 29px;
+  object-fit: contain;
+}
+
+.marquee-content {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  height: 39px;
+}
+
+.marquee-text {
+  position: absolute;
+  white-space: nowrap;
+  font-size: 12px;
+  color: var(--text-secondary);
+  animation: marquee-scroll 20s linear infinite;
+  line-height: 39px;
+}
+
+@keyframes marquee-scroll {
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.marquee-badge-wrap {
+  flex-shrink: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.marquee-badge-wrap img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.marquee-badge {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background: var(--accent-red);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 600;
+  min-width: 16px;
+  height: 14px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3px;
+}
+
+/* ============================================
+   3. Winner Cards (123-214px)
+   Flutter: WinnerTickerWidget
+   Original: x:12, y:123, 426x91px
+   Background: uploaded image (not db_dt_zbcd.avif)
+   ============================================ */
+.winner-section {
+  position: relative;
+  height: 91px;
+  margin: 12px 12px 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.winner-section-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Flutter: uploaded winner background image */
+  background-image: url('assets/games/platforms/plat-banner.avif');
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  z-index: 0;
+}
+
+.winner-scroll-wrap {
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.winner-scroll {
+  display: flex;
+  gap: 10px;
+  animation: winner-scroll 25s linear infinite;
+  width: max-content;
+  padding: 6px 0;
+  align-items: center;
+}
+
+@keyframes winner-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.winner-card {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(4px);
+  border-radius: 20px;
+  padding: 6px 12px 6px 6px;
+  gap: 8px;
+  width: 152px;
+  height: 68px;
+}
+
+.winner-card-thumb {
+  width: 37px;
+  height: 49px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: var(--card-bg);
+  flex-shrink: 0;
+}
+
+.winner-card-info {
+  font-size: 11px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.winner-card-info .highlight {
+  color: var(--accent-gold);
+  font-weight: 600;
+}
+
+/* ============================================
+   4. Category Tabs
+   Flutter: GameCategoryTabs
+   Background: db_dt_zbcd.avif decoration
+   ============================================ */
+.category-tabs-wrap {
+  position: relative;
+  margin-top: 12px;
+  padding: 0 12px;
+  /* Container starts at x:16 from page edge (12px wrap padding + 4px tabs padding) */
+}
+
+.category-tabs-bg {
+  position: absolute;
+  top: 0;
+  left: 12px;
+  right: 12px;
+  bottom: 0;
+  /* Flutter: db_dt_zbcd.avif background decoration */
+  background-image: url('assets/bg/db_dt_zbcd.avif');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  border-radius: 8px;
+  z-index: 0;
+}
+
+.category-tabs {
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+  height: 50px;
+  overflow-x: auto;
+  gap: 0;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  position: relative;
+  z-index: 1;
+}
+
+.category-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.category-tab {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 0;
+  min-width: 97px;
+  height: 50px;
+  font-size: 16.8px;
+  font-weight: 500;
+  color: #F5C5A8;
+  cursor: pointer;
+  position: relative;
+  white-space: nowrap;
+  background: none;
+  border-radius: 0;
+}
+
+.category-tab.active {
+  background: url('assets/ui/btn_dt_zbcd2.avif') center/100% 100% no-repeat;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 0;
+}
+
+.category-tab-icon {
+  /* Original: fire icon 34x26px */
+  width: 34px;
+  height: 26px;
+  object-fit: contain;
+}
+
+.category-tab-divider {
+  flex-shrink: 0;
+  /* Original: divider 1x35px */
+  width: 1px;
+  height: 35px;
+  /* Flutter: img_dt_zbcd_line.avif */
+  background-image: url('assets/ui/img_dt_zbcd_line.avif');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* ============================================
+   5. Section Title ("hot games")
+   Flutter: SectionHeader
+   Original: color #F5C5A8, fontSize 14.4px
+   ============================================ */
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 18px 10px;
+  font-size: 14.4px;
+  font-weight: 400;
+  color: #F5C5A8;
+}
+
+.section-title .icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+/* ============================================
+   6. Game Cards Grid (3 columns)
+   Flutter: GameCard in GridView
+   Original: 126x168px per card, 3:4 ratio
+   ============================================ */
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  padding: 0 18px;
+}
+
+.game-card {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  position: relative;
+}
+
+.game-card-thumb {
+  position: relative;
+  width: 100%;
+  /* Flutter: 126x168px = 3:4 ratio */
+  aspect-ratio: 3/4;
+  border-radius: 15.75px;
+  overflow: hidden;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #8F4B2B;
+}
+
+/* img hidden — kept for E2E asset reference checks */
+.game-card-thumb img {
+  display: none;
+}
+
+.game-card-border {
+  /* Flutter: img_yxbk.avif border decoration — 用 <img> 渲染以匹配原站 */
+  display: none;  /* div 隱藏，改用 thumb 的 ::after */
+}
+.game-card-thumb::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('assets/ui/img_yxbk.avif') center/100% 100% no-repeat;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.game-card-fav {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  width: 31px;
+  height: 31px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-card-fav::after {
+  content: '';
+  width: 24px;
+  height: 24px;
+  /* Flutter: btn_sc_off_2.avif star icon */
+  background-image: url('assets/ui/btn_sc_off_2.avif');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.game-card-name {
+  position: absolute;
+  bottom: 0;
+  left: 6px;
+  right: 6px;
+  padding: 0 0 8px;
+  color: #fff;
+  font-size: 14.28px;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.8), 0 0 6px rgba(0,0,0,0.5);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  z-index: 4;
+}
+
+/* ============================================
+   Footer Sections (before Tab Bar)
+   ============================================ */
+.footer-links {
+  display: flex;
+  padding: 24px 12px;
+  gap: 0;
+}
+.footer-col {
+  flex: 1;
+}
+.footer-col-title {
+  color: #F5C5A8;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-col li {
+  color: #DB9A74;
+  font-size: 12px;
+  line-height: 2.4;
+  cursor: pointer;
+}
+.footer-col li:hover {
+  color: #F5C5A8;
+}
+
+.footer-license {
+  padding: 24px 12px;
+  text-align: center;
+}
+.footer-license-title {
+  color: #F5C5A8;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  text-align: left;
+}
+.footer-license-icons {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 32px;
+  margin-bottom: 16px;
+}
+.license-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.license-icon img {
+  width: 54px;
+  height: 54px;
+}
+.license-icon svg {
+  width: 36px;
+  height: 36px;
+  fill: #DB9A74;
+}
+.license-icon span {
+  color: #DB9A74;
+  font-size: 12px;
+}
+
+.footer-contact {
+  padding: 16px 12px 24px;
+}
+.footer-contact-title {
+  color: #F5C5A8;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+.footer-contact-icons {
+  display: flex;
+  gap: 12px;
+}
+.footer-tg-icon {
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+}
+
+/* Platform game sections */
+.platform-section { margin-top: 24px; }
+.platform-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 18px;
+  margin-bottom: 12px;
+}
+.platform-title {
+  color: #F5C5A8;
+  font-size: 14.4px;
+}
+.platform-more {
+  color: #DB9A74;
+  font-size: 12px;
+}
+
+/* ============================================
+   7. Tab Bar (fixed bottom, 89px)
+   Flutter: AppBottomBar
+   ============================================ */
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 450px;
+  max-width: 450px;
+  height: 89px;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  /* Flutter: img_db_dt_btm.avif */
+  background: url('assets/bg/img_db_dt_btm.avif') center/cover no-repeat;
+  background-color: #5A2E15;
+  z-index: 200;
+}
+
+.tab-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 89px;
+  padding-top: 5px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+}
+
+.tab-item * {
+  pointer-events: none;
+}
+
+.tab-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.tab-item span {
+  font-size: 13.2px;
+  font-weight: 500;
+  color: #F5C5A8;
+  margin-top: 2px;
+}
+
+.tab-item.active span {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+/* Flutter: img_btm_xz.avif active indicator (glowing circle base) */
+.tab-item.active::before {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 72px;
+  height: 66px;
+  background-image: url('assets/ui/img_btm_xz.avif');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
+}
+
+/* Flutter: img_btm_line.avif tab divider */
+.tab-item + .tab-item::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 20%;
+  height: 60%;
+  width: 1px;
+  background-image: url('assets/ui/img_btm_line.avif');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+}
+
+/* ============================================
+   8. Cookie Banner
+   ============================================ */
+.cookie-banner {
+  position: fixed;
+  bottom: var(--tab-bar-height);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 450px;
+  background: rgba(0,0,0,0.85);
+  color: var(--text-secondary);
+  font-size: 12px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 190;
+  line-height: 1.5;
+}
+
+.cookie-banner-text {
+  flex: 1;
+}
+
+.cookie-banner-text a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.cookie-banner-btn {
+  flex-shrink: 0;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* ============================================
+   9. Customer Service Float
+   ============================================ */
+.cs-float {
+  position: fixed;
+  bottom: calc(var(--tab-bar-height) + 16px);
+  right: calc(50% - 225px + 6px);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 150;
+  transition: transform 0.2s;
+}
+
+@media (max-width: 450px) {
+  .cs-float {
+    right: 6px;
+  }
+}
+
+.cs-float:hover {
+  transform: scale(1.08);
+}
+
+.cs-float img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+}
+
+/* ============================================
+   Freeze Mode (activated via ?freeze=true)
+   ============================================ */
+body.freeze-mode * {
+  animation-play-state: paused !important;
+  transition: none !important;
+}
+
+body.freeze-mode .marquee-text {
+  animation: none !important;
+  position: static !important;
+  white-space: normal !important;
+}
+
+body.freeze-mode .winner-scroll {
+  animation: none !important;
+}
+
+body.freeze-mode .cookie-banner {
+  display: none !important;
+}
+
+body.freeze-mode .cs-float {
+  display: none !important;
+}
+
+/* ============================================
+   More Menu - Left Drawer (Sidebar)
+   Flutter: MoreDrawer (E2E: .more-drawer)
+   ============================================ */
+.more-drawer-backdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 450px;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  z-index: 300;
+}
+
+.more-drawer-backdrop.active {
+  display: block;
+}
+
+.more-drawer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 288px;
+  height: 100%;
+  background: linear-gradient(180deg, #6B3218 0%, #5A2810 100%);
+  overflow-y: auto;
+  padding: 14px 0;
+  padding-top: 20px;
+}
+
+.more-drawer-close {
+  position: absolute;
+  top: 14px;
+  right: -44px;
+  width: 36px;
+  height: 36px;
+  background: rgba(0,0,0,0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #fff;
+}
+
+.more-drawer-close svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Search box in drawer */
+.more-drawer-search {
+  margin: 10px 14px 14px;
+  position: relative;
+}
+
+.more-drawer-search input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(0,0,0,0.2);
+  color: var(--text-primary);
+  font-size: 14px;
+  padding: 0 12px 0 36px;
+  outline: none;
+}
+
+.more-drawer-search input::placeholder {
+  color: var(--text-muted);
+}
+
+.more-drawer-search svg {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  color: var(--text-muted);
+}
+
+/* Accordion menu items */
+.more-drawer-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 14px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-size: 14.4px;
+  gap: 10px;
+  height: 48px;
+  /* Flutter: btn_sy_zc_pt.avif */
+  background-image: url('assets/ui/btn_sy_zc_pt.avif');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  margin: 2px 10px;
+  border-radius: 8px;
+}
+
+.more-drawer-item:hover {
+  opacity: 0.85;
+}
+
+.more-drawer-item svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  color: var(--text-secondary);
+}
+
+.more-drawer-item .label {
+  flex: 1;
+}
+
+.more-drawer-item .arrow {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.3s;
+  color: var(--text-muted);
+}
+
+.more-drawer-item .arrow.open {
+  transform: rotate(180deg);
+}
+
+/* Accordion sub-menu */
+.more-drawer-sub {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  padding-left: 0;
+}
+
+.more-drawer-sub.open {
+  max-height: 2000px;
+}
+
+.more-drawer-sub-item {
+  display: flex;
+  align-items: center;
+  padding: 0 14px 0 46px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  height: 49px;
+  cursor: pointer;
+}
+
+.more-drawer-sub-item:hover {
+  background: rgba(255,255,255,0.05);
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ==========================================
+       1. Header (68px)
+       ========================================== -->
+  <header class="header">
+    <div class="header-left">
+      <img class="header-menu-btn" id="menuBtn"
+           src="assets/icons/icon_dt_1cd.avif"
+           alt="" onerror="this.style.width='37px';this.style.height='38px'">
+      <img class="header-logo"
+           src="assets/icons/img_dt_logo_mr1.avif"
+           alt="logo">
+    </div>
+    <div class="header-right">
+      <button class="btn-login">登录</button>
+      <button class="btn-register">注册</button>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       2. Marquee / Ticker
+       ========================================== -->
+  <div class="marquee-bar">
+    <div class="marquee-icon">
+      <img src="assets/icons/icon_dt_pmd.webp" alt="announce">
+    </div>
+    <div class="marquee-content">
+      <span class="marquee-text">&#x1F9E7;四月開始了大家加油</span>
+    </div>
+    <div class="marquee-badge-wrap">
+      <img src="assets/icons/icon_dt_1xx_wd.avif" alt="notification">
+      <span class="marquee-badge">10</span>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       3. Winner Cards (Auto-scroll)
+       ========================================== -->
+  <section class="winner-section">
+    <div class="winner-section-bg"></div>
+    <div class="winner-scroll-wrap">
+      <div class="winner-scroll" id="winnerScroll">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       4. Category Tabs
+       ========================================== -->
+  <div class="category-tabs-wrap">
+    <div class="category-tabs-bg"></div>
+    <div class="category-tabs" id="categoryTabs">
+      <div class="category-tab active" data-cat="hot">
+        <img class="category-tab-icon" src="assets/icons/icon_dtfl_rm_1.avif" alt="fire">
+        <span>热门</span>
+      </div>
+      <div class="category-tab-divider"></div>
+      <div class="category-tab" data-cat="pg"><span>PG</span></div>
+      <div class="category-tab-divider"></div>
+      <div class="category-tab" data-cat="wg"><span>WG</span></div>
+      <div class="category-tab-divider"></div>
+      <div class="category-tab" data-cat="lg"><span>LG</span></div>
+      <div class="category-tab-divider"></div>
+      <div class="category-tab" data-cat="mg"><span>MG</span></div>
+      <div class="category-tab-divider"></div>
+      <div class="category-tab" data-cat="cq9"><span>CQ9</span></div>
+      <div class="category-tab-divider"></div>
+      <div class="category-tab" data-cat="jdb"><span>JDB</span></div>
+      <div class="category-tab-divider"></div>
+      <div class="category-tab" data-cat="bbin"><span>BBIN</span></div>
+      <div class="category-tab-divider"></div>
+      <div class="category-tab" data-cat="pt"><span>Playtech</span></div>
+      <div class="category-tab-divider"></div>
+      <div class="category-tab" data-cat="pa"><span>PA</span></div>
+      <div class="category-tab-divider"></div>
+      <div class="category-tab" data-cat="pp"><span>PP</span></div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       5. "hot games" Section Title
+       ========================================== -->
+  <div class="section-title">
+    <img class="icon" src="assets/icons/icon_dtfl_rm_1.avif" alt="fire">
+    <span>热门游戏</span>
+  </div>
+
+  <!-- ==========================================
+       6. Game Cards Grid (3 columns, 15 hot games)
+       ========================================== -->
+  <div class="game-grid">
+    <div class="game-card">
+      <div class="game-card-thumb" style="background-image: url('assets/games/game-3029.avif')">
+        <img src="assets/games/game-3029.avif" alt="麻将胡了" loading="lazy">
+        <div class="game-card-border"></div>
+        <div class="game-card-fav"></div>
+        <div class="game-card-name">麻将胡了</div>
+      </div>
+    </div>
+    <div class="game-card">
+      <div class="game-card-thumb" style="background-image: url('assets/games/hot-200-3.avif')">
+        <img src="assets/games/hot-200-3.avif" alt="PG电子" loading="lazy">
+        <div class="game-card-border"></div>
+        <div class="game-card-fav"></div>
+        <div class="game-card-name">PG电子</div>
+      </div>
+    </div>
+    <div class="game-card">
+      <div class="game-card-thumb" style="background-image: url('assets/games/game-2000065.avif')">
+        <img src="assets/games/game-2000065.avif" alt="麻将胡了" loading="lazy">
+        <div class="game-card-border"></div>
+        <div class="game-card-fav"></div>
+        <div class="game-card-name">麻将胡了</div>
+      </div>
+    </div>
+    <div class="game-card">
+      <div class="game-card-thumb" style="background-image: url('assets/games/game-2000074.avif')">
+        <img src="assets/games/game-2000074.avif" alt="麻将胡了2" loading="lazy">
+        <div class="game-card-border"></div>
+        <div class="game-card-fav"></div>
+        <div class="game-card-name">麻将胡了2</div>
+      </div>
+    </div>
+    <div class="game-card">
+      <div class="game-card-thumb" style="background-image: url('assets/games/game-10060035.avif')">
+        <img src="assets/games/game-10060035.avif" alt="至尊麻将" loading="lazy">
+        <div class="game-card-border"></div>
+        <div class="game-card-fav"></div>
+        <div class="game-card-name">至尊麻将</div>
+      </div>
+    </div>
+    <div class="game-card">
+      <div class="game-card-thumb" style="background-image: url('assets/games/game-2000084.avif')">
+        <img src="assets/games/game-2000084.avif" alt="赏金女王" loading="lazy">
+        <div class="game-card-border"></div>
+        <div class="game-card-fav"></div>
+        <div class="game-card-name">赏金女王</div>
+      </div>
+    </div>
+    <div class="game-card">
+      <div class="game-card-thumb" style="background-image: url('assets/games/game-2000135.avif')">
+        <img src="assets/games/game-2000135.avif" alt="赏金大对决" loading="lazy">
+        <div class="game-card-border"></div>
+        <div class="game-card-fav"></div>
+        <div class="game-card-name">赏金大对决</div>
+      </div>
+    </div>
+    <div class="game-card">
+      <div class="game-card-thumb" style="background-image: url('assets/games/game-2000087.avif')">
+        <img src="assets/games/game-2000087.avif" alt="寻宝黄金城" loading="lazy">
+        <div class="game-card-border"></div>
+        <div class="game-card-fav"></div>
+        <div class="game-card-name">寻宝黄金城</div>
+      </div>
+    </div>
+    <div class="game-card">
+      <div class="game-card-thumb" style="background-image: url('assets/games/game-750103.avif')">
+        <img src="assets/games/game-750103.avif" alt="糖果派对" loading="lazy">
+        <div class="game-card-border"></div>
+        <div class="game-card-fav"></div>
+        <div class="game-card-name">糖果派对</div>
+      </div>
+    </div>
+    <div class="game-card">
+      <div class="game-card-thumb" style="background-image: url('assets/games/game-2000104.avif')">
+        <img src="assets/games/game-2000104.avif" alt="亡灵大盗" loading="lazy">
+        <div class="game-card-border"></div>
+        <div class="game-card-fav"></div>
+        <div class="game-card-name">亡灵大盗</div>
+      </div>
+    </div>
+    <div class="game-card">
+      <div class="game-card-thumb" style="background-image: url('assets/games/game-2000067.avif')">
+        <img src="assets/games/game-2000067.avif" alt="少林足球" loading="lazy">
+        <div class="game-card-border"></div>
+        <div class="game-card-fav"></div>
+        <div class="game-card-name">少林足球</div>
+      </div>
+    </div>
+    <div class="game-card">
+      <div class="game-card-thumb" style="background-image: url('assets/games/game-2000054.avif')">
+        <img src="assets/games/game-2000054.avif" alt="赏金船长" loading="lazy">
+        <div class="game-card-border"></div>
+        <div class="game-card-fav"></div>
+        <div class="game-card-name">赏金船长</div>
+      </div>
+    </div>
+    <div class="game-card">
+      <div class="game-card-thumb" style="background-image: url('assets/games/game-10060018.avif')">
+        <img src="assets/games/game-10060018.avif" alt="欢乐斗地主" loading="lazy">
+        <div class="game-card-border"></div>
+        <div class="game-card-fav"></div>
+        <div class="game-card-name">欢乐斗地主</div>
+      </div>
+    </div>
+    <div class="game-card">
+      <div class="game-card-thumb" style="background-image: url('assets/games/game-2000089.avif')">
+        <img src="assets/games/game-2000089.avif" alt="招财喵" loading="lazy">
+        <div class="game-card-border"></div>
+        <div class="game-card-fav"></div>
+        <div class="game-card-name">招财喵</div>
+      </div>
+    </div>
+    <div class="game-card">
+      <div class="game-card-thumb" style="background-image: url('assets/games/game-2000106.avif')">
+        <img src="assets/games/game-2000106.avif" alt="麒麟送宝" loading="lazy">
+        <div class="game-card-border"></div>
+        <div class="game-card-fav"></div>
+        <div class="game-card-name">麒麟送宝</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       7. Platform Game Sections (10 platforms)
+       ========================================== -->
+
+  <!-- PG游戏 -->
+  <div class="platform-section" id="platform-PG">
+    <div class="platform-header">
+      <span class="platform-title">PG游戏</span>
+      <span class="platform-more">PG游戏全部 ></span>
+    </div>
+    <div class="game-grid">
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-2000065.avif')">
+          <img src="assets/games/game-2000065.avif" alt="麻将胡了" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">麻将胡了</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-2000074.avif')">
+          <img src="assets/games/game-2000074.avif" alt="麻将胡了2" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">麻将胡了2</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-2000084.avif')">
+          <img src="assets/games/game-2000084.avif" alt="赏金女王" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">赏金女王</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-2000135.avif')">
+          <img src="assets/games/game-2000135.avif" alt="赏金大对决" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">赏金大对决</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-2000087.avif')">
+          <img src="assets/games/game-2000087.avif" alt="寻宝黄金城" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">寻宝黄金城</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-2000054.avif')">
+          <img src="assets/games/game-2000054.avif" alt="赏金船长" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">赏金船长</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WG游戏 -->
+  <div class="platform-section" id="platform-WG">
+    <div class="platform-header">
+      <span class="platform-title">WG游戏</span>
+      <span class="platform-more">WG游戏全部 ></span>
+    </div>
+    <div class="game-grid">
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-3029.avif')">
+          <img src="assets/games/game-3029.avif" alt="麻将胡了" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">麻将胡了</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-3032.avif')">
+          <img src="assets/games/game-3032.avif" alt="麻将胡了2" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">麻将胡了2</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-3001.avif')">
+          <img src="assets/games/game-3001.avif" alt="超级水果机" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">超级水果机</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-3037.avif')">
+          <img src="assets/games/game-3037.avif" alt="赏金大对决" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">赏金大对决</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-3026.avif')">
+          <img src="assets/games/game-3026.avif" alt="疯狂777" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">疯狂777</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-3031.avif')">
+          <img src="assets/games/game-3031.avif" alt="水果乐园" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">水果乐园</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LG游戏 -->
+  <div class="platform-section" id="platform-LG">
+    <div class="platform-header">
+      <span class="platform-title">LG游戏</span>
+      <span class="platform-more">LG游戏全部 ></span>
+    </div>
+    <div class="game-grid">
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-10060035.avif')">
+          <img src="assets/games/game-10060035.avif" alt="至尊麻将" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">至尊麻将</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-10060002.avif')">
+          <img src="assets/games/game-10060002.avif" alt="赏金猎人" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">赏金猎人</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-10060023.avif')">
+          <img src="assets/games/game-10060023.avif" alt="哪吒" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">哪吒</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-10060012.avif')">
+          <img src="assets/games/game-10060012.avif" alt="财神来了" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">财神来了</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-10060018.avif')">
+          <img src="assets/games/game-10060018.avif" alt="欢乐斗地主" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">欢乐斗地主</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-10060020.avif')">
+          <img src="assets/games/game-10060020.avif" alt="渔人的财富" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">渔人的财富</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MG游戏 -->
+  <div class="platform-section" id="platform-MG">
+    <div class="platform-header">
+      <span class="platform-title">MG游戏</span>
+      <span class="platform-more">MG游戏全部 ></span>
+    </div>
+    <div class="game-grid">
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-3130227.avif')">
+          <img src="assets/games/game-3130227.avif" alt="冰球突破豪华版" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">冰球突破豪华版</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-3130163.avif')">
+          <img src="assets/games/game-3130163.avif" alt="不朽情缘" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">不朽情缘</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-3130138.avif')">
+          <img src="assets/games/game-3130138.avif" alt="幸运双星" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">幸运双星</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-3130228.avif')">
+          <img src="assets/games/game-3130228.avif" alt="冰球突破" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">冰球突破</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-3130120.avif')">
+          <img src="assets/games/game-3130120.avif" alt="花花公子" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">花花公子</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-3130102.avif')">
+          <img src="assets/games/game-3130102.avif" alt="多旋转" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">多旋转</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CQ9游戏 -->
+  <div class="platform-section" id="platform-CQ9">
+    <div class="platform-header">
+      <span class="platform-title">CQ9游戏</span>
+      <span class="platform-more">CQ9游戏全部 ></span>
+    </div>
+    <div class="game-grid">
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-3160022.avif')">
+          <img src="assets/games/game-3160022.avif" alt="跳高高" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">跳高高</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-3160025.avif')">
+          <img src="assets/games/game-3160025.avif" alt="跳高高2" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">跳高高2</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-3160023.avif')">
+          <img src="assets/games/game-3160023.avif" alt="跳起来" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">跳起来</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-3160029.avif')">
+          <img src="assets/games/game-3160029.avif" alt="武圣" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">武圣</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-3160028.avif')">
+          <img src="assets/games/game-3160028.avif" alt="鸿福齐天" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">鸿福齐天</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-3160024.avif')">
+          <img src="assets/games/game-3160024.avif" alt="五福临门" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">五福临门</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JDB游戏 -->
+  <div class="platform-section" id="platform-JDB">
+    <div class="platform-header">
+      <span class="platform-title">JDB游戏</span>
+      <span class="platform-more">JDB游戏全部 ></span>
+    </div>
+    <div class="game-grid">
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-3100008.avif')">
+          <img src="assets/games/game-3100008.avif" alt="幸运龙" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">幸运龙</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-3100009.avif')">
+          <img src="assets/games/game-3100009.avif" alt="唐伯虎点秋香" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">唐伯虎点秋香</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-3100010.avif')">
+          <img src="assets/games/game-3100010.avif" alt="变脸" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">变脸</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-3100011.avif')">
+          <img src="assets/games/game-3100011.avif" alt="悟空" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">悟空</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-3100012.avif')">
+          <img src="assets/games/game-3100012.avif" alt="骆马大冒险" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">骆马大冒险</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-3100013.avif')">
+          <img src="assets/games/game-3100013.avif" alt="财神" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">财神</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BBIN游戏 -->
+  <div class="platform-section" id="platform-BBIN">
+    <div class="platform-header">
+      <span class="platform-title">BBIN游戏</span>
+      <span class="platform-more">BBIN游戏全部 ></span>
+    </div>
+    <div class="game-grid">
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-750103.avif')">
+          <img src="assets/games/game-750103.avif" alt="糖果派对" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">糖果派对</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-750102.avif')">
+          <img src="assets/games/game-750102.avif" alt="连环夺宝" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">连环夺宝</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-750108.avif')">
+          <img src="assets/games/game-750108.avif" alt="糖果派对2" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">糖果派对2</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-750086.avif')">
+          <img src="assets/games/game-750086.avif" alt="糖果派对-极速版" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">糖果派对-极速版</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-750715.avif')">
+          <img src="assets/games/game-750715.avif" alt="满天星" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">满天星</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-750716.avif')">
+          <img src="assets/games/game-750716.avif" alt="海王2" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">海王2</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Playtech游戏 -->
+  <div class="platform-section" id="platform-Playtech">
+    <div class="platform-header">
+      <span class="platform-title">Playtech游戏</span>
+      <span class="platform-more">Playtech游戏全部 ></span>
+    </div>
+    <div class="game-grid">
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-552069.avif')">
+          <img src="assets/games/game-552069.avif" alt="部落生活" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">部落生活</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-552254.avif')">
+          <img src="assets/games/game-552254.avif" alt="三倍猴子" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">三倍猴子</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-552117.avif')">
+          <img src="assets/games/game-552117.avif" alt="高速公路之王" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">高速公路之王</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-552102.avif')">
+          <img src="assets/games/game-552102.avif" alt="湛蓝深海" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">湛蓝深海</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-552109.avif')">
+          <img src="assets/games/game-552109.avif" alt="古怪猴子" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">古怪猴子</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-552240.avif')">
+          <img src="assets/games/game-552240.avif" alt="钻石列车" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">钻石列车</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PA游戏 -->
+  <div class="platform-section" id="platform-PA">
+    <div class="platform-header">
+      <span class="platform-title">PA游戏</span>
+      <span class="platform-more">PA游戏全部 ></span>
+    </div>
+    <div class="game-grid">
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-1270121.avif')">
+          <img src="assets/games/game-1270121.avif" alt="飞禽走兽多人版" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">飞禽走兽多人版</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-1270118.avif')">
+          <img src="assets/games/game-1270118.avif" alt="森林舞会多人版" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">森林舞会多人版</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-1270007.avif')">
+          <img src="assets/games/game-1270007.avif" alt="龙虎" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">龙虎</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-1270008.avif')">
+          <img src="assets/games/game-1270008.avif" alt="骰宝" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">骰宝</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-1270009.avif')">
+          <img src="assets/games/game-1270009.avif" alt="水果拉霸" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">水果拉霸</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-1270010.avif')">
+          <img src="assets/games/game-1270010.avif" alt="奔驰宝马" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">奔驰宝马</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PP游戏 -->
+  <div class="platform-section" id="platform-PP">
+    <div class="platform-header">
+      <span class="platform-title">PP游戏</span>
+      <span class="platform-more">PP游戏全部 ></span>
+    </div>
+    <div class="game-grid">
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-3010001.avif')">
+          <img src="assets/games/game-3010001.avif" alt="埃及艳后之眼" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">埃及艳后之眼</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-3010002.avif')">
+          <img src="assets/games/game-3010002.avif" alt="红火暴击2" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">红火暴击2</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-3010003.avif')">
+          <img src="assets/games/game-3010003.avif" alt="寻宝冒险精神" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">寻宝冒险精神</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-3010004.avif')">
+          <img src="assets/games/game-3010004.avif" alt="钻取金子" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">钻取金子</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-3010005.avif')">
+          <img src="assets/games/game-3010005.avif" alt="黄金三叶草" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">黄金三叶草</div>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-card-thumb" style="background-image: url('assets/games/game-3010006.avif')">
+          <img src="assets/games/game-3010006.avif" alt="星光公主" loading="lazy">
+          <div class="game-card-border"></div>
+          <div class="game-card-fav"></div>
+          <div class="game-card-name">星光公主</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       Footer Section
+       ========================================== -->
+  <div class="footer-links">
+    <div class="footer-col">
+      <h3 class="footer-col-title">娱乐城</h3>
+      <ul>
+        <li>分享赚钱</li><li>任务</li><li>返水</li><li>待领取</li><li>VIP</li>
+        <li>活动</li><li>公积金</li><li>盲盒抽奖</li><li>信用借款</li><li>幸运转盘</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3 class="footer-col-title">游戏</h3>
+      <ul>
+        <li>热门</li><li>捕鱼</li><li>电子</li><li>棋牌</li><li>真人</li>
+        <li>体育</li><li>彩票</li><li>电竞</li><li>斗鸡</li><li>区块链</li><li>试玩</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3 class="footer-col-title">支持</h3>
+      <ul>
+        <li>在线客服</li><li>帮助中心</li><li>有奖反馈</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-license">
+    <div class="footer-license-title">牌照合规</div>
+    <div class="footer-license-icons">
+      <div class="license-icon">
+        <img src="assets/icons/18plus.avif" alt="18+">
+      </div>
+      <div class="license-icon">
+        <img src="assets/icons/self-ban.png" alt="自我禁止" style="width:48px;height:36px;object-fit:contain;">
+        <span>自我禁止</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-contact">
+    <div class="footer-contact-title">联系我们</div>
+    <div class="footer-contact-icons">
+      <img src="assets/icons/telegram.avif" alt="Telegram" class="footer-tg-icon">
+      <img src="assets/icons/telegram.avif" alt="Telegram" class="footer-tg-icon">
+    </div>
+  </div>
+
+</div><!-- /.page -->
+
+<!-- ==========================================
+     More Menu - Left Drawer (Sidebar)
+     E2E class: .more-drawer
+     ========================================== -->
+<div class="more-drawer-backdrop" id="drawerBackdrop">
+  <div class="more-drawer">
+    <div class="more-drawer-close" id="drawerClose">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+    </div>
+
+    <!-- Search box -->
+    <div class="more-drawer-search">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+      <input type="text" placeholder="搜索">
+    </div>
+
+    <!-- Accordion: 电子游戏 -->
+    <div class="more-drawer-item" data-toggle="drawer-slots">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4-3c-.83 0-1.5-.67-1.5-1.5S18.67 9 19.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+      <span class="label">电子游戏</span>
+      <svg class="arrow" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+    </div>
+    <div class="more-drawer-sub" id="drawer-slots">
+      <div class="more-drawer-sub-item">热门</div>
+      <div class="more-drawer-sub-item">PG</div>
+      <div class="more-drawer-sub-item">WG</div>
+      <div class="more-drawer-sub-item">LG</div>
+      <div class="more-drawer-sub-item">MG</div>
+      <div class="more-drawer-sub-item">CQ9</div>
+      <div class="more-drawer-sub-item">JDB</div>
+      <div class="more-drawer-sub-item">BBIN</div>
+      <div class="more-drawer-sub-item">Playtech</div>
+      <div class="more-drawer-sub-item">PA</div>
+      <div class="more-drawer-sub-item">PP</div>
+      <div class="more-drawer-sub-item">KA</div>
+      <div class="more-drawer-sub-item">NetEnt</div>
+      <div class="more-drawer-sub-item">FG</div>
+      <div class="more-drawer-sub-item">PlayStar</div>
+      <div class="more-drawer-sub-item">BNG</div>
+      <div class="more-drawer-sub-item">DB电子</div>
+      <div class="more-drawer-sub-item">Spade Gaming</div>
+      <div class="more-drawer-sub-item">LEG</div>
+      <div class="more-drawer-sub-item">百胜</div>
+      <div class="more-drawer-sub-item">MP</div>
+      <div class="more-drawer-sub-item">JILI</div>
+      <div class="more-drawer-sub-item">FC</div>
+      <div class="more-drawer-sub-item">KX</div>
+      <div class="more-drawer-sub-item">V8</div>
+      <div class="more-drawer-sub-item">WL</div>
+      <div class="more-drawer-sub-item">YGR</div>
+    </div>
+
+    <!-- Accordion: 娱乐城 -->
+    <div class="more-drawer-item" data-toggle="drawer-casino">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 17h2v-1h1c.55 0 1-.45 1-1v-3c0-.55-.45-1-1-1h-3v-1h4V8h-2V7h-2v1h-1c-.55 0-1 .45-1 1v3c0 .55.45 1 1 1h3v1H9v2h2v1zm-7.5 4l4-8H2L12 1 22 13h-5.5l4 8h-17z"/></svg>
+      <span class="label">娱乐城</span>
+      <svg class="arrow" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+    </div>
+    <div class="more-drawer-sub" id="drawer-casino">
+      <div class="more-drawer-sub-item">热门</div>
+      <div class="more-drawer-sub-item">捕鱼</div>
+      <div class="more-drawer-sub-item">棋牌</div>
+      <div class="more-drawer-sub-item">真人</div>
+      <div class="more-drawer-sub-item">体育</div>
+      <div class="more-drawer-sub-item">彩票</div>
+      <div class="more-drawer-sub-item">电竞</div>
+      <div class="more-drawer-sub-item">斗鸡</div>
+      <div class="more-drawer-sub-item">区块链</div>
+      <div class="more-drawer-sub-item">试玩</div>
+      <div class="more-drawer-sub-item">最近</div>
+      <div class="more-drawer-sub-item">收藏</div>
+    </div>
+
+    <!-- Accordion: 优惠中心 -->
+    <div class="more-drawer-item" data-toggle="drawer-promo">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm11 15H4v-2h16v2zm0-5H4V8h5.08L7 10.83 8.62 12 11 8.76l1-1.36 1 1.36L15.38 12 17 10.83 14.92 8H20v6z"/></svg>
+      <span class="label">优惠中心</span>
+      <svg class="arrow" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+    </div>
+    <div class="more-drawer-sub" id="drawer-promo"></div>
+
+    <!-- Accordion: 简体中文 -->
+    <div class="more-drawer-item" data-toggle="drawer-lang">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/></svg>
+      <span class="label">简体中文</span>
+      <svg class="arrow" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+    </div>
+    <div class="more-drawer-sub" id="drawer-lang"></div>
+
+    <!-- Accordion: 支持中心 -->
+    <div class="more-drawer-item" data-toggle="drawer-support">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"/></svg>
+      <span class="label">支持中心</span>
+      <svg class="arrow" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+    </div>
+    <div class="more-drawer-sub" id="drawer-support"></div>
+  </div>
+</div>
+
+<!-- ==========================================
+     7. Bottom Tab Bar (89px)
+     ========================================== -->
+<nav class="tab-bar">
+  <div class="tab-item active" data-tab="home">
+    <img src="assets/icons/icon_btm_sy.avif" alt="首页">
+    <span>首页</span>
+  </div>
+  <div class="tab-item" data-tab="casino">
+    <img src="assets/icons/icon_btm_gd.avif" alt="娱乐城">
+    <span>娱乐城</span>
+  </div>
+  <div class="tab-item" data-tab="login">
+    <img src="assets/icons/icon_btm_dl.avif" alt="登录">
+    <span>登录</span>
+  </div>
+  <div class="tab-item" data-tab="register">
+    <img src="assets/icons/icon_btm_zc.avif" alt="注册">
+    <span>注册</span>
+  </div>
+  <div class="tab-item" data-tab="mine">
+    <img src="assets/icons/icon_btm_wd.avif" alt="我的">
+    <span>我的</span>
+  </div>
+</nav>
+
+<!-- ==========================================
+     8. Cookie Banner
+     ========================================== -->
+<div class="cookie-banner" id="cookieBanner">
+  <span class="cookie-banner-text">我们使用cookie为您提供最佳的浏览体验，继续浏览表示您同意使用cookie。详见<a href="javascript:void(0)">Cookies政策</a></span>
+  <button class="cookie-banner-btn" id="cookieAccept">确 认</button>
+</div>
+
+<!-- ==========================================
+     9. Customer Service Float
+     ========================================== -->
+<div class="cs-float" id="csFloat">
+  <img src="assets/icons/cs_float.avif" alt="客服">
+</div>
+
+<!-- ==========================================
+     JavaScript
+     ========================================== -->
+<script>
+(function() {
+  'use strict';
+
+  /* ========================================
+     0. Freeze Mode Detection
+     ======================================== */
+  var urlParams = new URLSearchParams(window.location.search);
+  var FREEZE_MODE = urlParams.get('freeze') === 'true';
+
+  if (FREEZE_MODE) {
+    document.body.classList.add('freeze-mode');
+  }
+
+  /* ========================================
+     1. Winner Ticker (auto-scroll)
+     ======================================== */
+  var winnerData = [
+    { game: '麻将胡了', name: '4***97', action: '中奖', prize: '21倍', thumb: 'assets/games/game-3029.avif' },
+    { game: '麻将胡了', name: '3***84', action: '赢得', prize: '8.2', thumb: 'assets/games/game-2000065.avif' },
+    { game: '麻将胡了2', name: '7****', action: '中奖', prize: '9倍', thumb: 'assets/games/game-2000074.avif' },
+    { game: '赏金女王', name: '5***12', action: '赢得', prize: '138.5', thumb: 'assets/games/game-2000084.avif' },
+    { game: '至尊麻将', name: '8***66', action: '中奖', prize: '55倍', thumb: 'assets/games/game-10060035.avif' },
+    { game: '糖果派对', name: '1***03', action: '赢得', prize: '2,580.0', thumb: 'assets/games/game-750103.avif' },
+  ];
+
+  var winnerScroll = document.getElementById('winnerScroll');
+  var winnerHTML = '';
+
+  if (FREEZE_MODE) {
+    for (var i = 0; i < 3; i++) {
+      var w = winnerData[i];
+      winnerHTML += '<div class="winner-card">' +
+        '<img class="winner-card-thumb" src="' + w.thumb + '" alt="game">' +
+        '<span class="winner-card-info">' + w.game + '<br>恭喜 <span class="highlight">' + w.name + '</span><br>' + w.action + ' ' + w.prize + '</span>' +
+        '</div>';
+    }
+  } else {
+    for (var r = 0; r < 2; r++) {
+      for (var j = 0; j < winnerData.length; j++) {
+        var wd = winnerData[j];
+        winnerHTML += '<div class="winner-card">' +
+          '<img class="winner-card-thumb" src="' + wd.thumb + '" alt="game">' +
+          '<span class="winner-card-info">' + wd.game + '<br>恭喜 <span class="highlight">' + wd.name + '</span><br>' + wd.action + ' ' + wd.prize + '</span>' +
+          '</div>';
+      }
+    }
+  }
+  winnerScroll.innerHTML = winnerHTML;
+
+  /* ========================================
+     2. Cookie Banner
+     ======================================== */
+  var cookieBanner = document.getElementById('cookieBanner');
+  var cookieAccept = document.getElementById('cookieAccept');
+  if (cookieAccept && cookieBanner) {
+    cookieAccept.addEventListener('click', function() {
+      cookieBanner.style.display = 'none';
+    });
+  }
+
+  /* ========================================
+     3. Tab Bar Click
+     ======================================== */
+  var tabBar = document.querySelector('.tab-bar');
+  if (tabBar) {
+    tabBar.addEventListener('click', function(e) {
+      var tabItem = e.target.closest('.tab-item');
+      if (!tabItem) return;
+      var allTabs = tabBar.querySelectorAll('.tab-item');
+      allTabs.forEach(function(t) { t.classList.remove('active'); });
+      tabItem.classList.add('active');
+    });
+  }
+
+  /* ========================================
+     4. Category Tabs Click
+     ======================================== */
+  var categoryTabs = document.getElementById('categoryTabs');
+  if (categoryTabs) {
+    categoryTabs.addEventListener('click', function(e) {
+      var tab = e.target.closest('.category-tab');
+      if (!tab) return;
+      var allCatTabs = categoryTabs.querySelectorAll('.category-tab');
+      allCatTabs.forEach(function(t) { t.classList.remove('active'); });
+      tab.classList.add('active');
+    });
+  }
+
+  /* ========================================
+     5. More Menu - Left Drawer (Sidebar)
+     Accordion expand/collapse
+     ======================================== */
+  var menuBtn = document.getElementById('menuBtn');
+  var drawerBackdrop = document.getElementById('drawerBackdrop');
+  var drawerClose = document.getElementById('drawerClose');
+
+  if (menuBtn && drawerBackdrop) {
+    menuBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      drawerBackdrop.classList.add('active');
+    });
+  }
+
+  if (drawerBackdrop) {
+    drawerBackdrop.addEventListener('click', function(e) {
+      if (e.target === drawerBackdrop) {
+        drawerBackdrop.classList.remove('active');
+      }
+    });
+  }
+
+  if (drawerClose && drawerBackdrop) {
+    drawerClose.addEventListener('click', function() {
+      drawerBackdrop.classList.remove('active');
+    });
+  }
+
+  /* Accordion toggle for drawer items */
+  var drawerItems = document.querySelectorAll('.more-drawer-item[data-toggle]');
+  drawerItems.forEach(function(item) {
+    item.addEventListener('click', function() {
+      var targetId = this.getAttribute('data-toggle');
+      var subMenu = document.getElementById(targetId);
+      var arrow = this.querySelector('.arrow');
+      if (!subMenu) return;
+
+      var isOpen = subMenu.classList.contains('open');
+      /* Close all other sub-menus */
+      document.querySelectorAll('.more-drawer-sub.open').forEach(function(s) {
+        s.classList.remove('open');
+      });
+      document.querySelectorAll('.more-drawer-item .arrow.open').forEach(function(a) {
+        a.classList.remove('open');
+      });
+
+      if (!isOpen) {
+        subMenu.classList.add('open');
+        if (arrow) arrow.classList.add('open');
+      }
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>

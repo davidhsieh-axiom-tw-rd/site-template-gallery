@@ -1,0 +1,228 @@
+{
+  "imgSrcs": [
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/upload/img/img_dt_logo_mr1.avif",
+      "local": "assets/icons/img_dt_logo_mr1.avif",
+      "alt": "logo",
+      "width": 139,
+      "height": 42
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/11-1-2/web/home/icon_dt_1cd.avif?manualVersion=1&version=v7.1.199",
+      "local": "assets/icons/icon_dt_1cd.avif",
+      "alt": "漢堡選單 icon",
+      "width": 37,
+      "height": 38
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/11-1-2/web/home/icon_dt_pmd.webp?manualVersion=1&version=v7.1.199",
+      "local": "assets/icons/icon_dt_pmd.webp",
+      "alt": "跑馬燈喇叭 icon",
+      "width": 34,
+      "height": 29
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/11-1-2/common/_sprite/icon_dt_1xx_wd.avif?manualVersion=1&version=v7.1.199",
+      "local": "assets/icons/icon_dt_1xx_wd.avif",
+      "alt": "通知 icon"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/11-1-2/web/home/icon_dtfl_rm_1.avif?manualVersion=1&version=v7.1.199",
+      "local": "assets/icons/icon_dtfl_rm_1.avif",
+      "alt": "熱門 fire icon",
+      "width": 20,
+      "height": 20
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/common/web/home/btn_sc_off_2.avif?manualVersion=1&version=v7.1.199",
+      "local": "assets/ui/btn_sc_off_2.avif",
+      "alt": "收藏 icon（星星）"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/upload/img/2041775917450227713.avif",
+      "local": "assets/icons/cs_float.avif",
+      "alt": "客服浮動按鈕圖片",
+      "width": 60,
+      "height": 60
+    }
+  ],
+  "bgImages": [
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/11-1-2/common/home/img_db_dt_bg.avif?manualVersion=1&version=v7.1.199",
+      "local": "assets/bg/img_db_dt_bg.avif",
+      "alt": "全頁背景圖",
+      "width": 1080,
+      "height": 2340
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/11-1-2/web/home/img_topnav_bg.avif?manualVersion=1&version=v7.1.199",
+      "local": "assets/bg/img_topnav_bg.avif",
+      "alt": "Header 背景圖（山脈森林）"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/11-1-2/web/home/db_dt_zbcd.avif?manualVersion=1&version=v7.1.199",
+      "local": "assets/bg/db_dt_zbcd.avif",
+      "alt": "中獎輪播背景圖",
+      "width": 710,
+      "height": 84
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/11-1-2/common/common/img_db_dt_btm.avif?manualVersion=1&version=v7.1.199",
+      "local": "assets/bg/img_db_dt_btm.avif",
+      "alt": "Tab Bar 背景圖"
+    }
+  ],
+  "uiImages": [
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/11-1-2/web/home/btn_topnav_dl.avif?manualVersion=1&version=v7.1.199",
+      "local": "assets/ui/btn_topnav_dl.avif",
+      "alt": "登入按鈕背景"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/11-1-2/web/home/btn_topnav_zc.avif?manualVersion=1&version=v7.1.199",
+      "local": "assets/ui/btn_topnav_zc.avif",
+      "alt": "註冊按鈕背景"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/11-1-2/web/home/btn_dt_zbcd1.avif?manualVersion=1&version=v7.1.199",
+      "local": "assets/ui/btn_dt_zbcd1.avif",
+      "alt": "分類標籤背景（未選中）"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/11-1-2/web/home/btn_dt_zbcd2.avif?manualVersion=1&version=v7.1.199",
+      "local": "assets/ui/btn_dt_zbcd2.avif",
+      "alt": "分類標籤背景（選中）"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/11-1-2/web/home/btn_dt_zbcd3.avif?manualVersion=1&version=v7.1.199",
+      "local": "assets/ui/btn_dt_zbcd3.avif",
+      "alt": "分類標籤背景（第三種）"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/11-1-2/web/home/img_dt_zbcd_line.avif?manualVersion=1&version=v7.1.199",
+      "local": "assets/ui/img_dt_zbcd_line.avif",
+      "alt": "分類標籤分隔線"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/11-1-2/web/home/img_yxbk.avif?manualVersion=1&version=v7.1.199",
+      "local": "assets/ui/img_yxbk.avif",
+      "alt": "遊戲卡片邊框裝飾"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/11-1-2/web/home/btn_sy_zc_pt.avif?manualVersion=1&version=v7.1.199",
+      "local": "assets/ui/btn_sy_zc_pt.avif",
+      "alt": "側邊欄項目背景"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/11-1-2/common/common/img_btm_xz.avif?manualVersion=1&version=v7.1.199",
+      "local": "assets/ui/img_btm_xz.avif",
+      "alt": "Tab Bar active indicator"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/11-1-2/common/common/img_btm_line.avif?manualVersion=1&version=v7.1.199",
+      "local": "assets/ui/img_btm_line.avif",
+      "alt": "Tab Bar 分隔線"
+    }
+  ],
+  "tabBarIcons": [
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/11-1-common/common/_sprite/icon_btm_sy.avif?manualVersion=1&version=v7.1.199",
+      "local": "assets/icons/icon_btm_sy.avif",
+      "alt": "首页 icon"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/11-1-common/common/_sprite/icon_btm_gd.avif?manualVersion=1&version=v7.1.199",
+      "local": "assets/icons/icon_btm_gd.avif",
+      "alt": "娱乐城 icon"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/11-1-common/common/_sprite/icon_btm_dl.avif?manualVersion=1&version=v7.1.199",
+      "local": "assets/icons/icon_btm_dl.avif",
+      "alt": "登录 icon"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/11-1-common/common/_sprite/icon_btm_zc.avif?manualVersion=1&version=v7.1.199",
+      "local": "assets/icons/icon_btm_zc.avif",
+      "alt": "注册 icon"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/11-1-common/common/_sprite/icon_btm_wd.avif?manualVersion=1&version=v7.1.199",
+      "local": "assets/icons/icon_btm_wd.avif",
+      "alt": "我的 icon"
+    }
+  ],
+  "gameImages": [
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/g/EA/13/3/3029/default_unLogo.avif",
+      "local": "assets/games/game-3029.avif",
+      "alt": "麻将胡了"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/hot/200/3/default_unLogo.avif",
+      "local": "assets/games/hot-200-3.avif",
+      "alt": "PG电子"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/g/EA/200/3/2000065/default_unLogo.avif",
+      "local": "assets/games/game-2000065.avif",
+      "alt": "麻将胡了"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/g/EA/200/3/2000074/default_unLogo.avif",
+      "local": "assets/games/game-2000074.avif",
+      "alt": "麻将胡了2"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/g/EA/1006/3/10060035/default_unLogo.avif",
+      "local": "assets/games/game-10060035.avif",
+      "alt": "至尊麻将"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/g/EA/200/3/2000084/default_unLogo.avif",
+      "local": "assets/games/game-2000084.avif",
+      "alt": "赏金女王"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/g/EA/200/3/2000135/default_unLogo.avif",
+      "local": "assets/games/game-2000135.avif",
+      "alt": "赏金大对决"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/g/EA/200/3/2000087/default_unLogo.avif",
+      "local": "assets/games/game-2000087.avif",
+      "alt": "寻宝黄金城"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/g/EA/75/3/750103/default_unLogo.avif",
+      "local": "assets/games/game-750103.avif",
+      "alt": "糖果派对"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/g/EA/200/3/2000104/default_unLogo.avif",
+      "local": "assets/games/game-2000104.avif",
+      "alt": "亡灵大盗"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/g/EA/200/3/2000067/default_unLogo.avif",
+      "local": "assets/games/game-2000067.avif",
+      "alt": "少林足球"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/g/EA/200/3/2000054/default_unLogo.avif",
+      "local": "assets/games/game-2000054.avif",
+      "alt": "赏金船长"
+    }
+  ],
+  "stylesheets": [],
+  "fonts": [],
+  "downloadedAt": "2026-04-08",
+  "totalFiles": 40,
+  "summary": {
+    "bg": 4,
+    "icons": 7,
+    "ui": 10,
+    "tabBarIcons": 5,
+    "games": 12
+  },
+  "note": "暖色主題（skin 11-1-2）大量使用 AVIF 背景圖取代純色/漸層。與 Dark V1 (6-1-1) 不同，此主題有 Header 背景圖、Tab Bar 背景圖、分類標籤背景圖、遊戲邊框裝飾圖、側邊欄項目背景圖等。遊戲圖片使用 default_unLogo.avif（無 logo 版本）。"
+}

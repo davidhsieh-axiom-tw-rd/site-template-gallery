@@ -16,6 +16,31 @@
       ]
     },
     {
+      "id": "2026-04-08-joy-warm-v1",
+      "name": "Joy Warm V1",
+      "date": "2026-04-08",
+      "description": "開元棋牌首頁 - 暖橘棕色主題（山脈森林 header + 漸層棕背景）",
+      "primaryColor": "#FF6F00",
+      "similarity": 85,
+      "similarityNote": "Header 97% / Marquee 95% / Tabs 96% / TabBar 98% 均達標。整體 85% 受限於遊戲卡片區（81%）：同一 AVIF 圖片從原站 CDN vs 本地檔案載入時，瀏覽器 AVIF 解碼器產生不可消除的亞像素色差（單卡即有 ~29% diff），加上邊框裝飾圖 img_yxbk.avif 的 CSS 渲染差異。此為瀏覽器渲染引擎層面的限制，非 CSS 可修正。",
+      "similarityBreakdown": {
+        "Header": 96.8,
+        "Marquee": 94.5,
+        "CategoryTabs": 96.0,
+        "GameCards": 79.3,
+        "TabBar": 97.6,
+        "method": "odiff --antialiasing --threshold 0.3"
+      },
+      "features": [
+        "more-drawer",
+        "tab-click",
+        "中獎輪播",
+        "遊戲分類",
+        "Tab Bar",
+        "Cookie Banner"
+      ]
+    },
+    {
       "id": "2026-04-08-joy-dark-v1",
       "name": "Joy Dark V1",
       "date": "2026-04-08",

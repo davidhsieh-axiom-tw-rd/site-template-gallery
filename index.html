@@ -467,6 +467,29 @@ body {
   z-index: 10;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
   border: 2px solid rgba(255, 255, 255, 0.3);
+  pointer-events: auto;
+  cursor: default;
+}
+.card-similarity[data-tooltip] {
+  cursor: help;
+  position: absolute;
+}
+.card-similarity[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: 56px;
+  left: 0;
+  width: 280px;
+  padding: 10px 12px;
+  background: rgba(0,0,0,0.92);
+  color: #e8e8f0;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.5;
+  border-radius: 8px;
+  border: 1px solid #444;
+  z-index: 100;
+  white-space: normal;
   pointer-events: none;
 }
 
@@ -598,7 +621,7 @@ body {
   }
 
   // Similarity badge helper
-  function simBadge(similarity) {
+  function simBadge(similarity, similarityNote) {
     if (typeof similarity !== "number" || similarity <= 0) {
       return '<div class="card-similarity sim-pending">待測量</div>';
     }
@@ -606,7 +629,11 @@ body {
     var cls = "sim-low";
     if (similarity >= 95) cls = "sim-high";
     else if (similarity >= 90) cls = "sim-mid";
-    return '<div class="card-similarity ' + cls + '">' + esc(pct) + '</div>';
+    var tooltip = "";
+    if (similarity < 90 && similarityNote) {
+      tooltip = ' data-tooltip="' + esc(similarityNote) + '"';
+    }
+    return '<div class="card-similarity ' + cls + '"' + tooltip + '>' + esc(pct) + '</div>';
   }
 
   // Export ZIP helper — 打包版型完整資料夾（HTML + docs + metadata + assets）
@@ -763,7 +790,7 @@ body {
 
     card.innerHTML =
       '<div class="card-image-wrapper" data-screenshot="' + esc(screenshotPath) + '" data-name="' + esc(t.name) + '">' +
-        simBadge(t.similarity) +
+        simBadge(t.similarity, t.similarityNote) +
         '<img class="card-image" src="' + esc(screenshotPath) + '" alt="' + esc(t.name) + '" loading="lazy">' +
         '<div class="card-image-overlay">' +
           '<div class="card-image-overlay-icon">&#128269;</div>' +

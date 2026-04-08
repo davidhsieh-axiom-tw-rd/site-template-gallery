@@ -337,6 +337,112 @@ t3_zip_completeness() {
       log_fail "Tab bar 缺少點擊事件綁定"
     fi
   fi
+
+  # ══════════════════════════════════════════════
+  # 以下為 2026-04-08 session 新增的回歸測試
+  # ══════════════════════════════════════════════
+
+  # ── T3-R1: 圖片全部使用本地路徑（無遠端 URL） ──
+  local remote_img_count
+  remote_img_count=$(grep -c "joy\.star-link-rel\.cc" "$extract_dir/$tid/index.html" 2>/dev/null || true)
+  remote_img_count=$(echo "$remote_img_count" | tr -d '[:space:]')
+  if [ -z "$remote_img_count" ] || [ "$remote_img_count" = "0" ]; then
+    log_pass "所有圖片使用本地路徑（無遠端 URL）"
+  else
+    log_fail "仍有 $remote_img_count 個遠端 URL 引用"
+  fi
+
+  # ── T3-R2: 本地圖片檔案格式正確（非 HTML text） ──
+  local broken_asset_count=0
+  while IFS= read -r asset_file; do
+    local ftype
+    ftype=$(file -b "$asset_file" 2>/dev/null)
+    if echo "$ftype" | grep -qi "text\|html\|ascii"; then
+      log_fail "假圖片（HTML text）: $asset_file"
+      broken_asset_count=$((broken_asset_count + 1))
+    fi
+  done < <(find "$extract_dir/$tid/assets" -type f \( -name "*.avif" -o -name "*.webp" -o -name "*.png" \))
+  if [ "$broken_asset_count" -eq 0 ]; then
+    log_pass "所有 asset 檔案格式正確（無 HTML text 假圖片）"
+  fi
+
+  # ── T3-R3: 遊戲卡片有邊框裝飾 ──
+  if grep -q "game-card-border" "$extract_dir/$tid/index.html"; then
+    local border_count
+    border_count=$(grep -c "game-card-border" "$extract_dir/$tid/index.html" || echo "0")
+    if [ "$border_count" -ge 20 ]; then
+      log_pass "遊戲卡片邊框裝飾存在 ($border_count 個)"
+    else
+      log_fail "遊戲卡片邊框裝飾不足 ($border_count < 20)"
+    fi
+  fi
+
+  # ── T3-R4: 包含多平台遊戲區（至少 5 個 platform-section） ──
+  local platform_count
+  platform_count=$(grep -c "platform-section" "$extract_dir/$tid/index.html" || echo "0")
+  if [ "$platform_count" -ge 5 ]; then
+    log_pass "多平台遊戲區存在 ($platform_count 個 platform-section)"
+  else
+    log_fail "多平台遊戲區不足 ($platform_count < 5)"
+  fi
+
+  # ── T3-R5: Tab Bar icon 尺寸 ≥ 40px ──
+  if grep -qE "tab-item img|tab-icon" "$extract_dir/$tid/index.html" && grep -qE "width:\s*(4[0-9]|[5-9][0-9]|[1-9][0-9]{2})px" "$extract_dir/$tid/index.html"; then
+    log_pass "Tab Bar icon 尺寸 ≥ 40px"
+  elif grep -q "tab-item" "$extract_dir/$tid/index.html"; then
+    log_fail "Tab Bar icon 尺寸可能不足"
+  fi
+
+  # ── T3-R6: 側邊欄有可展開子選單 ──
+  if grep -q "more-drawer-sub" "$extract_dir/$tid/index.html"; then
+    local sub_count
+    sub_count=$(grep -c "more-drawer-sub-item" "$extract_dir/$tid/index.html" || echo "0")
+    if [ "$sub_count" -ge 10 ]; then
+      log_pass "側邊欄可展開子選單存在 ($sub_count 個子項)"
+    else
+      log_fail "側邊欄子選單項不足 ($sub_count < 10)"
+    fi
+  fi
+
+  # ── T3-R7: 底部 Footer 三欄連結 + 牌照合规 + 联系我们 ──
+  local footer_ok=1
+  if ! grep -q "footer-links\|footer-col" "$extract_dir/$tid/index.html"; then
+    log_fail "缺少底部三欄連結區"
+    footer_ok=0
+  fi
+  if ! grep -q "footer-license\|牌照合规" "$extract_dir/$tid/index.html"; then
+    log_fail "缺少牌照合规區"
+    footer_ok=0
+  fi
+  if ! grep -q "footer-contact\|联系我们" "$extract_dir/$tid/index.html"; then
+    log_fail "缺少联系我们區"
+    footer_ok=0
+  fi
+  if [ "$footer_ok" -eq 1 ]; then
+    log_pass "底部 Footer 完整（三欄連結 + 牌照合规 + 联系我们）"
+  fi
+
+  # ── T3-R8: 18plus 圖片存在 ──
+  if [ -f "$extract_dir/$tid/assets/icons/18plus.avif" ]; then
+    local ftype18
+    ftype18=$(file -b "$extract_dir/$tid/assets/icons/18plus.avif")
+    if echo "$ftype18" | grep -qi "avif\|image"; then
+      log_pass "18plus.avif 圖片存在且格式正確"
+    else
+      log_fail "18plus.avif 格式錯誤: $ftype18"
+    fi
+  fi
+
+  # ── T3-R9: Telegram icon 存在 ──
+  if [ -f "$extract_dir/$tid/assets/icons/telegram.avif" ]; then
+    local ftypetg
+    ftypetg=$(file -b "$extract_dir/$tid/assets/icons/telegram.avif")
+    if echo "$ftypetg" | grep -qi "avif\|image"; then
+      log_pass "telegram.avif 圖片存在且格式正確"
+    else
+      log_fail "telegram.avif 格式錯誤: $ftypetg"
+    fi
+  fi
 }
 
 t4_zip_renders() {

@@ -1,0 +1,23 @@
+{
+  "id": "2026-04-08-joy-warm-v1",
+  "name": "Joy Warm V1",
+  "date": "2026-04-08",
+  "description": "開元棋牌首頁 - 暖橘棕色主題（山脈森林 header + 漸層棕背景）",
+  "primaryColor": "#FF6F00",
+  "skinPath": "11-1-2",
+  "sourceUrl": "https://joy.star-link-rel.cc/",
+  "captureDate": "2026-04-08",
+  "viewport": { "width": 450, "height": 900 },
+  "features": ["more-drawer", "tab-click", "中獎輪播", "遊戲分類", "Tab Bar", "Cookie Banner"],
+  "colorScheme": {
+    "primary": "#FF6F00",
+    "bg1": "#783D21",
+    "bg2": "#8F4B2B",
+    "accent1": "#54BE20",
+    "accent2": "#EE401E",
+    "accent3": "#FFBB00",
+    "textPrimary": "#FFFFFF",
+    "textSecondary": "#F5C5A8",
+    "border": "#9C5432"
+  }
+}
