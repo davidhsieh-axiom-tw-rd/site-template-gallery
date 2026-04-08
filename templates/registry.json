@@ -12,6 +12,21 @@
         "遊戲分類",
         "Tab Bar"
       ]
+    },
+    {
+      "id": "2026-04-08-joy-dark-v1",
+      "name": "Joy Dark V1",
+      "date": "2026-04-08",
+      "description": "開元棋牌首頁 - 暗色主題（深海軍藍 + 青色/金黃按鈕）",
+      "primaryColor": "#1EFFD7",
+      "similarity": 0,
+      "features": [
+        "热门游戏滑動",
+        "中獎輪播",
+        "體育/娛樂城雙卡片",
+        "9 遊戲分類",
+        "Tab Bar"
+      ]
     }
   ]
 }

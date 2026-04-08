@@ -1,0 +1,94 @@
+{
+  "imgSrcs": [
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/upload/img/img_dt_logo_mr1.avif",
+      "alt": "logo",
+      "width": 139,
+      "height": 42
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/6-1-1/common/common/bg_pattern_tile.avif?manualVersion=1&version=v7.1.199",
+      "alt": "背景紋理",
+      "width": 40,
+      "height": 40
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/web/home/icon_dt_pmd.webp?manualVersion=1&version=v7.1.199",
+      "alt": "喇叭icon",
+      "width": 37,
+      "height": 34
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_by_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": "捕魚分類icon",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_dz_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": "電子分類icon",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_qp_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": "棋牌分類icon",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_zr_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": "真人分類icon",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_ty_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": "體育分類icon",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_cp_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": "彩票分類icon",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_dianjing_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": "電競分類icon",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_douji_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": "鬥雞分類icon",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_qkl_1.avif?manualVersion=1&version=v7.1.199",
+      "alt": "區塊鏈分類icon",
+      "width": 100,
+      "height": 76
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/common/common/common/18plus.avif?manualVersion=1&version=v7.1.199",
+      "alt": "18+",
+      "width": 100,
+      "height": 100
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/upload/img/telegram.avif",
+      "alt": "Telegram",
+      "width": 144,
+      "height": 144
+    }
+  ],
+  "bgImages": [
+    "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/6-1-1/common/common/bg_pattern_tile.avif?manualVersion=1&version=v7.1.199"
+  ],
+  "stylesheets": [],
+  "fonts": [],
+  "note": "此暗色版型所有圖片使用原站 CDN URL，未下載至本地 assets。assets/bg/bg_pattern_tile.avif 為佔位用的背景紋理。"
+}
