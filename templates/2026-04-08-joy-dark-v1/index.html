@@ -698,6 +698,11 @@ button {
   cursor: pointer;
   flex: 1;
   padding: 4px 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tab-item * {
+  pointer-events: none;
 }
 
 .tab-item svg {
@@ -1763,28 +1768,27 @@ body.freeze-mode .hot-games-track {
      3. More Menu Toggle
      ======================================== */
   var moreOverlay = document.querySelector('.more-menu-overlay');
-  var moreTab = document.querySelectorAll('.tab-item')[0]; // 第一個 tab = 更多
   var backBtn = document.querySelector('.more-menu-back');
   var allTabs = document.querySelectorAll('.tab-item');
 
-  if (moreTab && moreOverlay) {
-    moreTab.addEventListener('click', function() {
+  // Use onclick for maximum compatibility
+  if (allTabs[0] && moreOverlay) {
+    allTabs[0].onclick = function(e) {
+      e.stopPropagation();
       moreOverlay.classList.add('active');
-    });
+    };
   }
   if (backBtn && moreOverlay) {
-    backBtn.addEventListener('click', function() {
+    backBtn.onclick = function() {
       moreOverlay.classList.remove('active');
-    });
+    };
   }
   // Clicking other tabs closes more menu
-  allTabs.forEach(function(tab, i) {
-    if (i > 0) {
-      tab.addEventListener('click', function() {
-        if (moreOverlay) moreOverlay.classList.remove('active');
-      });
-    }
-  });
+  for (var i = 1; i < allTabs.length; i++) {
+    allTabs[i].onclick = (function(overlay) {
+      return function() { overlay.classList.remove('active'); };
+    })(moreOverlay);
+  }
 
 })();
 </script>
