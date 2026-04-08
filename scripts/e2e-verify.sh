@@ -275,6 +275,52 @@ t3_zip_completeness() {
       log_fail "README 缺少快速開始指引"
     fi
   fi
+
+  # ── assets 最低數量（可以多給不能少給） ──
+  local bg_count icons_count games_count platforms_count
+  bg_count=$(find "$extract_dir/$tid/assets/bg" -type f 2>/dev/null | wc -l | tr -d ' ')
+  icons_count=$(find "$extract_dir/$tid/assets/icons" -type f 2>/dev/null | wc -l | tr -d ' ')
+  games_count=$(find "$extract_dir/$tid/assets/games" -maxdepth 1 -type f 2>/dev/null | wc -l | tr -d ' ')
+  platforms_count=$(find "$extract_dir/$tid/assets/games/platforms" -type f 2>/dev/null | wc -l | tr -d ' ')
+
+  local asset_min_ok=1
+  if [ "$bg_count" -lt 1 ]; then log_fail "assets/bg 不足 (${bg_count}<1)"; asset_min_ok=0; fi
+  if [ "$icons_count" -lt 1 ]; then log_fail "assets/icons 不足 (${icons_count}<1)"; asset_min_ok=0; fi
+  if [ "$games_count" -lt 5 ]; then log_fail "assets/games 不足 (${games_count}<5)"; asset_min_ok=0; fi
+  if [ "$platforms_count" -lt 10 ]; then log_fail "assets/games/platforms 不足 (${platforms_count}<10)"; asset_min_ok=0; fi
+  if [ "$asset_min_ok" -eq 1 ]; then
+    log_pass "assets 最低數量達標 (bg:${bg_count} icons:${icons_count} games:${games_count} platforms:${platforms_count})"
+  fi
+
+  # ── similarity 分數已填入（非 0） ──
+  local similarity
+  similarity=$(jq -r --arg id "$tid" '.templates[] | select(.id==$id) | .similarity' "$REGISTRY")
+  if [ -n "$similarity" ] && [ "$similarity" != "null" ] && [ "$similarity" != "0" ]; then
+    log_pass "similarity 已填入 (${similarity}%)"
+  else
+    log_fail "similarity 未填入或為 0"
+  fi
+
+  # ── 「更多」Drawer 存在 ──
+  if grep -q "more-drawer" "$extract_dir/$tid/index.html"; then
+    log_pass "「更多」Drawer 結構存在"
+  else
+    log_fail "缺少「更多」Drawer（more-drawer）"
+  fi
+
+  # ── 熱門遊戲滾動動畫 ──
+  if grep -q "hot-games-track" "$extract_dir/$tid/index.html" && grep -q "@keyframes hot-games-scroll" "$extract_dir/$tid/index.html"; then
+    log_pass "熱門遊戲滾動動畫存在"
+  else
+    log_fail "缺少熱門遊戲滾動動畫（hot-games-track + @keyframes）"
+  fi
+
+  # ── Tab bar 點擊功能 ──
+  if grep -q "\.onclick" "$extract_dir/$tid/index.html" || grep -q "addEventListener.*click" "$extract_dir/$tid/index.html"; then
+    log_pass "Tab bar 點擊事件已綁定"
+  else
+    log_fail "Tab bar 缺少點擊事件綁定"
+  fi
 }
 
 t4_zip_renders() {
