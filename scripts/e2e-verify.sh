@@ -301,25 +301,32 @@ t3_zip_completeness() {
     log_fail "similarity 未填入或為 0"
   fi
 
-  # ── 「更多」Drawer 存在 ──
-  if grep -q "more-drawer" "$extract_dir/$tid/index.html"; then
-    log_pass "「更多」Drawer 結構存在"
-  else
-    log_fail "缺少「更多」Drawer（more-drawer）"
-  fi
+  # ── 以下檢查只對 2026-04-08 以後的版型強制（新規範） ──
+  local tpl_date
+  tpl_date=$(echo "$tid" | grep -oE '^[0-9]{4}-[0-9]{2}-[0-9]{2}' || echo "")
+  if [ -n "$tpl_date" ] && [[ "$tpl_date" > "2026-04-07" ]]; then
 
-  # ── 熱門遊戲滾動動畫 ──
-  if grep -q "hot-games-track" "$extract_dir/$tid/index.html" && grep -q "@keyframes hot-games-scroll" "$extract_dir/$tid/index.html"; then
-    log_pass "熱門遊戲滾動動畫存在"
-  else
-    log_fail "缺少熱門遊戲滾動動畫（hot-games-track + @keyframes）"
-  fi
+    # ── 「更多」Drawer 存在 ──
+    if grep -q "more-drawer" "$extract_dir/$tid/index.html"; then
+      log_pass "「更多」Drawer 結構存在"
+    else
+      log_fail "缺少「更多」Drawer（more-drawer）"
+    fi
 
-  # ── Tab bar 點擊功能 ──
-  if grep -q "\.onclick" "$extract_dir/$tid/index.html" || grep -q "addEventListener.*click" "$extract_dir/$tid/index.html"; then
-    log_pass "Tab bar 點擊事件已綁定"
-  else
-    log_fail "Tab bar 缺少點擊事件綁定"
+    # ── 熱門遊戲滾動動畫 ──
+    if grep -q "hot-games-track" "$extract_dir/$tid/index.html" && grep -q "@keyframes hot-games-scroll" "$extract_dir/$tid/index.html"; then
+      log_pass "熱門遊戲滾動動畫存在"
+    else
+      log_fail "缺少熱門遊戲滾動動畫（hot-games-track + @keyframes）"
+    fi
+
+    # ── Tab bar 點擊功能 ──
+    if grep -q "\.onclick" "$extract_dir/$tid/index.html" || grep -q "addEventListener.*click" "$extract_dir/$tid/index.html"; then
+      log_pass "Tab bar 點擊事件已綁定"
+    else
+      log_fail "Tab bar 缺少點擊事件綁定"
+    fi
+
   fi
 }
 

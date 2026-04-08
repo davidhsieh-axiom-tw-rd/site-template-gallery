@@ -549,6 +549,7 @@ body {
 <!-- Footer -->
 <footer class="footer">
   Site Template Gallery &mdash; Clone &amp; Archive Tool
+  <span style="display:block;margin-top:4px;font-size:11px;opacity:0.5;">v1.3.0 (2026-04-08)</span>
 </footer>
 
 <script>
@@ -667,30 +668,45 @@ body {
       promises.push(p);
     });
 
-    // 嘗試載入 assets 目錄的檔案（從 metadata 或已知清單）
-    var assetsP = fetch(basePath + "metadata.json")
+    // 載入 assets：優先從 assets-inventory.json 讀取清單，fallback 從 HTML 解析
+    var assetsP = fetch(basePath + "docs/assets-inventory.json")
       .then(function(res) { return res.ok ? res.json() : null; })
-      .then(function(meta) {
-        if (!meta) return;
-        // 載入 assets 目錄下已知的子目錄
-        var assetDirs = ["assets/icons/", "assets/bg/", "assets/images/", "assets/banners/", "assets/games/", "assets/platforms/"];
-        // 由於靜態站無法列目錄，改用 index.html 中引用的 asset 路徑
-        return fetch(basePath + "index.html").then(function(r) { return r.text(); });
-      })
-      .then(function(html) {
-        if (!html) return;
-        // 從 HTML 中提取所有 assets/ 引用（含 src=、url()、JS 字串中的路徑）
-        var assetRefs = [];
-        var regex = /['"]?(assets\/[^'")\s,<>]+\.\w+)/g;
-        var match;
-        while ((match = regex.exec(html)) !== null) {
-          var path = match[1];
-          if (assetRefs.indexOf(path) === -1) {
-            assetRefs.push(path);
-          }
+      .then(function(inventory) {
+        var assetPaths = [];
+
+        if (inventory) {
+          // 從 inventory 收集所有 local 路徑
+          var sections = ["imgSrcs", "bgImages", "gameImages", "platformImages"];
+          sections.forEach(function(sec) {
+            if (inventory[sec]) {
+              inventory[sec].forEach(function(item) {
+                if (item.local && assetPaths.indexOf(item.local) === -1) {
+                  assetPaths.push(item.local);
+                }
+              });
+            }
+          });
         }
-        // 批次下載 assets
-        var assetPromises = assetRefs.map(function(assetPath) {
+
+        // Fallback: 也從 HTML 中提取 assets/ 引用
+        return fetch(basePath + "index.html")
+          .then(function(r) { return r.text(); })
+          .then(function(html) {
+            if (html) {
+              var regex = /['"]?(assets\/[^'")\s,<>]+\.\w+)/g;
+              var match;
+              while ((match = regex.exec(html)) !== null) {
+                if (assetPaths.indexOf(match[1]) === -1) {
+                  assetPaths.push(match[1]);
+                }
+              }
+            }
+            return assetPaths;
+          });
+      })
+      .then(function(assetPaths) {
+        if (!assetPaths || assetPaths.length === 0) return;
+        var assetPromises = assetPaths.map(function(assetPath) {
           return fetch(basePath + assetPath)
             .then(function(res) {
               if (!res.ok) return null;
@@ -698,7 +714,7 @@ body {
                 folder.file(assetPath, blob);
               });
             })
-            .catch(function() { /* 跳過 */ });
+            .catch(function() { /* 跳過不存在的 */ });
         });
         return Promise.all(assetPromises);
       })
