@@ -1,0 +1,20 @@
+{
+  "name": "Joy Dark V1",
+  "description": "开元棋牌首頁 - 暗色主題（深海軍藍 + 青色/金黃按鈕）",
+  "date": "2026-04-08",
+  "source_url": "https://joy.star-link-rel.cc/",
+  "features": [
+    "热门游戏水平滑動",
+    "中獎輪播",
+    "體育/娛樂城雙卡片",
+    "9 個遊戲分類區塊",
+    "底部 Tab Bar",
+    "Footer 連結區"
+  ],
+  "color_scheme": {
+    "primary": "#1EFFD7",
+    "accent": "#F5D639",
+    "background": "#0C1822",
+    "header": "#10212F"
+  }
+}
