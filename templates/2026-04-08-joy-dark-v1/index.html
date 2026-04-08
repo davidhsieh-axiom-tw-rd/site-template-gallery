@@ -785,9 +785,9 @@ body.freeze-mode .hot-games-track {
 }
 
 /* ============================================
-   More Menu Overlay
+   More Menu - Left Drawer
    ============================================ */
-.more-menu-overlay {
+.more-drawer-backdrop {
   display: none;
   position: fixed;
   top: 0;
@@ -796,101 +796,76 @@ body.freeze-mode .hot-games-track {
   width: 100%;
   max-width: 450px;
   height: 100vh;
-  background: var(--body-bg);
+  background: rgba(0,0,0,0.5);
   z-index: 180;
-  overflow-y: auto;
-  padding-bottom: calc(var(--tab-bar-height) + 20px);
 }
-
-.more-menu-overlay.active {
+.more-drawer-backdrop.active {
   display: block;
 }
-
-.more-menu-header {
-  display: flex;
-  align-items: center;
-  height: 44px;
-  padding: 0 16px;
-  background: var(--body-bg);
-  border-bottom: 1px solid rgba(197, 221, 240, 0.1);
-  position: sticky;
+.more-drawer {
+  position: absolute;
   top: 0;
-  z-index: 10;
+  left: 0;
+  width: 283px;
+  height: 100%;
+  background: var(--body-bg);
+  overflow-y: auto;
+  padding: 14px 0;
+  padding-top: 66px; /* below header */
 }
-
-.more-menu-back {
-  color: #C5DDF0;
-  font-size: 20px;
-  cursor: pointer;
-  margin-right: 12px;
-}
-
-.more-menu-title {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.more-section {
-  padding: 0 15px;
-  margin-bottom: 12px;
-}
-
-.more-section-header {
+.more-drawer-item {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-}
-
-.more-section-name {
+  padding: 12px 14px;
+  cursor: pointer;
+  color: #C5DDF0;
   font-size: 14.4px;
-  font-weight: 400;
+  gap: 10px;
+  height: 48px;
+}
+.more-drawer-item:hover {
+  background: rgba(255,255,255,0.05);
+}
+.more-drawer-item svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
   color: #C5DDF0;
-  padding: 12px 0 8px;
 }
-
-.more-section-edit {
-  font-size: 12px;
-  color: var(--tab-active);
-  cursor: pointer;
+.more-drawer-item .arrow {
+  margin-left: auto;
+  width: 14px;
+  height: 14px;
+  transition: transform 0.2s;
 }
-
-.more-section-card {
-  background: #132636;
-  border-radius: 12px;
-  padding: 12px 5.4px 7.8px;
-  width: 420px;
+.more-drawer-item .arrow.open {
+  transform: rotate(180deg);
+}
+.more-drawer-sub {
+  display: none;
+  padding-left: 0;
+}
+.more-drawer-sub.open {
+  display: block;
+}
+.more-drawer-sub-item {
   display: flex;
-  flex-wrap: wrap;
-}
-
-.more-section-card.no-bg {
-  background: transparent;
-  border-radius: 0;
-}
-
-.more-item {
-  width: 80px;
-  height: 74px;
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  padding: 10px 14px 10px 20px;
+  color: #C5DDF0;
+  font-size: 14px;
+  gap: 10px;
+  height: 43px;
   cursor: pointer;
 }
-
-.more-item-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
-  background: #1a3a50;
+.more-drawer-sub-item:hover {
+  background: rgba(255,255,255,0.05);
 }
-
-.more-item-text {
-  font-size: 12px;
-  color: #C5DDF0;
-  text-align: center;
-  line-height: 1.2;
+.more-drawer-sub-item svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: #8899AA;
 }
 </style>
 </head>
@@ -1597,80 +1572,50 @@ body.freeze-mode .hot-games-track {
 
 </div><!-- /.page -->
 
-<!-- ==========================================
-     More Menu Overlay
-     ========================================== -->
-<div class="more-menu-overlay">
-  <div class="more-menu-header">
-    <div class="more-menu-back">&lt;</div>
-    <span class="more-menu-title">更多</span>
-  </div>
+<!-- More Menu - Left Drawer -->
+<div class="more-drawer-backdrop">
+  <div class="more-drawer">
+    <!-- 娱乐城 -->
+    <div class="more-drawer-item" data-toggle="casino-sub">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 4v16h20V4H2zm18 14H4V6h16v12zM6 10h2v2H6v-2zm0 4h2v2H6v-2zm4-4h2v2h-2v-2zm0 4h2v2h-2v-2zm4-4h2v2h-2v-2zm0 4h2v2h-2v-2z"/></svg>
+      <span>娱乐城</span>
+      <svg class="arrow" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+    </div>
+    <div class="more-drawer-sub" id="casino-sub">
+      <div class="more-drawer-sub-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2z"/></svg><span>热门</span></div>
+      <div class="more-drawer-sub-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg><span>捕鱼</span></div>
+      <div class="more-drawer-sub-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg><span>电子</span></div>
+      <div class="more-drawer-sub-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg><span>棋牌</span></div>
+      <div class="more-drawer-sub-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg><span>真人</span></div>
+    </div>
 
-  <div class="more-section">
-    <div class="more-section-header">
-      <span class="more-section-name">首页常用功能</span>
-      <span class="more-section-edit">编辑</span>
+    <!-- 朋友圈 blog -->
+    <div class="more-drawer-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93z"/></svg>
+      <span>朋友圈 blog</span>
     </div>
-    <div class="more-section-card no-bg">
-      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">分享赚钱</span></div>
-      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">返水</span></div>
-      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">VIP</span></div>
-      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">客服</span></div>
-    </div>
-  </div>
 
-  <div class="more-section">
-    <div class="more-section-header">
-      <span class="more-section-name">优惠中心</span>
+    <!-- 体育 -->
+    <div class="more-drawer-item" data-toggle="sport-sub">
+      <svg viewBox="0 0 70 70" fill="currentColor"><path d="M35 5C17.89 5 4 18.66 4 35.5S17.89 66 35 66s31-13.66 31-30.5S52.11 5 35 5m3.1 10.07 4.18-2.9a24.8 24.8 0 0 1 13.58 10.18l-1.2 4.1-4.2 1.4-12.36-8.51zm-10.38-2.9 4.18 2.9v4.26l-12.37 8.52-4.18-1.4-1.21-4.1a25 25 0 0 1 13.58-10.18m-7.97 38.92-3.54.3A24 24 0 0 1 10.2 35.5q0-.53.06-1.07l3.1-2.22 4.28 1.46 4.53 13.24zm23 7.56c-2.45.8-5.05 1.25-7.75 1.25s-5.3-.46-7.75-1.25l-2.14-4.54 1.99-3.36h15.84l1.98 3.39zm-.71-14H27.96l-4.18-12.26"/></svg>
+      <span>体育</span>
+      <svg class="arrow open" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
     </div>
-    <div class="more-section-card">
-      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">活动</span></div>
-      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">任务</span></div>
-      <div class="more-item"><div class="more-item-icon" style="background-image:url('https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/6-1-common/web/home/apng_icon_mhcj.webp?manualVersion=1&version=v7.1.199');background-size:cover;"></div><span class="more-item-text">盲盒抽奖</span></div>
-      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">幸运转盘</span></div>
-      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">待领取</span></div>
-      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">领取记录</span></div>
-      <div class="more-item"><div class="more-item-icon" style="background-image:url('https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/6-1-common/web/home/apng_icon_kyd.webp?manualVersion=1&version=v7.1.199');background-size:cover;"></div><span class="more-item-text">新砍一刀</span></div>
-    </div>
-  </div>
-
-  <div class="more-section">
-    <div class="more-section-header">
-      <span class="more-section-name">资金管理</span>
-    </div>
-    <div class="more-section-card">
-      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">存款</span></div>
-      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">提现</span></div>
-      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">客服代充</span></div>
-      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">账户明细</span></div>
-      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">投注记录</span></div>
-      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">个人报表</span></div>
-      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">提现管理</span></div>
-      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">立即分享</span></div>
-      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">投注任务</span></div>
-    </div>
-  </div>
-
-  <div class="more-section">
-    <div class="more-section-header">
-      <span class="more-section-name">支持中心</span>
-    </div>
-    <div class="more-section-card">
-      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">语言</span></div>
-      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">APP下载</span></div>
-      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">有奖反馈</span></div>
-      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">朋友圈</span></div>
-    </div>
-  </div>
-
-  <div class="more-section">
-    <div class="more-section-header">
-      <span class="more-section-name">账户安全</span>
-    </div>
-    <div class="more-section-card">
-      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">个人资料</span></div>
-      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">安全中心</span></div>
-      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">自我禁止</span></div>
+    <div class="more-drawer-sub open" id="sport-sub">
+      <div class="more-drawer-sub-item"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg><span>足球</span></div>
+      <div class="more-drawer-sub-item"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg><span>篮球</span></div>
+      <div class="more-drawer-sub-item"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg><span>排球</span></div>
+      <div class="more-drawer-sub-item"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg><span>板球</span></div>
+      <div class="more-drawer-sub-item"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg><span>网球</span></div>
+      <div class="more-drawer-sub-item"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg><span>乒乓球</span></div>
+      <div class="more-drawer-sub-item"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg><span>羽毛球</span></div>
+      <div class="more-drawer-sub-item"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg><span>棒球</span></div>
+      <div class="more-drawer-sub-item"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg><span>电子足球</span></div>
+      <div class="more-drawer-sub-item"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg><span>拳击</span></div>
+      <div class="more-drawer-sub-item"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg><span>冰球</span></div>
+      <div class="more-drawer-sub-item"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg><span>手球</span></div>
+      <div class="more-drawer-sub-item"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg><span>高尔夫球</span></div>
+      <div class="more-drawer-sub-item"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg><span>斯诺克台球</span></div>
     </div>
   </div>
 </div>
@@ -1771,30 +1716,45 @@ body.freeze-mode .hot-games-track {
   // Handled via CSS freeze-mode class
 
   /* ========================================
-     3. More Menu Toggle
+     3. More Menu - Left Drawer
      ======================================== */
-  var moreOverlay = document.querySelector('.more-menu-overlay');
-  var backBtn = document.querySelector('.more-menu-back');
+  var drawerBackdrop = document.querySelector('.more-drawer-backdrop');
   var allTabs = document.querySelectorAll('.tab-item');
 
-  // Use onclick for maximum compatibility
-  if (allTabs[0] && moreOverlay) {
+  // Open drawer on 更多 tab click
+  if (allTabs[0] && drawerBackdrop) {
     allTabs[0].onclick = function(e) {
       e.stopPropagation();
-      moreOverlay.classList.add('active');
+      drawerBackdrop.classList.add('active');
     };
   }
-  if (backBtn && moreOverlay) {
-    backBtn.onclick = function() {
-      moreOverlay.classList.remove('active');
-    };
+
+  // Close drawer on backdrop click (outside drawer)
+  if (drawerBackdrop) {
+    drawerBackdrop.addEventListener('click', function(e) {
+      if (e.target === drawerBackdrop) {
+        drawerBackdrop.classList.remove('active');
+      }
+    });
   }
-  // Clicking other tabs closes more menu
+
+  // Close drawer on other tab clicks
   for (var i = 1; i < allTabs.length; i++) {
-    allTabs[i].onclick = (function(overlay) {
-      return function() { overlay.classList.remove('active'); };
-    })(moreOverlay);
+    allTabs[i].onclick = (function(bd) {
+      return function() { bd.classList.remove('active'); };
+    })(drawerBackdrop);
   }
+
+  // Toggle sub-menus
+  document.querySelectorAll('[data-toggle]').forEach(function(item) {
+    item.addEventListener('click', function() {
+      var targetId = this.getAttribute('data-toggle');
+      var sub = document.getElementById(targetId);
+      var arrow = this.querySelector('.arrow');
+      if (sub) sub.classList.toggle('open');
+      if (arrow) arrow.classList.toggle('open');
+    });
+  });
 
 })();
 </script>
