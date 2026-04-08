@@ -778,6 +778,109 @@ body.freeze-mode .winner-scroll {
 body.freeze-mode .hot-games-track {
   animation: none !important;
 }
+
+/* ============================================
+   More Menu Overlay
+   ============================================ */
+.more-menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 450px;
+  height: 100vh;
+  background: var(--body-bg);
+  z-index: 180;
+  overflow-y: auto;
+  padding-bottom: calc(var(--tab-bar-height) + 20px);
+}
+
+.more-menu-overlay.active {
+  display: block;
+}
+
+.more-menu-header {
+  display: flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 16px;
+  background: var(--header-bg);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.more-menu-back {
+  color: #C5DDF0;
+  font-size: 20px;
+  cursor: pointer;
+  margin-right: 12px;
+}
+
+.more-menu-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.more-section {
+  padding: 12px 18px 0;
+}
+
+.more-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.more-section-name {
+  font-size: 14px;
+  color: #C5DDF0;
+}
+
+.more-section-edit {
+  font-size: 12px;
+  color: var(--tab-active);
+  cursor: pointer;
+}
+
+.more-section-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px 8px;
+}
+
+.more-section-card.cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.more-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.more-item-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #1a3a50;
+}
+
+.more-item-text {
+  font-size: 12px;
+  color: #C5DDF0;
+  text-align: center;
+  line-height: 1.2;
+}
 </style>
 </head>
 <body>
@@ -1484,6 +1587,84 @@ body.freeze-mode .hot-games-track {
 </div><!-- /.page -->
 
 <!-- ==========================================
+     More Menu Overlay
+     ========================================== -->
+<div class="more-menu-overlay">
+  <div class="more-menu-header">
+    <div class="more-menu-back">&lt;</div>
+    <span class="more-menu-title">更多</span>
+  </div>
+
+  <div class="more-section">
+    <div class="more-section-header">
+      <span class="more-section-name">首页常用功能</span>
+      <span class="more-section-edit">编辑</span>
+    </div>
+    <div class="more-section-card cols-4">
+      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">分享赚钱</span></div>
+      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">返水</span></div>
+      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">VIP</span></div>
+      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">客服</span></div>
+    </div>
+  </div>
+
+  <div class="more-section">
+    <div class="more-section-header">
+      <span class="more-section-name">优惠中心</span>
+    </div>
+    <div class="more-section-card">
+      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">活动</span></div>
+      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">任务</span></div>
+      <div class="more-item"><div class="more-item-icon" style="background-image:url('https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/6-1-common/web/home/apng_icon_mhcj.webp?manualVersion=1&version=v7.1.199');background-size:cover;"></div><span class="more-item-text">盲盒抽奖</span></div>
+      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">幸运转盘</span></div>
+      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">待领取</span></div>
+      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">领取记录</span></div>
+      <div class="more-item"><div class="more-item-icon" style="background-image:url('https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/6-1-common/web/home/apng_icon_kyd.webp?manualVersion=1&version=v7.1.199');background-size:cover;"></div><span class="more-item-text">新砍一刀</span></div>
+    </div>
+  </div>
+
+  <div class="more-section">
+    <div class="more-section-header">
+      <span class="more-section-name">资金管理</span>
+    </div>
+    <div class="more-section-card">
+      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">存款</span></div>
+      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">提现</span></div>
+      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">客服代充</span></div>
+      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">账户明细</span></div>
+      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">投注记录</span></div>
+      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">个人报表</span></div>
+      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">提现管理</span></div>
+      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">立即分享</span></div>
+      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">投注任务</span></div>
+    </div>
+  </div>
+
+  <div class="more-section">
+    <div class="more-section-header">
+      <span class="more-section-name">支持中心</span>
+    </div>
+    <div class="more-section-card cols-4">
+      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">语言</span></div>
+      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">APP下载</span></div>
+      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">有奖反馈</span></div>
+      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">朋友圈</span></div>
+    </div>
+  </div>
+
+  <div class="more-section" style="padding-bottom: 20px;">
+    <div class="more-section-header">
+      <span class="more-section-name">账户安全</span>
+    </div>
+    <div class="more-section-card" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">个人资料</span></div>
+      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">安全中心</span></div>
+      <div class="more-item"><div class="more-item-icon"></div><span class="more-item-text">自我禁止</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================
      8. Bottom Tab Bar
      ========================================== -->
 <nav class="tab-bar">
@@ -1577,6 +1758,33 @@ body.freeze-mode .hot-games-track {
      2. Marquee Freeze
      ======================================== */
   // Handled via CSS freeze-mode class
+
+  /* ========================================
+     3. More Menu Toggle
+     ======================================== */
+  var moreOverlay = document.querySelector('.more-menu-overlay');
+  var moreTab = document.querySelectorAll('.tab-item')[0]; // 第一個 tab = 更多
+  var backBtn = document.querySelector('.more-menu-back');
+  var allTabs = document.querySelectorAll('.tab-item');
+
+  if (moreTab && moreOverlay) {
+    moreTab.addEventListener('click', function() {
+      moreOverlay.classList.add('active');
+    });
+  }
+  if (backBtn && moreOverlay) {
+    backBtn.addEventListener('click', function() {
+      moreOverlay.classList.remove('active');
+    });
+  }
+  // Clicking other tabs closes more menu
+  allTabs.forEach(function(tab, i) {
+    if (i > 0) {
+      tab.addEventListener('click', function() {
+        if (moreOverlay) moreOverlay.classList.remove('active');
+      });
+    }
+  });
 
 })();
 </script>
