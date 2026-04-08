@@ -2,93 +2,327 @@
   "imgSrcs": [
     {
       "src": "https://joy.star-link-rel.cc/siteadmin/upload/img/img_dt_logo_mr1.avif",
+      "local": "assets/icons/img_dt_logo_mr1.avif",
       "alt": "logo",
       "width": 139,
       "height": 42
     },
     {
       "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/6-1-1/common/common/bg_pattern_tile.avif?manualVersion=1&version=v7.1.199",
+      "local": "assets/bg/bg_pattern_tile.avif",
       "alt": "背景紋理",
       "width": 40,
       "height": 40
     },
     {
-      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/web/home/icon_dt_pmd.webp?manualVersion=1&version=v7.1.199",
-      "alt": "喇叭icon",
-      "width": 37,
-      "height": 34
+      "src": "https://joy.star-link-rel.cc/siteadmin/upload/img/2016087926218625025.avif",
+      "local": "assets/bg/2016087926218625025.avif",
+      "alt": "中獎跑馬燈背景"
     },
     {
-      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_by_1.avif?manualVersion=1&version=v7.1.199",
-      "alt": "捕魚分類icon",
-      "width": 100,
-      "height": 76
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/6-1-common/web/home/apng_icon_kyd_alpha.webp?manualVersion=1&version=v7.1.199",
+      "local": "assets/icons/apng_icon_kyd_alpha.webp",
+      "alt": "Spin icon"
     },
     {
-      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_dz_1.avif?manualVersion=1&version=v7.1.199",
-      "alt": "電子分類icon",
-      "width": 100,
-      "height": 76
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/6-1-1/common/_sprite/icon_dt_1xx_wd.avif?manualVersion=1&version=v7.1.199",
+      "local": "assets/icons/icon_dt_1xx_wd.avif",
+      "alt": "通知 icon"
     },
     {
-      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_qp_1.avif?manualVersion=1&version=v7.1.199",
-      "alt": "棋牌分類icon",
-      "width": 100,
-      "height": 76
-    },
-    {
-      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_zr_1.avif?manualVersion=1&version=v7.1.199",
-      "alt": "真人分類icon",
-      "width": 100,
-      "height": 76
-    },
-    {
-      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_ty_1.avif?manualVersion=1&version=v7.1.199",
-      "alt": "體育分類icon",
-      "width": 100,
-      "height": 76
-    },
-    {
-      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_cp_1.avif?manualVersion=1&version=v7.1.199",
-      "alt": "彩票分類icon",
-      "width": 100,
-      "height": 76
-    },
-    {
-      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_dianjing_1.avif?manualVersion=1&version=v7.1.199",
-      "alt": "電競分類icon",
-      "width": 100,
-      "height": 76
-    },
-    {
-      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_douji_1.avif?manualVersion=1&version=v7.1.199",
-      "alt": "鬥雞分類icon",
-      "width": 100,
-      "height": 76
-    },
-    {
-      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/1-0-common/common/_sprite/icon_dtfl_qkl_1.avif?manualVersion=1&version=v7.1.199",
-      "alt": "區塊鏈分類icon",
-      "width": 100,
-      "height": 76
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/6-1-common/common/_sprite/icon_sy_zc_fx.avif?manualVersion=1&version=v7.1.199",
+      "local": "assets/icons/icon_sy_zc_fx.avif",
+      "alt": "分享 icon"
     },
     {
       "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/common/common/common/18plus.avif?manualVersion=1&version=v7.1.199",
+      "local": "assets/icons/18plus.avif",
       "alt": "18+",
       "width": 100,
       "height": 100
     },
     {
       "src": "https://joy.star-link-rel.cc/siteadmin/upload/img/telegram.avif",
+      "local": "assets/icons/telegram.avif",
       "alt": "Telegram",
       "width": 144,
       "height": 144
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/common/web/home/btn_sc_off_2.avif?manualVersion=1&version=v7.1.199",
+      "local": "assets/ui/btn_sc_off_2.avif",
+      "alt": "收藏 icon"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/6-1-1/common/home/img_syyx1.avif?manualVersion=1&version=v7.1.199",
+      "local": "assets/ui/img_syyx1.avif",
+      "alt": "體育卡片"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/6-1-1/common/home/img_syyx2.avif?manualVersion=1&version=v7.1.199",
+      "local": "assets/ui/img_syyx2.avif",
+      "alt": "娛樂城卡片"
     }
   ],
   "bgImages": [
-    "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/6-1-1/common/common/bg_pattern_tile.avif?manualVersion=1&version=v7.1.199"
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/skin/lobby_asset/6-1-1/common/common/bg_pattern_tile.avif?manualVersion=1&version=v7.1.199",
+      "local": "assets/bg/bg_pattern_tile.avif"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/siteadmin/upload/img/2016087926218625025.avif",
+      "local": "assets/bg/2016087926218625025.avif"
+    }
+  ],
+  "gameImages": [
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/g/EA/1006/3/10060010/default.avif?web_v=v7.1.199",
+      "local": "assets/games/game-10060010.avif",
+      "alt": "狂欢音乐节"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/g/EA/13/3/3029/default.avif?web_v=v7.1.199",
+      "local": "assets/games/game-3029.avif",
+      "alt": "麻将胡了"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/g/EA/200/3/2000040/default.avif?web_v=v7.1.199",
+      "local": "assets/games/game-2000040.avif",
+      "alt": "水果丛林"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/g/EA/200/3/2000065/default.avif?web_v=v7.1.199",
+      "local": "assets/games/game-2000065.avif",
+      "alt": "麻将胡了"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/g/EA/200/3/2000074/default.avif?web_v=v7.1.199",
+      "local": "assets/games/game-2000074.avif",
+      "alt": "麻将胡了2"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/g/EA/200/3/2000080/default.avif?web_v=v7.1.199",
+      "local": "assets/games/game-2000080.avif",
+      "alt": "欢乐嘉年华"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/g/EA/200/3/2000119/default.avif?web_v=v7.1.199",
+      "local": "assets/games/game-2000119.avif",
+      "alt": "百鬼夜行"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/g/EA/200/3/2000123/default.avif?web_v=v7.1.199",
+      "local": "assets/games/game-2000123.avif",
+      "alt": "斗鸡"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/hot/127/4/default.avif?web_v=v7.1.199",
+      "local": "assets/games/hot-127-4.avif",
+      "alt": "PA真人 (hot)"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/hot/200/3/default.avif?web_v=v7.1.199",
+      "local": "assets/games/hot-200-3.avif",
+      "alt": "PG电子 (hot)"
+    }
+  ],
+  "platformImages": [
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/1006/3/default.png?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-1006-3.png",
+      "alt": "JDB捕鱼"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/200/3/default.avif?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-200-3.avif",
+      "alt": "WG捕鱼"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/313/3/default.avif?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-313-3.avif",
+      "alt": "KA捕鱼"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/310/3/default.avif?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-310-3.avif",
+      "alt": "BG捕鱼"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/316/3/default.avif?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-316-3.avif",
+      "alt": "RSG捕鱼"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/13/3/default.avif?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-13-3.avif",
+      "alt": "百胜捕鱼"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/310/2/default.avif?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-310-2.avif",
+      "alt": "LG电子"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/13/2/default.avif?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-13-2.avif",
+      "alt": "MG电子"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/27/2/default.avif?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-27-2.avif",
+      "alt": "CQ9电子"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/331/2/default.avif?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-331-2.avif",
+      "alt": "JDB电子"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/13/1/default.avif?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-13-1.avif",
+      "alt": "WG棋牌"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/2/1/default.avif?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-2-1.avif",
+      "alt": "开元棋牌"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/52/1/default.avif?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-52-1.avif",
+      "alt": "WL棋牌"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/9/1/default.avif?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-9-1.avif",
+      "alt": "LEG棋牌"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/21/1/default.avif?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-21-1.avif",
+      "alt": "百胜棋牌"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/22/1/default.avif?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-22-1.avif",
+      "alt": "FG棋牌"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/127/4/default.avif?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-127-4.avif",
+      "alt": "PA真人"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/75/4/default.avif?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-75-4.avif",
+      "alt": "BBIN真人"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/79/4/default.avif?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-79-4.avif",
+      "alt": "DG真人"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/331/4/default.avif?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-331-4.avif",
+      "alt": "BG真人"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/1020/4/default.avif?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-1020-4.avif",
+      "alt": "DB真人"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/52/4/default.avif?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-52-4.avif",
+      "alt": "WL真人"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/47/5/default.avif?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-47-5.avif",
+      "alt": "IM体育"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/43/5/default.avif?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-43-5.avif",
+      "alt": "熊猫体育"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/328/5/default.avif?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-328-5.avif",
+      "alt": "沙巴体育"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/76/5/default.avif?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-76-5.avif",
+      "alt": "皇冠体育"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/13/5/default.avif?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-13-5.avif",
+      "alt": "WG体育"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/370/5/default.avif?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-370-5.avif",
+      "alt": "FB体育"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/29/8/default.avif?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-29-8.avif",
+      "alt": "DB彩票"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/75/8/default.avif?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-75-8.avif",
+      "alt": "BBIN彩票"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/11/8/default.avif?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-11-8.avif",
+      "alt": "双赢彩票"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/13/8/default.avif?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-13-8.avif",
+      "alt": "WG彩票"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/328/7/default.avif?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-328-7.avif",
+      "alt": "沙巴电竞"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/74/7/default.avif?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-74-7.avif",
+      "alt": "DB电竞"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/87/6/default.avif?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-87-6.avif",
+      "alt": "SV388斗鸡"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/13/11/default.avif?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-13-11.avif",
+      "alt": "WG区块链"
+    },
+    {
+      "src": "https://joy.star-link-rel.cc/game_pictures/p/EA/95/11/default.avif?web_v=v7.1.199",
+      "local": "assets/games/platforms/platform-95-11.avif",
+      "alt": "T1区块链"
+    }
   ],
   "stylesheets": [],
   "fonts": [],
-  "note": "此暗色版型所有圖片使用原站 CDN URL，未下載至本地 assets。assets/bg/bg_pattern_tile.avif 為佔位用的背景紋理。"
+  "downloadedAt": "2026-04-08",
+  "totalFiles": 58,
+  "summary": {
+    "bg": 2,
+    "icons": 6,
+    "ui": 3,
+    "games": 10,
+    "games/platforms": 37
+  },
+  "note": "所有圖片已從原站下載至本地 assets/ 目錄。分類：bg/ 背景、icons/ 圖標、ui/ UI 元素、games/ 遊戲縮圖、games/platforms/ 平台卡片圖。Dark V1 的 HTML 中未使用分類 icon（icon_dtfl_*），故未下載。"
 }
