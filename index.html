@@ -723,6 +723,8 @@ body {
 
     Promise.all(promises)
       .then(function() {
+        var fileCount = Object.keys(zip.files).length;
+        console.log("[Gallery Export] ZIP 包含 " + fileCount + " 個檔案");
         return zip.generateAsync({ type: "blob" });
       })
       .then(function(blob) {

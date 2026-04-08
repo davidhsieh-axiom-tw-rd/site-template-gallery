@@ -1,7 +1,7 @@
 # 版型擷取與復刻 — 標準作業提示詞
 
 > 每次擷取新版型時，把此文件內容作為 prompt 的一部分傳入。
-> 最後更新：2026-04-07
+> 最後更新：2026-04-08
 
 ---
 
@@ -210,6 +210,22 @@ joy-homepage-clone/
 - **GitHub**：`davidhsieh-axiom-tw-rd/site-template-gallery`（public）
 
 ---
+
+## 擷取前必做（Phase 0）
+
+1. **觀察動態行為**：打開原站觀察 5 秒，記錄哪些區塊有動畫（滾動、跑馬燈、輪播）
+2. **點擊「更多」tab**：擷取左側 drawer 選單的完整結構（不是 `/more-menu` 路由頁面）
+3. **icon 必須從原站提取**：SVG path / image URL 直接複製，絕對不用通用 icon library
+4. **所有 assets 必須下載到本地**：HTML 可用遠端 URL，但 `assets/` 目錄要有完整本地備份
+5. **精確量測**：用 `page.evaluate()` + `getBoundingClientRect()` + `getComputedStyle()` 量測每個元素
+
+## 交付前必過
+
+1. E2E 測試全部 PASS（`scripts/e2e-verify.sh`）
+2. 分段比對每個靜態區塊 ≥ 90% 相似度
+3. 「更多」Drawer 截圖比對 ≥ 90%
+4. 匯出 ZIP 包含所有 assets（≥ bg:1, icons:1, games:5, platforms:10）
+5. similarity 分數已填入 registry.json（非 0）
 
 ## 常見錯誤與修正
 

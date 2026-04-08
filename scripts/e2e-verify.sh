@@ -301,32 +301,41 @@ t3_zip_completeness() {
     log_fail "similarity 未填入或為 0"
   fi
 
-  # ── 以下檢查只對 2026-04-08 以後的版型強制（新規範） ──
-  local tpl_date
-  tpl_date=$(echo "$tid" | grep -oE '^[0-9]{4}-[0-9]{2}-[0-9]{2}' || echo "")
-  if [ -n "$tpl_date" ] && [[ "$tpl_date" > "2026-04-07" ]]; then
+  # ── 功能特性檢查（根據 registry.json features 決定） ──
+  local features
+  features=$(jq -r --arg id "$tid" '.templates[] | select(.id==$id) | .features | join(",")' "$REGISTRY")
 
-    # ── 「更多」Drawer 存在 ──
+  # 「更多」選單存在（drawer 或 overlay）
+  if echo "$features" | grep -q "more-drawer"; then
     if grep -q "more-drawer" "$extract_dir/$tid/index.html"; then
       log_pass "「更多」Drawer 結構存在"
     else
       log_fail "缺少「更多」Drawer（more-drawer）"
     fi
+  elif echo "$features" | grep -q "more-overlay"; then
+    if grep -q "more-overlay\|more-menu" "$extract_dir/$tid/index.html"; then
+      log_pass "「更多」Overlay 結構存在"
+    else
+      log_fail "缺少「更多」Overlay（more-overlay）"
+    fi
+  fi
 
-    # ── 熱門遊戲滾動動畫 ──
+  # 熱門遊戲滾動動畫
+  if echo "$features" | grep -q "hot-games-scroll"; then
     if grep -q "hot-games-track" "$extract_dir/$tid/index.html" && grep -q "@keyframes hot-games-scroll" "$extract_dir/$tid/index.html"; then
       log_pass "熱門遊戲滾動動畫存在"
     else
       log_fail "缺少熱門遊戲滾動動畫（hot-games-track + @keyframes）"
     fi
+  fi
 
-    # ── Tab bar 點擊功能 ──
+  # Tab bar 點擊功能
+  if echo "$features" | grep -q "tab-click"; then
     if grep -q "\.onclick" "$extract_dir/$tid/index.html" || grep -q "addEventListener.*click" "$extract_dir/$tid/index.html"; then
       log_pass "Tab bar 點擊事件已綁定"
     else
       log_fail "Tab bar 缺少點擊事件綁定"
     fi
-
   fi
 }
 
@@ -433,7 +442,7 @@ t5_screenshot_identical() {
       log_fail "Asset MD5 不一致: $asset_path"
       asset_mismatch=$((asset_mismatch + 1))
     fi
-  done < <(grep -oE "assets/[^'\")\\ ,<>]+\.[a-zA-Z]+" "$TEMP_DIR/extracted/$tid/index.html" | sort -u | head -20)
+  done < <(grep -oE "assets/[^'\")\\ ,<>]+\.[a-zA-Z]+" "$TEMP_DIR/extracted/$tid/index.html" | sort -u)
 
   if [ "$asset_mismatch" -eq 0 ]; then
     log_pass "Assets MD5 全部一致 ($asset_match 個已驗)"

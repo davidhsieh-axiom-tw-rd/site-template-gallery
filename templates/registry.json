@@ -8,6 +8,8 @@
       "primaryColor": "#003BD5",
       "similarity": 91,
       "features": [
+        "more-overlay",
+        "tab-click",
         "Jackpot 動畫",
         "遊戲分類",
         "Tab Bar"
@@ -21,6 +23,9 @@
       "primaryColor": "#1EFFD7",
       "similarity": 97,
       "features": [
+        "more-drawer",
+        "hot-games-scroll",
+        "tab-click",
         "热门游戏滑動",
         "中獎輪播",
         "體育/娛樂城雙卡片",

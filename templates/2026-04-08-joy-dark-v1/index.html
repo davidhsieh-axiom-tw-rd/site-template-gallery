@@ -50,7 +50,7 @@ html {
 }
 
 body {
-  background: #1a1a2e;
+  background: var(--body-bg);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Roboto, sans-serif;
   color: var(--text-primary);
   line-height: 1.3;
@@ -281,7 +281,7 @@ button {
   position: relative;
   height: 141px;
   margin: 0 18px;
-  width: 414px;
+  width: calc(100% - 36px);
 }
 
 .hot-games-track {
