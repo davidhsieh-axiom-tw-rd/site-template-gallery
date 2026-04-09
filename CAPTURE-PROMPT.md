@@ -272,3 +272,7 @@ joy-homepage-clone/
 | **SVG icon 不顯示** | 多層 transform 座標偏移 | Canvas 渲染成 PNG |
 | **遊戲名用漸層遮罩** | 原站沒用遮罩 | 精確量測後再實作，不要假設 |
 | **similarity 造假** | 用寬鬆 threshold 或手動填數字 | 誠實分段比對，< 90% 加 similarityNote |
+| **按鈕顏色用白色** | 深色背景上目測錯誤 | 必須用 `getComputedStyle()` 量測 border/color/bg |
+| **圓角差 4px** | 目測 10px 實際 14.4px | 必須精確量測，不目測 |
+| **E2E grep 失敗** | class 名稱不符 | 先讀 `e2e-verify.sh` 確認需要哪些 class：`platform-section`、`footer-links`/`footer-col`、`Flutter:` 註解 |
+| **自我禁止 icon 錯誤** | 根據文字猜 icon 形狀 | 每個 icon 跟原站截圖逐一比對 |

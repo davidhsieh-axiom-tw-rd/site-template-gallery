@@ -1,0 +1,101 @@
+{
+  "template": "Joy Neon V1",
+  "date": "2026-04-08",
+  "total_assets": 67,
+  "categories": {
+    "bg": {
+      "count": 7,
+      "files": [
+        { "path": "assets/bg/banner.avif", "usage": "中獎輪播背景" },
+        { "path": "assets/bg/btn_sc_off_2.avif", "usage": "收藏星 icon" },
+        { "path": "assets/bg/cjc1_style_1_font_sprite.avif", "usage": "JACKPOT 文字精靈圖" },
+        { "path": "assets/bg/cjc1_style_2_bg.webp", "usage": "JACKPOT 區背景圖" },
+        { "path": "assets/bg/img_db_dt_bg.avif", "usage": "全頁主背景（深海軍藍 + 森林剪影）" },
+        { "path": "assets/bg/img_rm_shade.avif", "usage": "熱門遊戲底部遮罩" },
+        { "path": "assets/bg/img_scroll_tkjt.avif", "usage": "遊戲分類箭頭 icon" }
+      ]
+    },
+    "games": {
+      "count": 5,
+      "files": [
+        { "path": "assets/games/hot_majiang.avif", "usage": "熱門遊戲大圖（麻将胡了）" },
+        { "path": "assets/games/winner_1.avif", "usage": "中獎輪播縮圖 1" },
+        { "path": "assets/games/winner_2.avif", "usage": "中獎輪播縮圖 2" },
+        { "path": "assets/games/winner_3.avif", "usage": "中獎輪播縮圖 3" },
+        { "path": "assets/games/winner_4.avif", "usage": "中獎輪播縮圖 4" }
+      ]
+    },
+    "games/platforms": {
+      "count": 12,
+      "files": [
+        { "path": "assets/games/platforms/buyu_1.avif", "usage": "捕鱼平台圖 1" },
+        { "path": "assets/games/platforms/buyu_2.avif", "usage": "捕鱼平台圖 2" },
+        { "path": "assets/games/platforms/dianzi_1.avif", "usage": "电子平台圖 1" },
+        { "path": "assets/games/platforms/dianzi_2.avif", "usage": "电子平台圖 2" },
+        { "path": "assets/games/platforms/qipai_1.avif", "usage": "棋牌平台圖 1" },
+        { "path": "assets/games/platforms/qipai_2.avif", "usage": "棋牌平台圖 2" },
+        { "path": "assets/games/platforms/tiyu_1.avif", "usage": "体育平台圖 1" },
+        { "path": "assets/games/platforms/tiyu_2.avif", "usage": "体育平台圖 2" },
+        { "path": "assets/games/platforms/zhenren_1.avif", "usage": "真人平台圖 1" },
+        { "path": "assets/games/platforms/zhenren_2.avif", "usage": "真人平台圖 2" }
+      ]
+    },
+    "icons": {
+      "count": 40,
+      "files": [
+        { "path": "assets/icons/18plus.avif", "usage": "18+ 牌照圖示（placeholder）" },
+        { "path": "assets/icons/apng_icon_kyd.webp", "usage": "更多選單：砍一刀" },
+        { "path": "assets/icons/apng_icon_mhcj.webp", "usage": "更多選單：盲盒抽奖" },
+        { "path": "assets/icons/apng_icon_xyzp_alpha.webp", "usage": "更多選單：幸运转盘" },
+        { "path": "assets/icons/icon_btm_sy.avif", "usage": "Tab Bar：首页（inactive）" },
+        { "path": "assets/icons/icon_btm_sy1.avif", "usage": "Tab Bar：首页（active）" },
+        { "path": "assets/icons/icon_btm_tx.avif", "usage": "Tab Bar：提现" },
+        { "path": "assets/icons/icon_btm_wd.avif", "usage": "Tab Bar：我的（inactive）" },
+        { "path": "assets/icons/icon_btm_wd1.avif", "usage": "Tab Bar：我的（active）" },
+        { "path": "assets/icons/icon_btm_yh.avif", "usage": "Tab Bar：优惠（inactive）" },
+        { "path": "assets/icons/icon_btm_yh1.avif", "usage": "Tab Bar：优惠（active）" },
+        { "path": "assets/icons/icon_dt_1app.avif", "usage": "更多選單：APP下载" },
+        { "path": "assets/icons/icon_dt_1aqzx.avif", "usage": "更多選單：安全中心" },
+        { "path": "assets/icons/icon_dt_1cz.avif", "usage": "更多選單：存款" },
+        { "path": "assets/icons/icon_dt_1fs.avif", "usage": "更多選單：返水" },
+        { "path": "assets/icons/icon_dt_1fx.avif", "usage": "更多選單：朋友圈" },
+        { "path": "assets/icons/icon_dt_1gd.avif", "usage": "導航區：更多 icon" },
+        { "path": "assets/icons/icon_dt_1grbb.avif", "usage": "更多選單：个人报表" },
+        { "path": "assets/icons/icon_dt_1jh.avif", "usage": "更多選單：投注任务" },
+        { "path": "assets/icons/icon_dt_1jl.avif", "usage": "更多選單：待领取" },
+        { "path": "assets/icons/icon_dt_1kf.avif", "usage": "更多選單：客服" },
+        { "path": "assets/icons/icon_dt_1kfdc.avif", "usage": "更多選單：客服代充" },
+        { "path": "assets/icons/icon_dt_1ljfx.avif", "usage": "更多選單：立即分享" },
+        { "path": "assets/icons/icon_dt_1lqjl.avif", "usage": "更多選單：领取记录" },
+        { "path": "assets/icons/icon_dt_1rw.avif", "usage": "更多選單：任务" },
+        { "path": "assets/icons/icon_dt_1sc.avif", "usage": "更多選單：收藏游戏" },
+        { "path": "assets/icons/icon_dt_1sw.avif", "usage": "更多選單：免费试玩" },
+        { "path": "assets/icons/icon_dt_1sz.avif", "usage": "更多選單：个人资料" },
+        { "path": "assets/icons/icon_dt_1tg.avif", "usage": "導航區：分享赚钱 icon" },
+        { "path": "assets/icons/icon_dt_1tx.avif", "usage": "更多選單：提现" },
+        { "path": "assets/icons/icon_dt_1txgl.avif", "usage": "更多選單：提现管理" },
+        { "path": "assets/icons/icon_dt_1tzjl.avif", "usage": "更多選單：投注记录" },
+        { "path": "assets/icons/icon_dt_1vip.avif", "usage": "導航區：VIP icon" },
+        { "path": "assets/icons/icon_dt_1xx_wd.avif", "usage": "跑馬燈：訊息 icon" },
+        { "path": "assets/icons/icon_dt_1yh.avif", "usage": "更多選單：活动" },
+        { "path": "assets/icons/icon_dt_1yjfq.avif", "usage": "更多選單：有奖反馈" },
+        { "path": "assets/icons/icon_dt_1yuyuan.avif", "usage": "更多選單：语言" },
+        { "path": "assets/icons/icon_dt_1zhmx.avif", "usage": "更多選單：账户明细" },
+        { "path": "assets/icons/icon_dt_1zj.avif", "usage": "更多選單：最近游戏" },
+        { "path": "assets/icons/icon_dt_1zwjz.avif", "usage": "更多選單：自我禁止" },
+        { "path": "assets/icons/icon_dt_ss.avif", "usage": "Header：搜尋 icon" },
+        { "path": "assets/icons/img_gd_dtfl_cp.avif", "usage": "更多遊戲分類：彩票" },
+        { "path": "assets/icons/img_gd_dtfl_dianjing.avif", "usage": "更多遊戲分類：电竞" }
+      ]
+    },
+    "ui": {
+      "count": 3,
+      "files": [
+        { "path": "assets/ui/apng_btn_zctx.webp", "usage": "動畫按鈕素材" },
+        { "path": "assets/ui/apng_icon_btm_cz.webp", "usage": "Tab Bar：存款按鈕（動畫）" },
+        { "path": "assets/ui/logo.avif", "usage": "Header Logo" },
+        { "path": "assets/ui/telegram.avif", "usage": "Telegram 圖標（42x42）" }
+      ]
+    }
+  }
+}

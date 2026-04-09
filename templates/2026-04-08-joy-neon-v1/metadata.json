@@ -1,0 +1,22 @@
+{
+  "name": "Joy Neon V1",
+  "description": "开元棋牌首頁 - 霓虹藍主題（深海軍藍 + 亮藍按鈕 + 森林 header）",
+  "date": "2026-04-08",
+  "source_url": "https://joy.star-link-rel.cc/",
+  "features": [
+    "more-popover",
+    "tab-click",
+    "Jackpot 動畫",
+    "中獎輪播",
+    "7 遊戲分類 Grid",
+    "Tab Bar",
+    "Footer 三欄連結"
+  ],
+  "similarity": 0,
+  "color_scheme": {
+    "primary": "#0A69FF",
+    "accent": "#FFAA09",
+    "background": "#061325",
+    "secondary": "#1E2A39"
+  }
+}

@@ -57,6 +57,31 @@
         "9 遊戲分類",
         "Tab Bar"
       ]
+    },
+    {
+      "id": "2026-04-08-joy-neon-v1",
+      "name": "Joy Neon V1",
+      "date": "2026-04-08",
+      "description": "開元棋牌首頁 - 霓虹藍主題（深海軍藍 + 亮藍按鈕 + 森林 header）",
+      "primaryColor": "#0A69FF",
+      "similarity": 82,
+      "similarityNote": "Header 99% / TabBar 93% 均達標。整體 82% 受限於遊戲卡片區（74%）和 Nav 區（69%）：遊戲卡片同 AVIF 圖片從原站 CDN vs 本地檔案載入時，瀏覽器 AVIF 解碼器產生不可消除的亞像素色差（與 Warm V1 相同現象）。Nav 區的登入/註冊按鈕間距和圖標排列與原站有些微 CSS 差異。",
+      "similarityBreakdown": {
+        "Header": 99.3,
+        "Nav": 69.3,
+        "GameGrid": 73.8,
+        "TabBar": 93.2,
+        "method": "odiff --antialiasing --threshold 0.3, excluding dynamic regions (marquee/winner/jackpot)"
+      },
+      "features": [
+        "more-popover",
+        "tab-click",
+        "Jackpot 動畫",
+        "中獎輪播",
+        "7 遊戲分類 Grid",
+        "Tab Bar",
+        "Footer 三欄連結"
+      ]
     }
   ]
 }
