@@ -1,0 +1,109 @@
+{
+  "template": "Joy Red V1",
+  "date": "2026-04-09",
+  "total_assets": 104,
+  "categories": {
+    "bg": {
+      "count": 6,
+      "files": [
+        { "path": "assets/bg/banner.avif", "usage": "中獎輪播背景 / 推廣 banner" },
+        { "path": "assets/bg/bg-tile.avif", "usage": "背景平鋪圖案" },
+        { "path": "assets/bg/cjc1_style_1_font_sprite.avif", "usage": "JACKPOT 文字精靈圖" },
+        { "path": "assets/bg/cjc1_style_2_bg.webp", "usage": "JACKPOT 區背景圖 / 推廣 banner" },
+        { "path": "assets/bg/img_scroll_tkjt.avif", "usage": "遊戲分類箭頭 icon" },
+        { "path": "assets/bg/winner-bg.webp", "usage": "中獎輪播背景（綠色森林）" }
+      ]
+    },
+    "games": {
+      "count": 20,
+      "files": [
+        { "path": "assets/games/game-552180.avif", "usage": "熱門遊戲 1" },
+        { "path": "assets/games/game-310174.avif", "usage": "熱門遊戲 2" },
+        { "path": "assets/games/game-3029.avif", "usage": "熱門遊戲 3" },
+        { "path": "assets/games/game-2000065.avif", "usage": "熱門遊戲 4" },
+        { "path": "assets/games/game-2000074.avif", "usage": "熱門遊戲 5" },
+        { "path": "assets/games/game-10060035.avif", "usage": "熱門遊戲 6" },
+        { "path": "assets/games/game-2000084.avif", "usage": "熱門遊戲 7" },
+        { "path": "assets/games/game-3100003.avif", "usage": "熱門遊戲 8" },
+        { "path": "assets/games/game-2000135.avif", "usage": "熱門遊戲 9" },
+        { "path": "assets/games/game-2000087.avif", "usage": "熱門遊戲 10" },
+        { "path": "assets/games/game-750103.avif", "usage": "熱門遊戲 11" },
+        { "path": "assets/games/game-3100004.avif", "usage": "熱門遊戲 12" },
+        { "path": "assets/games/game-2000104.avif", "usage": "熱門遊戲 13" },
+        { "path": "assets/games/game-2000067.avif", "usage": "熱門遊戲 14" },
+        { "path": "assets/games/game-2000054.avif", "usage": "熱門遊戲 15" },
+        { "path": "assets/games/hot_majiang.avif", "usage": "麻将胡了（共用圖）" },
+        { "path": "assets/games/winner_1.avif", "usage": "中獎輪播縮圖 1" },
+        { "path": "assets/games/winner_2.avif", "usage": "中獎輪播縮圖 2" },
+        { "path": "assets/games/winner_3.avif", "usage": "中獎輪播縮圖 3" },
+        { "path": "assets/games/winner_4.avif", "usage": "中獎輪播縮圖 4" }
+      ]
+    },
+    "games/platforms": {
+      "count": 13,
+      "files": [
+        { "path": "assets/games/platforms/buyu_1.avif", "usage": "捕鱼平台圖 1" },
+        { "path": "assets/games/platforms/buyu_2.avif", "usage": "捕鱼平台圖 2" },
+        { "path": "assets/games/platforms/dianzi_1.avif", "usage": "电子平台圖 1" },
+        { "path": "assets/games/platforms/dianzi_2.avif", "usage": "电子平台圖 2" },
+        { "path": "assets/games/platforms/jdb-fish.avif", "usage": "JDB 捕鱼平台" },
+        { "path": "assets/games/platforms/pg-hot.avif", "usage": "PG 熱門平台" },
+        { "path": "assets/games/platforms/qipai_1.avif", "usage": "棋牌平台圖 1" },
+        { "path": "assets/games/platforms/qipai_2.avif", "usage": "棋牌平台圖 2" },
+        { "path": "assets/games/platforms/tiyu_1.avif", "usage": "体育平台圖 1" },
+        { "path": "assets/games/platforms/tiyu_2.avif", "usage": "体育平台圖 2" },
+        { "path": "assets/games/platforms/wg-fish.avif", "usage": "WG 捕鱼平台" },
+        { "path": "assets/games/platforms/zhenren_1.avif", "usage": "真人平台圖 1" },
+        { "path": "assets/games/platforms/zhenren_2.avif", "usage": "真人平台圖 2" }
+      ]
+    },
+    "icons": {
+      "count": 65,
+      "files": [
+        { "path": "assets/icons/18plus.avif", "usage": "18+ 牌照圖示" },
+        { "path": "assets/icons/btn_sc_off_2.avif", "usage": "收藏星 icon" },
+        { "path": "assets/icons/header-sprite.avif", "usage": "Header sprite" },
+        { "path": "assets/icons/jackpot-anim.webp", "usage": "Jackpot 動畫素材" },
+        { "path": "assets/icons/jackpot-bg.webp", "usage": "Jackpot 區背景" },
+        { "path": "assets/icons/logo.avif", "usage": "Header Logo" },
+        { "path": "assets/icons/telegram.avif", "usage": "Telegram 圖標 1" },
+        { "path": "assets/icons/telegram-2.avif", "usage": "Telegram 圖標 2" },
+        { "path": "assets/icons/icon_dtfl_rm_1.avif", "usage": "分類 Tab：热门" },
+        { "path": "assets/icons/icon_dtfl_by_1.avif", "usage": "分類 Tab：捕鱼" },
+        { "path": "assets/icons/icon_dtfl_dz_1.avif", "usage": "分類 Tab：电子" },
+        { "path": "assets/icons/icon_dtfl_qp_1.avif", "usage": "分類 Tab：棋牌" },
+        { "path": "assets/icons/icon_dtfl_zr_1.avif", "usage": "分類 Tab：真人" },
+        { "path": "assets/icons/icon_dtfl_ty_1.avif", "usage": "分類 Tab：体育" },
+        { "path": "assets/icons/icon_dtfl_cp_1.avif", "usage": "分類 Tab：彩票" },
+        { "path": "assets/icons/icon_dtfl_dianjing_1.avif", "usage": "分類 Tab：电竞" },
+        { "path": "assets/icons/icon_dtfl_douji_1.avif", "usage": "分類 Tab：斗鸡" },
+        { "path": "assets/icons/icon_dtfl_qkl_1.avif", "usage": "分類 Tab：区块链" },
+        { "path": "assets/icons/icon_dtfl_sw_1.avif", "usage": "分類 Tab：试玩" },
+        { "path": "assets/icons/icon_dtfl_zj_1.avif", "usage": "分類 Tab：最近" },
+        { "path": "assets/icons/icon_dtfl_sc_1.avif", "usage": "分類 Tab：收藏" },
+        { "path": "assets/icons/icon_btm_sy.avif", "usage": "Tab Bar：首页 (inactive)" },
+        { "path": "assets/icons/icon_btm_sy1.avif", "usage": "Tab Bar：首页 (active)" },
+        { "path": "assets/icons/icon_btm_tx.avif", "usage": "Tab Bar：提现/注册" },
+        { "path": "assets/icons/icon_btm_wd.avif", "usage": "Tab Bar：我的 (inactive)" },
+        { "path": "assets/icons/icon_btm_wd1.avif", "usage": "Tab Bar：我的 (active)" },
+        { "path": "assets/icons/icon_btm_yh.avif", "usage": "Tab Bar：优惠 (inactive)" },
+        { "path": "assets/icons/icon_btm_yh1.avif", "usage": "Tab Bar：优惠 (active)" },
+        { "path": "assets/icons/icon_dt_ss.avif", "usage": "Header：搜尋 icon" },
+        { "path": "assets/icons/icon_dt_1kf.avif", "usage": "Drawer：客服" },
+        { "path": "assets/icons/icon_dt_1tx.avif", "usage": "Drawer：提现" },
+        { "path": "assets/icons/icon_dt_1cz.avif", "usage": "Drawer：存款" },
+        { "path": "assets/icons/icon_dt_1yh.avif", "usage": "Drawer：活动" },
+        { "path": "assets/icons/icon_dt_1rw.avif", "usage": "Drawer：任务" },
+        { "path": "assets/icons/icon_dt_1fs.avif", "usage": "Drawer：返水" },
+        { "path": "assets/icons/icon_dt_1aqzx.avif", "usage": "Drawer：安全中心" },
+        { "path": "assets/icons/icon_dt_1app.avif", "usage": "Drawer：APP下载" },
+        { "path": "assets/icons/icon_dt_1sz.avif", "usage": "Drawer：个人资料" },
+        { "path": "assets/icons/icon_dt_1grbb.avif", "usage": "Drawer：个人报表" },
+        { "path": "assets/icons/icon_dt_1jl.avif", "usage": "Drawer：待领取" },
+        { "path": "assets/icons/icon_dt_1fx.avif", "usage": "Drawer：朋友圈" },
+        { "path": "assets/icons/icon_dt_1sw.avif", "usage": "Drawer：免费试玩" },
+        { "path": "assets/icons/icon_dt_1zwjz.avif", "usage": "Drawer：自我禁止" }
+      ]
+    }
+  }
+}

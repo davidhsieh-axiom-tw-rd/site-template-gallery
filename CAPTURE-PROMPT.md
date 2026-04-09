@@ -1,7 +1,7 @@
 # 版型擷取與復刻 — 標準作業提示詞
 
 > 每次擷取新版型時，把此文件內容作為 prompt 的一部分傳入。
-> 最後更新：2026-04-08
+> 最後更新：2026-04-09
 
 ---
 
@@ -31,9 +31,28 @@
 
 ### 佈局結構
 - **遊戲分類側邊欄**：貫穿整個遊戲區域（熱門 + 所有分類），`position: sticky`
-- **分類平台卡片**：全寬橫幅（一行一張），不是 3 列 grid
-- **熱門遊戲卡片**：3 列 grid，方形縮圖
+- **熱門遊戲卡片**：3 列 grid（個別遊戲，用 `background-image` 不是 `<img>`）
+- **平台遊戲卡片（捕鱼/电子/棋牌等）**：**2 列 grid**（平台卡片），不是 3 列
 - **底部 Tab Bar + Cookie Banner**：都要限制在 450px 居中
+
+### JACKPOT 區域
+- **`cjc1_style_2_bg.webp` 已包含所有裝飾**（魚、JACKPOT 文字、數字框），不要額外疊加
+- 只需在背景圖的數字框位置用 absolute positioning 放數字文字
+- **不要使用 `apng_icon_kyd.webp`**（那是幸運抽獎轉盤，不是 JACKPOT 裝飾）
+
+### Drawer 選單
+- **從原站實際打開 Drawer 截圖比對**，不要自己猜樣式
+- 用 `page.evaluate()` 提取選單 icon 的 `<img src="...">` URL 並下載
+- 原站 Drawer：深暗色背景、深暗色卡片、AVIF icon、無分隔線
+
+### 遊戲卡片結構
+- 原站用 `<div style="background-image: url(...)">` 不是 `<img>`
+- 卡片內有 `<section>` 放遊戲名稱（底部半透明遮罩）
+- 右上角收藏星星用 `background-image` 的 `<div>`
+
+### 活動 banner
+- 從 `active/ActiveImg*.avif` URL 下載真正的活動圖片
+- 不要用其他背景圖充當活動 banner
 
 ### 動態內容處理
 - Jackpot 數字、跑馬燈、中獎輪播是動態的，每次截圖都不同

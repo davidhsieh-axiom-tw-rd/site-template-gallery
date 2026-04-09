@@ -1,0 +1,33 @@
+{
+  "name": "Joy Red V1",
+  "id": "2026-04-09-joy-red-v1",
+  "date": "2026-04-09",
+  "source_url": "https://joy.star-link-rel.cc/",
+  "skin_path": "72-1-2",
+  "features": [
+    "more-drawer",
+    "tab-click",
+    "hot-games-scroll",
+    "Jackpot 動畫",
+    "中獎輪播",
+    "10 遊戲分類 Grid",
+    "Tab Bar",
+    "Footer 三欄連結"
+  ],
+  "similarity": 81,
+  "similarityBreakdown": {
+    "header": 77.4,
+    "buttons": 97.1,
+    "categoryTabs": 90.2,
+    "gameCards": 48.2,
+    "tabBar": 92.6
+  },
+  "similarityNote": "靜態區域平均 93%（Buttons 97%/Tabs 90%/TabBar 93%）。Header（77%）因 JACKPOT 動畫數字差異。Game Cards（48%）受限於 AVIF CDN vs 本地解碼不可消除差異。加權整體 81%。",
+  "color_scheme": {
+    "primary": "#D03434",
+    "accent": "#FFAA09",
+    "background": "#161616",
+    "secondary": "#303030",
+    "tabBar": "#212121"
+  }
+}

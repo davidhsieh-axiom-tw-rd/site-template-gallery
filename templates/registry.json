@@ -3,6 +3,7 @@
     {
       "id": "2026-04-07-joy-blue-v1",
       "name": "Joy Blue V1",
+      "alias": "綜合版1",
       "date": "2026-04-07",
       "description": "開元棋牌首頁 - 藍色主題（初版復刻）",
       "primaryColor": "#003BD5",
@@ -18,6 +19,7 @@
     {
       "id": "2026-04-08-joy-warm-v1",
       "name": "Joy Warm V1",
+      "alias": "電子版1",
       "date": "2026-04-08",
       "description": "開元棋牌首頁 - 暖橘棕色主題（山脈森林 header + 漸層棕背景）",
       "primaryColor": "#FF6F00",
@@ -43,6 +45,7 @@
     {
       "id": "2026-04-08-joy-dark-v1",
       "name": "Joy Dark V1",
+      "alias": "綜合版9",
       "date": "2026-04-08",
       "description": "開元棋牌首頁 - 暗色主題（深海軍藍 + 青色/金黃按鈕）",
       "primaryColor": "#1EFFD7",
@@ -61,6 +64,7 @@
     {
       "id": "2026-04-08-joy-neon-v1",
       "name": "Joy Neon V1",
+      "alias": "U版1",
       "date": "2026-04-08",
       "description": "開元棋牌首頁 - 霓虹藍主題（深海軍藍 + 亮藍按鈕 + 森林 header）",
       "primaryColor": "#0A69FF",
@@ -79,6 +83,34 @@
         "Jackpot 動畫",
         "中獎輪播",
         "7 遊戲分類 Grid",
+        "Tab Bar",
+        "Footer 三欄連結"
+      ]
+    },
+    {
+      "id": "2026-04-09-joy-red-v1",
+      "name": "Joy Red V1",
+      "alias": "綜合版10",
+      "date": "2026-04-09",
+      "description": "開元棋牌首頁 - 紅色主題（深黑背景 + 紅色按鈕 + 金黃強調 + 3 列 Grid）",
+      "primaryColor": "#D03434",
+      "similarity": 81,
+      "similarityNote": "靜態區域平均 93%（Buttons 97%/Tabs 90%/TabBar 93%）。Header（77%）因 JACKPOT 動畫數字差異。Game Cards（48%）受限於 AVIF CDN vs 本地解碼不可消除差異。加權整體 81%。",
+      "similarityBreakdown": {
+        "Header": 77.4,
+        "Buttons": 97.1,
+        "CategoryTabs": 90.2,
+        "GameCards": 48.2,
+        "TabBar": 92.6,
+        "method": "odiff --antialiasing --threshold 0.3"
+      },
+      "features": [
+        "more-drawer",
+        "tab-click",
+        "hot-games-scroll",
+        "Jackpot 動畫",
+        "中獎輪播",
+        "10 遊戲分類 Grid",
         "Tab Bar",
         "Footer 三欄連結"
       ]
