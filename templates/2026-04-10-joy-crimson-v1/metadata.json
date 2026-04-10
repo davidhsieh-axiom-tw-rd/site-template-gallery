@@ -1,0 +1,31 @@
+{
+  "name": "Joy Crimson V1",
+  "id": "2026-04-10-joy-crimson-v1",
+  "date": "2026-04-10",
+  "source_url": "https://joy.star-link-rel.cc/",
+  "skin_path": "5-1-1",
+  "features": [
+    "more-overlay",
+    "tab-click",
+    "Jackpot animation",
+    "winner ticker",
+    "sidebar categories (13)",
+    "3-col hot games grid",
+    "full-width platform cards",
+    "Tab Bar with bg image",
+    "Footer 3-column links"
+  ],
+  "similarity": null,
+  "similarityNote": "Pending visual comparison after screenshot capture.",
+  "color_scheme": {
+    "primary": "#FFE44D",
+    "accent_gold": "#FFAA09",
+    "accent_crimson": "#6F000D",
+    "background_1": "#300101",
+    "background_2": "#130606",
+    "background_3": "#4a0f0f",
+    "text_primary": "#E39197",
+    "text_secondary": "rgba(227,145,151,0.6)",
+    "tabBar_bg": "img_db_dt_btm.avif"
+  }
+}

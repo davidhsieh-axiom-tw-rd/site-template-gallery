@@ -443,6 +443,39 @@ t3_zip_completeness() {
       log_fail "telegram.avif 格式錯誤: $ftypetg"
     fi
   fi
+
+  # ══════════════════════════════════════════════
+  # 以下為 2026-04-10 session 新增的回歸測試
+  # ══════════════════════════════════════════════
+
+  # ── T3-R10: 含 banner 版型的非熱門區不應有 game-grid ──
+  # 如果版型使用 platform-banner-card（橫幅佈局），
+  # 非熱門區不應混入 game-grid-2col/3col 的個別遊戲卡片
+  if grep -q "platform-banner-card" "$extract_dir/$tid/index.html"; then
+    # 找出 platform-banner-card 後面是否跟著 game-grid（在同一個 platform-section 內）
+    # 簡化檢查：banner 版型中 game-grid 只應出現在 #platform-hot 區塊
+    local grid_in_body_count
+    grid_in_body_count=$(grep -c 'class="game-grid-[23]col"' "$extract_dir/$tid/index.html" || echo "0")
+    if [ "$grid_in_body_count" -le 1 ]; then
+      log_pass "Banner 版型：非熱門區無混入 game-grid ($grid_in_body_count 處 grid，僅熱門區)"
+    else
+      log_fail "Banner 版型：非熱門區混入 game-grid（$grid_in_body_count 處，應 ≤ 1）"
+    fi
+  fi
+
+  # ── T3-R11: 橫幅卡片遊戲圖來自 banners/ 目錄 ──
+  # platform-banner-game 的圖片不應用熱門區的 game-*.avif，
+  # 應來自 platforms/banners/ 目錄
+  if grep -q "platform-banner-game" "$extract_dir/$tid/index.html"; then
+    local wrong_banner_img
+    wrong_banner_img=$(grep "platform-banner-game" "$extract_dir/$tid/index.html" | grep -c "assets/games/game-" 2>/dev/null; true)
+    wrong_banner_img=$(echo "$wrong_banner_img" | tr -d '[:space:]')
+    if [ -z "$wrong_banner_img" ] || [ "$wrong_banner_img" = "0" ]; then
+      log_pass "橫幅卡片遊戲圖正確（未使用熱門區 game-*.avif）"
+    else
+      log_fail "橫幅卡片有 $wrong_banner_img 張使用了錯誤的 game-*.avif 圖片"
+    fi
+  fi
 }
 
 t4_zip_renders() {

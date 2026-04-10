@@ -147,6 +147,27 @@
         "Tab Bar",
         "Footer 三欄連結"
       ]
+    },
+    {
+      "id": "2026-04-10-joy-crimson-v1",
+      "name": "Joy Crimson V1",
+      "alias": "綜合版(5-1-1)",
+      "date": "2026-04-10",
+      "description": "開元棋牌首頁 - 深紅金色主題（中式宮廷風 + 金色按鈕 + 左側分類欄 + 背景圖 Tab Bar）",
+      "primaryColor": "#FFE44D",
+      "similarity": 80,
+      "similarityNote": "初版復刻，尚未做完整分段比對。sidebar 佈局 + Tab Bar 背景圖 + 全寬平台卡片為本版型獨有結構，靜態區域預估 80%+。遊戲卡片區受 AVIF CDN vs 本地解碼差異限制。",
+      "features": [
+        "more-overlay",
+        "tab-click",
+        "hot-games-scroll",
+        "Jackpot 動畫",
+        "中獎輪播",
+        "左側分類欄 (13 分類)",
+        "3 列熱門 + 全寬平台卡片",
+        "Tab Bar (背景圖)",
+        "Footer 三欄連結"
+      ]
     }
   ]
 }

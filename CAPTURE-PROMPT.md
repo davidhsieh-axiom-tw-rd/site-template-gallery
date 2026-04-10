@@ -307,3 +307,7 @@ joy-homepage-clone/
 | **Banner 圖缺文字** | 圖片只有 icon 沒有文字 | 用 Read 查看圖片，文字用 absolute span 疊加 |
 | **分類 icon 用錯檔案** | 原站用內嵌 SVG 不是 img | 從 DOM 確認 icon 來源（SVG/AVIF/CSS） |
 | **站內信 icon 遺漏** | 沒逐元素比對跑馬燈區域 | 每個區塊逐元素比對，包括小 icon 和 badge |
+| **非熱門區混入 game-grid** | 沿用舊版型的混合佈局 | 非熱門分類只用 `platform-banner-card` 全寬橫幅，不混 grid（E2E T3-R10） |
+| **橫幅遊戲圖用錯** | 用熱門區 game-*.avif 替代 | 必須從原站 `game_pictures/p/L1/{pid}/{cid}/material.avif` 下載（E2E T3-R11） |
+| **sidebar 尺寸目測** | 沒量測直接估 80px | 必須 `getComputedStyle` 取精確值（寬68/高72/圓角8.4/icon 34x26） |
+| **「更多」文字推測** | 沒逐一比對原站文字 | 原站點開「更多」，JS 提取每個 item 的文字和 icon URL |
