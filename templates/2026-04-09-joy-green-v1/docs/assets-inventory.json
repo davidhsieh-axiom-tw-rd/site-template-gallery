@@ -1,0 +1,100 @@
+{
+  "template": "Joy Green V1",
+  "date": "2026-04-09",
+  "skin_path": "63-1-1",
+  "total_assets": 72,
+  "categories": {
+    "bg": {
+      "count": 13,
+      "files": [
+        { "path": "assets/bg/bg-tile.avif", "usage": "Background tile pattern" },
+        { "path": "assets/bg/cjc1_style_1_font_sprite.avif", "usage": "JACKPOT text sprite" },
+        { "path": "assets/bg/cjc1_style_2_bg.webp", "usage": "JACKPOT area background" },
+        { "path": "assets/bg/winner-forest.avif", "usage": "Winner section background image" },
+        { "path": "assets/bg/activity-1.avif", "usage": "Promo banner 1" },
+        { "path": "assets/bg/activity-2.avif", "usage": "Promo banner 2" },
+        { "path": "assets/bg/activity-3.avif", "usage": "Promo banner 3" },
+        { "path": "assets/bg/activity-4.avif", "usage": "Promo banner 4" },
+        { "path": "assets/bg/activity-5.avif", "usage": "Promo banner 5" },
+        { "path": "assets/bg/activity-6.avif", "usage": "Promo banner 6" },
+        { "path": "assets/bg/activity-7.avif", "usage": "Promo banner 7" },
+        { "path": "assets/bg/activity-8.avif", "usage": "Promo banner 8" },
+        { "path": "assets/bg/activity-9.avif", "usage": "Promo banner 9" }
+      ]
+    },
+    "games": {
+      "count": 20,
+      "files": [
+        { "path": "assets/games/game-552180.avif", "usage": "Game card image" },
+        { "path": "assets/games/game-310174.avif", "usage": "Game card image" },
+        { "path": "assets/games/game-3029.avif", "usage": "Game card image" },
+        { "path": "assets/games/game-2000065.avif", "usage": "Game card image" },
+        { "path": "assets/games/game-2000074.avif", "usage": "Game card image" },
+        { "path": "assets/games/game-10060035.avif", "usage": "Game card image" },
+        { "path": "assets/games/game-2000084.avif", "usage": "Game card image" },
+        { "path": "assets/games/game-3100003.avif", "usage": "Game card image" },
+        { "path": "assets/games/game-2000135.avif", "usage": "Game card image" },
+        { "path": "assets/games/game-2000087.avif", "usage": "Game card image" },
+        { "path": "assets/games/game-750103.avif", "usage": "Game card image" },
+        { "path": "assets/games/game-3100004.avif", "usage": "Game card image" },
+        { "path": "assets/games/game-2000104.avif", "usage": "Game card image" },
+        { "path": "assets/games/game-2000067.avif", "usage": "Game card image" },
+        { "path": "assets/games/game-2000054.avif", "usage": "Game card image" },
+        { "path": "assets/games/hot_majiang.avif", "usage": "Mahjong game (shared)" },
+        { "path": "assets/games/winner_1.avif", "usage": "Winner ticker thumbnail 1" },
+        { "path": "assets/games/winner_2.avif", "usage": "Winner ticker thumbnail 2" },
+        { "path": "assets/games/winner_3.avif", "usage": "Winner ticker thumbnail 3" },
+        { "path": "assets/games/winner_4.avif", "usage": "Winner ticker thumbnail 4" }
+      ]
+    },
+    "games/platforms": {
+      "count": 13,
+      "files": [
+        { "path": "assets/games/platforms/buyu_1.avif", "usage": "Fishing platform 1" },
+        { "path": "assets/games/platforms/buyu_2.avif", "usage": "Fishing platform 2" },
+        { "path": "assets/games/platforms/dianzi_1.avif", "usage": "Slot platform 1" },
+        { "path": "assets/games/platforms/dianzi_2.avif", "usage": "Slot platform 2" },
+        { "path": "assets/games/platforms/jdb-fish.avif", "usage": "JDB fishing platform" },
+        { "path": "assets/games/platforms/pg-hot.avif", "usage": "PG hot platform" },
+        { "path": "assets/games/platforms/qipai_1.avif", "usage": "Chess platform 1" },
+        { "path": "assets/games/platforms/qipai_2.avif", "usage": "Chess platform 2" },
+        { "path": "assets/games/platforms/tiyu_1.avif", "usage": "Sports platform 1" },
+        { "path": "assets/games/platforms/tiyu_2.avif", "usage": "Sports platform 2" },
+        { "path": "assets/games/platforms/wg-fish.avif", "usage": "WG fishing platform" },
+        { "path": "assets/games/platforms/zhenren_1.avif", "usage": "Live casino platform 1" },
+        { "path": "assets/games/platforms/zhenren_2.avif", "usage": "Live casino platform 2" }
+      ]
+    },
+    "icons": {
+      "count": 26,
+      "files": [
+        { "path": "assets/icons/18plus.avif", "usage": "18+ compliance icon" },
+        { "path": "assets/icons/btn_sc_off_2.avif", "usage": "Fav star icon" },
+        { "path": "assets/icons/logo.avif", "usage": "Header logo" },
+        { "path": "assets/icons/telegram.avif", "usage": "Telegram icon 1" },
+        { "path": "assets/icons/telegram-2.avif", "usage": "Telegram icon 2" },
+        { "path": "assets/icons/icon_dtfl_rm_1.avif", "usage": "Category: Hot" },
+        { "path": "assets/icons/icon_dtfl_by_1.avif", "usage": "Category: Fishing" },
+        { "path": "assets/icons/icon_dtfl_dz_1.avif", "usage": "Category: Slots" },
+        { "path": "assets/icons/icon_dtfl_qp_1.avif", "usage": "Category: Chess" },
+        { "path": "assets/icons/icon_dtfl_zr_1.avif", "usage": "Category: Live" },
+        { "path": "assets/icons/icon_dtfl_ty_1.avif", "usage": "Category: Sports" },
+        { "path": "assets/icons/icon_dtfl_cp_1.avif", "usage": "Category: Lottery" },
+        { "path": "assets/icons/icon_dtfl_dianjing_1.avif", "usage": "Category: Esports" },
+        { "path": "assets/icons/icon_dtfl_douji_1.avif", "usage": "Category: Cockfight" },
+        { "path": "assets/icons/icon_dtfl_qkl_1.avif", "usage": "Category: Blockchain" },
+        { "path": "assets/icons/icon_dtfl_sw_1.avif", "usage": "Category: Trial" },
+        { "path": "assets/icons/icon_dtfl_zj_1.avif", "usage": "Category: Recent" },
+        { "path": "assets/icons/icon_dtfl_sc_1.avif", "usage": "Category: Favorites" },
+        { "path": "assets/icons/menu_lang.avif", "usage": "Drawer: Language icon" },
+        { "path": "assets/icons/pay-custom.png", "usage": "Payment: custom" },
+        { "path": "assets/icons/pay-finance1.avif", "usage": "Payment: finance 1" },
+        { "path": "assets/icons/pay-bank.png", "usage": "Payment: bank" },
+        { "path": "assets/icons/pay-huione.png", "usage": "Payment: Huione" },
+        { "path": "assets/icons/pay-zfb.png", "usage": "Payment: Alipay" },
+        { "path": "assets/icons/pay-siyu.png", "usage": "Payment: SiYu" },
+        { "path": "assets/icons/pay-finance2.avif", "usage": "Payment: finance 2" }
+      ]
+    }
+  }
+}

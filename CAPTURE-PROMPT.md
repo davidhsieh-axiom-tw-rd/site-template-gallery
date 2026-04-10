@@ -239,6 +239,11 @@ joy-homepage-clone/
 5. **icon 必須從原站提取**：SVG path / image URL 直接複製，絕對不用通用 icon library。複雜 SVG（多層 transform）用 Canvas 渲染成 PNG
 6. **精確量測**：用 `page.evaluate()` + `getBoundingClientRect()` + `getComputedStyle()` 量測每個元素
 7. **擷取底部內容**：滾到最底部，擷取 footer 區域（三欄連結、牌照合規、联系我们等）
+8. **點擊「更多」tab 截圖**：必須在原站上實際點擊 Tab bar 的「更多」，截取完整的「更多」選單頁面，確認是 drawer / overlay / 全頁覆蓋哪種形式
+9. **逐段截圖**：從頂部到底部每 viewport 高度一張截圖（共 ~7 張），作為復刻比對參考
+10. **不要沿用舊版型結構**：每個版型必須獨立從原站確認所有區塊，不能從舊版型「複製貼上」。特別注意底部：有些版型有活動 banner / 付款方式，有些沒有
+11. **平台區列數以原站為準**：不同版型的遊戲平台區可能是 2 列或 3 列，必須從原站確認
+12. **Banner 圖片文字確認**：下載 banner 圖片後用 Read 工具查看，確認文字是否已嵌入圖片。若只有 icon 沒有文字，需額外疊加 `<span>` 文字
 
 ## 下載 assets 必做
 
@@ -295,3 +300,10 @@ joy-homepage-clone/
 | **圓角差 4px** | 目測 10px 實際 14.4px | 必須精確量測，不目測 |
 | **E2E grep 失敗** | class 名稱不符 | 先讀 `e2e-verify.sh` 確認需要哪些 class：`platform-section`、`footer-links`/`footer-col`、`Flutter:` 註解 |
 | **自我禁止 icon 錯誤** | 根據文字猜 icon 形狀 | 每個 icon 跟原站截圖逐一比對 |
+| **底部多了活動/付款** | 從舊版型複製，原站沒有 | 滾到底確認原站實際結構，不沿用舊版型 |
+| **平台區 2 列 vs 3 列** | 假設跟舊版型一樣 | 每個版型獨立確認列數 |
+| **「更多」做成 drawer** | 沒點原站「更多」確認行為 | 必須實際點擊確認是 drawer/overlay/全頁 |
+| **Tab click handler 衝突** | openDrawer 被 closeDrawer 立即覆蓋 | 通用 tab handler 要排除「更多」tab |
+| **Banner 圖缺文字** | 圖片只有 icon 沒有文字 | 用 Read 查看圖片，文字用 absolute span 疊加 |
+| **分類 icon 用錯檔案** | 原站用內嵌 SVG 不是 img | 從 DOM 確認 icon 來源（SVG/AVIF/CSS） |
+| **站內信 icon 遺漏** | 沒逐元素比對跑馬燈區域 | 每個區塊逐元素比對，包括小 icon 和 badge |

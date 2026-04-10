@@ -114,6 +114,39 @@
         "Tab Bar",
         "Footer 三欄連結"
       ]
+    },
+    {
+      "id": "2026-04-09-joy-green-v1",
+      "name": "Joy Green V1",
+      "alias": "綜合版11",
+      "date": "2026-04-09",
+      "description": "開元棋牌首頁 - 綠色主題（深灰藍背景 + 綠色按鈕 + 粉紅強調 + 搜索欄）",
+      "primaryColor": "#0AB76B",
+      "similarity": 93,
+      "similarityNote": "靜態區域加權平均 93%：SearchBar 99%/Footer 96%/TabBar 96%/CategoryTabs 95%/HotGamesTitle 95%/Compliance 94% 達標。Header 88%（logo 渲染差異）。Drawer 87%（原站 banner 圖片）。已移除原站不存在的活動 banner/付款方式/熱門推薦。平台區 3 列 Grid。E2E 34/34 PASS。",
+      "similarityBreakdown": {
+        "SearchBar": 99.5,
+        "FooterLinks": 96.3,
+        "TabBar": 95.7,
+        "CategoryTabs": 95.4,
+        "HotGamesTitle": 95.0,
+        "Compliance": 93.8,
+        "Header": 88.3,
+        "Drawer": 86.6,
+        "GameCards": "excluded (AVIF CDN vs local decoding limitation)",
+        "method": "odiff --antialiasing --threshold 0.3, 450x900 viewport, element-aligned crops, dialogs removed, lazy content fully loaded"
+      },
+      "features": [
+        "more-drawer",
+        "tab-click",
+        "hot-games-scroll",
+        "Jackpot 動畫",
+        "中獎輪播",
+        "搜索欄",
+        "10 遊戲分類 Grid",
+        "Tab Bar",
+        "Footer 三欄連結"
+      ]
     }
   ]
 }

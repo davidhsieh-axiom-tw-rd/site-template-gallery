@@ -1,0 +1,1752 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<title>JOY - Green V1</title>
+<style>
+/* ============================================
+   CSS Reset & Variables
+   Flutter Token mapping: docs/flutter-token-mapping.md
+   ============================================ */
+:root {
+  /* Flutter: brandPrimary50 -> Color(0xFF0AB76B) */
+  --skin-primary: #0AB76B;
+  /* Flutter: statusWarning -> gold accent (kept) */
+  --skin-accent-gold: #FFAA09;
+  /* Flutter: event-luck-wheel-silver -> blue accent (kept) */
+  --skin-accent-blue: #1672F2;
+  /* Flutter: disabled-bg-color -> grey */
+  --skin-disabled: #999;
+  /* Flutter: brandPrimary10 -> deep grey-blue */
+  --skin-bg-1: #292D3B;
+  /* Flutter: brandPrimary20 -> deeper grey-blue */
+  --skin-bg-2: #212430;
+  /* Flutter: colorNeutral30 -> slightly lighter */
+  --skin-bg-3: #353A4A;
+
+  /* Flutter: surfaceBackground */
+  --body-bg: #e8e8e8;
+  /* Flutter: brandPrimary10 -> same as skin-bg-1 */
+  --page-bg: #292D3B;
+  --header-height: 50px;
+  --tab-bar-height: 74px; /* Original site measured: 74px */
+  /* Flutter: colorNeutral15 -> semi-transparent deep card */
+  --card-bg: rgba(33, 36, 48, 0.85);
+  --card-radius: 8.4px;
+  /* Flutter: colorNeutral90 */
+  --text-primary: #FFFFFF;
+  /* Flutter: colorNeutral60 -> neutral grey */
+  --text-secondary: rgba(171, 175, 187, 1);
+  --animation-state: running;
+
+  /* Skin CSS vars */
+  --skin__event-luck-wheel-gold__custom: #ffaa09;
+  --skin__event-luck-wheel-silver__custom: #1672f2;
+  --skin__disabled-bg-color__custom: #999;
+  --tabbar-height: 1.46rem;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--body-bg);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Roboto, sans-serif;
+  color: var(--text-primary);
+  line-height: 1.3;
+  padding-bottom: var(--tab-bar-height);
+  overflow-x: hidden;
+  position: relative;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* ============================================
+   Page wrapper
+   ============================================ */
+.page {
+  max-width: 450px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: var(--page-bg);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* ============================================
+   1. Header (50px)
+   Green: logo + "GAMING / www.188.com" left, register+login buttons right
+   ============================================ */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+  padding: 0 12px;
+  background: var(--skin-bg-2);
+  position: relative;
+  z-index: 100;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-hamburger {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.header-hamburger span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 1px;
+}
+
+.header-logo {
+  height: 28px;
+  object-fit: contain;
+}
+
+.header-brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.header-brand-text .brand-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 2px;
+}
+
+.header-brand-text .brand-url {
+  font-size: 10px;
+  color: var(--text-secondary);
+  letter-spacing: 0.5px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-btn-register {
+  padding: 6px 16px;
+  border-radius: 20px;
+  background: var(--skin-primary);
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.header-btn-login {
+  padding: 6px 16px;
+  border-radius: 20px;
+  background: transparent;
+  color: var(--skin-primary);
+  font-size: 13px;
+  font-weight: 600;
+  border: 1.5px solid var(--skin-primary);
+  cursor: pointer;
+}
+
+/* ============================================
+   2. JACKPOT animation area
+   ============================================ */
+.jackpot-section {
+  position: relative;
+  height: 98px;
+  margin: 0;
+  overflow: hidden;
+  background: #0a0a2e url('assets/bg/cjc1_style_2_bg.webp') center / contain no-repeat;
+}
+
+.jackpot-decor-left,
+.jackpot-decor-right {
+  display: none;
+}
+
+.jackpot-label-wrap,
+.jackpot-label-img {
+  display: none;
+}
+
+.jackpot-number-box {
+  display: contents;
+}
+
+.jackpot-content {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.jackpot-number {
+  font-size: 26px;
+  font-weight: 900;
+  color: #b71c1c;
+  letter-spacing: 5px;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.4);
+  white-space: nowrap;
+}
+
+/* ============================================
+   3. Marquee
+   ============================================ */
+.marquee-bar {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  padding: 0 12px;
+  margin: 0;
+  background: var(--skin-bg-1);
+  gap: 8px;
+}
+
+.marquee-icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--skin-accent-gold);
+}
+
+.marquee-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.marquee-content {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  height: 32px;
+}
+
+.marquee-text {
+  position: absolute;
+  white-space: nowrap;
+  font-size: 12px;
+  color: var(--text-secondary);
+  animation: marquee-scroll 20s linear infinite;
+  animation-play-state: var(--animation-state);
+  line-height: 32px;
+}
+
+@keyframes marquee-scroll {
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* ============================================
+   3b. Search bar (below marquee)
+   ============================================ */
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin: 8px 12px;
+  padding: 8px 14px;
+  background: var(--skin-bg-2);
+  border-radius: 24px;
+  gap: 8px;
+}
+
+.search-bar-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+
+.search-bar-placeholder {
+  font-size: 13px;
+  color: rgba(171, 175, 187, 0.5);
+}
+
+/* ============================================
+   4. Winner Cards (sky-blue gradient background)
+   ============================================ */
+.winner-section {
+  position: relative;
+  height: 84px;
+  margin: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.winner-section-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  /* Sky-blue gradient for Green theme */
+  background: linear-gradient(135deg, #1a3a5c 0%, #1e5a8a 40%, #2a7ab5 70%, #3d9cd4 100%);
+}
+
+.winner-section-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.winner-scroll-wrap {
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.winner-scroll {
+  display: flex;
+  gap: 10px;
+  animation: winner-scroll 25s linear infinite;
+  animation-play-state: var(--animation-state);
+  width: max-content;
+  padding: 0 10px;
+  align-items: center;
+}
+
+@keyframes winner-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.winner-card {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 20px;
+  padding: 6px 12px 6px 6px;
+  gap: 8px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.winner-card-thumb {
+  width: 37px;
+  height: 49px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: var(--skin-bg-2);
+  flex-shrink: 0;
+}
+
+.winner-card-info {
+  font-size: 11px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.winner-card-info .highlight {
+  color: var(--skin-accent-gold);
+  font-weight: 600;
+}
+
+.winner-card-arrow {
+  color: var(--text-secondary);
+  font-size: 10px;
+  margin-left: 2px;
+}
+
+/* ============================================
+   5. Category Tabs (green circular icons)
+   ============================================ */
+.category-tabs {
+  display: flex;
+  overflow-x: auto;
+  gap: 0;
+  padding: 12px 8px 6px;
+  background: var(--skin-bg-1);
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.category-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.category-tab {
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+  border-radius: 8.4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+  background: transparent;
+}
+
+.category-tab.active {
+  background: transparent;
+}
+
+.category-tab.active span {
+  color: rgb(19, 200, 121);
+}
+
+.category-tab .cat-icon-wrap {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(10, 183, 107, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.category-tab.active .cat-icon-wrap {
+  background: rgba(19, 200, 121, 0.9);
+}
+
+.category-tab .cat-icon-wrap img {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+}
+
+.category-tab span {
+  font-size: 14.4px;
+  color: rgb(115, 119, 135);
+  white-space: nowrap;
+}
+
+/* ============================================
+   6. Game Grid -- 3-col (hot) / 2-col (platform)
+   ============================================ */
+.platform-section-wrapper {
+  padding: 0 8px;
+  background: var(--skin-bg-1);
+}
+
+.platform-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 8px 8px;
+}
+
+.platform-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.platform-header-left img {
+  width: 31px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.platform-header-left span {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.platform-header-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.platform-header-right .arrow-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--skin-bg-3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.platform-subtitle {
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+  padding: 0 8px 6px;
+}
+
+.game-grid-3col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 0 0 4px;
+}
+
+.game-grid-2col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 0 0 4px;
+}
+
+.game-card-border {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  aspect-ratio: 133 / 178;
+  background-color: var(--skin-bg-2);
+}
+
+.game-card-name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 6px 8px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.75));
+  display: flex;
+  align-items: flex-end;
+}
+
+.game-card-name h4 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.game-card-fav {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 31px;
+  height: 31px;
+  background: url('assets/icons/btn_sc_off_2.avif') center / contain no-repeat;
+  opacity: 0.8;
+  z-index: 2;
+}
+
+.load-more-btn {
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 13px;
+  color: var(--skin-primary);
+  background: transparent;
+  border: 1px solid rgba(10, 183, 107, 0.3);
+  border-radius: 8px;
+  margin: 4px 0 12px;
+  cursor: pointer;
+}
+
+.load-more-btn:hover {
+  background: rgba(10, 183, 107, 0.1);
+}
+
+/* ============================================
+   7. Hot Games Scroll (two-row scroll)
+   ============================================ */
+.hot-games-container {
+  overflow: hidden;
+  padding: 0 8px 12px;
+  background: var(--skin-bg-1);
+}
+
+.hot-games-track {
+  display: flex;
+  gap: 8px;
+  animation: hot-games-scroll 30s linear infinite;
+  animation-play-state: var(--animation-state);
+  width: max-content;
+}
+
+@keyframes hot-games-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.hot-games-track .game-card-border {
+  flex-shrink: 0;
+  width: 100px;
+  height: 134px;
+  aspect-ratio: auto;
+}
+
+/* ============================================
+   8. Promo Banners
+   ============================================ */
+.promo-banners {
+  overflow-x: auto;
+  display: flex;
+  gap: 8px;
+  padding: 12px 8px;
+  background: var(--skin-bg-1);
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.promo-banners::-webkit-scrollbar {
+  display: none;
+}
+
+.promo-banner-card {
+  flex-shrink: 0;
+  width: 280px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.promo-banner-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* ============================================
+   8b. Payment Methods
+   ============================================ */
+.payment-methods {
+  background: var(--skin-bg-1);
+  padding: 16px;
+  text-align: center;
+}
+
+.payment-methods h3 {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+  font-weight: 400;
+}
+
+.payment-icons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.pay-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: var(--skin-bg-3);
+  border-radius: 50%;
+  font-size: 16px;
+  color: var(--text-secondary);
+  overflow: hidden;
+}
+
+.pay-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ============================================
+   9. Footer
+   ============================================ */
+.footer {
+  background: var(--skin-bg-1);
+  padding: 20px 16px;
+  margin-top: 0;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.footer-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-nav-group h4 {
+  font-size: 16.8px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.footer-nav-group a {
+  display: block;
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  padding: 3px 0;
+}
+
+.footer-nav-group a:hover {
+  color: var(--skin-primary);
+}
+
+.footer-compliance {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-compliance-text {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.footer-compliance img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.footer-compliance .self-ban {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--skin-primary);
+  cursor: pointer;
+}
+
+.footer-compliance .self-ban svg {
+  width: 16px;
+  height: 16px;
+}
+
+.footer-contact {
+  padding-top: 14px;
+}
+
+.footer-contact h4 {
+  font-size: 16.8px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.footer-contact-items {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.footer-contact-item img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(10, 183, 107, 0.2);
+}
+
+.footer-contact-item span {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   10. Bottom Tab Bar (74px)
+   Green: more/home/login/register/profile
+   ============================================ */
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 450px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: var(--skin-bg-2);
+  box-shadow: 0 -1px 6px rgba(0,0,0,0.3);
+  padding: 4px 0 calc(4px + env(safe-area-inset-bottom, 0px));
+  z-index: 200;
+  height: var(--tab-bar-height);
+}
+
+.tab-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+  flex: 1;
+  padding: 4px 0;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+}
+
+.tab-item * {
+  pointer-events: none;
+}
+
+.tab-item img,
+.tab-item svg.tab-icon {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.tab-item svg.tab-icon {
+  fill: #FFFFFF;
+}
+
+.tab-item.active svg.tab-icon {
+  fill: #0AB76B;
+}
+
+.tab-item .tab-glow {
+  display: none;
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 56px;
+  height: 56px;
+  background: radial-gradient(circle, rgba(10,183,107,0.35) 0%, rgba(10,183,107,0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.tab-item.active .tab-glow {
+  display: block;
+}
+
+.tab-item span {
+  font-size: 14.4px;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+.tab-item.active span {
+  color: var(--skin-primary);
+  font-weight: 600;
+}
+
+/* ============================================
+   11. More Drawer -- full page overlay
+   ============================================ */
+.more-drawer-backdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 450px;
+  height: 100vh;
+  z-index: 180;
+  background: transparent;
+}
+
+.more-drawer-backdrop.active {
+  display: block;
+}
+
+.more-drawer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--skin-bg-1);
+  overflow-y: auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Drawer top bar: logo + close */
+.drawer-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 16px 8px;
+}
+
+.drawer-close-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  color: #e0e0e0;
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* Drawer banner cards */
+.drawer-banner-area {
+  padding: 8px 16px;
+}
+
+.drawer-promo-row {
+  display: flex;
+  gap: 10px;
+  padding: 8px 16px;
+}
+
+/* Drawer Menu -- card style */
+.drawer-menu-card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+  margin: 16px 16px 0;
+  overflow: hidden;
+}
+
+.drawer-menu-card + .drawer-menu-card {
+  margin-top: 12px;
+}
+
+.drawer-menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  cursor: pointer;
+  color: #e0e0e0;
+  font-size: 16px;
+  gap: 12px;
+  border-bottom: none;
+}
+
+.drawer-menu-item:last-child {
+  border-bottom: none;
+}
+
+.drawer-menu-item:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+.drawer-menu-item .menu-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.drawer-menu-item .menu-arrow {
+  color: #666;
+  font-size: 20px;
+}
+
+/* E2E hidden sub-menu containers */
+.more-drawer-item {
+  display: none;
+}
+
+.more-drawer-sub {
+  display: none;
+  padding-left: 0;
+}
+
+.more-drawer-sub.open {
+  display: block;
+}
+
+.more-drawer-sub-item {
+  display: block;
+}
+
+.more-drawer-item img,
+.more-drawer-sub-item img {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+/* ============================================
+   Freeze Mode (activated via ?freeze=true)
+   ============================================ */
+body.freeze-mode * {
+  animation-play-state: paused !important;
+  transition: none !important;
+}
+
+body.freeze-mode .marquee-text {
+  animation: none !important;
+  position: static !important;
+  white-space: normal !important;
+}
+
+body.freeze-mode .winner-scroll {
+  animation: none !important;
+}
+
+body.freeze-mode .hot-games-track {
+  animation: none !important;
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ==========================================
+       1. Header (50px) - Green layout
+       ========================================== -->
+  <header class="header">
+    <div class="header-left">
+      <img class="header-logo"
+           src="assets/icons/logo.avif"
+           alt="GAMING www.188.com"
+           style="height: 34px; width: auto;">
+    </div>
+    <div class="header-right">
+      <button class="header-btn-register">注册</button>
+      <button class="header-btn-login">登录</button>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       2. JACKPOT animation area
+       ========================================== -->
+  <section class="jackpot-section">
+    <img class="jackpot-decor-left" src="assets/icons/apng_icon_kyd.webp" alt="decor left"
+         onerror="this.src='assets/icons/jackpot-anim.webp'">
+    <img class="jackpot-decor-right" src="assets/icons/apng_icon_kyd.webp" alt="decor right"
+         onerror="this.src='assets/icons/jackpot-anim.webp'">
+    <div class="jackpot-content">
+      <div class="jackpot-label-wrap">
+        <img class="jackpot-label-img" src="assets/bg/cjc1_style_1_font_sprite.avif" alt="JACKPOT">
+      </div>
+      <div class="jackpot-number-box">
+        <div class="jackpot-number" id="jackpotNumber">10,702,017</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       3. Marquee
+       ========================================== -->
+  <div class="marquee-bar">
+    <div class="marquee-icon">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+      </svg>
+    </div>
+    <div class="marquee-content">
+      <span class="marquee-text">&#129511;&#22235;&#26376;&#24320;&#22987;&#20102;&#22823;&#23478;&#21152;&#27833;&#65281;&#26368;&#26032;&#27963;&#21160;&#24050;&#32463;&#19978;&#32447;&#65292;&#35831;&#31215;&#26497;&#21442;&#19982;&#65281;</span>
+    </div>
+    <div class="marquee-mail" style="flex-shrink:0;position:relative;margin-left:4px;cursor:pointer;">
+      <img src="assets/icons/icon_mail.avif" alt="站内信" style="width:28px;height:24px;object-fit:contain;">
+      <span style="position:absolute;top:-6px;right:-8px;background:#F84673;color:#fff;font-size:10px;font-weight:600;min-width:16px;height:16px;line-height:16px;text-align:center;border-radius:8px;padding:0 3px;">10</span>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       3b. Search bar
+       ========================================== -->
+  <div class="search-bar">
+    <svg class="search-bar-icon" viewBox="0 0 24 24" fill="currentColor" style="color: rgba(171,175,187,0.5);">
+      <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+    </svg>
+    <span class="search-bar-placeholder">搜索游戏</span>
+  </div>
+
+  <!-- ==========================================
+       4. Winner section (sky-blue gradient)
+       ========================================== -->
+  <section class="winner-section">
+    <div class="winner-section-bg">
+      <img src="assets/bg/winner-forest.avif" alt="winner background">
+    </div>
+    <div class="winner-scroll-wrap">
+      <div class="winner-scroll" id="winnerScroll">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       5. Category Tabs (green circular icons)
+       ========================================== -->
+  <div class="category-tabs" id="categoryTabs">
+    <div class="category-tab active" data-category="hot">
+      <div class="cat-icon-wrap"><img src="assets/icons/svg-cat-hot.png" alt="热门"></div>
+      <span>热门</span>
+    </div>
+    <div class="category-tab" data-category="fish">
+      <div class="cat-icon-wrap"><img src="assets/icons/svg-cat-fish.png" alt="捕鱼"></div>
+      <span>捕鱼</span>
+    </div>
+    <div class="category-tab" data-category="slot">
+      <div class="cat-icon-wrap"><img src="assets/icons/svg-cat-slots.png" alt="电子"></div>
+      <span>电子</span>
+    </div>
+    <div class="category-tab" data-category="chess">
+      <div class="cat-icon-wrap"><img src="assets/icons/svg-cat-poker.png" alt="棋牌"></div>
+      <span>棋牌</span>
+    </div>
+    <div class="category-tab" data-category="live">
+      <div class="cat-icon-wrap"><img src="assets/icons/svg-cat-live.png" alt="真人"></div>
+      <span>真人</span>
+    </div>
+    <div class="category-tab" data-category="sport">
+      <div class="cat-icon-wrap"><img src="assets/icons/svg-cat-sport.png" alt="体育"></div>
+      <span>体育</span>
+    </div>
+    <div class="category-tab" data-category="lottery">
+      <div class="cat-icon-wrap"><img src="assets/icons/svg-cat-lottery.png" alt="彩票"></div>
+      <span>彩票</span>
+    </div>
+    <div class="category-tab" data-category="esport">
+      <div class="cat-icon-wrap"><img src="assets/icons/svg-cat-esport.png" alt="电竞"></div>
+      <span>电竞</span>
+    </div>
+    <div class="category-tab" data-category="cockfight">
+      <div class="cat-icon-wrap"><img src="assets/icons/svg-cat-cockfight.png" alt="斗鸡"></div>
+      <span>斗鸡</span>
+    </div>
+    <div class="category-tab" data-category="blockchain">
+      <div class="cat-icon-wrap"><img src="assets/icons/svg-cat-blockchain.png" alt="区块链"></div>
+      <span>区块链</span>
+    </div>
+    <div class="category-tab" data-category="trial">
+      <div class="cat-icon-wrap"><img src="assets/icons/svg-cat-trial.png" alt="试玩"></div>
+      <span>试玩</span>
+    </div>
+    <div class="category-tab" data-category="recent">
+      <div class="cat-icon-wrap"><img src="assets/icons/svg-cat-recent.png" alt="最近"></div>
+      <span>最近</span>
+    </div>
+    <div class="category-tab" data-category="fav">
+      <div class="cat-icon-wrap"><img src="assets/icons/svg-cat-fav.png" alt="收藏"></div>
+      <span>收藏</span>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       6. Game Platform Sections -- 9 categories
+       ========================================== -->
+
+  <!-- 6a. Hot Games (15, 3-col grid) -->
+  <div class="platform-section-wrapper platform-section" id="platform-hot">
+    <div class="platform-header">
+      <div class="platform-header-left">
+        <img src="assets/icons/cat-hot.avif" alt="">
+        <span>热门游戏</span>
+      </div>
+      <div class="platform-header-right">
+        <span>全部</span>
+        <span class="arrow-btn">&lt;</span>
+        <span class="arrow-btn">&gt;</span>
+      </div>
+    </div>
+    <div class="game-grid-3col">
+      <div class="game-card-border" style="background-image:url('assets/games/game-3029.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>麻将胡了</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-310174.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>PG电子</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-552180.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>麻将胡了</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-2000065.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>麻将胡了2</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-2000074.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>PA真人</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-10060035.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>至尊麻将</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-2000084.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>赏金女王</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-3100003.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>财神捕鱼</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-2000135.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>赏金大对决</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-2000087.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>寻宝黄金城</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-750103.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>糖果派对</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-3100004.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>五龙捕鱼</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-2000104.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>亡灵大盗</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-2000067.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>少林足球</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-2000054.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>赏金船长</h4></div></div>
+    </div>
+    <div class="platform-subtitle">正在显示 79 款热门游戏中的 15 款</div>
+    <button class="load-more-btn">加载更多</button>
+  </div>
+
+  <!-- 6b. Fishing Games (12 platforms, 2-col) -->
+  <div class="platform-section-wrapper platform-section" id="platform-fish">
+    <div class="platform-header">
+      <div class="platform-header-left">
+        <img src="assets/icons/cat-fish.avif" alt="">
+        <span>捕鱼游戏</span>
+      </div>
+      <div class="platform-header-right">全部 ></div>
+    </div>
+    <div class="platform-subtitle">正在显示 32 款捕鱼游戏中的 12 款</div>
+    <div class="game-grid-2col">
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/buyu_1.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>AG捕鱼王</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/buyu_2.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>天天捕鱼</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/jdb-fish.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>JDB捕鱼</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/wg-fish.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>WG捕鱼</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-552180.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>深海大冒险</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-310174.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>黄金渔场</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-2000084.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>金蟾捕鱼</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-3100003.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>龙王捕鱼</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-2000135.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>千炮捕鱼</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-2000087.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>捕鱼达人</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-750103.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>五龙捕鱼</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-3100004.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>财神捕鱼</h4></div></div>
+    </div>
+    <button class="load-more-btn">加载更多</button>
+  </div>
+
+  <!-- 6c. Slot Games (12 platforms, 2-col) -->
+  <div class="platform-section-wrapper platform-section" id="platform-slot">
+    <div class="platform-header">
+      <div class="platform-header-left">
+        <img src="assets/icons/cat-slots.avif" alt="">
+        <span>电子游戏</span>
+      </div>
+      <div class="platform-header-right">全部 ></div>
+    </div>
+    <div class="platform-subtitle">正在显示 156 款电子游戏中的 12 款</div>
+    <div class="game-grid-2col">
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/dianzi_1.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>PG老虎机</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/dianzi_2.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>PP老虎机</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-2000084.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>金蟾捕鱼</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-3100003.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>龙虎斗</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-2000135.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>水果机</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-2000087.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>牛牛</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-750103.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>糖果派对</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-3100004.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>连环夺宝</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-2000104.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>飞禽走兽</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-2000067.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>奔驰宝马</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-2000074.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>幸运转盘</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-2000054.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>开心消消乐</h4></div></div>
+    </div>
+    <button class="load-more-btn">加载更多</button>
+  </div>
+
+  <!-- 6d. Chess/Card Games (10 platforms, 2-col) -->
+  <div class="platform-section-wrapper platform-section" id="platform-chess">
+    <div class="platform-header">
+      <div class="platform-header-left">
+        <img src="assets/icons/cat-poker.avif" alt="">
+        <span>棋牌游戏</span>
+      </div>
+      <div class="platform-header-right">全部 ></div>
+    </div>
+    <div class="platform-subtitle">正在显示 48 款棋牌游戏中的 10 款</div>
+    <div class="game-grid-2col">
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/qipai_1.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>开元棋牌</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/qipai_2.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>乐游棋牌</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-552180.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>斗地主</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-310174.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>二八杠</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-3029.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>炸金花</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-2000065.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>抢庄牛牛</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-2000074.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>德州扑克</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-10060035.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>跑得快</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-2000084.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>三公</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-3100003.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>龙虎斗</h4></div></div>
+    </div>
+    <button class="load-more-btn">加载更多</button>
+  </div>
+
+  <!-- 6e. Live Casino (12 platforms, 2-col) -->
+  <div class="platform-section-wrapper platform-section" id="platform-live">
+    <div class="platform-header">
+      <div class="platform-header-left">
+        <img src="assets/icons/cat-live.avif" alt="">
+        <span>真人游戏</span>
+      </div>
+      <div class="platform-header-right">全部 ></div>
+    </div>
+    <div class="platform-subtitle">正在显示 25 款真人游戏中的 12 款</div>
+    <div class="game-grid-2col">
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/zhenren_1.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>AG真人</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/zhenren_2.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>欧博真人</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-2000135.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>真人百家乐</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-2000087.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>真人龙虎</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-750103.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>真人骰宝</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-3100004.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>真人轮盘</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-2000104.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>真人炸金花</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-2000067.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>真人牛牛</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-2000074.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>真人色碟</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-2000054.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>真人三公</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-3029.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>PA真人</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-2000065.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>WM真人</h4></div></div>
+    </div>
+    <button class="load-more-btn">加载更多</button>
+  </div>
+
+  <!-- 6f. Sports (6 platforms, 2-col) -->
+  <div class="platform-section-wrapper platform-section" id="platform-sport">
+    <div class="platform-header">
+      <div class="platform-header-left">
+        <img src="assets/icons/cat-sport.avif" alt="">
+        <span>体育游戏</span>
+      </div>
+      <div class="platform-header-right">全部 ></div>
+    </div>
+    <div class="platform-subtitle">正在显示 18 款体育游戏中的 6 款</div>
+    <div class="game-grid-2col">
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/tiyu_1.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>沙巴体育</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/tiyu_2.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>CMD体育</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-310174.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>皇冠体育</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-3029.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>FB体育</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-2000065.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>IM体育</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-2000074.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>平博体育</h4></div></div>
+    </div>
+    <button class="load-more-btn">加载更多</button>
+  </div>
+
+  <!-- 6g. Lottery (4 platforms, 2-col) -->
+  <div class="platform-section-wrapper platform-section" id="platform-lottery">
+    <div class="platform-header">
+      <div class="platform-header-left">
+        <img src="assets/icons/cat-lottery.avif" alt="">
+        <span>彩票游戏</span>
+      </div>
+      <div class="platform-header-right">全部 ></div>
+    </div>
+    <div class="platform-subtitle">正在显示 12 款彩票游戏中的 4 款</div>
+    <div class="game-grid-2col">
+      <div class="game-card-border" style="background-image:url('assets/games/game-10060035.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>幸运飞艇</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-2000084.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>时时彩</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-3100003.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>快三</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-2000135.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>PC蛋蛋</h4></div></div>
+    </div>
+    <button class="load-more-btn">加载更多</button>
+  </div>
+
+  <!-- 6h. Esports (2 platforms, 2-col) -->
+  <div class="platform-section-wrapper platform-section" id="platform-esport">
+    <div class="platform-header">
+      <div class="platform-header-left">
+        <img src="assets/icons/cat-esport.avif" alt="">
+        <span>电竞游戏</span>
+      </div>
+      <div class="platform-header-right">全部 ></div>
+    </div>
+    <div class="platform-subtitle">正在显示 8 款电竞游戏中的 2 款</div>
+    <div class="game-grid-2col">
+      <div class="game-card-border" style="background-image:url('assets/games/game-2000087.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>雷火电竞</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-750103.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>IM电竞</h4></div></div>
+    </div>
+    <button class="load-more-btn">加载更多</button>
+  </div>
+
+  <!-- 6i. Cockfight (1 platform, 2-col) -->
+  <div class="platform-section-wrapper platform-section" id="platform-cockfight">
+    <div class="platform-header">
+      <div class="platform-header-left">
+        <img src="assets/icons/cat-cockfight.avif" alt="">
+        <span>斗鸡游戏</span>
+      </div>
+      <div class="platform-header-right">全部 ></div>
+    </div>
+    <div class="platform-subtitle">正在显示 5 款斗鸡游戏中的 1 款</div>
+    <div class="game-grid-2col">
+      <div class="game-card-border" style="background-image:url('assets/games/game-3100004.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>S128斗鸡</h4></div></div>
+    </div>
+    <button class="load-more-btn">加载更多</button>
+  </div>
+
+  <!-- 6j. Blockchain (2 platforms, 2-col) -->
+  <div class="platform-section-wrapper platform-section" id="platform-blockchain">
+    <div class="platform-header">
+      <div class="platform-header-left">
+        <img src="assets/icons/cat-blockchain.avif" alt="">
+        <span>区块链游戏</span>
+      </div>
+      <div class="platform-header-right">全部 ></div>
+    </div>
+    <div class="platform-subtitle">正在显示 6 款区块链游戏中的 2 款</div>
+    <div class="game-grid-2col">
+      <div class="game-card-border" style="background-image:url('assets/games/game-2000104.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>哈希竞猜</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-2000067.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>哈希宝贝</h4></div></div>
+    </div>
+    <button class="load-more-btn">加载更多</button>
+  </div>
+
+  <!-- ==========================================
+       7. Footer
+       ========================================== -->
+  <footer class="footer">
+
+    <nav class="footer-links footer-nav">
+      <div class="footer-col footer-nav-group">
+        <h4>娱乐城</h4>
+        <a href="javascript:void(0)">分享赚钱</a>
+        <a href="javascript:void(0)">任务</a>
+        <a href="javascript:void(0)">返水</a>
+        <a href="javascript:void(0)">待领取</a>
+        <a href="javascript:void(0)">VIP</a>
+        <a href="javascript:void(0)">活动</a>
+        <a href="javascript:void(0)">公积金</a>
+        <a href="javascript:void(0)">盲盒抽奖</a>
+        <a href="javascript:void(0)">信用借款</a>
+        <a href="javascript:void(0)">幸运转盘</a>
+      </div>
+      <div class="footer-col footer-nav-group">
+        <h4>游戏</h4>
+        <a href="javascript:void(0)">热门</a>
+        <a href="javascript:void(0)">捕鱼</a>
+        <a href="javascript:void(0)">电子</a>
+        <a href="javascript:void(0)">棋牌</a>
+        <a href="javascript:void(0)">真人</a>
+        <a href="javascript:void(0)">体育</a>
+        <a href="javascript:void(0)">彩票</a>
+        <a href="javascript:void(0)">电竞</a>
+        <a href="javascript:void(0)">斗鸡</a>
+        <a href="javascript:void(0)">区块链</a>
+        <a href="javascript:void(0)">试玩</a>
+      </div>
+      <div class="footer-col footer-nav-group">
+        <h4>支持</h4>
+        <a href="javascript:void(0)">在线客服</a>
+        <a href="javascript:void(0)">帮助中心</a>
+        <a href="javascript:void(0)">有奖反馈</a>
+      </div>
+    </nav>
+
+    <div class="footer-license footer-compliance">
+      <span class="footer-compliance-text">牌照合规</span>
+      <img src="assets/icons/18plus.avif" alt="18+">
+      <a class="self-ban" href="javascript:void(0)">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40">
+          <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+        </svg>
+        自我禁止
+      </a>
+    </div>
+
+    <div class="footer-contact">
+      <h4>联系我们</h4>
+      <div class="footer-contact-items">
+        <div class="footer-contact-item">
+          <img src="assets/icons/telegram.avif" alt="Telegram">
+          <span>小飞机专员</span>
+        </div>
+        <div class="footer-contact-item">
+          <img src="assets/icons/telegram-2.avif" alt="Telegram">
+          <span>小飞机客服</span>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+</div><!-- /.page -->
+
+<!-- ==========================================
+     More Menu -- Full Page Overlay
+     ========================================== -->
+<div class="more-drawer-backdrop" id="drawerBackdrop">
+  <div class="more-drawer">
+    <!-- Header: logo + close button -->
+    <div class="drawer-top-bar">
+      <img src="assets/icons/logo.avif" alt="GAMING" style="height:34px;">
+      <button class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close">&times;</button>
+    </div>
+
+    <!-- 分享赚钱 banner (full width) -->
+    <div class="drawer-banner-area">
+      <div style="position:relative;border-radius:12px;overflow:hidden;">
+        <img src="assets/icons/drawer-share.avif" alt="分享赚钱" style="width:100%;display:block;">
+        <span style="position:absolute;top:50%;left:24px;transform:translateY(-50%);color:#fff;font-size:18px;font-weight:700;letter-spacing:1px;">分享赚钱</span>
+      </div>
+    </div>
+
+    <!-- 优惠中心 + 立即分享 (side by side) -->
+    <div class="drawer-promo-row">
+      <div style="position:relative;flex:1;border-radius:12px;overflow:hidden;min-width:0;">
+        <img src="assets/icons/drawer-promo.avif" alt="优惠中心" style="width:100%;display:block;">
+        <span style="position:absolute;top:50%;left:16px;transform:translateY(-50%);color:#fff;font-size:14px;font-weight:600;">优惠中心</span>
+      </div>
+      <div style="position:relative;flex:1;border-radius:12px;overflow:hidden;min-width:0;">
+        <img src="assets/icons/drawer-share2.avif" alt="立即分享" style="width:100%;display:block;">
+        <span style="position:absolute;top:50%;left:16px;transform:translateY(-50%);color:#fff;font-size:14px;font-weight:600;">立即分享</span>
+      </div>
+    </div>
+
+    <!-- Expandable menu: casino -->
+    <div class="drawer-menu-card">
+      <div class="drawer-menu-item" data-toggle="drawer-casino-sub">
+        <span>娱乐城</span>
+        <span class="menu-arrow">&#xFE40;</span>
+      </div>
+    </div>
+
+    <!-- Expandable menu: support -->
+    <div class="drawer-menu-card">
+      <div class="drawer-menu-item" data-toggle="drawer-support-sub">
+        <span>支持中心</span>
+        <span class="menu-arrow">&#xFE40;</span>
+      </div>
+    </div>
+
+    <!-- Language selector -->
+    <div class="drawer-menu-card">
+      <div class="drawer-menu-item">
+        <span style="font-size:20px;">&#x1F310;</span>
+        <span style="flex:1;">简体中文</span>
+        <span class="menu-arrow">&#xFE40;</span>
+      </div>
+    </div>
+
+    <!-- E2E hidden sub-menus -->
+    <div class="more-drawer-sub" id="drawer-casino-sub" style="display:none">
+      <div class="more-drawer-sub-item" data-cat="hot"><span>热门</span></div>
+      <div class="more-drawer-sub-item" data-cat="fish"><span>捕鱼</span></div>
+      <div class="more-drawer-sub-item" data-cat="slot"><span>电子</span></div>
+      <div class="more-drawer-sub-item" data-cat="card"><span>棋牌</span></div>
+      <div class="more-drawer-sub-item" data-cat="live"><span>真人</span></div>
+    </div>
+    <div class="more-drawer-sub" id="drawer-support-sub" style="display:none">
+      <div class="more-drawer-sub-item" data-cat="cs"><span>在线客服</span></div>
+      <div class="more-drawer-sub-item" data-cat="help"><span>帮助中心</span></div>
+      <div class="more-drawer-sub-item" data-cat="feedback"><span>有奖反馈</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================
+     Bottom Tab Bar: more / home / login / register / profile
+     ========================================== -->
+<nav class="tab-bar">
+  <div class="tab-item" data-tab="more" id="tabMoreBtn">
+    <div class="tab-glow"></div>
+    <svg class="tab-icon" viewBox="0 0 71 70" width="30" height="30"><path d="M14.48 57a3.5 3.5 0 0 1 0-7h43a3.5 3.5 0 0 1 0 7zm0-18a3.5 3.5 0 1 1 0-7h43a3.5 3.5 0 1 1 0 7zm0-18a3.5 3.5 0 0 1 0-7h43a3.5 3.5 0 0 1 0 7z"/></svg>
+    <span>更多</span>
+  </div>
+  <div class="tab-item active" data-tab="home">
+    <div class="tab-glow"></div>
+    <svg class="tab-icon" viewBox="0 0 71 70" width="30" height="30"><path d="M69.98 70v-1h1v1zm-69 0v-1h1v1zm69-69V0h1v1zm-69 0V0h1v1z"/><path d="M44.84 47.62v17.71H27.13V47.62a8.86 8.86 0 0 1 17.71 0"/><path d="M62.38 24.65 40.24 6.21a6.65 6.65 0 0 0-8.5 0L9.59 24.65a6.6 6.6 0 0 0-2.4 5.12v28.92a6.64 6.64 0 0 0 6.65 6.64h8.86V47.62a13.29 13.29 0 1 1 26.57-.01v17.72h8.86a6.64 6.64 0 0 0 6.64-6.64V29.77a6.6 6.6 0 0 0-2.39-5.12"/></svg>
+    <span>首页</span>
+  </div>
+  <div class="tab-item" data-tab="login">
+    <div class="tab-glow"></div>
+    <svg class="tab-icon" viewBox="0 0 71 70" width="30" height="30"><path d="M69.98 70v-1h1v1zm-69 0v-1h1v1zm69-69V0h1v1zm-69 0V0h1v1z"/><path d="m40.98 67.93-.33-.03-27.58-7.05a2.4 2.4 0 0 1-1.85-2.35V11.53a2.36 2.36 0 0 1 1.85-2.35l27.58-7.04q.28-.06.57-.06a2.6 2.6 0 0 1 1.61.55 2.3 2.3 0 0 1 .98 1.85v61.07a2.3 2.3 0 0 1-.98 1.86 2.6 2.6 0 0 1-1.53.49zm-5.76-38.86a3 3 0 0 0-3 3v5a3 3 0 1 0 6 0v-5a3 3 0 0 0-3-3"/><path d="M55.74 9.66H48.2v50.72h7.53a4.8 4.8 0 0 0 5.01-4.61v-41.5a4.8 4.8 0 0 0-5.01-4.6"/></svg>
+    <span>登录</span>
+  </div>
+  <div class="tab-item" data-tab="register">
+    <div class="tab-glow"></div>
+    <svg class="tab-icon" viewBox="0 0 70 70" width="30" height="30"><path d="M69 70v-1h1v1zM0 70v-1h1v1zM69 1V0h1v1zM0 1V0h1v1z"/><path d="M45.06 62.76a14.5 14.5 0 0 1-5.57-11.43A14.5 14.5 0 0 1 54 36.81a14.4 14.4 0 0 1 10.27 4.25 14.4 14.4 0 0 1 4.25 10.27 14.4 14.4 0 0 1-4.25 10.27A14.4 14.4 0 0 1 54 65.85a14.4 14.4 0 0 1-8.95-3.09m.23-11.43a2.56 2.56 0 0 0 2.61 2.5h3.6v3.6a2.56 2.56 0 0 0 2.5 2.62 2.56 2.56 0 0 0 2.5-2.62v-3.6h3.6a2.56 2.56 0 0 0 2.62-2.5 2.56 2.56 0 0 0-2.62-2.5h-3.6v-3.6a2.56 2.56 0 0 0-2.5-2.61 2.56 2.56 0 0 0-2.5 2.61v3.6h-3.6a2.56 2.56 0 0 0-2.61 2.5M20.92 19.08a14.08 14.08 0 1 1 28.16 0 14.08 14.08 0 0 1-28.16 0"/><path d="M35 64.51a23 23 0 0 1-14.52-5.1 20.2 20.2 0 0 1-7.33-12.77l-.09-.6a6.6 6.6 0 0 1 1.6-5.3 7.6 7.6 0 0 1 5.8-2.59h21.09a18.24 18.24 0 0 0-.86 25.66 24 24 0 0 1-5.69.7"/></svg>
+    <span>注册</span>
+  </div>
+  <div class="tab-item" data-tab="profile">
+    <div class="tab-glow"></div>
+    <svg class="tab-icon" viewBox="0 0 71 70" width="30" height="30"><path d="M69.98 70v-1h1v1zm-69 0v-1h1v1zm69-69V0h1v1zm-69 0V0h1v1z"/><path d="M35.98 33.33a14.72 14.72 0 1 0 0-29.44 14.72 14.72 0 0 0 0 29.44"/><path d="M13.05 46.8c-.62-4.36 3.02-8.24 7.73-8.24h30.4c4.72 0 8.35 3.88 7.73 8.24l-.09.63C57.3 58.12 47.53 66.1 35.98 66.1s-21.31-7.98-22.84-18.67z"/></svg>
+    <span>我的</span>
+  </div>
+</nav>
+
+<!-- ==========================================
+     JavaScript
+     ========================================== -->
+<script>
+(function() {
+  'use strict';
+
+  /* ========================================
+     0. Freeze Mode Detection
+     ======================================== */
+  var urlParams = new URLSearchParams(window.location.search);
+  var FREEZE_MODE = urlParams.get('freeze') === 'true';
+
+  if (FREEZE_MODE) {
+    document.body.classList.add('freeze-mode');
+    document.documentElement.style.setProperty('--animation-state', 'paused');
+  }
+
+  /* ========================================
+     1. Winner Ticker (auto-scroll)
+     ======================================== */
+  var winnerData = [
+    { name: '4***97', prize: '中奖 21倍', thumb: 'assets/games/winner_1.avif' },
+    { name: '3***84', prize: '赢得 8.2', thumb: 'assets/games/winner_2.avif' },
+    { name: '7****', prize: '中奖 9倍', thumb: 'assets/games/winner_3.avif' },
+    { name: '5***12', prize: '赢得 138.5', thumb: 'assets/games/winner_4.avif' },
+    { name: '8***66', prize: '中奖 55倍', thumb: 'assets/games/winner_1.avif' },
+    { name: '1***03', prize: '赢得 2,580.0', thumb: 'assets/games/winner_2.avif' },
+  ];
+
+  var winnerScroll = document.getElementById('winnerScroll');
+  var winnerHTML = '';
+
+  if (FREEZE_MODE) {
+    for (var i = 0; i < 3; i++) {
+      var w = winnerData[i];
+      winnerHTML += '<div class="winner-card">' +
+        '<img class="winner-card-thumb" src="' + w.thumb + '" alt="game">' +
+        '<span class="winner-card-info">恭喜 <span class="highlight">' + w.name + '</span> ' + w.prize + ' <span class="winner-card-arrow">></span></span>' +
+        '</div>';
+    }
+  } else {
+    for (var r = 0; r < 2; r++) {
+      for (var j = 0; j < winnerData.length; j++) {
+        var wd = winnerData[j];
+        winnerHTML += '<div class="winner-card">' +
+          '<img class="winner-card-thumb" src="' + wd.thumb + '" alt="game">' +
+          '<span class="winner-card-info">恭喜 <span class="highlight">' + wd.name + '</span> ' + wd.prize + ' <span class="winner-card-arrow">></span></span>' +
+          '</div>';
+      }
+    }
+  }
+  winnerScroll.innerHTML = winnerHTML;
+
+  /* ========================================
+     2. Jackpot Counter Animation
+     ======================================== */
+  if (!FREEZE_MODE) {
+    var jackpotEl = document.getElementById('jackpotNumber');
+    var baseValue = 10702017;
+    setInterval(function() {
+      baseValue += Math.floor(Math.random() * 50) + 1;
+      jackpotEl.textContent = baseValue.toLocaleString();
+    }, 3000);
+  }
+
+  /* ========================================
+     3. Category Tab Click
+     ======================================== */
+  var categoryTabs = document.querySelectorAll('.category-tab');
+  for (var ct = 0; ct < categoryTabs.length; ct++) {
+    categoryTabs[ct].addEventListener('click', function() {
+      for (var x = 0; x < categoryTabs.length; x++) {
+        categoryTabs[x].classList.remove('active');
+      }
+      this.classList.add('active');
+      // Scroll to corresponding platform section
+      var cat = this.dataset.category;
+      var target = document.getElementById('platform-' + cat);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  }
+
+  /* ========================================
+     4. More Drawer (Full Page Overlay)
+     ======================================== */
+  var drawerBackdrop = document.getElementById('drawerBackdrop');
+  var drawerCloseBtn = document.getElementById('drawerCloseBtn');
+  var tabMoreBtn = document.getElementById('tabMoreBtn');
+
+  function openDrawer(e) {
+    if (e) e.stopPropagation();
+    if (drawerBackdrop) drawerBackdrop.classList.add('active');
+  }
+
+  function closeDrawer() {
+    if (drawerBackdrop) drawerBackdrop.classList.remove('active');
+  }
+
+  if (tabMoreBtn) {
+    tabMoreBtn.addEventListener('click', openDrawer);
+  }
+
+  if (drawerCloseBtn) {
+    drawerCloseBtn.addEventListener('click', closeDrawer);
+  }
+
+  if (drawerBackdrop) {
+    drawerBackdrop.addEventListener('click', function(e) {
+      if (e.target === drawerBackdrop) closeDrawer();
+    });
+  }
+
+  // Drawer sub-menu toggles
+  var drawerMenuItems = document.querySelectorAll('.drawer-menu-item[data-toggle]');
+  for (var di = 0; di < drawerMenuItems.length; di++) {
+    drawerMenuItems[di].addEventListener('click', function() {
+      var targetId = this.dataset.toggle;
+      var sub = document.getElementById(targetId);
+      if (sub) {
+        sub.classList.toggle('open');
+      }
+    });
+  }
+
+  /* ========================================
+     5. Tab Bar Active State
+     ======================================== */
+  var tabItems = document.querySelectorAll('.tab-bar .tab-item');
+  for (var t = 0; t < tabItems.length; t++) {
+    tabItems[t].addEventListener('click', (function(tabs) {
+      return function() {
+        for (var k = 0; k < tabs.length; k++) {
+          tabs[k].classList.remove('active');
+        }
+        this.classList.add('active');
+        // Only close drawer when switching AWAY from "更多"
+        if (this.dataset.tab !== 'more') {
+          closeDrawer();
+        }
+      };
+    })(tabItems));
+  }
+
+})();
+</script>
+
+</body>
+</html>

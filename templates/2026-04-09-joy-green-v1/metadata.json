@@ -1,0 +1,34 @@
+{
+  "name": "Joy Green V1",
+  "id": "2026-04-09-joy-green-v1",
+  "date": "2026-04-09",
+  "source_url": "https://joy.star-link-rel.cc/",
+  "skin_path": "63-1-1",
+  "features": [
+    "more-drawer",
+    "tab-click",
+    "hot-games-scroll",
+    "Jackpot animation",
+    "winner ticker",
+    "search bar",
+    "green circular category icons",
+    "9 game platform sections",
+    "two-row hot games scroll",
+    "Tab Bar (more/home/login/register/profile)",
+    "Footer 3-column links"
+  ],
+  "similarity": null,
+  "similarityNote": "Pending visual comparison after screenshot capture.",
+  "color_scheme": {
+    "primary": "#0AB76B",
+    "accent_pink": "#F84673",
+    "accent_gold": "#FFAA09",
+    "accent_blue": "#1672F2",
+    "background_1": "#292D3B",
+    "background_2": "#212430",
+    "background_3": "#353A4A",
+    "neutral_1": "#ABAFBB",
+    "neutral_3": "#666A78",
+    "tabBar": "#212430"
+  }
+}
