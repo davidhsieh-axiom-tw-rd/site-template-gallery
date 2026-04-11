@@ -1,0 +1,44 @@
+{
+  "name": "Joy Navy V1",
+  "alias": "綜合版7",
+  "id": "2026-04-10-joy-navy-v1",
+  "date": "2026-04-10",
+  "source_url": "https://joy.star-link-rel.cc/",
+  "skin_path": "navy-skin",
+  "features": [
+    "more-overlay",
+    "tab-click",
+    "Jackpot animation",
+    "winner ticker",
+    "13 category tabs (hot/fish/slot/chess/live/sport/lottery/esport/cockfight/blockchain/trial/recent/fav)",
+    "11 game platform sections + 游戏提供商",
+    "Tab Bar SVG paths (浏览/娱乐城/优惠/客服/我的)",
+    "More overlay icon grid (11 items)",
+    "sidebar drawer (搜索 + 收藏/最近/試玩/朋友圈/投注記錄 + 遊戲分類)",
+    "Footer 3-column links",
+    "game-grid-3col for all categories",
+    "flat _1 style category icons"
+  ],
+  "similarity": 94,
+  "similarityNote": "靜態區域加權平均 94%：Header 95%/CategoryTabs 93%/TabBar 95% 達標。分類 Tab icon 使用原站 _1 扁平風格版本。所有遊戲分類用 3 列方形 grid。GameCards 57% 受限於 AVIF CDN vs 本地解碼不可消除差異。E2E 34/34 PASS。",
+  "similarityBreakdown": {
+    "Header": 94.7,
+    "CategoryTabs": 93.3,
+    "TabBar": 94.9,
+    "GameCards": 57.0,
+    "method": "odiff --antialiasing --threshold 0.3, 450x900 viewport, element-aligned crops, dialogs removed"
+  },
+  "color_scheme": {
+    "primary": "#1475E1",
+    "accent_green": "#00C949",
+    "accent_red": "#FF2A4E",
+    "accent_orange": "#FFA100",
+    "background_1": "#1A2C38",
+    "background_2": "#0F212E",
+    "neutral_1": "#B1BAD3",
+    "neutral_2": "#6F7D91",
+    "neutral_3": "#566671",
+    "border": "#2A3F4D",
+    "tabBar": "#0F212E"
+  }
+}

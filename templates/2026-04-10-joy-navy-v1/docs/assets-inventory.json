@@ -1,0 +1,127 @@
+{
+  "template": "Joy Navy V1",
+  "date": "2026-04-10",
+  "skin_path": "navy-skin",
+  "total": 94,
+  "categories": {
+    "bg": {
+      "count": 3,
+      "files": [
+        { "path": "assets/bg/bg_pattern_tile.avif", "usage": "Background tile pattern" },
+        { "path": "assets/bg/cjc1_style_1_font_sprite.avif", "usage": "JACKPOT text sprite" },
+        { "path": "assets/bg/cjc1_style_2_bg.webp", "usage": "JACKPOT area background" }
+      ]
+    },
+    "icons": {
+      "count": 32,
+      "files": [
+        { "path": "assets/icons/18plus.avif", "usage": "18+ compliance icon" },
+        { "path": "assets/icons/apng_icon_xyzp.webp", "usage": "Lucky wheel animated icon" },
+        { "path": "assets/icons/icon_dt_1xx_wd.avif", "usage": "Mail/message envelope icon" },
+        { "path": "assets/icons/icon_dt_pmd.webp", "usage": "Marquee speaker icon" },
+        { "path": "assets/icons/icon_dtfl_by.avif", "usage": "Category: Fishing" },
+        { "path": "assets/icons/icon_dtfl_cp.avif", "usage": "Category: Lottery" },
+        { "path": "assets/icons/icon_dtfl_dianjing.avif", "usage": "Category: Esports" },
+        { "path": "assets/icons/icon_dtfl_douji.avif", "usage": "Category: Cockfight" },
+        { "path": "assets/icons/icon_dtfl_dz.avif", "usage": "Category: Slots" },
+        { "path": "assets/icons/icon_dtfl_qkl.avif", "usage": "Category: Blockchain" },
+        { "path": "assets/icons/icon_dtfl_qp.avif", "usage": "Category: Chess" },
+        { "path": "assets/icons/icon_dtfl_rm.avif", "usage": "Category: Hot" },
+        { "path": "assets/icons/icon_dtfl_sc.avif", "usage": "Category: Favorites" },
+        { "path": "assets/icons/icon_dtfl_sw.avif", "usage": "Category: Trial" },
+        { "path": "assets/icons/icon_dtfl_ty.avif", "usage": "Category: Sports" },
+        { "path": "assets/icons/icon_dtfl_yxtgs.avif", "usage": "Category: Providers" },
+        { "path": "assets/icons/icon_dtfl_zj.avif", "usage": "Category: Recent" },
+        { "path": "assets/icons/icon_dtfl_zr.avif", "usage": "Category: Live" },
+        { "path": "assets/icons/icon_sy_zc_fs.avif", "usage": "More overlay: Rebate" },
+        { "path": "assets/icons/icon_sy_zc_fx.avif", "usage": "More overlay: Share" },
+        { "path": "assets/icons/icon_sy_zc_hd.avif", "usage": "More overlay: Events" },
+        { "path": "assets/icons/icon_sy_zc_jl.avif", "usage": "More overlay: Rewards" },
+        { "path": "assets/icons/icon_sy_zc_ljfx.avif", "usage": "More overlay: Referral" },
+        { "path": "assets/icons/icon_sy_zc_mhcj.avif", "usage": "More overlay: Lucky Draw" },
+        { "path": "assets/icons/icon_sy_zc_rw.avif", "usage": "More overlay: Tasks" },
+        { "path": "assets/icons/icon_sy_zc_tg.avif", "usage": "More overlay: Credit" },
+        { "path": "assets/icons/icon_sy_zc_vip.avif", "usage": "More overlay: VIP" },
+        { "path": "assets/icons/img_yxtgs_1006.avif", "usage": "Provider banner 3" },
+        { "path": "assets/icons/img_yxtgs_13.avif", "usage": "Provider banner 2" },
+        { "path": "assets/icons/img_yxtgs_14.avif", "usage": "Provider banner 1" },
+        { "path": "assets/icons/logo.avif", "usage": "Header logo" },
+        { "path": "assets/icons/telegram.avif", "usage": "Telegram contact icon" }
+      ]
+    },
+    "games": {
+      "count": 16,
+      "files": [
+        { "path": "assets/games/game_csby.avif", "usage": "Hot game: Caishen Buyu" },
+        { "path": "assets/games/game_mjhl.avif", "usage": "Hot game: Majiang Hu Le" },
+        { "path": "assets/games/game_mjhl2.avif", "usage": "Hot game: Majiang Hu Le 2" },
+        { "path": "assets/games/game_pazr.avif", "usage": "Hot game: PA Zhenren" },
+        { "path": "assets/games/game_pgdz.avif", "usage": "Hot game: PG Dianzi" },
+        { "path": "assets/games/game_sjby.avif", "usage": "Hot game: Shangjin Baozang" },
+        { "path": "assets/games/game_sjcz.avif", "usage": "Hot game: Shangjin Chuanzhang" },
+        { "path": "assets/games/game_sjcz2.avif", "usage": "Hot game: Shangjin Chuanzhang 2" },
+        { "path": "assets/games/game_sjdd.avif", "usage": "Hot game: Shangjin Da Duijue" },
+        { "path": "assets/games/game_sjhj.avif", "usage": "Hot game: Zhizun Majiang" },
+        { "path": "assets/games/game_sjnw.avif", "usage": "Hot game: Shangjin Nvwang" },
+        { "path": "assets/games/game_slzq.avif", "usage": "Hot game: Shaolin Zuqiu" },
+        { "path": "assets/games/game_tgpd.avif", "usage": "Hot game: Tangguo Paidui" },
+        { "path": "assets/games/game_wlby.avif", "usage": "Hot game: Wulong Buyu" },
+        { "path": "assets/games/game_xbhjc.avif", "usage": "Hot game: Xunbao Huangjincheng" },
+        { "path": "assets/games/game_yldd.avif", "usage": "Hot game: Wangling Dadao" }
+      ]
+    },
+    "platforms": {
+      "count": 41,
+      "files": [
+        { "path": "assets/games/platforms/hot_127.avif", "usage": "Hot game: Popular 127" },
+        { "path": "assets/games/platforms/hot_200.avif", "usage": "Hot game: Popular 200" },
+        { "path": "assets/games/platforms/plat_bbin_cp.avif", "usage": "Lottery: BBIN" },
+        { "path": "assets/games/platforms/plat_bbin_zr.avif", "usage": "Live: BBIN" },
+        { "path": "assets/games/platforms/plat_bg_by.avif", "usage": "Fishing: BG" },
+        { "path": "assets/games/platforms/plat_bg_zr.avif", "usage": "Live: BG" },
+        { "path": "assets/games/platforms/plat_bs_by.avif", "usage": "Fishing: Baisheng" },
+        { "path": "assets/games/platforms/plat_bs_qp.avif", "usage": "Chess: Baisheng" },
+        { "path": "assets/games/platforms/plat_cq9_dz.avif", "usage": "Slots: CQ9" },
+        { "path": "assets/games/platforms/plat_db_cp.avif", "usage": "Lottery: DB" },
+        { "path": "assets/games/platforms/plat_db_dj.avif", "usage": "Esports: DB" },
+        { "path": "assets/games/platforms/plat_db_zr.avif", "usage": "Live: DB" },
+        { "path": "assets/games/platforms/plat_dg_zr.avif", "usage": "Live: DG" },
+        { "path": "assets/games/platforms/plat_fb_ty.avif", "usage": "Sports: FB" },
+        { "path": "assets/games/platforms/plat_fg_qp.avif", "usage": "Chess: FG" },
+        { "path": "assets/games/platforms/plat_hg_ty.avif", "usage": "Sports: Crown" },
+        { "path": "assets/games/platforms/plat_im_ty.avif", "usage": "Sports: IM" },
+        { "path": "assets/games/platforms/plat_jdb_by.avif", "usage": "Fishing: JDB" },
+        { "path": "assets/games/platforms/plat_jdb_dz.avif", "usage": "Slots: JDB" },
+        { "path": "assets/games/platforms/plat_ka_by.avif", "usage": "Fishing: KA" },
+        { "path": "assets/games/platforms/plat_ky_qp.avif", "usage": "Chess: Kaiyuan" },
+        { "path": "assets/games/platforms/plat_leg_qp.avif", "usage": "Chess: LEG" },
+        { "path": "assets/games/platforms/plat_lg_dz.avif", "usage": "Slots: LG" },
+        { "path": "assets/games/platforms/plat_mg_dz.avif", "usage": "Slots: MG" },
+        { "path": "assets/games/platforms/plat_pa_zr.avif", "usage": "Live: PA" },
+        { "path": "assets/games/platforms/plat_pg_dz.avif", "usage": "Slots: PG" },
+        { "path": "assets/games/platforms/plat_rsg_by.avif", "usage": "Fishing: RSG" },
+        { "path": "assets/games/platforms/plat_sb_dj.avif", "usage": "Esports: Shaba" },
+        { "path": "assets/games/platforms/plat_sb_ty.avif", "usage": "Sports: Shaba" },
+        { "path": "assets/games/platforms/plat_sv_dd.avif", "usage": "Cockfight: SV388" },
+        { "path": "assets/games/platforms/plat_sy_cp.avif", "usage": "Lottery: Shuangying" },
+        { "path": "assets/games/platforms/plat_t1_qkl.avif", "usage": "Blockchain: T1" },
+        { "path": "assets/games/platforms/plat_wg_by.avif", "usage": "Fishing: WG" },
+        { "path": "assets/games/platforms/plat_wg_cp.avif", "usage": "Lottery: WG" },
+        { "path": "assets/games/platforms/plat_wg_dz.avif", "usage": "Slots: WG" },
+        { "path": "assets/games/platforms/plat_wg_qkl.avif", "usage": "Blockchain: WG" },
+        { "path": "assets/games/platforms/plat_wg_qp.avif", "usage": "Chess: WG" },
+        { "path": "assets/games/platforms/plat_wg_ty.avif", "usage": "Sports: WG" },
+        { "path": "assets/games/platforms/plat_wl_qp.avif", "usage": "Chess: WL" },
+        { "path": "assets/games/platforms/plat_wl_zr.avif", "usage": "Live: WL" },
+        { "path": "assets/games/platforms/plat_xm_ty.avif", "usage": "Sports: Xiongmao" }
+      ]
+    },
+    "ui": {
+      "count": 2,
+      "files": [
+        { "path": "assets/ui/avatar_placeholder.avif", "usage": "User avatar placeholder" },
+        { "path": "assets/ui/btn_sc_off_2.avif", "usage": "Favorite star icon (off state)" }
+      ]
+    }
+  }
+}

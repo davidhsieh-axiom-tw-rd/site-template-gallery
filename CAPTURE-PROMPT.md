@@ -1,7 +1,7 @@
 # 版型擷取與復刻 — 標準作業提示詞
 
 > 每次擷取新版型時，把此文件內容作為 prompt 的一部分傳入。
-> 最後更新：2026-04-09
+> 最後更新：2026-04-11
 
 ---
 
@@ -20,8 +20,11 @@
 ### 復刻 = 用原始素材，不造輪子
 - **背景圖**：直接用原始 URL（如 `cjc1_style_2_bg.webp`），不要用 CSS 漸層模擬
 - **Icon 圖片**：直接用原始站的圖片 URL，不要用 emoji 替代
+- **Icon `_1` 後綴**：原站 icon 分兩版（`icon_dtfl_rm.avif` 彩色版 vs `icon_dtfl_rm_1.avif` 扁平版）。分類 tab 和 section header 通常用 `_1` 扁平版，sidebar drawer 用彩色版。**一定要從原站 DOM 確認實際用哪個版本**
 - **「更多」選單**：從原始站擷取所有 icon URL + 文字，不要自己編
 - **字體/顏色**：從原始站的 CSS 變數擷取精確值，不要猜
+- **CSS 量測用 `getComputedStyle`**：不能目測。特別是 padding、font-size、background-color、border-radius
+- **`box-sizing: border-box`**：原站框架自帶，復刻版需顯式設定，否則 padding 會撐開高度
 
 ### 寬度必須精確
 - 原始站 HTML `max-width: 449.775px`，實際渲染 **450px**

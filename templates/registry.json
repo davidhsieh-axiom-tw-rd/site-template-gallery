@@ -168,6 +168,34 @@
         "Tab Bar (背景圖)",
         "Footer 三欄連結"
       ]
+    },
+    {
+      "id": "2026-04-10-joy-navy-v1",
+      "name": "Joy Navy V1",
+      "alias": "綜合版7",
+      "date": "2026-04-10",
+      "description": "開元棋牌首頁 - 深海軍藍主題（深色背景 + 藍色按鈕 + 綠/紅/橙強調 + 3 列 Grid）",
+      "primaryColor": "#1475E1",
+      "similarity": 94,
+      "similarityNote": "靜態區域加權平均 94%：Header 95%/CategoryTabs 93%/TabBar 95% 達標。分類 Tab icon 改用原站 _1 扁平風格版本。所有遊戲分類用 3 列方形 grid。Section header icon 同步更新。GameCards 57% 受限於 AVIF CDN vs 本地解碼不可消除差異。E2E 34/34 PASS。",
+      "similarityBreakdown": {
+        "Header": 94.7,
+        "CategoryTabs": 93.3,
+        "TabBar": 94.9,
+        "GameCards": 57.0,
+        "method": "odiff --antialiasing --threshold 0.3, 450x900 viewport, element-aligned crops, dialogs removed"
+      },
+      "features": [
+        "more-overlay",
+        "tab-click",
+        "hot-games-scroll",
+        "Jackpot 動畫",
+        "中獎輪播",
+        "13 遊戲分類",
+        "3 列熱門 Grid",
+        "Tab Bar",
+        "Footer 三欄連結"
+      ]
     }
   ]
 }
