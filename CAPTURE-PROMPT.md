@@ -1,7 +1,18 @@
 # 版型擷取與復刻 — 標準作業提示詞
 
 > 每次擷取新版型時，把此文件內容作為 prompt 的一部分傳入。
-> 最後更新：2026-04-11
+> **建議直接使用 `/wg-skin-capture` skill**（2026-04-13 新增）
+> 最後更新：2026-04-13
+
+## ⚠️ 2026-04-13 新增強制要求（來自 Teal V1 踩坑）
+
+1. **不可以 E2E PASS 就宣稱達標** — E2E 只檢查 HTML 結構，不等於視覺正確
+2. **動畫必須實測** — 用 `page.evaluate` 取連續時間點的 transform.x，確認 delta ≠ 0
+3. **不可以用 odiff ignore region 遮差異** — 像素差異就是差異，只有真正動態內容才能排除
+4. **結構假設必須確認** — Tab Bar、sidebar 等「可能有可能沒有」的元素，每個版型獨立確認
+5. **色差用 magick 取樣** — 不是目測判斷「底色錯了」，用 `magick -resize 1x1 txt:-` 比 RGB
+6. **樹林背景找不到就從原站截圖 crop** — `img_whz_style_X.avif` 是系統維護 icon，不是樹林
+詳見 `doc/lessons-learned/20260413-teal-v1-capture-lessons.md`
 
 ---
 

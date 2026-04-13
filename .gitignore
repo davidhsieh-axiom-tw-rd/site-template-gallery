@@ -5,3 +5,23 @@ __pycache__/
 node_modules/
 .DS_Store
 .playwright-mcp/
+
+# Temporary captures (not part of any template)
+capture/
+capture-data/
+clone-*.png
+clone-*.html
+test-*.png
+test-*.html
+orig-*.png
+orig-*.html
+joy-*.png
+compare-*.png
+*-check.png
+*-grid.png
+*-scroll-*.png
+*-crop-*.png
+*-seg-*.png
+*-viewport*.png
+*.tmp.md
+html-to-flutter-transfer-checklist.md

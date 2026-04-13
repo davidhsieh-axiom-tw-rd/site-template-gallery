@@ -196,6 +196,37 @@
         "Tab Bar",
         "Footer 三欄連結"
       ]
+    },
+    {
+      "id": "2026-04-13-joy-teal-v1",
+      "name": "Joy Teal V1",
+      "alias": "待命名",
+      "date": "2026-04-13",
+      "description": "開元棋牌首頁 - 青藍漸層主題（深藍背景 + 白色文字 + 小型活動卡片 + 10 遊戲分類無側欄）",
+      "primaryColor": "#171A20",
+      "skinPath": "22-0-1",
+      "similarity": 87,
+      "similarityNote": "靜態結構區域加權平均 95%：SectionTitles 96.7%/FooterLinks 94.1% 達標。整體 87% 受限於遊戲/平台卡片區（~50%）：AVIF 圖片從原站 CDN vs 本地檔案載入時，瀏覽器 AVIF 解碼器產生不可消除的亞像素色差。JACKPOT 動態數字已用 ignore regions 排除。",
+      "similarityBreakdown": {
+        "SectionTitles": 96.7,
+        "FooterLinks": 94.1,
+        "HotGamesTitle": 96.7,
+        "GameCards": 51.5,
+        "PlatformCards": 39.7,
+        "method": "odiff --antialiasing --threshold 0.3, 450x900 viewport, element-aligned crops, dialogs removed, lazy content fully loaded"
+      },
+      "features": [
+        "more-drawer",
+        "tab-click",
+        "hot-games-scroll",
+        "Jackpot 動畫",
+        "小型活動卡片",
+        "10 遊戲分類 (無側欄)",
+        "3 列熱門 Grid",
+        "2 列平台 Grid",
+        "Tab Bar",
+        "Footer 三欄連結"
+      ]
     }
   ]
 }

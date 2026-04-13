@@ -1,0 +1,1749 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<title>JOY - Teal V1</title>
+<style>
+/* ============================================
+   CSS Reset & Variables
+   Flutter Token mapping: docs/flutter-token-mapping.md
+   Skin path: 22-0-1
+   ============================================ */
+:root {
+  /* Flutter: skin__primary -> Color(0xFF171A20) */
+  --skin__primary: #171A20;
+  /* Flutter: skin__accent_1 -> Color(0xFF12BB00) */
+  --skin__accent_1: #12BB00;
+  /* Flutter: skin__accent_2 -> Color(0xFFED4E3B) */
+  --skin__accent_2: #ED4E3B;
+  /* Flutter: skin__bg_1 -> Color(0xFFF4F4F4) */
+  --skin__bg_1: #F4F4F4;
+  /* Flutter: skin__bg_2 -> Color(0xFFFFFFFF) */
+  --skin__bg_2: #FFFFFF;
+  /* Flutter: skin__neutral_1 -> Color(0xFF6C7077) */
+  --skin__neutral_1: #6C7077;
+  /* Flutter: skin__neutral_2 -> Color(0xFFA2A3A5) */
+  --skin__neutral_2: #A2A3A5;
+  /* Flutter: skin__neutral_3 -> Color(0xFFCCCCCC) */
+  --skin__neutral_3: #CCCCCC;
+
+  /* Flutter: surfaceBackground */
+  --body-bg: #e8e8e8;
+  /* Flutter: page background — deep blue gradient via image */
+  --page-bg: #0c1929;
+  --header-height: 50px;
+  /* bottom nav removed */
+  /* Flutter: colorNeutral15 */
+  --card-bg: rgba(20, 30, 50, 0.85);
+  --card-radius: 12px;
+  /* Flutter: colorNeutral90 */
+  --text-primary: #FFFFFF;
+  /* Flutter: colorNeutral60 */
+  --text-secondary: rgba(162, 163, 165, 1);
+  --animation-state: running;
+
+  /* Flutter: tabbar height */
+  --tabbar-height: 1.46rem;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--body-bg);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Roboto, sans-serif;
+  color: var(--text-primary);
+  line-height: 1.3; /* Flutter: bodyLineHeight */
+  padding-bottom: 0;
+  overflow-x: hidden;
+  position: relative;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* ============================================
+   Page wrapper
+   ============================================ */
+.page {
+  max-width: 450px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: var(--page-bg) url('assets/bg/home_bg.avif') center top / cover no-repeat;
+  background-attachment: fixed;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* ============================================
+   1. JACKPOT area (98px)
+   ============================================ */
+.jackpot-section {
+  position: relative;
+  height: 98px;
+  margin: 0;
+  overflow: hidden;
+  background-color: #0a1828;
+  background-image: url('assets/bg/cjc1_style_2_bg.webp');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.jackpot-content {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.jackpot-number {
+  font-size: 26px;
+  font-weight: 900;
+  color: #b71c1c;
+  letter-spacing: 5px;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.4);
+  white-space: nowrap;
+}
+
+/* ============================================
+   2. Marquee (51px)
+   ============================================ */
+.marquee-bar {
+  display: flex;
+  align-items: center;
+  height: 51px;
+  padding: 0 12px;
+  margin: 0;
+  background: rgba(23, 26, 32, 0.75); /* Flutter: semi-transparent primary */
+  gap: 8px;
+}
+
+.marquee-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.marquee-icon img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.marquee-content {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  height: 51px;
+}
+
+.marquee-text {
+  position: absolute;
+  white-space: nowrap;
+  font-size: 14.4px; /* Flutter: bodyText */
+  color: var(--text-primary);
+  animation: marquee-scroll 15s linear infinite;
+  animation-play-state: var(--animation-state);
+  line-height: 51px;
+  will-change: transform;
+}
+
+@keyframes marquee-scroll {
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(-200%); }
+}
+
+.marquee-mail {
+  flex-shrink: 0;
+  position: relative;
+  margin-left: 4px;
+  cursor: pointer;
+}
+
+.marquee-mail svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--text-primary);
+  opacity: 0.7;
+}
+
+.marquee-badge {
+  position: absolute;
+  top: -4px;
+  right: -8px;
+  background: #ED4E3B;
+  color: white;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 1px 5px;
+  border-radius: 8px;
+  min-width: 16px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* ============================================
+   3. Top Overlay Wrapper (header + winner carousel)
+   ============================================ */
+.top-overlay-wrapper {
+  background: rgba(255, 255, 255, 0.15);
+  position: relative;
+}
+
+/* ============================================
+   3a. Header (50px)
+   ============================================ */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+  padding: 0 12px;
+  background: transparent;
+  position: relative;
+  z-index: 100;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-logo {
+  height: 28px;
+  object-fit: contain;
+}
+
+.header-brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.header-brand-text .brand-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 2px;
+}
+
+.header-brand-text .brand-url {
+  font-size: 10px;
+  color: var(--text-secondary);
+  letter-spacing: 0.5px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-btn-login {
+  padding: 6px 10px;
+  border-radius: 20px;
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 14.4px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.header-btn-register {
+  padding: 6px 10px;
+  border-radius: 20px;
+  background: transparent;
+  color: #FFFFFF;
+  font-size: 14.4px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.header-hamburger {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.header-hamburger span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 1px;
+}
+
+/* ============================================
+   4. Banner Carousel
+   ============================================ */
+.winner-carousel {
+  overflow: hidden;
+  padding: 28px 12px 10px;
+  background-image: url('assets/bg/winner_trees.webp');
+  background-position: top center;
+  background-repeat: repeat-x;
+  background-size: auto 38px;
+  background-color: rgba(20, 60, 130, 0.3);
+  position: relative;
+}
+
+.winner-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.winner-track {
+  display: flex;
+  gap: 8px;
+  width: max-content;
+  animation: winner-scroll 16s linear infinite;
+  animation-play-state: var(--animation-state);
+}
+
+.winner-carousel:hover .winner-track {
+  animation-play-state: paused;
+}
+
+@keyframes winner-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+body.freeze-mode .winner-track {
+  animation: none !important;
+  transform: none !important;
+}
+
+.banner-card {
+  flex-shrink: 0;
+  width: 102px;
+  height: 56px;
+  border-radius: 6px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+}
+
+.banner-card-info {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 8px;
+  width: 100%;
+  background: linear-gradient(transparent, rgba(0,0,0,0.5));
+}
+
+.banner-card-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.banner-card-username {
+  font-size: 11px;
+  color: #fff;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.winner-badge {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, transparent, rgba(204,0,0,0.92));
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 4px 3px;
+  text-align: center;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+
+.winner-username {
+  position: absolute;
+  top: 4px;
+  left: 6px;
+  font-size: 9px;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+  font-weight: 600;
+}
+
+.banner-card-label {
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 9px;
+  color: #fff;
+  background: rgba(0,0,0,0.45);
+  padding: 1px 5px;
+  border-radius: 6px;
+  white-space: nowrap;
+  line-height: 1.3;
+}
+
+.banner-card-empty {
+  background: transparent;
+}
+
+.banner-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+}
+
+/* ============================================
+   5. Platform Section Wrapper
+   ============================================ */
+.platform-section-wrapper {
+  padding: 0 8px;
+}
+
+.platform-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 8px 8px;
+}
+
+.platform-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.platform-header-left .section-emoji {
+  font-size: 21.6px;
+}
+
+.platform-header-left span {
+  font-size: 21.6px; /* Flutter: sectionTitle */
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.platform-header-right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.18);
+  padding: 4px 10px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* Hot games header: emoji + white text, centered, no "全部 >" */
+.hot-games-header {
+  justify-content: center;
+}
+
+.hot-games-title {
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  color: #FFFFFF;
+  letter-spacing: 1px;
+}
+
+/* ============================================
+   6. Game Grids
+   ============================================ */
+/* 3-col grid for hot games */
+.game-grid-3col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 0 8px 4px;
+}
+
+/* 3-col grid for platform cards (portrait orientation) */
+.game-grid-2col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 0 8px 4px;
+}
+
+.game-card-border {
+  position: relative;
+  border-radius: 12px; /* Flutter: card-radius */
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  aspect-ratio: 133 / 178;
+  background-color: rgba(20, 30, 50, 0.6);
+}
+
+.game-grid-2col .game-card-border {
+  aspect-ratio: 2 / 3;
+  border-radius: 12px;
+}
+
+.game-card-name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 6px 8px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.75));
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  text-align: center;
+}
+
+.game-card-name h4 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.game-card-fav {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 31px;
+  height: 31px;
+  background: url('assets/icons/btn_sc_off_2.avif') center / contain no-repeat;
+  opacity: 0.8;
+  z-index: 2;
+}
+
+.load-more-btn {
+  display: block;
+  width: calc(100% - 16px);
+  margin: 4px 8px 12px;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 13px;
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.load-more-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ============================================
+   7. Hot Games Scroll (horizontal auto-scroll)
+   ============================================ */
+.hot-games-container {
+  overflow: hidden;
+  padding: 0 8px 12px;
+}
+
+.hot-games-track {
+  display: flex;
+  gap: 8px;
+  animation: hot-games-scroll 30s linear infinite;
+  animation-play-state: var(--animation-state);
+  width: max-content;
+}
+
+@keyframes hot-games-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.hot-games-track .game-card-border {
+  flex-shrink: 0;
+  width: 100px;
+  height: 134px;
+  aspect-ratio: auto;
+}
+
+/* ============================================
+   8. Footer
+   ============================================ */
+.footer {
+  background: rgba(28, 28, 28, 0.9); /* Flutter: footerBg */
+  padding: 20px 16px;
+  margin-top: 0;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.footer-contact {
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-contact h4 {
+  font-size: 16.8px; /* Flutter: footerHeading */
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.footer-contact-items {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.footer-contact-item img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.footer-contact-item span {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.footer-links.footer-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-col.footer-nav-group h4 {
+  font-size: 16.8px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.footer-col.footer-nav-group a {
+  display: block;
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  padding: 3px 0;
+}
+
+.footer-col.footer-nav-group a:hover {
+  color: var(--skin__accent_1);
+}
+
+.footer-license.footer-compliance {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0;
+}
+
+.footer-compliance-text {
+  font-size: 13px;
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+.footer-compliance img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.footer-compliance .self-ban {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  font-size: 12px;
+  color: #A2A3A5;
+  cursor: pointer;
+}
+
+.footer-compliance .self-ban svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Bottom navigation: REMOVED — original site has none */
+
+/* ============================================
+   10. More Drawer — full page overlay
+   ============================================ */
+.more-drawer-backdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 450px;
+  height: 100vh;
+  z-index: 180;
+  background: transparent;
+}
+
+.more-drawer-backdrop.active {
+  display: block;
+}
+
+.more-drawer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80%;
+  height: 100%;
+  background: rgba(23, 26, 32, 0.98); /* Flutter: drawerBg */
+  overflow-y: auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 4px 0 20px rgba(0,0,0,0.5);
+}
+
+.more-drawer-backdrop.active::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+}
+
+/* Drawer top bar: back arrow + search + settings */
+.drawer-top-bar {
+  display: flex;
+  align-items: center;
+  padding: 12px 12px 8px;
+  gap: 10px;
+}
+
+.drawer-back-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: #FFFFFF;
+  flex-shrink: 0;
+}
+
+.drawer-back-btn svg {
+  width: 22px;
+  height: 22px;
+}
+
+.drawer-search-box {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 8px 14px;
+  height: 36px;
+}
+
+.drawer-search-box svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+
+.drawer-search-box input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #FFFFFF;
+  font-size: 13px;
+  font-family: inherit;
+}
+
+.drawer-search-box input::placeholder {
+  color: rgba(255,255,255,0.3);
+}
+
+.drawer-settings-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: #FFFFFF;
+  flex-shrink: 0;
+}
+
+.drawer-settings-btn svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* Drawer quick action cards (3 cards) */
+.drawer-quick-actions {
+  display: flex;
+  gap: 10px;
+  padding: 8px 12px;
+}
+
+.drawer-action-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 6px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.06);
+  cursor: pointer;
+  position: relative;
+  min-height: 70px;
+}
+
+.drawer-action-card svg {
+  width: 28px;
+  height: 28px;
+}
+
+.drawer-action-card span {
+  font-size: 12px;
+  color: #FFFFFF;
+  white-space: nowrap;
+}
+
+.drawer-action-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: var(--skin__accent_2);
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 10px;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+/* Legacy close button (hidden, kept for JS compat) */
+.drawer-close-btn {
+  display: none;
+}
+
+/* Drawer tabs row */
+.drawer-tabs-row {
+  display: flex;
+  padding: 12px 16px 4px;
+  gap: 0;
+}
+
+.drawer-tab-item {
+  flex: 1;
+  text-align: center;
+  padding: 8px 0;
+  font-size: 14.4px;
+  color: #A2A3A5;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+
+.drawer-tab-item.active {
+  color: #FFFFFF;
+  border-bottom-color: #FFFFFF;
+}
+
+/* Drawer menu items */
+.drawer-menu-list {
+  padding: 0 12px 16px;
+}
+
+.drawer-menu-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 8px;
+  gap: 12px;
+  cursor: pointer;
+  color: #FFFFFF;
+  font-size: 14.4px;
+  height: 56px; /* Flutter: drawerItemHeight */
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.drawer-menu-item:hover {
+  background: rgba(255,255,255,0.03);
+}
+
+.drawer-menu-item .menu-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.drawer-menu-item .menu-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.drawer-menu-item span {
+  font-size: 14.4px;
+  color: #FFFFFF;
+}
+
+.drawer-menu-item .menu-arrow {
+  margin-left: auto;
+  color: rgba(255,255,255,0.4);
+  font-size: 16px;
+}
+
+/* E2E hidden sub-menu containers */
+.more-drawer-sub {
+  display: none;
+  padding-left: 0;
+}
+
+.more-drawer-sub.open {
+  display: block;
+}
+
+.more-drawer-sub-item {
+  display: block;
+}
+
+/* ============================================
+   Freeze Mode (activated via ?freeze=true)
+   ============================================ */
+body.freeze-mode * {
+  animation-play-state: paused !important;
+  transition: none !important;
+}
+
+body.freeze-mode .marquee-text {
+  animation: none !important;
+  position: static !important;
+  white-space: normal !important;
+}
+
+body.freeze-mode .hot-games-track {
+  animation: none !important;
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ==========================================
+       1. JACKPOT area (98px)
+       ========================================== -->
+  <section class="jackpot-section">
+    <div class="jackpot-content">
+      <div class="jackpot-number" id="jackpotNumber">8,036,348</div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       2. Marquee (51px)
+       ========================================== -->
+  <div class="marquee-bar">
+    <div class="marquee-icon">
+      <img src="assets/icons/icon_dt_pmd.webp" alt="marquee">
+    </div>
+    <div class="marquee-content">
+      <span class="marquee-text">&#x1F9E7;&#x5FEB;&#x8981;&#x8FC7;&#x5E74;&#x4E86;&#xFF01;&#xFF01;&#xFF01; &#x795D;&#x8CC0;&#x5927;&#x5BB6;&#x99AC;&#x5E74;&#x884C;&#x5927;&#x904B;&#xFF01;&#xFF01; by &#x8F9B;&#x897F;&#x96C5;</span>
+    </div>
+    <div class="marquee-mail">
+      <svg viewBox="0 0 24 24" fill="currentColor" style="color:rgba(255,255,255,0.7);">
+        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+      </svg>
+      <span class="marquee-badge">10</span>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       3. Top Overlay Wrapper (header + winner carousel)
+       ========================================== -->
+  <div class="top-overlay-wrapper">
+  <header class="header">
+    <div class="header-left">
+      <img class="header-logo" src="assets/icons/logo.avif" alt="GAMING" style="height: 40px; width: auto;">
+    </div>
+    <div class="header-right">
+      <button class="header-btn-login">&#x767B;&#x5F55;</button>
+      <button class="header-btn-register">&#x6CE8;&#x518C;</button>
+      <div class="header-hamburger" id="hamburgerBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       4. Banner Carousel
+       ========================================== -->
+  <div class="winner-carousel">
+    <div class="winner-track">
+      <div class="banner-card" style="background-image: url('assets/games/game-04.avif');">
+        <span class="winner-username">5***33</span>
+        <div class="winner-badge">20&#x500D; &gt;</div>
+      </div>
+      <div class="banner-card" style="background-image: url('assets/games/game-06.avif');">
+        <span class="winner-username">5***33</span>
+        <div class="winner-badge">2.7&#x500D; &gt;</div>
+      </div>
+      <div class="banner-card" style="background-image: url('assets/games/game-09.avif');">
+        <span class="winner-username">8***88</span>
+        <div class="winner-badge">20&#x500D; &gt;</div>
+      </div>
+      <div class="banner-card" style="background-image: url('assets/games/game-12.avif');">
+        <span class="winner-username">w***05</span>
+        <div class="winner-badge">3.5&#x500D; &gt;</div>
+      </div>
+      <div class="banner-card" style="background-image: url('assets/games/game-15.avif');">
+        <span class="winner-username">k***22</span>
+        <div class="winner-badge">10&#x500D; &gt;</div>
+      </div>
+      <div class="banner-card" style="background-image: url('assets/games/game-18.avif');">
+        <span class="winner-username">m***88</span>
+        <div class="winner-badge">5&#x500D; &gt;</div>
+      </div>
+      <!-- Duplicate set for infinite scroll -->
+      <div class="banner-card" style="background-image: url('assets/games/game-04.avif');">
+        <span class="winner-username">5***33</span>
+        <div class="winner-badge">20&#x500D; &gt;</div>
+      </div>
+      <div class="banner-card" style="background-image: url('assets/games/game-06.avif');">
+        <span class="winner-username">5***33</span>
+        <div class="winner-badge">2.7&#x500D; &gt;</div>
+      </div>
+      <div class="banner-card" style="background-image: url('assets/games/game-09.avif');">
+        <span class="winner-username">8***88</span>
+        <div class="winner-badge">20&#x500D; &gt;</div>
+      </div>
+      <div class="banner-card" style="background-image: url('assets/games/game-12.avif');">
+        <span class="winner-username">w***05</span>
+        <div class="winner-badge">3.5&#x500D; &gt;</div>
+      </div>
+      <div class="banner-card" style="background-image: url('assets/games/game-15.avif');">
+        <span class="winner-username">k***22</span>
+        <div class="winner-badge">10&#x500D; &gt;</div>
+      </div>
+      <div class="banner-card" style="background-image: url('assets/games/game-18.avif');">
+        <span class="winner-username">m***88</span>
+        <div class="winner-badge">5&#x500D; &gt;</div>
+      </div>
+    </div>
+  </div>
+  </div><!-- /.top-overlay-wrapper -->
+
+  <!-- ==========================================
+       5. Hot Games (3-col grid, 30 games)
+       ========================================== -->
+  <div class="platform-section-wrapper platform-section" id="platform-hot">
+    <div class="platform-header hot-games-header">
+      <div class="platform-header-left">
+        <span class="section-emoji">&#x1F525;</span>
+        <span class="hot-games-title">&#x70ED;&#x95E8;&#x6E38;&#x620F;</span>
+      </div>
+    </div>
+    <div class="game-grid-3col">
+      <div class="game-card-border" style="background-image:url('assets/games/game-03.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>&#x80E1;(WG)</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-02.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>PG&#x7535;&#x5B50;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-04.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>&#x9EBB;&#x5C06;&#x80E1;&#x4E86;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-05.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>&#x9EBB;&#x5C06;&#x80E1;&#x4E86;2</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-10.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>PA&#x771F;&#x4EBA;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-06.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>&#x81F3;&#x5C0A;&#x9EBB;&#x5C06;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-07.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>&#x8D22;&#x795E;&#x6355;&#x9C7C;(PG)</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-08.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>&#x8D4F;&#x91D1;&#x5973;&#x738B;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-09.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>&#x5BFB;&#x5B9D;&#x9EC4;&#x91D1;&#x57CE;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-10.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>&#x8D4F;&#x91D1;&#x5927;&#x5BF9;&#x51B3;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-11.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>&#x7CD6;&#x679C;&#x6D3E;&#x5BF9;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-12.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>&#x4E94;&#x9F99;&#x6355;&#x9C7C;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-13.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>&#x4EA1;&#x7075;&#x5927;&#x76D7;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-14.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>&#x5C11;&#x6797;&#x8DB3;&#x7403;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-15.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>&#x8D4F;&#x91D1;&#x8239;&#x957F;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-16.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>&#x7231;&#x5C14;&#x5170;&#x7CBE;&#x7075;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-17.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>&#x795E;&#x5947;&#x5B9D;&#x77F3;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-18.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>&#x72C2;&#x91CE;&#x897F;&#x90E8;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-19.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>&#x9F99;&#x864E;&#x6597;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-20.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>&#x8001;&#x864E;&#x673A;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-21.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>&#x91D1;&#x8749;&#x6355;&#x9C7C;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-22.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>&#x795E;&#x79D8;&#x5BCC;&#x8C6A;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-23.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>&#x62DB;&#x8D22;&#x8C8C;&#x8C85;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-24.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>&#x62C9;&#x9738;&#x58EB;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-25.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>&#x5929;&#x5929;&#x6355;&#x9C7C;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-26.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>&#x7F8E;&#x4EBA;&#x9C7C;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-27.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>&#x9B54;&#x6CD5;&#x5143;&#x7D20;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-28.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>&#x5E78;&#x8FD0;&#x8F6C;&#x76D8;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-29.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>&#x72C2;&#x91CE;&#x98CE;&#x66B4;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/game-30.avif')"><div class="game-card-fav"></div><div class="game-card-name"><h4>&#x5FCD;&#x8005;&#x4E4B;&#x5FC3;</h4></div></div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       6. Fishing Games (category 2, 2-col)
+       ========================================== -->
+  <div class="platform-section-wrapper platform-section" id="platform-fish">
+    <div class="platform-header">
+      <div class="platform-header-left">
+        <span class="section-emoji">&#x1F41F;</span>
+        <span>&#x6355;&#x9C7C;&#x6E38;&#x620F;</span>
+      </div>
+      <div class="platform-header-right">
+        <span>&#x67E5;&#x770B;&#x66F4;&#x591A;</span>
+        <span>&gt;</span>
+      </div>
+    </div>
+    <div class="game-grid-2col">
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-hot-200-3.avif')"><div class="game-card-name"><h4>&#x70ED;&#x95E8;&#x6355;&#x9C7C;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-hot-127-4.avif')"><div class="game-card-name"><h4>&#x70ED;&#x95E8;&#x63A8;&#x8350;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-310-2.avif')"><div class="game-card-name"><h4>JDB&#x6355;&#x9C7C;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-13-2.avif')"><div class="game-card-name"><h4>WG&#x6355;&#x9C7C;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-27-2.avif')"><div class="game-card-name"><h4>KA&#x6355;&#x9C7C;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-331-2.avif')"><div class="game-card-name"><h4>FC&#x6355;&#x9C7C;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-303-2.avif')"><div class="game-card-name"><h4>RSG&#x6355;&#x9C7C;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-21-2.avif')"><div class="game-card-name"><h4>CQ9&#x6355;&#x9C7C;</h4></div></div>
+    </div>
+    <button class="load-more-btn">&#x67E5;&#x770B;&#x66F4;&#x591A;</button>
+  </div>
+
+  <!-- ==========================================
+       7. Slot Games (category 3, 2-col)
+       ========================================== -->
+  <div class="platform-section-wrapper platform-section" id="platform-slot">
+    <div class="platform-header">
+      <div class="platform-header-left">
+        <span class="section-emoji">&#x1F3B0;</span>
+        <span>&#x7535;&#x5B50;&#x6E38;&#x620F;</span>
+      </div>
+      <div class="platform-header-right">
+        <span>&#x67E5;&#x770B;&#x66F4;&#x591A;</span>
+        <span>&gt;</span>
+      </div>
+    </div>
+    <div class="game-grid-2col">
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-200-3.avif')"><div class="game-card-name"><h4>PG&#x7535;&#x5B50;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-13-3.avif')"><div class="game-card-name"><h4>WG&#x7535;&#x5B50;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-1006-3.avif')"><div class="game-card-name"><h4>LG&#x7535;&#x5B50;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-313-3.avif')"><div class="game-card-name"><h4>MG&#x7535;&#x5B50;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-316-3.avif')"><div class="game-card-name"><h4>CQ9&#x7535;&#x5B50;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-310-3.avif')"><div class="game-card-name"><h4>JDB&#x7535;&#x5B50;</h4></div></div>
+    </div>
+    <button class="load-more-btn">&#x67E5;&#x770B;&#x66F4;&#x591A;</button>
+  </div>
+
+  <!-- ==========================================
+       8. Card Games (category 1, 2-col)
+       ========================================== -->
+  <div class="platform-section-wrapper platform-section" id="platform-chess">
+    <div class="platform-header">
+      <div class="platform-header-left">
+        <span class="section-emoji">&#x265F;</span>
+        <span>&#x68CB;&#x724C;&#x6E38;&#x620F;</span>
+      </div>
+      <div class="platform-header-right">
+        <span>&#x67E5;&#x770B;&#x66F4;&#x591A;</span>
+        <span>&gt;</span>
+      </div>
+    </div>
+    <div class="game-grid-2col">
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-13-1.avif')"><div class="game-card-name"><h4>WG&#x68CB;&#x724C;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-2-1.avif')"><div class="game-card-name"><h4>&#x5F00;&#x5143;&#x68CB;&#x724C;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-52-1.avif')"><div class="game-card-name"><h4>WL&#x68CB;&#x724C;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-9-1.avif')"><div class="game-card-name"><h4>&#x4E50;&#x6E38;&#x68CB;&#x724C;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-21-1.avif')"><div class="game-card-name"><h4>CQ9&#x68CB;&#x724C;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-22-1.avif')"><div class="game-card-name"><h4>BG&#x68CB;&#x724C;</h4></div></div>
+    </div>
+    <button class="load-more-btn">&#x67E5;&#x770B;&#x66F4;&#x591A;</button>
+  </div>
+
+  <!-- ==========================================
+       9. Live Casino (category 4, 2-col)
+       ========================================== -->
+  <div class="platform-section-wrapper platform-section" id="platform-live">
+    <div class="platform-header">
+      <div class="platform-header-left">
+        <span class="section-emoji">&#x1F469;</span>
+        <span>&#x771F;&#x4EBA;&#x89C6;&#x8BAF;</span>
+      </div>
+      <div class="platform-header-right">
+        <span>&#x67E5;&#x770B;&#x66F4;&#x591A;</span>
+        <span>&gt;</span>
+      </div>
+    </div>
+    <div class="game-grid-2col">
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-127-4.avif')"><div class="game-card-name"><h4>PA&#x771F;&#x4EBA;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-75-4.avif')"><div class="game-card-name"><h4>BBIN&#x771F;&#x4EBA;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-79-4.avif')"><div class="game-card-name"><h4>DG&#x771F;&#x4EBA;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-331-4.avif')"><div class="game-card-name"><h4>BG&#x771F;&#x4EBA;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-1020-4.avif')"><div class="game-card-name"><h4>DB&#x771F;&#x4EBA;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-52-4.avif')"><div class="game-card-name"><h4>WL&#x771F;&#x4EBA;</h4></div></div>
+    </div>
+    <button class="load-more-btn">&#x67E5;&#x770B;&#x66F4;&#x591A;</button>
+  </div>
+
+  <!-- ==========================================
+       10. Sports (category 5, 2-col)
+       ========================================== -->
+  <div class="platform-section-wrapper platform-section" id="platform-sport">
+    <div class="platform-header">
+      <div class="platform-header-left">
+        <span class="section-emoji">&#x26BD;</span>
+        <span>&#x4F53;&#x80B2;&#x6E38;&#x620F;</span>
+      </div>
+      <div class="platform-header-right">
+        <span>&#x67E5;&#x770B;&#x66F4;&#x591A;</span>
+        <span>&gt;</span>
+      </div>
+    </div>
+    <div class="game-grid-2col">
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-47-5.avif')"><div class="game-card-name"><h4>&#x6C99;&#x5DF4;&#x4F53;&#x80B2;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-43-5.avif')"><div class="game-card-name"><h4>CMD&#x4F53;&#x80B2;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-328-5.avif')"><div class="game-card-name"><h4>FB&#x4F53;&#x80B2;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-76-5.avif')"><div class="game-card-name"><h4>&#x7687;&#x51A0;&#x4F53;&#x80B2;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-13-5.avif')"><div class="game-card-name"><h4>WG&#x4F53;&#x80B2;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-370-5.avif')"><div class="game-card-name"><h4>&#x5E73;&#x535A;&#x4F53;&#x80B2;</h4></div></div>
+    </div>
+    <button class="load-more-btn">&#x67E5;&#x770B;&#x66F4;&#x591A;</button>
+  </div>
+
+  <!-- ==========================================
+       11. Lottery (category 8, 2-col)
+       ========================================== -->
+  <div class="platform-section-wrapper platform-section" id="platform-lottery">
+    <div class="platform-header">
+      <div class="platform-header-left">
+        <span class="section-emoji">&#x1F3B1;</span>
+        <span>&#x5F69;&#x7968;&#x6E38;&#x620F;</span>
+      </div>
+      <div class="platform-header-right">
+        <span>&#x67E5;&#x770B;&#x66F4;&#x591A;</span>
+        <span>&gt;</span>
+      </div>
+    </div>
+    <div class="game-grid-2col">
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-29-8.avif')"><div class="game-card-name"><h4>DB&#x5F69;&#x7968;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-75-8.avif')"><div class="game-card-name"><h4>BBIN&#x5F69;&#x7968;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-11-8.avif')"><div class="game-card-name"><h4>&#x53CC;&#x8D62;&#x5F69;&#x7968;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-13-8.avif')"><div class="game-card-name"><h4>WG&#x5F69;&#x7968;</h4></div></div>
+    </div>
+    <button class="load-more-btn">&#x67E5;&#x770B;&#x66F4;&#x591A;</button>
+  </div>
+
+  <!-- ==========================================
+       12. Esports (category 7, 2-col)
+       ========================================== -->
+  <div class="platform-section-wrapper platform-section" id="platform-esport">
+    <div class="platform-header">
+      <div class="platform-header-left">
+        <span class="section-emoji">&#x1F3AE;</span>
+        <span>&#x7535;&#x7ADE;&#x6E38;&#x620F;</span>
+      </div>
+      <div class="platform-header-right">
+        <span>&#x67E5;&#x770B;&#x66F4;&#x591A;</span>
+        <span>&gt;</span>
+      </div>
+    </div>
+    <div class="game-grid-2col">
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-328-7.avif')"><div class="game-card-name"><h4>FB&#x7535;&#x7ADE;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-74-7.avif')"><div class="game-card-name"><h4>IM&#x7535;&#x7ADE;</h4></div></div>
+    </div>
+    <button class="load-more-btn">&#x67E5;&#x770B;&#x66F4;&#x591A;</button>
+  </div>
+
+  <!-- ==========================================
+       13. Cockfight (category 6, 2-col)
+       ========================================== -->
+  <div class="platform-section-wrapper platform-section" id="platform-cockfight">
+    <div class="platform-header">
+      <div class="platform-header-left">
+        <span class="section-emoji">&#x1F413;</span>
+        <span>&#x6597;&#x9E21;&#x6E38;&#x620F;</span>
+      </div>
+      <div class="platform-header-right">
+        <span>&#x67E5;&#x770B;&#x66F4;&#x591A;</span>
+        <span>&gt;</span>
+      </div>
+    </div>
+    <div class="game-grid-2col">
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-87-6.avif')"><div class="game-card-name"><h4>SV388&#x6597;&#x9E21;</h4></div></div>
+    </div>
+    <button class="load-more-btn">&#x67E5;&#x770B;&#x66F4;&#x591A;</button>
+  </div>
+
+  <!-- ==========================================
+       14. Blockchain (category 11, 2-col)
+       ========================================== -->
+  <div class="platform-section-wrapper platform-section" id="platform-blockchain">
+    <div class="platform-header">
+      <div class="platform-header-left">
+        <span class="section-emoji">&#x1F517;</span>
+        <span>&#x533A;&#x5757;&#x94FE;&#x6E38;&#x620F;</span>
+      </div>
+      <div class="platform-header-right">
+        <span>&#x67E5;&#x770B;&#x66F4;&#x591A;</span>
+        <span>&gt;</span>
+      </div>
+    </div>
+    <div class="game-grid-2col">
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-13-11.avif')"><div class="game-card-name"><h4>WG&#x533A;&#x5757;&#x94FE;</h4></div></div>
+      <div class="game-card-border" style="background-image:url('assets/games/platforms/p-95-11.avif')"><div class="game-card-name"><h4>T1&#x533A;&#x5757;&#x94FE;</h4></div></div>
+    </div>
+    <button class="load-more-btn">&#x67E5;&#x770B;&#x66F4;&#x591A;</button>
+  </div>
+
+  <!-- ==========================================
+       15. Footer
+       ========================================== -->
+  <footer class="footer">
+
+    <div class="footer-contact">
+      <h4>&#x8054;&#x7CFB;&#x6211;&#x4EEC;</h4>
+      <div class="footer-contact-items">
+        <div class="footer-contact-item">
+          <img src="assets/icons/telegram.avif" alt="Telegram">
+          <span>&#x5C0F;&#x98DE;&#x673A;&#x4E13;&#x5458;</span>
+        </div>
+        <div class="footer-contact-item">
+          <img src="assets/icons/telegram.avif" alt="Telegram">
+          <span>&#x5C0F;&#x98DE;&#x673A;&#x5BA2;&#x670D;</span>
+        </div>
+      </div>
+    </div>
+
+    <nav class="footer-links footer-nav">
+      <div class="footer-col footer-nav-group">
+        <h4>&#x5A31;&#x4E50;&#x57CE;</h4>
+        <a href="javascript:void(0)">&#x5206;&#x4EAB;&#x8D5A;&#x94B1;</a>
+        <a href="javascript:void(0)">&#x4EFB;&#x52A1;</a>
+        <a href="javascript:void(0)">&#x8FD4;&#x6C34;</a>
+        <a href="javascript:void(0)">&#x5F85;&#x9886;&#x53D6;</a>
+        <a href="javascript:void(0)">VIP</a>
+        <a href="javascript:void(0)">&#x6D3B;&#x52A8;</a>
+        <a href="javascript:void(0)">&#x516C;&#x79EF;&#x91D1;</a>
+        <a href="javascript:void(0)">&#x76F2;&#x76D2;&#x62BD;&#x5956;</a>
+        <a href="javascript:void(0)">&#x4FE1;&#x7528;&#x501F;&#x6B3E;</a>
+        <a href="javascript:void(0)">&#x5E78;&#x8FD0;&#x8F6C;&#x76D8;</a>
+      </div>
+      <div class="footer-col footer-nav-group">
+        <h4>&#x6E38;&#x620F;</h4>
+        <a href="javascript:void(0)">&#x70ED;&#x95E8;</a>
+        <a href="javascript:void(0)">&#x6355;&#x9C7C;</a>
+        <a href="javascript:void(0)">&#x7535;&#x5B50;</a>
+        <a href="javascript:void(0)">&#x68CB;&#x724C;</a>
+        <a href="javascript:void(0)">&#x771F;&#x4EBA;</a>
+        <a href="javascript:void(0)">&#x4F53;&#x80B2;</a>
+        <a href="javascript:void(0)">&#x5F69;&#x7968;</a>
+        <a href="javascript:void(0)">&#x7535;&#x7ADE;</a>
+        <a href="javascript:void(0)">&#x6597;&#x9E21;</a>
+        <a href="javascript:void(0)">&#x533A;&#x5757;&#x94FE;</a>
+        <a href="javascript:void(0)">&#x8BD5;&#x73A9;</a>
+      </div>
+      <div class="footer-col footer-nav-group">
+        <h4>&#x652F;&#x6301;</h4>
+        <a href="javascript:void(0)">&#x5728;&#x7EBF;&#x5BA2;&#x670D;</a>
+        <a href="javascript:void(0)">&#x5E2E;&#x52A9;&#x4E2D;&#x5FC3;</a>
+        <a href="javascript:void(0)">&#x6709;&#x5956;&#x53CD;&#x9988;</a>
+      </div>
+    </nav>
+
+    <div class="footer-license footer-compliance">
+      <span class="footer-compliance-text">&#x724C;&#x7167;&#x5408;&#x89C4;</span>
+      <img src="assets/icons/18plus.avif" alt="18+">
+      <a class="self-ban" href="javascript:void(0)">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40">
+          <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+        </svg>
+        &#x81EA;&#x6211;&#x7981;&#x6B62;
+      </a>
+    </div>
+
+  </footer>
+
+</div><!-- /.page -->
+
+<!-- ==========================================
+     More Drawer — Left Slide Overlay
+     ========================================== -->
+<div class="more-drawer-backdrop" id="drawerBackdrop">
+  <div class="more-drawer">
+    <!-- Header: back arrow + search box + settings -->
+    <div class="drawer-top-bar">
+      <button class="drawer-back-btn" id="drawerCloseBtn" aria-label="Back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+      </button>
+      <div class="drawer-search-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+        </svg>
+        <input type="text" placeholder="" readonly>
+      </div>
+      <button class="drawer-settings-btn" aria-label="Settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Quick action cards: 找回余额 / 提现 / 存款 -->
+    <div class="drawer-quick-actions">
+      <div class="drawer-action-card">
+        <!-- 找回余额：對話氣泡 + $ -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 6h18v10H7l-4 4z"/>
+          <text x="9" y="14" font-size="9" fill="#FFFFFF" stroke="none" font-weight="bold">$</text>
+        </svg>
+        <span>&#x627E;&#x56DE;&#x4F59;&#x989D;</span>
+      </div>
+      <div class="drawer-action-card">
+        <!-- 提现：信用卡 -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="6" width="18" height="12" rx="2"/>
+          <line x1="3" y1="10" x2="21" y2="10"/>
+          <line x1="6" y1="14" x2="10" y2="14"/>
+        </svg>
+        <span>&#x63D0;&#x73B0;</span>
+      </div>
+      <div class="drawer-action-card">
+        <!-- 存款：+ in circle -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="9"/>
+          <line x1="12" y1="7" x2="12" y2="17"/>
+          <line x1="7" y1="12" x2="17" y2="12"/>
+        </svg>
+        <span>&#x5B58;&#x6B3E;</span>
+        <span class="drawer-action-badge">&#x9001;66%</span>
+      </div>
+    </div>
+
+    <!-- Drawer tabs -->
+    <div class="drawer-tabs-row">
+      <div class="drawer-tab-item active">&#x5A31;&#x4E50;&#x57CE;</div>
+      <div class="drawer-tab-item">&#x4F18;&#x60E0;&#x4E2D;&#x5FC3;</div>
+      <div class="drawer-tab-item">&#x652F;&#x6301;&#x4E2D;&#x5FC3;</div>
+      <div class="drawer-tab-item">&#x4E2A;&#x4EBA;&#x4E2D;&#x5FC3;</div>
+    </div>
+
+    <!-- Drawer menu items (9 categories, white line SVG icons) -->
+    <div class="drawer-menu-list">
+      <div class="drawer-menu-item" data-cat="hot">
+        <div class="menu-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2C8 6 6 10 6 14a6 6 0 0012 0c0-2-1-3-2-4 0 2-1 3-2 3 0-3-1-6-2-11z"/>
+          </svg>
+        </div>
+        <span>&#x70ED;&#x0020;&#x95E8;</span>
+        <span class="menu-arrow">&#x203A;</span>
+      </div>
+      <div class="drawer-menu-item" data-cat="fish">
+        <div class="menu-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6.5 12c3-6 11-6 14 0-3 6-11 6-14 0z"/>
+            <path d="M2 12s1.5-2 3-2"/>
+            <circle cx="17" cy="12" r="1" fill="#FFFFFF" stroke="none"/>
+            <path d="M2 9l1.5 3L2 15"/>
+          </svg>
+        </div>
+        <span>&#x6355;&#x0020;&#x9C7C;</span>
+        <span class="menu-arrow">&#x203A;</span>
+      </div>
+      <div class="drawer-menu-item" data-cat="slot">
+        <div class="menu-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <line x1="8" y1="4" x2="8" y2="20"/>
+            <line x1="16" y1="4" x2="16" y2="20"/>
+            <circle cx="5" cy="12" r="1.5" fill="none"/>
+            <circle cx="12" cy="12" r="1.5" fill="none"/>
+            <circle cx="19" cy="12" r="1.5" fill="none"/>
+          </svg>
+        </div>
+        <span>&#x7535;&#x0020;&#x5B50;</span>
+        <span class="menu-arrow">&#x203A;</span>
+      </div>
+      <div class="drawer-menu-item" data-cat="chess">
+        <div class="menu-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="12" height="18" rx="2"/>
+            <path d="M9 7v0" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M9 17v0" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M15 3l3.5-0.5a1 1 0 011 1.2l-2 10a1 1 0 01-1 .8H15"/>
+          </svg>
+        </div>
+        <span>&#x68CB;&#x0020;&#x724C;</span>
+        <span class="menu-arrow">&#x203A;</span>
+      </div>
+      <div class="drawer-menu-item" data-cat="live">
+        <div class="menu-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+            <path d="M16 3.13a4 4 0 010 7.75"/>
+          </svg>
+        </div>
+        <span>&#x771F;&#x0020;&#x4EBA;</span>
+        <span class="menu-arrow">&#x203A;</span>
+      </div>
+      <div class="drawer-menu-item" data-cat="sport">
+        <div class="menu-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 2a15 15 0 014 10 15 15 0 01-4 10 15 15 0 01-4-10 15 15 0 014-10z"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+          </svg>
+        </div>
+        <span>&#x4F53;&#x0020;&#x80B2;</span>
+        <span class="menu-arrow">&#x203A;</span>
+      </div>
+      <div class="drawer-menu-item" data-cat="lottery">
+        <div class="menu-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="8" cy="8" r="6"/>
+            <circle cx="8" cy="8" r="1" fill="#FFFFFF" stroke="none"/>
+            <circle cx="16" cy="16" r="6"/>
+            <circle cx="16" cy="16" r="1" fill="#FFFFFF" stroke="none"/>
+          </svg>
+        </div>
+        <span>&#x5F69;&#x0020;&#x7968;</span>
+        <span class="menu-arrow">&#x203A;</span>
+      </div>
+      <div class="drawer-menu-item" data-cat="esport">
+        <div class="menu-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="6" width="20" height="12" rx="2"/>
+            <path d="M6 10v4M4 12h4"/>
+            <circle cx="16" cy="10" r="1" fill="#FFFFFF" stroke="none"/>
+            <circle cx="19" cy="13" r="1" fill="#FFFFFF" stroke="none"/>
+          </svg>
+        </div>
+        <span>&#x7535;&#x0020;&#x7ADE;</span>
+        <span class="menu-arrow">&#x203A;</span>
+      </div>
+      <div class="drawer-menu-item" data-cat="cockfight">
+        <div class="menu-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#EF5350" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2c-1 2-3 3-3 6 0 2 1 3 3 4 2-1 3-2 3-4 0-3-2-4-3-6z" fill="#EF5350"/>
+            <path d="M9 12c-3 1-5 4-5 6h4"/>
+            <path d="M15 12c3 1 5 4 5 6h-4"/>
+            <path d="M8 18c0 2 2 4 4 4s4-2 4-4"/>
+            <path d="M10 8c-2 0-3 1-3 2"/>
+            <path d="M14 8c2 0 3 1 3 2"/>
+          </svg>
+        </div>
+        <span>&#x6597;&#x0020;&#x9E21;</span>
+        <span class="menu-arrow">&#x203A;</span>
+      </div>
+    </div>
+
+    <!-- E2E hidden sub-menus -->
+    <div class="more-drawer-sub" id="drawer-casino-sub" style="display:none">
+      <div class="more-drawer-sub-item" data-cat="hot"><span>&#x70ED;&#x95E8;</span></div>
+      <div class="more-drawer-sub-item" data-cat="fish"><span>&#x6355;&#x9C7C;</span></div>
+      <div class="more-drawer-sub-item" data-cat="slot"><span>&#x7535;&#x5B50;</span></div>
+      <div class="more-drawer-sub-item" data-cat="chess"><span>&#x68CB;&#x724C;</span></div>
+      <div class="more-drawer-sub-item" data-cat="live"><span>&#x771F;&#x4EBA;</span></div>
+      <div class="more-drawer-sub-item" data-cat="sport"><span>&#x4F53;&#x80B2;</span></div>
+      <div class="more-drawer-sub-item" data-cat="lottery"><span>&#x5F69;&#x7968;</span></div>
+      <div class="more-drawer-sub-item" data-cat="esport"><span>&#x7535;&#x7ADE;</span></div>
+      <div class="more-drawer-sub-item" data-cat="cock"><span>&#x6597;&#x9E21;</span></div>
+      <div class="more-drawer-sub-item" data-cat="blockchain"><span>&#x533A;&#x5757;&#x94FE;</span></div>
+    </div>
+    <div class="more-drawer-sub" id="drawer-support-sub" style="display:none">
+      <div class="more-drawer-sub-item" data-cat="cs"><span>&#x5728;&#x7EBF;&#x5BA2;&#x670D;</span></div>
+      <div class="more-drawer-sub-item" data-cat="help"><span>&#x5E2E;&#x52A9;&#x4E2D;&#x5FC3;</span></div>
+      <div class="more-drawer-sub-item" data-cat="feedback"><span>&#x6709;&#x5956;&#x53CD;&#x9988;</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Bottom navigation: REMOVED -->
+
+<!-- ==========================================
+     JavaScript
+     ========================================== -->
+<script>
+(function() {
+  'use strict';
+
+  /* ========================================
+     0. Freeze Mode Detection
+     ======================================== */
+  var urlParams = new URLSearchParams(window.location.search);
+  var FREEZE_MODE = urlParams.get('freeze') === 'true';
+
+  if (FREEZE_MODE) {
+    document.body.classList.add('freeze-mode');
+    document.documentElement.style.setProperty('--animation-state', 'paused');
+  }
+
+  /* ========================================
+     1. Jackpot Counter Animation
+     ======================================== */
+  if (!FREEZE_MODE) {
+    var jackpotEl = document.getElementById('jackpotNumber');
+    var baseValue = 8036348;
+    setInterval(function() {
+      baseValue += Math.floor(Math.random() * 50) + 1;
+      jackpotEl.textContent = baseValue.toLocaleString();
+    }, 3000);
+  }
+
+  /* ========================================
+     2. More Drawer (Left Slide Overlay)
+     ======================================== */
+  var drawerBackdrop = document.getElementById('drawerBackdrop');
+  var drawerCloseBtn = document.getElementById('drawerCloseBtn');
+  var hamburgerBtn = document.getElementById('hamburgerBtn');
+
+  function openDrawer(e) {
+    if (e) e.stopPropagation();
+    if (drawerBackdrop) drawerBackdrop.classList.add('active');
+  }
+
+  function closeDrawer() {
+    if (drawerBackdrop) drawerBackdrop.classList.remove('active');
+  }
+
+  if (hamburgerBtn) {
+    hamburgerBtn.onclick = openDrawer;
+  }
+
+  if (drawerCloseBtn) {
+    drawerCloseBtn.onclick = closeDrawer;
+  }
+
+  if (drawerBackdrop) {
+    drawerBackdrop.addEventListener('click', function(e) {
+      if (e.target === drawerBackdrop) closeDrawer();
+    });
+  }
+
+  /* Bottom nav active state: REMOVED */
+
+  /* ========================================
+     4. Drawer Menu Item Click → Scroll to section
+     ======================================== */
+  var drawerMenuItems = document.querySelectorAll('.drawer-menu-item[data-cat]');
+  for (var di = 0; di < drawerMenuItems.length; di++) {
+    drawerMenuItems[di].addEventListener('click', function() {
+      var cat = this.dataset.cat;
+      var sectionMap = {
+        'hot': 'platform-hot',
+        'fish': 'platform-fish',
+        'slot': 'platform-slot',
+        'chess': 'platform-chess',
+        'live': 'platform-live',
+        'sport': 'platform-sport',
+        'lottery': 'platform-lottery',
+        'esport': 'platform-esport',
+        'cockfight': 'platform-cockfight',
+        'blockchain': 'platform-blockchain'
+      };
+      var targetId = sectionMap[cat];
+      if (targetId) {
+        var target = document.getElementById(targetId);
+        if (target) {
+          closeDrawer();
+          setTimeout(function() {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 300);
+        }
+      }
+    });
+  }
+
+  /* ========================================
+     5. Drawer Tabs Click
+     ======================================== */
+  var drawerTabs = document.querySelectorAll('.drawer-tab-item');
+  for (var dt = 0; dt < drawerTabs.length; dt++) {
+    drawerTabs[dt].addEventListener('click', function() {
+      for (var x = 0; x < drawerTabs.length; x++) {
+        drawerTabs[x].classList.remove('active');
+      }
+      this.classList.add('active');
+    });
+  }
+
+  /* Bottom nav arrow: REMOVED */
+
+})();
+</script>
+
+</body>
+</html>

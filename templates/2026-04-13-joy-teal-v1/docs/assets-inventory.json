@@ -1,0 +1,122 @@
+{
+  "version": "1.0",
+  "template": "joy-teal-v1",
+  "generatedDate": "2026-04-13",
+  "backgrounds": [
+    {
+      "file": "assets/bg/home_bg.avif",
+      "usage": "Main page background (deep blue gradient)",
+      "cssProperty": "background-image on .page"
+    },
+    {
+      "file": "assets/bg/cjc1_style_2_bg.webp",
+      "usage": "Jackpot section background",
+      "cssProperty": "background on .jackpot-section"
+    },
+    {
+      "file": "assets/bg/cjc1_style_1_font_sprite.avif",
+      "usage": "Jackpot number sprite sheet",
+      "cssProperty": "N/A (referenced but not used in simplified version)"
+    },
+    {
+      "file": "assets/bg/db_dbl_pc.avif",
+      "usage": "Decorative background asset",
+      "cssProperty": "N/A"
+    },
+    {
+      "file": "assets/bg/img_whz_style_1.avif",
+      "usage": "Winner popup background",
+      "cssProperty": "N/A"
+    }
+  ],
+  "icons": [
+    {
+      "file": "assets/icons/logo.avif",
+      "usage": "GAMING logo (header + drawer)",
+      "size": "34px height"
+    },
+    {
+      "file": "assets/icons/icon_dt_pmd.webp",
+      "usage": "Marquee bar speaker icon",
+      "size": "24x24"
+    },
+    {
+      "file": "assets/icons/18plus.avif",
+      "usage": "Footer 18+ age restriction",
+      "size": "28x28"
+    },
+    {
+      "file": "assets/icons/telegram.avif",
+      "usage": "Footer Telegram contact icon",
+      "size": "42x42"
+    },
+    {
+      "file": "assets/icons/btn_sc_off_2.avif",
+      "usage": "Game card favorite star (inactive)",
+      "size": "31x31"
+    }
+  ],
+  "banners": [
+    {
+      "file": "assets/banners/banner1.avif",
+      "usage": "Banner carousel card",
+      "position": 1
+    }
+  ],
+  "gameCards": {
+    "directory": "assets/games/",
+    "pattern": "game-{01..30}.avif",
+    "count": 30,
+    "usage": "Hot games 3-column grid",
+    "files": [
+      "game-01.avif", "game-02.avif", "game-03.avif", "game-04.avif", "game-05.avif",
+      "game-06.avif", "game-07.avif", "game-08.avif", "game-09.avif", "game-10.avif",
+      "game-11.avif", "game-12.avif", "game-13.avif", "game-14.avif", "game-15.avif",
+      "game-16.avif", "game-17.avif", "game-18.avif", "game-19.avif", "game-20.avif",
+      "game-21.avif", "game-22.avif", "game-23.avif", "game-24.avif", "game-25.avif",
+      "game-26.avif", "game-27.avif", "game-28.avif", "game-29.avif", "game-30.avif"
+    ]
+  },
+  "platformCards": {
+    "directory": "assets/games/platforms/",
+    "count": 63,
+    "categories": {
+      "fishing": {
+        "categoryId": 2,
+        "files": ["p-hot-200-3.avif", "p-hot-127-4.avif", "p-310-2.avif", "p-13-2.avif", "p-27-2.avif", "p-331-2.avif", "p-303-2.avif", "p-21-2.avif"]
+      },
+      "slots": {
+        "categoryId": 3,
+        "files": ["p-200-3.avif", "p-13-3.avif", "p-1006-3.avif", "p-313-3.avif", "p-316-3.avif", "p-310-3.avif"]
+      },
+      "chess": {
+        "categoryId": 1,
+        "files": ["p-13-1.avif", "p-2-1.avif", "p-52-1.avif", "p-9-1.avif", "p-21-1.avif", "p-22-1.avif"]
+      },
+      "live": {
+        "categoryId": 4,
+        "files": ["p-127-4.avif", "p-75-4.avif", "p-79-4.avif", "p-331-4.avif", "p-1020-4.avif", "p-52-4.avif"]
+      },
+      "sports": {
+        "categoryId": 5,
+        "files": ["p-47-5.avif", "p-43-5.avif", "p-328-5.avif", "p-76-5.avif", "p-13-5.avif", "p-370-5.avif"]
+      },
+      "lottery": {
+        "categoryId": 8,
+        "files": ["p-29-8.avif", "p-75-8.avif", "p-11-8.avif", "p-13-8.avif"]
+      },
+      "esports": {
+        "categoryId": 7,
+        "files": ["p-328-7.avif", "p-74-7.avif"]
+      },
+      "cockfight": {
+        "categoryId": 6,
+        "files": ["p-87-6.avif"]
+      },
+      "blockchain": {
+        "categoryId": 11,
+        "files": ["p-13-11.avif", "p-95-11.avif"]
+      }
+    }
+  }
+}

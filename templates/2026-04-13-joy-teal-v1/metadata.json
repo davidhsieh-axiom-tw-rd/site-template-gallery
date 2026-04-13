@@ -1,0 +1,70 @@
+{
+  "name": "joy-teal-v1",
+  "displayName": "JOY Teal V1",
+  "description": "Deep blue gradient skin with green accent (skin path 22-0-1)",
+  "skinPath": "22-0-1",
+  "capturedDate": "2026-04-13",
+  "sourceUrl": "www.188.com",
+  "viewport": 450,
+  "theme": "dark",
+  "primaryColor": "#171A20",
+  "accentColor": "#12BB00",
+  "cssVariables": {
+    "--skin__primary": "#171A20",
+    "--skin__accent_1": "#12BB00",
+    "--skin__accent_2": "#ED4E3B",
+    "--skin__bg_1": "#F4F4F4",
+    "--skin__bg_2": "#FFFFFF",
+    "--skin__neutral_1": "#6C7077",
+    "--skin__neutral_2": "#A2A3A5",
+    "--skin__neutral_3": "#CCCCCC"
+  },
+  "sections": [
+    "jackpot",
+    "marquee",
+    "header",
+    "banner-carousel",
+    "hot-games",
+    "fishing",
+    "slots",
+    "chess",
+    "live-casino",
+    "sports",
+    "lottery",
+    "esports",
+    "cockfight",
+    "blockchain",
+    "footer",
+    "tab-bar",
+    "drawer"
+  ],
+  "gameCategories": {
+    "hot": { "count": 30, "gridCols": 3 },
+    "fishing": { "count": 8, "gridCols": 2, "categoryId": 2 },
+    "slots": { "count": 6, "gridCols": 2, "categoryId": 3 },
+    "chess": { "count": 6, "gridCols": 2, "categoryId": 1 },
+    "live": { "count": 6, "gridCols": 2, "categoryId": 4 },
+    "sports": { "count": 6, "gridCols": 2, "categoryId": 5 },
+    "lottery": { "count": 4, "gridCols": 2, "categoryId": 8 },
+    "esports": { "count": 2, "gridCols": 2, "categoryId": 7 },
+    "cockfight": { "count": 1, "gridCols": 2, "categoryId": 6 },
+    "blockchain": { "count": 2, "gridCols": 2, "categoryId": 11 }
+  },
+  "assets": {
+    "backgrounds": 5,
+    "icons": 5,
+    "banners": 1,
+    "gameCards": 30,
+    "platformCards": 63
+  },
+  "features": {
+    "freezeMode": true,
+    "jackpotAnimation": true,
+    "marqueeScroll": true,
+    "bannerCarousel": true,
+    "drawerMenu": true,
+    "tabBar": true,
+    "hotGamesScroll": false,
+    "hotGamesGrid": true
+  }
+}
