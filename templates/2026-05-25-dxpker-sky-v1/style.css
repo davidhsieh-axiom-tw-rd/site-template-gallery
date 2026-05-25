@@ -33,8 +33,8 @@ svg { display: block; }
 }
 
 /* ── Logos (self-drawn abstract monogram) ── */
-.logo-mark-small { width: 24px; height: 24px; flex-shrink: 0; }
-.logo-horizontal { width: 88px; height: 24px; flex-shrink: 0; }
+.logo-mark-small { width: 30px; height: 30px; flex-shrink: 0; }
+.logo-horizontal { width: 110px; height: 32px; flex-shrink: 0; }
 
 /* ── App download bar ── */
 .app-bar {
@@ -264,22 +264,7 @@ svg { display: block; }
   box-shadow: 0 2px 4px rgba(110,180,235,0.25);
 }
 
-/* ── Floating customer service (貼 Hall texas 大卡左上角，對齊原站位置) ── */
-.floating-cs {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 10px;
-  color: #A4762B;
-  background: linear-gradient(180deg, #FFE3A3 0%, #F7C76A 100%);
-  border-radius: 0 10px 10px 0;
-  padding: 4px 8px 4px 6px;
-  box-shadow: 0 1px 3px rgba(190,150,80,0.25);
-  position: absolute;
-  left: 0;
-  top: 405px;
-  z-index: 6;
-}
+/* Floating customer service removed per design decision (not in original site) */
 
 /* ── Main hall grid (3 cards) ── */
 .hall-grid {
