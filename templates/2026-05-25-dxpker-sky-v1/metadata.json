@@ -1,0 +1,88 @@
+{
+  "id": "2026-05-25-dxpker-sky-v1",
+  "name": "Dxpker Sky V1",
+  "alias": "德信版 1",
+  "source": "dxpker",
+  "originUrl": "https://app-h5-new.dxpker.com/",
+  "originTech": "Flutter Web (canvaskit)",
+  "captureDate": "2026-05-25",
+  "viewport": {
+    "width": 450,
+    "height": 900
+  },
+  "primaryColor": "#2FA0FC",
+  "assetCount": 22,
+  "placeholderCount": 13,
+  "placeholders": [
+    {
+      "id": "app-logo",
+      "label": "App Logo",
+      "reason": "第三方 App 自身識別 logo"
+    },
+    {
+      "id": "main-logo",
+      "label": "主品牌 Logo",
+      "reason": "第三方 App 自身識別 logo"
+    },
+    {
+      "id": "hero-banner",
+      "label": "Hero Banner",
+      "reason": "含真人肖像 + 姓名 + 場景插畫"
+    },
+    {
+      "id": "sponsor-a",
+      "label": "俱樂部 Logo A",
+      "reason": "足球俱樂部官方商標"
+    },
+    {
+      "id": "sponsor-b",
+      "label": "俱樂部 Logo B",
+      "reason": "足球俱樂部官方商標"
+    },
+    {
+      "id": "login-avatar",
+      "label": "預設頭像",
+      "reason": "原圖含品牌頭像 logo"
+    },
+    {
+      "id": "hall-texas-card",
+      "label": "主功能卡（德州棋牌）",
+      "reason": "整張卡含品牌字 + 設計 + 子按鈕"
+    },
+    {
+      "id": "hall-real-portrait",
+      "label": "真人荷官照",
+      "reason": "真人肖像權"
+    },
+    {
+      "id": "hall-sport-portrait",
+      "label": "運動員照",
+      "reason": "真人肖像權"
+    },
+    {
+      "id": "other-icon-1",
+      "label": "其他玩法 icon 1",
+      "reason": "含品牌設計"
+    },
+    {
+      "id": "other-icon-2",
+      "label": "其他玩法 icon 2",
+      "reason": "含品牌設計"
+    },
+    {
+      "id": "other-icon-3",
+      "label": "其他玩法 icon 3",
+      "reason": "含品牌設計"
+    },
+    {
+      "id": "other-icon-4",
+      "label": "其他玩法 icon 4",
+      "reason": "含品牌設計"
+    }
+  ],
+  "quarantinedCount": 13,
+  "quarantineNote": "13 個原下載素材經 audit 發現含品牌商標 / 字樣 / 設計 / 人物肖像 + 姓名標記，已移至 .tmp/quarantine/ 不進交付物。對應 HTML 引用全部改為 placeholder。",
+  "similarity": 89.61,
+  "similarityNote": "10 輪結構優化下最佳 89.61%（10.39% diff），逼近但未達 90% 上限；剩餘是 placeholder vs 品牌素材的本質差異。業務端塞自有素材後可達 95%+。",
+  "rounds": 10
+}

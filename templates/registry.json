@@ -227,6 +227,51 @@
         "Tab Bar",
         "Footer 三欄連結"
       ]
+    },
+    {
+      "id": "2026-05-25-dxpker-sky-v1",
+      "name": "Dxpker Sky V1",
+      "alias": "德信版 1",
+      "date": "2026-05-25",
+      "source": "dxpker",
+      "description": "德信 App H5 推廣頁 - 淺藍漸層主題（首頁含 App 下載 bar / Hero / 公告跑馬燈 / 登入卡 / 2x2 主功能 grid / 8 格其他玩法 / 底部 Tab Bar）",
+      "primaryColor": "#2FA0FC",
+      "similarity": 89.61,
+      "similarityNote": "10 輪結構優化 + IP audit 後最終 similarity 89.61%（odiff 10.39% diff），逼近但未達 90% 上限。演進: R1=84.85% → R4 IP audit 後 70.58% → R6 取樣原站背景色精確對齊跳到 88.97% → R10 final 89.61%。Audit 35 個下載素材發現 13 個含品牌商標 / 字樣 / 設計 / 真人肖像 + 姓名標記，全部 quarantine 不進交付物，HTML 改 13 個 placeholder。剩餘 10.39% 差異 = Hero 17.51% / Login 13.38% / Other 11.21% / Hall 11.14% 中 placeholder vs 品牌素材的本質差異，無法靠樣式微調再降。業務端塞自有素材後可達 95%+。",
+      "similarityBreakdown": {
+        "AppDownloadBar": 94.21,
+        "Header": 96.0,
+        "HeroBanner": 82.49,
+        "Marquee": 93.17,
+        "LoginCard": 86.62,
+        "HallGrid": 88.86,
+        "OtherPlays": 88.79,
+        "TabBar": 98.02
+      },
+      "features": [
+        "App 下載提示 bar",
+        "Hero Banner",
+        "Marquee 跑馬燈動畫",
+        "登入卡",
+        "2x2 主功能 grid（德州棋牌 / 真人 / 體育）",
+        "8 格其他玩法",
+        "Tab Bar（4 個 Tab：首頁/活動/客服/我的）",
+        "IP placeholder 區隔"
+      ],
+      "placeholders": [
+        "App Logo",
+        "主品牌 Logo",
+        "Hero Banner（含真人 + 場景）",
+        "俱樂部 Logo A / 名稱",
+        "俱樂部 Logo B / 名稱",
+        "預設頭像",
+        "主功能卡（德州棋牌）",
+        "真人荷官照",
+        "運動員照",
+        "其他玩法 icon x4 (德州/十三水/鸿运中/更多)"
+      ],
+      "quarantined": 13,
+      "rounds": 10
     }
   ]
 }

@@ -1,0 +1,192 @@
+{
+  "assets": [
+    {
+      "path": "assets/tabbar/main_tab_activity_select.png",
+      "size": 1844,
+      "md5_prefix": "23cad78b",
+      "category": "tabbar"
+    },
+    {
+      "path": "assets/tabbar/main_tab_mine.png",
+      "size": 1559,
+      "md5_prefix": "b8efa947",
+      "category": "tabbar"
+    },
+    {
+      "path": "assets/tabbar/main_tab_home_page_select.png",
+      "size": 1628,
+      "md5_prefix": "3533fd63",
+      "category": "tabbar"
+    },
+    {
+      "path": "assets/tabbar/main_tab_customer_select.png",
+      "size": 2024,
+      "md5_prefix": "5b2b9d36",
+      "category": "tabbar"
+    },
+    {
+      "path": "assets/tabbar/main_tab_mine_select.png",
+      "size": 1632,
+      "md5_prefix": "8e4b55d8",
+      "category": "tabbar"
+    },
+    {
+      "path": "assets/tabbar/main_tab_home_page.png",
+      "size": 1493,
+      "md5_prefix": "4de89547",
+      "category": "tabbar"
+    },
+    {
+      "path": "assets/tabbar/main_tab_activity.png",
+      "size": 1430,
+      "md5_prefix": "cd9707ee",
+      "category": "tabbar"
+    },
+    {
+      "path": "assets/tabbar/main_tab_customer.png",
+      "size": 1411,
+      "md5_prefix": "fbd53b7e",
+      "category": "tabbar"
+    },
+    {
+      "path": "assets/more/home_more_bg.png",
+      "size": 10886,
+      "md5_prefix": "f111bef4",
+      "category": "more"
+    },
+    {
+      "path": "assets/more/home_more_electronic.png",
+      "size": 10340,
+      "md5_prefix": "594aeab2",
+      "category": "more"
+    },
+    {
+      "path": "assets/more/home_more_chesscard.png",
+      "size": 9019,
+      "md5_prefix": "524ad835",
+      "category": "more"
+    },
+    {
+      "path": "assets/more/home_more_game.png",
+      "size": 9061,
+      "md5_prefix": "fd85818f",
+      "category": "more"
+    },
+    {
+      "path": "assets/more/home_more_electronic_text.png",
+      "size": 2263,
+      "md5_prefix": "181e98f1",
+      "category": "more"
+    },
+    {
+      "path": "assets/more/home_more_chesscard_text.png",
+      "size": 4160,
+      "md5_prefix": "cda9b93a",
+      "category": "more"
+    },
+    {
+      "path": "assets/more/home_more_lottery_text.png",
+      "size": 4223,
+      "md5_prefix": "35859b3a",
+      "category": "more"
+    },
+    {
+      "path": "assets/more/home_more_lottery.png",
+      "size": 8205,
+      "md5_prefix": "117e8d2e",
+      "category": "more"
+    },
+    {
+      "path": "assets/more/home_more_game_text.png",
+      "size": 4134,
+      "md5_prefix": "d32b9777",
+      "category": "more"
+    },
+    {
+      "path": "assets/icons/home_top_arrow.png",
+      "size": 308,
+      "md5_prefix": "d39cb203",
+      "category": "icons"
+    },
+    {
+      "path": "assets/icons/home_loudspeaker.png",
+      "size": 436,
+      "md5_prefix": "2ce9901d",
+      "category": "icons"
+    },
+    {
+      "path": "assets/icons/home_message.png",
+      "size": 449,
+      "md5_prefix": "189e636c",
+      "category": "icons"
+    },
+    {
+      "path": "assets/bg/home_center_bg_resized.png",
+      "size": 2901,
+      "md5_prefix": "a187f0af",
+      "category": "bg"
+    },
+    {
+      "path": "assets/bg/home_hall_cg_bg_resized.png",
+      "size": 5846,
+      "md5_prefix": "f68db99f",
+      "category": "bg"
+    }
+  ],
+  "totalCount": 22,
+  "quarantine": [
+    {
+      "file": "dz_bg_bottom.png",
+      "reason": "含品牌商標 / 字樣 / 設計 / 真人肖像，IP 守線下不可重新發佈"
+    },
+    {
+      "file": "dz_bg_top.png",
+      "reason": "含品牌商標 / 字樣 / 設計 / 真人肖像，IP 守線下不可重新發佈"
+    },
+    {
+      "file": "dz_home_hall_text.png",
+      "reason": "含品牌商標 / 字樣 / 設計 / 真人肖像，IP 守線下不可重新發佈"
+    },
+    {
+      "file": "home_banner_zh.png",
+      "reason": "含品牌商標 / 字樣 / 設計 / 真人肖像，IP 守線下不可重新發佈"
+    },
+    {
+      "file": "home_hall_texas_bg_resized.png",
+      "reason": "含品牌商標 / 字樣 / 設計 / 真人肖像，IP 守線下不可重新發佈"
+    },
+    {
+      "file": "home_hong_game_type_hongzhong.png",
+      "reason": "含品牌商標 / 字樣 / 設計 / 真人肖像，IP 守線下不可重新發佈"
+    },
+    {
+      "file": "home_texas_free_label.png",
+      "reason": "含品牌商標 / 字樣 / 設計 / 真人肖像，IP 守線下不可重新發佈"
+    },
+    {
+      "file": "home_texas_game_type_sss.png",
+      "reason": "含品牌商標 / 字樣 / 設計 / 真人肖像，IP 守線下不可重新發佈"
+    },
+    {
+      "file": "home_texas_game_type_texas.png",
+      "reason": "含品牌商標 / 字樣 / 設計 / 真人肖像，IP 守線下不可重新發佈"
+    },
+    {
+      "file": "home_texas_hold.png",
+      "reason": "含品牌商標 / 字樣 / 設計 / 真人肖像，IP 守線下不可重新發佈"
+    },
+    {
+      "file": "home_texas_my_room_r.png",
+      "reason": "含品牌商標 / 字樣 / 設計 / 真人肖像，IP 守線下不可重新發佈"
+    },
+    {
+      "file": "home_texas_scene_compete_l.png",
+      "reason": "含品牌商標 / 字樣 / 設計 / 真人肖像，IP 守線下不可重新發佈"
+    },
+    {
+      "file": "home_user_df_img.png",
+      "reason": "含品牌商標 / 字樣 / 設計 / 真人肖像，IP 守線下不可重新發佈"
+    }
+  ],
+  "quarantineCount": 13
+}

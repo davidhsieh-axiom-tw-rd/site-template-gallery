@@ -25,3 +25,7 @@ compare-*.png
 *-viewport*.png
 *.tmp.md
 html-to-flutter-transfer-checklist.md
+
+# Working tmp dirs (含 IP audit quarantine、paosgi 探索、原站截圖，禁止 commit)
+.tmp/
+**/.tmp/
