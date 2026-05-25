@@ -310,16 +310,58 @@ svg { display: block; }
   line-height: 1.4;
 }
 
-/* Hall TEXAS card (深藍色純背景，對齊原站視覺強度) */
+/* Hall TEXAS card (深藍色純背景，含內部子區「其他玩法」) */
 .hall-texas {
   grid-row: 1 / span 2;
   background: linear-gradient(180deg, #2A4878 0%, #1A3358 60%, #0F2548 100%);
   color: #FFFFFF;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   text-align: center;
-  padding: 14px 10px 12px;
+  padding: 12px 8px 10px;
+  gap: 4px;
+}
+.hall-texas-others {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  margin-top: 4px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+.hall-texas-others-title {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: rgba(200,220,255,0.65);
+  margin-bottom: 4px;
+}
+.hall-texas-others-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+}
+.texas-sub {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 2px;
+}
+.texas-sub-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0.05));
+  border: 1px solid rgba(180,210,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.texas-sub-icon svg { width: 20px; height: 20px; }
+.texas-sub span {
+  font-size: 9px;
+  color: rgba(220,235,255,0.85);
+  font-weight: 500;
 }
 .hall-texas-bg {
   position: absolute;
