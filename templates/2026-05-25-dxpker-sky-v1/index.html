@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=450,initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>Dxpker Sky V1</title>
-<link rel="stylesheet" href="style.css?v=20260525-align">
+<link rel="stylesheet" href="style.css?v=20260525-illu">
 <!-- Flutter: origin is Flutter Web (canvaskit). No HTML→Flutter widget token mapping needed; see docs/flutter-token-mapping.md. line-height: 1.3 set in style.css. -->
 <style>/* line-height: 1.3 (set via style.css) */</style>
 </head>
@@ -50,15 +50,92 @@
       <rect x="28" y="14" width="22" height="34" rx="3" fill="#FFFFFF" stroke="#7A92B5" stroke-width="1.5" transform="rotate(8 39 31)"/>
       <circle cx="39" cy="31" r="3.5" fill="#7A92B5"/>
     </symbol>
-    <!-- Generic person silhouette -->
+    <!-- Generic person silhouette (kept for fallback) -->
     <symbol id="ph-person" viewBox="0 0 64 64">
       <circle cx="32" cy="22" r="11" fill="#8FA4BD"/>
       <path d="M12 60 Q12 38 32 38 Q52 38 52 60 Z" fill="#8FA4BD"/>
     </symbol>
-    <!-- Generic athlete silhouette (running pose) -->
-    <symbol id="ph-athlete" viewBox="0 0 64 64">
-      <circle cx="32" cy="14" r="8" fill="#8FA4BD"/>
-      <path d="M32 22 L26 38 L18 50 M32 22 L40 38 L46 28 M26 38 L40 38 L38 60 M40 38 L34 60" stroke="#8FA4BD" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+    <!-- ── Self-drawn illustrations (monochromatic blue-grey palette, no real-person ref) ── -->
+    <!-- Palette: deep #2D5B9C, mid #4A7FC9, soft #6FA0E0, light #92D0FF, pale #C8DCF4 -->
+
+    <!-- Dealer figure: long hair, vest, hands forward dealing -->
+    <symbol id="il-dealer" viewBox="0 0 120 150">
+      <!-- back hair -->
+      <path d="M30 38 Q30 18 60 18 Q90 18 90 38 L94 72 L86 64 L84 50 L36 50 L34 64 L26 72 Z" fill="#2D5B9C"/>
+      <!-- face -->
+      <ellipse cx="60" cy="42" rx="17" ry="21" fill="#C8DCF4"/>
+      <!-- front hair fringe -->
+      <path d="M44 30 Q52 20 60 20 Q68 20 76 30 L76 36 Q68 30 60 30 Q52 30 44 36 Z" fill="#2D5B9C"/>
+      <!-- neck -->
+      <rect x="54" y="58" width="12" height="10" fill="#C8DCF4"/>
+      <!-- shoulders / vest jacket -->
+      <path d="M28 92 Q28 70 60 68 Q92 70 92 92 L98 132 L22 132 Z" fill="#4A7FC9"/>
+      <!-- inner shirt collar V -->
+      <path d="M52 70 L60 88 L68 70 L64 70 L60 80 L56 70 Z" fill="#FAFCFF"/>
+      <!-- vest darker accent stripe -->
+      <path d="M28 92 Q28 70 60 68 Q92 70 92 92 L94 105 L86 100 L80 95 L72 90 L60 88 L48 90 L40 95 L34 100 L26 105 Z" fill="#2D5B9C" opacity="0.45"/>
+      <!-- arms forward -->
+      <ellipse cx="34" cy="107" rx="8" ry="20" fill="#4A7FC9" transform="rotate(-18 34 107)"/>
+      <ellipse cx="86" cy="107" rx="8" ry="20" fill="#4A7FC9" transform="rotate(18 86 107)"/>
+      <!-- hands -->
+      <circle cx="36" cy="126" r="6" fill="#C8DCF4"/>
+      <circle cx="84" cy="126" r="6" fill="#C8DCF4"/>
+      <!-- card being dealt -->
+      <rect x="48" y="114" width="24" height="18" fill="#FFFFFF" stroke="#2D5B9C" stroke-width="1.2" rx="2"/>
+      <circle cx="60" cy="123" r="3" fill="#4A7FC9"/>
+    </symbol>
+
+    <!-- Athlete figure: kicking pose, plain blue kit -->
+    <symbol id="il-athlete" viewBox="0 0 120 150">
+      <!-- head -->
+      <circle cx="62" cy="28" r="13" fill="#C8DCF4"/>
+      <!-- short hair -->
+      <path d="M50 22 Q50 14 62 14 Q74 14 74 22 L74 28 Q68 22 62 22 Q56 22 50 28 Z" fill="#2D5B9C"/>
+      <!-- jersey -->
+      <path d="M40 50 Q40 44 62 42 Q84 44 84 50 L90 96 L80 100 L80 60 L44 60 L44 100 L34 96 Z" fill="#4A7FC9"/>
+      <!-- jersey collar V -->
+      <path d="M56 42 L62 50 L68 42 Z" fill="#FAFCFF"/>
+      <!-- jersey horizontal stripe accent -->
+      <rect x="44" y="72" width="36" height="5" fill="#2D5B9C" opacity="0.55"/>
+      <!-- shorts -->
+      <path d="M44 96 L80 96 L82 120 L66 120 L62 105 L58 120 L42 120 Z" fill="#FAFCFF"/>
+      <!-- legs -->
+      <path d="M58 120 L52 144 L48 150 L44 150 L46 142 L52 120 Z" fill="#C8DCF4"/>
+      <path d="M66 120 L82 126 L96 112 L93 108 L82 118 L66 112 Z" fill="#C8DCF4"/>
+      <!-- arms -->
+      <ellipse cx="30" cy="72" rx="6" ry="16" fill="#4A7FC9" transform="rotate(-25 30 72)"/>
+      <ellipse cx="94" cy="80" rx="6" ry="14" fill="#4A7FC9" transform="rotate(35 94 80)"/>
+      <!-- ball -->
+      <circle cx="102" cy="108" r="10" fill="#FAFCFF" stroke="#2D5B9C" stroke-width="2"/>
+      <path d="M97 104 L107 104 M102 98 L102 118 M95 110 L109 110" stroke="#2D5B9C" stroke-width="1.2"/>
+    </symbol>
+
+    <!-- Hero protagonist: suited figure with chip stack -->
+    <symbol id="il-hero-protagonist" viewBox="0 0 120 150">
+      <!-- head -->
+      <circle cx="58" cy="30" r="13" fill="#C8DCF4"/>
+      <!-- short hair -->
+      <path d="M46 24 Q46 16 58 16 Q70 16 70 24 L70 30 Q64 24 58 24 Q52 24 46 30 Z" fill="#2D5B9C"/>
+      <!-- suit jacket -->
+      <path d="M34 52 Q34 46 58 44 Q82 46 82 52 L90 108 L82 112 L80 60 L40 60 L36 60 L34 112 L26 108 Z" fill="#2D5B9C"/>
+      <!-- inner shirt -->
+      <path d="M48 45 L58 80 L68 45 L64 50 L58 65 L52 50 Z" fill="#FAFCFF"/>
+      <!-- tie -->
+      <path d="M55 50 L61 50 L62 72 L58 82 L54 72 Z" fill="#4A7FC9"/>
+      <!-- arms forward holding chips -->
+      <ellipse cx="38" cy="80" rx="7" ry="18" fill="#2D5B9C" transform="rotate(-12 38 80)"/>
+      <ellipse cx="78" cy="80" rx="7" ry="18" fill="#2D5B9C" transform="rotate(12 78 80)"/>
+      <!-- hands -->
+      <circle cx="34" cy="98" r="6" fill="#C8DCF4"/>
+      <circle cx="82" cy="98" r="6" fill="#C8DCF4"/>
+      <!-- chip stack -->
+      <ellipse cx="58" cy="102" rx="22" ry="5" fill="#2D5B9C"/>
+      <rect x="36" y="95" width="44" height="7" fill="#4A7FC9"/>
+      <ellipse cx="58" cy="95" rx="22" ry="5" fill="#92D0FF"/>
+      <ellipse cx="58" cy="88" rx="20" ry="4.5" fill="#2D5B9C"/>
+      <rect x="38" y="82" width="40" height="6" fill="#4A7FC9"/>
+      <ellipse cx="58" cy="82" rx="20" ry="4.5" fill="#92D0FF"/>
     </symbol>
     <!-- Generic chip stack -->
     <symbol id="ph-chips" viewBox="0 0 64 64">
@@ -141,9 +218,12 @@
   </header>
 
   <section class="hero">
-    <svg class="hero-scene-svg" viewBox="0 0 240 130" preserveAspectRatio="xMidYMid slice" aria-label="Sample hero scene">
-      <use href="#ph-hero-scene"/>
+    <svg class="hero-protagonist-svg" viewBox="0 0 120 150" preserveAspectRatio="xMidYMax meet" aria-label="Sample hero figure">
+      <use href="#il-hero-protagonist"/>
     </svg>
+    <div class="hero-cards-decor">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><use href="#ph-cards"/></svg>
+    </div>
     <div class="hero-text">
       <div class="hero-title">主視覺標題</div>
       <div class="hero-subtitle">Sample · 業務端可替換</div>
@@ -202,7 +282,7 @@
       <div class="hall-card-label">真人</div>
       <div class="hall-card-sub">异国美人美女荷官在线兑换互动体验</div>
       <div class="hall-portrait">
-        <svg viewBox="0 0 64 64" aria-label="Sample portrait"><use href="#ph-person"/></svg>
+        <svg viewBox="0 0 120 150" preserveAspectRatio="xMidYMax meet" aria-label="Sample dealer illustration"><use href="#il-dealer"/></svg>
       </div>
     </a>
 
@@ -210,7 +290,7 @@
       <div class="hall-card-label">体育</div>
       <div class="hall-card-sub">业界最高赔率单场全球顶级赛事直播</div>
       <div class="hall-portrait">
-        <svg viewBox="0 0 64 64" aria-label="Sample athlete"><use href="#ph-athlete"/></svg>
+        <svg viewBox="0 0 120 150" preserveAspectRatio="xMidYMax meet" aria-label="Sample athlete illustration"><use href="#il-athlete"/></svg>
       </div>
     </a>
   </div>

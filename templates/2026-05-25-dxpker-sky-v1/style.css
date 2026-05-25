@@ -113,6 +113,26 @@ svg { display: block; }
   height: 100%;
   opacity: 0.45;
 }
+.hero-protagonist-svg {
+  position: absolute;
+  left: 8px;
+  bottom: 24px;
+  width: 88px;
+  height: 110px;
+  z-index: 1;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.35));
+}
+.hero-cards-decor {
+  position: absolute;
+  right: 8px;
+  bottom: 30px;
+  width: 70px;
+  height: 70px;
+  z-index: 1;
+  opacity: 0.85;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
+}
+.hero-cards-decor svg { width: 100%; height: 100%; }
 .hero-text {
   position: absolute;
   inset: 8px 12px auto 12px;
@@ -371,23 +391,23 @@ svg { display: block; }
   text-shadow: 0 1px 1px rgba(0,0,0,0.3);
 }
 
-/* Hall portrait area (right cards) */
+/* Hall portrait area (right cards) — illustrations sit on subtle gradient backdrop */
 .hall-portrait {
   position: absolute;
-  right: 6px;
-  bottom: 6px;
-  width: 70px;
-  height: 78px;
+  right: 4px;
+  bottom: 4px;
+  width: 76px;
+  height: 92px;
   border-radius: 8px;
-  background: linear-gradient(160deg, #DCE6F2 0%, #B8C9DE 100%);
+  background: linear-gradient(160deg, #E8EFF8 0%, #C8D8EC 100%);
   display: flex;
   align-items: flex-end;
   justify-content: center;
   overflow: hidden;
 }
 .hall-portrait svg {
-  width: 56px;
-  height: 64px;
+  width: 76px;
+  height: 92px;
 }
 
 /* ── Other plays ── */
