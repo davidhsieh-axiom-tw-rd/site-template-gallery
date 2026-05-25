@@ -236,16 +236,16 @@
       "source": "dxpker",
       "description": "德信 App H5 推廣頁 - 淺藍漸層主題（首頁含 App 下載 bar / Hero / 公告跑馬燈 / 登入卡 / 2x2 主功能 grid / 8 格其他玩法 / 底部 Tab Bar）",
       "primaryColor": "#2FA0FC",
-      "similarity": 89.61,
-      "similarityNote": "10 輪結構優化 + IP audit 後最終 similarity 89.61%（odiff 10.39% diff），逼近但未達 90% 上限。演進: R1=84.85% → R4 IP audit 後 70.58% → R6 取樣原站背景色精確對齊跳到 88.97% → R10 final 89.61%。Audit 35 個下載素材發現 13 個含品牌商標 / 字樣 / 設計 / 真人肖像 + 姓名標記，全部 quarantine 不進交付物，HTML 改 13 個 placeholder。剩餘 10.39% 差異 = Hero 17.51% / Login 13.38% / Other 11.21% / Hall 11.14% 中 placeholder vs 品牌素材的本質差異，無法靠樣式微調再降。業務端塞自有素材後可達 95%+。",
+      "similarity": 88.99,
+      "similarityNote": "Wireframe 模式：13 個 IP 風險區用自製抽象幾何 SVG（撲克牌/麻將/骰子/人物剪影/運動員 stick figure/籌碼堆/LOGO 字框/Hero 場景組合）+ SAMPLE 浮水印示意，業務端 onboarding 時清楚看到每個區位應填什麼。Similarity 88.99%（odiff 11.01% diff）。所有 SVG 為純自製通用幾何 primitives（rect / circle / path 基本形狀），非任何品牌素材的衍生。業務端塞自有素材後可達 95%+。",
       "similarityBreakdown": {
-        "AppDownloadBar": 94.21,
-        "Header": 96.0,
-        "HeroBanner": 82.49,
-        "Marquee": 93.17,
-        "LoginCard": 86.62,
-        "HallGrid": 88.86,
-        "OtherPlays": 88.79,
+        "AppDownloadBar": 94.09,
+        "Header": 95.82,
+        "HeroBanner": 82.3,
+        "Marquee": 94.37,
+        "LoginCard": 85.63,
+        "HallGrid": 87.02,
+        "OtherPlays": 88.62,
         "TabBar": 98.02
       },
       "features": [
@@ -271,7 +271,8 @@
         "其他玩法 icon x4 (德州/十三水/鸿运中/更多)"
       ],
       "quarantined": 13,
-      "rounds": 10
+      "rounds": 10,
+      "mode": "wireframe"
     }
   ]
 }

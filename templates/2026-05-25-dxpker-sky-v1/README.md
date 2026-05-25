@@ -66,7 +66,38 @@ python3 -m http.server 8282
 
 ## Similarity
 
-純結構 similarity **70.71%**（odiff 29.29% diff）。Header / Hero / Hall texas card 三大區是「placeholder vs 品牌素材」本質差異，無法靠樣式微調消除。其餘區（Marquee 86% / Login 71% / Other 89% / Tab 98% / App bar 94%）對齊原站。**業務端塞自有素材後可達 90%+**。
+**88.99%**（odiff 11.01% diff）— Wireframe 模式（自製 SVG 填入 13 個 placeholder 區 + SAMPLE 浮水印）
+
+| Region | similarity |
+|--------|-----------|
+| AppDownloadBar | 94.09% |
+| Header | 95.82% |
+| HeroBanner | 82.30% |
+| Marquee | 94.37% |
+| LoginCard | 85.63% |
+| HallGrid | 87.02% |
+| OtherPlays | 88.62% |
+| TabBar | 98.02% |
+
+**業務端塞自有素材後可達 95%+**。
+
+## 自製 SVG 清單
+
+所有 wireframe SVG 為**純自製通用幾何 primitives**（rect / circle / path 基本形狀組合），非任何品牌素材的衍生：
+
+| ID | 用途 | 構成 |
+|----|------|------|
+| `#ph-cards` | 撲克牌對 | 2 個 rounded rect 重疊 + 1 個 circle |
+| `#ph-person` | 人物剪影（一般用） | 1 圓 + 梯形路徑 |
+| `#ph-athlete` | 運動員（stick figure） | 1 圓 + 線段組成的肢體 |
+| `#ph-chips` | 籌碼堆 | 3 層橢圓 + 矩形側面 |
+| `#ph-dice` | 骰子 | 1 rounded rect + 5 circles |
+| `#ph-mahjong` | 麻將牌 | 1 rounded rect + 3 stripes |
+| `#ph-more` | 橫向三點 | 3 個 circles |
+| `#ph-logo` | LOGO 字 + 虛線框 | 1 dashed rounded rect + text "LOGO" |
+| `#ph-hero-scene` | Hero 場景組合 | 上述元素的組合 |
+
+所有 SVG 都加上 SAMPLE 浮水印（如 `.hero-watermark` / `.portrait-watermark`）明示是 wireframe 占位。
 
 ## 結構區塊
 

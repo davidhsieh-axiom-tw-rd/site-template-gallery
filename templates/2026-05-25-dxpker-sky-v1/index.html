@@ -9,13 +9,92 @@
 <style>/* line-height: 1.3 (set via style.css) */</style>
 </head>
 <body>
+
+<!-- ═══════════════════════════════════════════════════════════════
+  All visual placeholders below use ORIGINAL generic geometric SVGs
+  drawn from scratch. They are wireframe samples, not derived from
+  any third-party brand asset. Business team should replace with
+  their own licensed media. See README.md placeholder table.
+═══════════════════════════════════════════════════════════════ -->
+
+<!-- Reusable SVG defs (geometric primitives, all self-drawn) -->
+<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+  <defs>
+    <!-- Generic playing card pair (two overlapping rounded rects + suit dots) -->
+    <symbol id="ph-cards" viewBox="0 0 64 64">
+      <rect x="14" y="18" width="22" height="34" rx="3" fill="#FFFFFF" stroke="#7A92B5" stroke-width="1.5" transform="rotate(-12 25 35)"/>
+      <rect x="28" y="14" width="22" height="34" rx="3" fill="#FFFFFF" stroke="#7A92B5" stroke-width="1.5" transform="rotate(8 39 31)"/>
+      <circle cx="39" cy="31" r="3.5" fill="#7A92B5"/>
+    </symbol>
+    <!-- Generic person silhouette (round head + trapezoid body) -->
+    <symbol id="ph-person" viewBox="0 0 64 64">
+      <circle cx="32" cy="22" r="11" fill="#8FA4BD"/>
+      <path d="M12 60 Q12 38 32 38 Q52 38 52 60 Z" fill="#8FA4BD"/>
+    </symbol>
+    <!-- Generic athlete silhouette (running pose, abstract) -->
+    <symbol id="ph-athlete" viewBox="0 0 64 64">
+      <circle cx="32" cy="14" r="8" fill="#8FA4BD"/>
+      <path d="M32 22 L26 38 L18 50 M32 22 L40 38 L46 28 M26 38 L40 38 L38 60 M40 38 L34 60" stroke="#8FA4BD" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </symbol>
+    <!-- Generic chip stack (circles stacked) -->
+    <symbol id="ph-chips" viewBox="0 0 64 64">
+      <ellipse cx="32" cy="48" rx="18" ry="5" fill="#7A92B5"/>
+      <rect x="14" y="40" width="36" height="8" fill="#9AB0C8"/>
+      <ellipse cx="32" cy="40" rx="18" ry="5" fill="#B8C9DE"/>
+      <ellipse cx="32" cy="32" rx="16" ry="4.5" fill="#7A92B5"/>
+      <rect x="16" y="24" width="32" height="8" fill="#9AB0C8"/>
+      <ellipse cx="32" cy="24" rx="16" ry="4.5" fill="#B8C9DE"/>
+    </symbol>
+    <!-- Generic dice -->
+    <symbol id="ph-dice" viewBox="0 0 64 64">
+      <rect x="8" y="8" width="48" height="48" rx="8" fill="#FFFFFF" stroke="#7A92B5" stroke-width="2"/>
+      <circle cx="20" cy="20" r="3" fill="#7A92B5"/>
+      <circle cx="44" cy="20" r="3" fill="#7A92B5"/>
+      <circle cx="32" cy="32" r="3" fill="#7A92B5"/>
+      <circle cx="20" cy="44" r="3" fill="#7A92B5"/>
+      <circle cx="44" cy="44" r="3" fill="#7A92B5"/>
+    </symbol>
+    <!-- Generic mahjong tile -->
+    <symbol id="ph-mahjong" viewBox="0 0 64 64">
+      <rect x="14" y="8" width="36" height="48" rx="4" fill="#FFFFFF" stroke="#7A92B5" stroke-width="2"/>
+      <rect x="20" y="16" width="24" height="6" rx="1" fill="#9AB0C8"/>
+      <rect x="20" y="28" width="24" height="6" rx="1" fill="#9AB0C8"/>
+      <rect x="20" y="40" width="24" height="6" rx="1" fill="#9AB0C8"/>
+    </symbol>
+    <!-- Generic horizontal "more dots" -->
+    <symbol id="ph-more" viewBox="0 0 64 64">
+      <circle cx="18" cy="32" r="5" fill="#7A92B5"/>
+      <circle cx="32" cy="32" r="5" fill="#7A92B5"/>
+      <circle cx="46" cy="32" r="5" fill="#7A92B5"/>
+    </symbol>
+    <!-- Generic logo placeholder ("LOGO" inside rounded rect) -->
+    <symbol id="ph-logo" viewBox="0 0 96 32">
+      <rect x="1" y="1" width="94" height="30" rx="4" fill="#FFFFFF" stroke="#9AB0C8" stroke-width="1.5" stroke-dasharray="3 2"/>
+      <text x="48" y="22" font-family="-apple-system,sans-serif" font-size="13" font-weight="600" fill="#7A92B5" text-anchor="middle" letter-spacing="2">LOGO</text>
+    </symbol>
+    <!-- Generic Hero scene: abstract person + cards + chips, no brand -->
+    <symbol id="ph-hero-scene" viewBox="0 0 200 100">
+      <!-- person silhouette on left -->
+      <circle cx="50" cy="40" r="14" fill="#8FA4BD"/>
+      <path d="M28 96 Q28 62 50 62 Q72 62 72 96 Z" fill="#8FA4BD"/>
+      <!-- chips on bottom -->
+      <ellipse cx="120" cy="88" rx="18" ry="4" fill="#7A92B5"/>
+      <ellipse cx="120" cy="84" rx="18" ry="4" fill="#9AB0C8"/>
+      <ellipse cx="120" cy="80" rx="18" ry="4" fill="#B8C9DE"/>
+      <!-- cards on right -->
+      <rect x="148" y="40" width="22" height="34" rx="2" fill="#FFFFFF" stroke="#7A92B5" stroke-width="1.2" transform="rotate(-10 159 57)"/>
+      <rect x="160" y="36" width="22" height="34" rx="2" fill="#FFFFFF" stroke="#7A92B5" stroke-width="1.2" transform="rotate(10 171 53)"/>
+    </symbol>
+  </defs>
+</svg>
+
 <div class="page">
 
   <header class="app-bar">
     <div class="app-bar-logo">
-      <div class="placeholder placeholder-logo" data-label="App Logo">A</div>
+      <svg class="ph-logo-svg ph-mini" aria-label="Sample App Logo"><use href="#ph-logo"/></svg>
       <div class="app-bar-text">
-        <div class="app-bar-title placeholder-text" data-label="品牌名稱">[品牌名稱]</div>
+        <div class="app-bar-title placeholder-text">[品牌名稱]</div>
         <div class="app-bar-sub">体育投注，真人棋牌尽享一卡管理</div>
       </div>
     </div>
@@ -23,7 +102,7 @@
   </header>
 
   <header class="top-bar">
-    <div class="placeholder placeholder-logo-main" data-label="主品牌 Logo">B</div>
+    <svg class="ph-logo-svg ph-main" aria-label="Sample Main Logo"><use href="#ph-logo"/></svg>
     <button class="top-bar-customer" aria-label="客服">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#5A7BA8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
@@ -32,18 +111,22 @@
   </header>
 
   <section class="hero">
-    <div class="placeholder placeholder-hero" data-label="Hero Banner（含主標 + 人物 / 場景插畫，業務端填入）"></div>
+    <div class="hero-bg">
+      <svg class="hero-scene-svg" viewBox="0 0 200 100" preserveAspectRatio="xMidYMid slice" aria-label="Sample Hero Scene"><use href="#ph-hero-scene"/></svg>
+      <div class="hero-title-text">主視覺<br><span>標題文字示意</span></div>
+      <div class="hero-watermark">SAMPLE</div>
+    </div>
     <div class="hero-sponsors">
       <div class="sponsor-cell">
-        <div class="placeholder placeholder-circle" data-label="俱樂部 Logo A">A</div>
-        <div class="sponsor-name placeholder-text">[俱樂部 A]</div>
-        <div class="sponsor-role">官方赞助商</div>
+        <div class="sponsor-logo-circle">A</div>
+        <div class="sponsor-name placeholder-text">[合作對象 A]</div>
+        <div class="sponsor-role">官方合作</div>
       </div>
       <div class="sponsor-divider"></div>
       <div class="sponsor-cell">
-        <div class="placeholder placeholder-circle" data-label="俱樂部 Logo B">B</div>
-        <div class="sponsor-name placeholder-text">[俱樂部 B]</div>
-        <div class="sponsor-role">胸前赞助商</div>
+        <div class="sponsor-logo-circle">B</div>
+        <div class="sponsor-name placeholder-text">[合作對象 B]</div>
+        <div class="sponsor-role">合作夥伴</div>
       </div>
     </div>
   </section>
@@ -51,7 +134,7 @@
   <div class="marquee">
     <img class="marquee-icon" src="assets/icons/home_loudspeaker.png" alt="">
     <div class="marquee-track">
-      <span class="marquee-text">欢迎加入德信，我们将为您提供全球最顶级的德州扑克体验，专属赛事、专属俱乐部、专属荣耀！</span>
+      <span class="marquee-text">歡迎使用 Site Template Gallery 範本，業務端可將文字、圖片、品牌素材替換為自有內容後再上線使用。</span>
     </div>
     <a class="marquee-more">全部
       <img src="assets/icons/home_top_arrow.png" alt="" class="arrow-icon">
@@ -60,7 +143,9 @@
 
   <div class="login-card">
     <div class="login-card-left">
-      <div class="placeholder placeholder-avatar" data-label="預設頭像"></div>
+      <div class="login-avatar-svg">
+        <svg viewBox="0 0 64 64" aria-label="Sample Avatar"><use href="#ph-person"/></svg>
+      </div>
       <div class="login-text">
         <div class="login-title">您还未登录</div>
         <div class="login-sub">登录/注册后查看更多</div>
@@ -78,29 +163,53 @@
 
   <div class="hall-grid">
     <a class="hall-card hall-texas">
-      <div class="placeholder placeholder-card-bg" data-label="主功能卡（含主標 / 設計 / 子按鈕，業務端填入）"></div>
+      <div class="hall-texas-bg"></div>
+      <svg class="hall-texas-chips" viewBox="0 0 64 64" aria-label="Sample chips"><use href="#ph-chips"/></svg>
+      <div class="hall-texas-title">主功能<br><span class="hall-texas-sub">SAMPLE</span></div>
+      <div class="hall-texas-tags">
+        <span class="hall-texas-tag">標籤 1</span>
+        <span class="hall-texas-tag">標籤 2</span>
+      </div>
     </a>
 
     <a class="hall-card hall-real">
       <div class="hall-card-label">真人</div>
       <div class="hall-card-sub">异国美人美女荷官在线兑换互动体验</div>
-      <div class="placeholder placeholder-portrait" data-label="真人荷官照"></div>
+      <div class="hall-portrait-svg">
+        <svg viewBox="0 0 64 64" aria-label="Sample portrait"><use href="#ph-person"/></svg>
+        <span class="portrait-watermark">SAMPLE</span>
+      </div>
     </a>
 
     <a class="hall-card hall-sport">
       <div class="hall-card-label">体育</div>
       <div class="hall-card-sub">业界最高赔率单场全球頂级赛事直播</div>
-      <div class="placeholder placeholder-portrait" data-label="運動員照"></div>
+      <div class="hall-portrait-svg">
+        <svg viewBox="0 0 64 64" aria-label="Sample athlete"><use href="#ph-athlete"/></svg>
+        <span class="portrait-watermark">SAMPLE</span>
+      </div>
     </a>
   </div>
 
   <div class="other-section">
     <div class="other-title">其他玩法</div>
     <div class="other-grid">
-      <a class="other-item"><div class="placeholder placeholder-mini-icon" data-label=""></div><span>德州</span></a>
-      <a class="other-item"><div class="placeholder placeholder-mini-icon" data-label=""></div><span>十三水</span></a>
-      <a class="other-item"><div class="placeholder placeholder-mini-icon" data-label=""></div><span>鸿运中</span></a>
-      <a class="other-item"><div class="placeholder placeholder-mini-icon" data-label=""></div><span>更多</span></a>
+      <a class="other-item">
+        <div class="other-icon-wrap"><svg viewBox="0 0 64 64"><use href="#ph-cards"/></svg></div>
+        <span>德州</span>
+      </a>
+      <a class="other-item">
+        <div class="other-icon-wrap"><svg viewBox="0 0 64 64"><use href="#ph-mahjong"/></svg></div>
+        <span>十三水</span>
+      </a>
+      <a class="other-item">
+        <div class="other-icon-wrap"><svg viewBox="0 0 64 64"><use href="#ph-dice"/></svg></div>
+        <span>鸿运中</span>
+      </a>
+      <a class="other-item">
+        <div class="other-icon-wrap"><svg viewBox="0 0 64 64"><use href="#ph-more"/></svg></div>
+        <span>更多</span>
+      </a>
       <a class="other-item"><img src="assets/more/home_more_game.png" alt=""><span>电竞</span></a>
       <a class="other-item"><img src="assets/more/home_more_lottery.png" alt=""><span>彩票</span></a>
       <a class="other-item"><img src="assets/more/home_more_chesscard.png" alt=""><span>棋牌</span></a>

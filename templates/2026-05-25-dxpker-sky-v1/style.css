@@ -1,4 +1,10 @@
 /* Flutter Token mapping: N/A — origin is Flutter Web (canvaskit), no HTML→Flutter widget translation needed (see README.md). */
+/*
+   Visual SVGs in this file are ORIGINAL generic geometric primitives
+   (cards / chips / mahjong / dice / person / athlete silhouettes / "more" dots /
+   logo wireframe) drawn from scratch as sample wireframe placeholders for the
+   Site Template Gallery. They are NOT derivatives of any third-party brand asset.
+*/
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body {
   background: #C8DAEF;
@@ -25,130 +31,20 @@ img { display: block; }
   overflow: hidden;
 }
 
-/* ── Placeholders for IP-restricted assets (融入背景樣式) ── */
-.placeholder {
-  background: linear-gradient(135deg, #E8F0FA 0%, #D6E3F1 100%);
-  color: rgba(110,130,160,0.65);
-  font-size: 9px;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  border: 1px dashed rgba(150,170,200,0.45);
-  position: relative;
-}
-.placeholder::after {
-  content: attr(data-label);
-  position: absolute;
-  bottom: 3px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 8px;
-  white-space: nowrap;
-  color: rgba(110,130,160,0.7);
-  background: rgba(255,255,255,0.5);
-  padding: 0 3px;
-  border-radius: 2px;
-}
-.placeholder-logo {
-  width: 28px; height: 28px; border-radius: 6px;
-  font-size: 12px;
-  background: #FFFFFF;
-  border: 1px dashed rgba(150,170,200,0.45);
-  color: transparent;
-}
-.placeholder-logo::after { display: none; }
-.placeholder-logo-main {
-  width: 88px; height: 28px; border-radius: 4px;
-  font-size: 11px;
-  background: #FFFFFF;
-  border: 1px dashed rgba(150,170,200,0.45);
-  color: transparent;
-}
-.placeholder-logo-main::after { display: none; }
-.placeholder-circle {
-  width: 44px; height: 44px; border-radius: 50%;
-  font-size: 11px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.45), rgba(255,255,255,0.18));
-  border-color: rgba(255,255,255,0.55);
-  color: rgba(255,255,255,0.85);
-}
-.placeholder-circle::after { display: none; }
-.placeholder-portrait {
-  position: absolute;
-  right: 4px;
-  bottom: 4px;
-  width: 80px;
-  height: 95px;
-  border-radius: 6px;
-  font-size: 8px;
-  background: linear-gradient(160deg, #D6E1F0 0%, #A8BDD4 60%, #8AA0BD 100%);
-  border-color: rgba(120,140,170,0.35);
-}
+/* ── Common placeholder text style (italicized "[label]" inline)  ── */
 .placeholder-text {
   font-style: italic;
   color: rgba(110,130,160,0.75);
   font-size: 12px;
 }
-.placeholder-hero {
-  position: absolute;
-  inset: 0;
-  border: none;
-  background: linear-gradient(180deg, #F4F8F8 0%, #EEF5FD 60%, #DCE9F8 100%);
-  color: rgba(70,100,140,0.0);
-  font-size: 0;
+
+/* ── Generic SVG logo wireframes (sample / placeholder) ── */
+.ph-logo-svg {
+  display: block;
+  flex-shrink: 0;
 }
-.placeholder-hero::after {
-  position: absolute;
-  bottom: 6px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(255,255,255,0.35);
-  color: rgba(70,100,140,0.55);
-  padding: 2px 6px;
-  border-radius: 3px;
-  font-size: 8px;
-}
-.placeholder-avatar {
-  width: 42px; height: 42px; border-radius: 50%;
-  background: #D0D8E2;
-  border-color: rgba(150,170,200,0.3);
-  font-size: 0;
-}
-.placeholder-avatar::after { display: none; }
-.placeholder-card-bg {
-  position: absolute;
-  inset: 4px;
-  border-radius: 8px;
-  background: linear-gradient(180deg, #FDFEFF 0%, #E4EEF8 60%, #C8D8EB 100%);
-  color: rgba(70,100,140,0.6);
-  font-size: 9px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 12px;
-  border: 1px dashed rgba(120,150,180,0.35);
-}
-.placeholder-card-bg::after {
-  position: static;
-  background: rgba(255,255,255,0.65);
-  color: rgba(70,100,140,0.75);
-  padding: 4px 8px;
-  border-radius: 4px;
-  transform: none;
-  white-space: normal;
-  max-width: 85%;
-  line-height: 1.4;
-}
-.placeholder-mini-icon {
-  width: 44px; height: 44px; border-radius: 8px;
-  background: #EAF0F6;
-  border-color: rgba(150,170,200,0.22);
-  font-size: 0;
-}
-.placeholder-mini-icon::after { display: none; }
+.ph-logo-svg.ph-mini { width: 60px; height: 20px; }
+.ph-logo-svg.ph-main { width: 96px; height: 32px; }
 
 /* ── App download bar ── */
 .app-bar {
@@ -159,22 +55,10 @@ img { display: block; }
   background: #FCFCFC;
   border-bottom: 1px solid rgba(150,170,200,0.15);
 }
-.app-bar-logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
+.app-bar-logo { display: flex; align-items: center; gap: 8px; }
 .app-bar-text { line-height: 1.2; }
-.app-bar-title {
-  font-size: 13px;
-  font-weight: 600;
-  color: #1A2B3F;
-}
-.app-bar-sub {
-  font-size: 10px;
-  color: #6F86A6;
-  margin-top: 2px;
-}
+.app-bar-title { font-size: 13px; font-weight: 600; color: #1A2B3F; }
+.app-bar-sub { font-size: 10px; color: #6F86A6; margin-top: 2px; }
 .app-bar-btn {
   background: linear-gradient(180deg, #92D0FF 0%, #6FB8F0 100%);
   color: #FFFFFF;
@@ -194,8 +78,7 @@ img { display: block; }
   background: #E4F0FF;
 }
 .top-bar-customer {
-  width: 28px;
-  height: 28px;
+  width: 28px; height: 28px;
   border-radius: 50%;
   background: rgba(255,255,255,0.6);
   display: flex;
@@ -203,21 +86,59 @@ img { display: block; }
   justify-content: center;
 }
 
-/* ── Hero ── */
+/* ── Hero (with self-drawn scene SVG inside) ── */
 .hero {
   position: relative;
   height: 140px;
   margin: 0 12px;
   border-radius: 10px;
   overflow: hidden;
-  background: linear-gradient(135deg, #4A7FC9 0%, #2D5B9C 100%);
+  background: linear-gradient(180deg, #F4F8F8 0%, #E6EFFA 50%, #D2E0F2 100%);
 }
 .hero-bg {
   position: absolute;
   inset: 0;
-  background-size: 100% 100%;
-  background-position: center top;
-  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-scene-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+}
+.hero-title-text {
+  position: relative;
+  z-index: 2;
+  color: #2A3F5F;
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.6);
+}
+.hero-title-text span {
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin-top: 2px;
+  color: #5A7BA8;
+}
+.hero-watermark {
+  position: absolute;
+  bottom: 32px;
+  right: 8px;
+  background: rgba(255,255,255,0.55);
+  color: rgba(110,130,160,0.85);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  z-index: 2;
 }
 .hero-sponsors {
   position: absolute;
@@ -226,8 +147,9 @@ img { display: block; }
   align-items: flex-end;
   justify-content: center;
   gap: 0;
-  background: linear-gradient(180deg, rgba(20,40,80,0) 0%, rgba(20,40,80,0.4) 100%);
+  background: linear-gradient(180deg, rgba(20,40,80,0) 0%, rgba(20,40,80,0.3) 100%);
   padding: 28px 12px 8px;
+  z-index: 3;
 }
 .sponsor-cell {
   flex: 1;
@@ -238,12 +160,18 @@ img { display: block; }
   text-align: center;
   gap: 1px;
 }
-.sponsor-cell .placeholder-circle {
+.sponsor-logo-circle {
   width: 36px; height: 36px;
-  background: rgba(255,255,255,0.22);
-  border: 1px solid rgba(255,255,255,0.4);
-  color: transparent;
-  font-size: 0;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  border: 1px dashed rgba(255,255,255,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.95);
+  margin-bottom: 2px;
 }
 .sponsor-divider {
   width: 1px;
@@ -304,10 +232,15 @@ img { display: block; }
   box-shadow: 0 2px 6px rgba(80,110,160,0.06);
 }
 .login-card-left { display: flex; align-items: center; gap: 10px; }
-.login-avatar {
+.login-avatar-svg {
   width: 42px; height: 42px; border-radius: 50%;
-  background: #E0E8F2;
+  background: #EBF1F8;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
+.login-avatar-svg svg { width: 30px; height: 30px; opacity: 0.5; }
 .login-title { font-size: 13px; font-weight: 600; color: #2A3F5F; letter-spacing: 0.3px; }
 .login-sub { font-size: 10px; color: #9BA8BB; margin-top: 2px; letter-spacing: 0.2px; }
 .login-btn {
@@ -379,49 +312,102 @@ img { display: block; }
   margin-top: 4px;
   width: 55%;
 }
+
+/* Hall TEXAS card (large, self-drawn wireframe sample, light theme to align orig) */
 .hall-texas {
   grid-row: 1 / span 2;
-  background-color: #F0F6FC;
-  color: #1A2B3F;
+  background: linear-gradient(180deg, #F0F6FC 0%, #E0EAF6 100%);
+  color: #2A3F5F;
   align-items: center;
   justify-content: space-between;
   text-align: center;
   padding: 14px 10px 12px;
-  gap: 6px;
+  gap: 4px;
 }
-.hall-texas .hall-card-title-img {
-  width: 75%;
-  max-width: 140px;
-  margin-top: 4px;
-}
-.hall-texas .hall-card-free-label {
-  width: 56px;
-  margin: 0;
-  align-self: flex-start;
+.hall-texas-bg {
   position: absolute;
-  left: 8px;
-  top: 8px;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(255,255,255,0.5), transparent 65%),
+    radial-gradient(circle at 80% 80%, rgba(180,210,240,0.18), transparent 50%);
+  pointer-events: none;
 }
-.hall-card-title-img { width: 80%; max-width: 130px; height: auto; }
-.hall-card-free-label { width: 60px; height: auto; align-self: flex-start; }
-.hall-card-tags {
+.hall-texas-chips {
+  width: 56px;
+  height: 56px;
+  position: relative;
+  z-index: 1;
+  margin-top: 4px;
+  filter: drop-shadow(0 2px 4px rgba(100,130,170,0.25));
+}
+.hall-texas-title {
+  position: relative;
+  z-index: 1;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #2A3F5F;
+  line-height: 1.2;
+}
+.hall-texas-sub {
+  display: block;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: rgba(120,140,170,0.75);
+  margin-top: 2px;
+}
+.hall-texas-tags {
   display: flex;
   gap: 6px;
   width: 100%;
   justify-content: center;
+  position: relative;
+  z-index: 1;
 }
-.hall-card-tag {
+.hall-texas-tag {
   flex: 1;
   font-size: 11px;
   font-weight: 600;
   color: #FFFFFF;
-  background-color: rgba(255,255,255,0.08);
-  background-size: cover;
-  background-position: center;
+  background: linear-gradient(135deg, rgba(140,180,230,0.85), rgba(110,160,220,0.95));
+  border: 1px solid rgba(180,210,240,0.5);
   border-radius: 10px;
   padding: 4px 0;
   text-align: center;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  text-shadow: 0 1px 1px rgba(60,90,140,0.3);
+}
+
+/* Hall portrait SVG (self-drawn person / athlete silhouette) */
+.hall-portrait-svg {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  width: 80px;
+  height: 95px;
+  border-radius: 6px;
+  background: linear-gradient(160deg, #D6E1F0 0%, #A8BDD4 60%, #8AA0BD 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+}
+.hall-portrait-svg svg {
+  width: 70px;
+  height: 80px;
+  margin-bottom: 4px;
+}
+.portrait-watermark {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background: rgba(255,255,255,0.6);
+  color: rgba(70,100,140,0.85);
+  font-size: 7px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 1px 4px;
+  border-radius: 2px;
 }
 
 /* ── Other plays ── */
@@ -451,6 +437,21 @@ img { display: block; }
   width: 44px;
   height: 44px;
   object-fit: contain;
+}
+.other-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #FFFFFF, #E8EFF6);
+  border: 1px solid rgba(150,170,200,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 2px rgba(80,110,160,0.06);
+}
+.other-icon-wrap svg {
+  width: 30px;
+  height: 30px;
 }
 .other-item span {
   font-size: 11px;

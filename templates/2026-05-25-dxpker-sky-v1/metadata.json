@@ -82,7 +82,19 @@
   ],
   "quarantinedCount": 13,
   "quarantineNote": "13 個原下載素材經 audit 發現含品牌商標 / 字樣 / 設計 / 人物肖像 + 姓名標記，已移至 .tmp/quarantine/ 不進交付物。對應 HTML 引用全部改為 placeholder。",
-  "similarity": 89.61,
-  "similarityNote": "10 輪結構優化下最佳 89.61%（10.39% diff），逼近但未達 90% 上限；剩餘是 placeholder vs 品牌素材的本質差異。業務端塞自有素材後可達 95%+。",
-  "rounds": 10
+  "similarity": 88.99,
+  "similarityNote": "Wireframe 模式：13 個 placeholder 區用自製抽象幾何 SVG + SAMPLE 浮水印，業務端可清楚看到每個區位的填入示意。所有 SVG 為純自製通用幾何 primitives。",
+  "rounds": 10,
+  "mode": "wireframe",
+  "selfDrawnSvgs": [
+    "ph-cards (撲克牌對, 自製 rect + circle)",
+    "ph-person (人物剪影, 圓 + 梯形)",
+    "ph-athlete (運動員 stick figure)",
+    "ph-chips (籌碼堆, 圓堆疊)",
+    "ph-dice (骰子, rounded rect + 5 dots)",
+    "ph-mahjong (麻將牌, rounded rect + stripes)",
+    "ph-more (橫向三點)",
+    "ph-logo (LOGO 字 + dashed rounded rect)",
+    "ph-hero-scene (人物 + 籌碼 + 撲克牌 組合)"
+  ]
 }
