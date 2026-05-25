@@ -236,8 +236,8 @@
       "source": "dxpker",
       "description": "德信 App H5 推廣頁 - 淺藍漸層主題（首頁含 App 下載 bar / Hero / 公告跑馬燈 / 登入卡 / 2x2 主功能 grid / 8 格其他玩法 / 底部 Tab Bar）",
       "primaryColor": "#2FA0FC",
-      "similarity": 88.99,
-      "similarityNote": "Wireframe 模式：13 個 IP 風險區用自製抽象幾何 SVG（撲克牌/麻將/骰子/人物剪影/運動員 stick figure/籌碼堆/LOGO 字框/Hero 場景組合）+ SAMPLE 浮水印示意，業務端 onboarding 時清楚看到每個區位應填什麼。Similarity 88.99%（odiff 11.01% diff）。所有 SVG 為純自製通用幾何 primitives（rect / circle / path 基本形狀），非任何品牌素材的衍生。業務端塞自有素材後可達 95%+。",
+      "similarity": 79.26,
+      "similarityNote": "Wireframe v2（含自製抽象 monogram LOGO 設計）：所有 SVG 均為純自製通用幾何 primitives（圓 + 菱形 + 點 monogram；rect / circle / path 組合的 wireframe primitives），非任何品牌素材的衍生。Similarity 79.26%（odiff 20.74% diff）。業務端塞自有素材後可達 95%+。",
       "similarityBreakdown": {
         "AppDownloadBar": 94.09,
         "Header": 95.82,
@@ -272,7 +272,7 @@
       ],
       "quarantined": 13,
       "rounds": 10,
-      "mode": "wireframe"
+      "mode": "wireframe-v2"
     }
   ]
 }

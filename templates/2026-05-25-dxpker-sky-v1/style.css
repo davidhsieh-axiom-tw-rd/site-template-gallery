@@ -1,9 +1,9 @@
 /* Flutter Token mapping: N/A — origin is Flutter Web (canvaskit), no HTML→Flutter widget translation needed (see README.md). */
 /*
    Visual SVGs in this file are ORIGINAL generic geometric primitives
-   (cards / chips / mahjong / dice / person / athlete silhouettes / "more" dots /
-   logo wireframe) drawn from scratch as sample wireframe placeholders for the
-   Site Template Gallery. They are NOT derivatives of any third-party brand asset.
+   (logo monogram = hexagon+diamond+dot; cards / chips / mahjong / dice / person /
+   athlete silhouettes / more dots) drawn from scratch as sample wireframes for
+   the Site Template Gallery. They are NOT derivatives of any third-party brand.
 */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body {
@@ -17,6 +17,7 @@ html, body {
 button { font: inherit; cursor: pointer; border: none; background: transparent; color: inherit; }
 a { color: inherit; text-decoration: none; }
 img { display: block; }
+svg { display: block; }
 
 .page {
   width: 450px;
@@ -31,20 +32,9 @@ img { display: block; }
   overflow: hidden;
 }
 
-/* ── Common placeholder text style (italicized "[label]" inline)  ── */
-.placeholder-text {
-  font-style: italic;
-  color: rgba(110,130,160,0.75);
-  font-size: 12px;
-}
-
-/* ── Generic SVG logo wireframes (sample / placeholder) ── */
-.ph-logo-svg {
-  display: block;
-  flex-shrink: 0;
-}
-.ph-logo-svg.ph-mini { width: 60px; height: 20px; }
-.ph-logo-svg.ph-main { width: 96px; height: 32px; }
+/* ── Logos (self-drawn abstract monogram) ── */
+.logo-mark-small { width: 24px; height: 24px; flex-shrink: 0; }
+.logo-horizontal { width: 88px; height: 24px; flex-shrink: 0; }
 
 /* ── App download bar ── */
 .app-bar {
@@ -54,11 +44,30 @@ img { display: block; }
   padding: 8px 12px;
   background: #FCFCFC;
   border-bottom: 1px solid rgba(150,170,200,0.15);
+  gap: 8px;
 }
-.app-bar-logo { display: flex; align-items: center; gap: 8px; }
-.app-bar-text { line-height: 1.2; }
-.app-bar-title { font-size: 13px; font-weight: 600; color: #1A2B3F; }
-.app-bar-sub { font-size: 10px; color: #6F86A6; margin-top: 2px; }
+.app-bar-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+.app-bar-text { line-height: 1.2; min-width: 0; flex: 1; }
+.app-bar-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2A3F5F;
+  letter-spacing: 0.3px;
+}
+.app-bar-sub {
+  font-size: 10px;
+  color: #6F86A6;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .app-bar-btn {
   background: linear-gradient(180deg, #92D0FF 0%, #6FB8F0 100%);
   color: #FFFFFF;
@@ -67,6 +76,8 @@ img { display: block; }
   padding: 6px 14px;
   border-radius: 16px;
   box-shadow: 0 1px 3px rgba(110,170,220,0.3);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 /* ── Top bar (main logo + customer service) ── */
@@ -86,59 +97,40 @@ img { display: block; }
   justify-content: center;
 }
 
-/* ── Hero (with self-drawn scene SVG inside) ── */
+/* ── Hero ── */
 .hero {
   position: relative;
   height: 140px;
   margin: 0 12px;
   border-radius: 10px;
   overflow: hidden;
-  background: linear-gradient(180deg, #F4F8F8 0%, #E6EFFA 50%, #D2E0F2 100%);
-}
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: linear-gradient(180deg, #4A7FC9 0%, #2D5B9C 100%);
 }
 .hero-scene-svg {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.5;
+  opacity: 0.45;
 }
-.hero-title-text {
-  position: relative;
+.hero-text {
+  position: absolute;
+  inset: 8px 12px auto 12px;
   z-index: 2;
-  color: #2A3F5F;
+  color: #FFFFFF;
+  text-align: center;
+}
+.hero-title {
   font-size: 22px;
   font-weight: 700;
-  text-align: center;
-  letter-spacing: 1px;
-  text-shadow: 0 1px 0 rgba(255,255,255,0.6);
+  letter-spacing: 3px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.35);
 }
-.hero-title-text span {
-  display: block;
-  font-size: 11px;
-  font-weight: 400;
+.hero-subtitle {
+  font-size: 10px;
   letter-spacing: 2px;
+  opacity: 0.85;
   margin-top: 2px;
-  color: #5A7BA8;
-}
-.hero-watermark {
-  position: absolute;
-  bottom: 32px;
-  right: 8px;
-  background: rgba(255,255,255,0.55);
-  color: rgba(110,130,160,0.85);
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  padding: 2px 6px;
-  border-radius: 3px;
-  z-index: 2;
 }
 .hero-sponsors {
   position: absolute;
@@ -146,9 +138,8 @@ img { display: block; }
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  gap: 0;
-  background: linear-gradient(180deg, rgba(20,40,80,0) 0%, rgba(20,40,80,0.3) 100%);
-  padding: 28px 12px 8px;
+  background: linear-gradient(180deg, rgba(20,40,80,0) 0%, rgba(20,40,80,0.45) 100%);
+  padding: 24px 12px 6px;
   z-index: 3;
 }
 .sponsor-cell {
@@ -160,18 +151,10 @@ img { display: block; }
   text-align: center;
   gap: 1px;
 }
-.sponsor-logo-circle {
-  width: 36px; height: 36px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.3);
-  border: 1px dashed rgba(255,255,255,0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-  font-weight: 700;
-  color: rgba(255,255,255,0.95);
+.sponsor-mark {
+  width: 28px; height: 28px;
   margin-bottom: 2px;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.35));
 }
 .sponsor-divider {
   width: 1px;
@@ -179,7 +162,7 @@ img { display: block; }
   background: rgba(255,255,255,0.3);
   margin: 0 6px 10px;
 }
-.sponsor-name { font-size: 10px; font-weight: 500; opacity: 0.95; }
+.sponsor-name { font-size: 10px; font-weight: 600; opacity: 0.98; }
 .sponsor-role { font-size: 8px; opacity: 0.7; }
 
 /* ── Marquee ── */
@@ -232,15 +215,20 @@ img { display: block; }
   box-shadow: 0 2px 6px rgba(80,110,160,0.06);
 }
 .login-card-left { display: flex; align-items: center; gap: 10px; }
-.login-avatar-svg {
-  width: 42px; height: 42px; border-radius: 50%;
+.login-avatar-wrap {
+  width: 42px; height: 42px;
+  border-radius: 50%;
   background: #EBF1F8;
   overflow: hidden;
   display: flex;
   align-items: flex-end;
   justify-content: center;
 }
-.login-avatar-svg svg { width: 30px; height: 30px; opacity: 0.5; }
+.login-avatar-wrap svg {
+  width: 32px;
+  height: 32px;
+  opacity: 0.7;
+}
 .login-title { font-size: 13px; font-weight: 600; color: #2A3F5F; letter-spacing: 0.3px; }
 .login-sub { font-size: 10px; color: #9BA8BB; margin-top: 2px; letter-spacing: 0.2px; }
 .login-btn {
@@ -253,7 +241,7 @@ img { display: block; }
   box-shadow: 0 2px 4px rgba(110,180,235,0.25);
 }
 
-/* ── Floating customer service (left edge of texas card) ── */
+/* ── Floating customer service ── */
 .floating-cs {
   display: flex;
   align-items: center;
@@ -266,7 +254,7 @@ img { display: block; }
   box-shadow: 0 1px 3px rgba(190,150,80,0.25);
   position: absolute;
   left: 0;
-  top: 408px;
+  top: 425px;
   z-index: 5;
 }
 
@@ -302,60 +290,61 @@ img { display: block; }
 .hall-card-label::before {
   content: "";
   display: inline-block;
-  width: 16px; height: 16px;
-  background: linear-gradient(135deg, #4FB2FF, #2F8DE0);
-  border-radius: 4px;
+  width: 4px; height: 14px;
+  background: linear-gradient(180deg, #4FB2FF, #2F8DE0);
+  border-radius: 2px;
 }
 .hall-card-sub {
   font-size: 10px;
   color: #8A9BB0;
   margin-top: 4px;
   width: 55%;
+  line-height: 1.4;
 }
 
-/* Hall TEXAS card (large, self-drawn wireframe sample, light theme to align orig) */
+/* Hall TEXAS card */
 .hall-texas {
   grid-row: 1 / span 2;
   background: linear-gradient(180deg, #F0F6FC 0%, #E0EAF6 100%);
   color: #2A3F5F;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   text-align: center;
   padding: 14px 10px 12px;
-  gap: 4px;
+  gap: 2px;
 }
 .hall-texas-bg {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 50% 35%, rgba(255,255,255,0.5), transparent 65%),
+    radial-gradient(circle at 50% 35%, rgba(255,255,255,0.6), transparent 65%),
     radial-gradient(circle at 80% 80%, rgba(180,210,240,0.18), transparent 50%);
   pointer-events: none;
 }
 .hall-texas-chips {
-  width: 56px;
-  height: 56px;
+  width: 64px;
+  height: 64px;
   position: relative;
   z-index: 1;
-  margin-top: 4px;
   filter: drop-shadow(0 2px 4px rgba(100,130,170,0.25));
 }
 .hall-texas-title {
   position: relative;
   z-index: 1;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
   letter-spacing: 2px;
   color: #2A3F5F;
-  line-height: 1.2;
+  line-height: 1.1;
 }
 .hall-texas-sub {
-  display: block;
+  position: relative;
+  z-index: 1;
   font-size: 9px;
   font-weight: 600;
   letter-spacing: 3px;
-  color: rgba(120,140,170,0.75);
-  margin-top: 2px;
+  color: rgba(120,140,170,0.7);
+  margin-bottom: 4px;
 }
 .hall-texas-tags {
   display: flex;
@@ -378,36 +367,23 @@ img { display: block; }
   text-shadow: 0 1px 1px rgba(60,90,140,0.3);
 }
 
-/* Hall portrait SVG (self-drawn person / athlete silhouette) */
-.hall-portrait-svg {
+/* Hall portrait area (right cards) */
+.hall-portrait {
   position: absolute;
-  right: 4px;
-  bottom: 4px;
-  width: 80px;
-  height: 95px;
-  border-radius: 6px;
-  background: linear-gradient(160deg, #D6E1F0 0%, #A8BDD4 60%, #8AA0BD 100%);
+  right: 6px;
+  bottom: 6px;
+  width: 70px;
+  height: 78px;
+  border-radius: 8px;
+  background: linear-gradient(160deg, #DCE6F2 0%, #B8C9DE 100%);
   display: flex;
   align-items: flex-end;
   justify-content: center;
   overflow: hidden;
 }
-.hall-portrait-svg svg {
-  width: 70px;
-  height: 80px;
-  margin-bottom: 4px;
-}
-.portrait-watermark {
-  position: absolute;
-  top: 4px;
-  right: 4px;
-  background: rgba(255,255,255,0.6);
-  color: rgba(70,100,140,0.85);
-  font-size: 7px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  padding: 1px 4px;
-  border-radius: 2px;
+.hall-portrait svg {
+  width: 56px;
+  height: 64px;
 }
 
 /* ── Other plays ── */
@@ -450,8 +426,8 @@ img { display: block; }
   box-shadow: 0 1px 2px rgba(80,110,160,0.06);
 }
 .other-icon-wrap svg {
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
 }
 .other-item span {
   font-size: 11px;
