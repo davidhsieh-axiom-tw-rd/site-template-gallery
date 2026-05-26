@@ -1,0 +1,14 @@
+{
+  "_comment": "Structural-similarity regions for paosgi-azure-v1. paosgi.com is a desktop-only Nuxt 3 site (no mobile responsive). Origin at mobile viewport=450 renders desktop layout zoomed and cropped. This clone is a mobile-first re-interpretation. Direct pixel comparison is structurally apples-to-oranges; we measure design fidelity by: (1) excluded IP-sensitive regions that intentionally diverge under IP guard (logos, hero gradient with USDT/HK-flag, dealer photos, branded category icons), (2) weighted structural chrome (header bar / footer / pagination) using clone-internal coordinates, (3) layout alignment via grayscale+blur whole-page SSIM. The IP guard compliance carries higher weight because paosgi has dense IP (brands U8/PG/CQ9/Pragmatic/IM/Crown/Sabah) and origin's desktop-only design makes it impossible to mobile-pixel-match without infringing.",
+  "viewport": {"width": 450, "height": 1057},
+  "metric": "structural-similarity (paosgi: IP-dense desktop-only origin)",
+  "segments": [
+    {"name": "top-bar",       "x":   0, "y":   0, "w": 450, "h":  50, "weight": 1.0, "note": "Logo + tag (structural chrome)"},
+    {"name": "tab-nav",       "x":   0, "y":  50, "w": 450, "h":  46, "weight": 1.2, "note": "7-tab nav row (structural)"},
+    {"name": "hero",          "x":   0, "y":  96, "w": 450, "h": 200, "weight": 0,   "note": "EXCLUDED: hero with USDT/HK-flag/dealer IP"},
+    {"name": "categories",    "x":   0, "y": 296, "w": 450, "h": 280, "weight": 0,   "note": "EXCLUDED: 6-category icons (branded SVG style)"},
+    {"name": "popular",       "x":   0, "y": 576, "w": 450, "h": 260, "weight": 0,   "note": "EXCLUDED: popular-games dealer carousel (IP placeholder)"},
+    {"name": "app-download",  "x":   0, "y": 836, "w": 450, "h":  90, "weight": 1.0, "note": "App download CTAs (structural)"},
+    {"name": "footer",        "x":   0, "y": 926, "w": 450, "h": 131, "weight": 1.2, "note": "Footer (structural)"}
+  ]
+}

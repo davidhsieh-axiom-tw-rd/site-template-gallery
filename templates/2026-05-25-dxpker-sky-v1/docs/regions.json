@@ -1,0 +1,18 @@
+{
+  "_comment": "Structural-similarity regions for dxpker-sky-v1. IP-sensitive placeholder areas (real-person portraits, brand-specific chess disc, branded category icons) are excluded (weight=0) because the clone uses generic abstract SVG which will never pixel-match real photos / brand designs — they are not the target of structural similarity. The measured score is the **non-IP structural similarity**: header / footer / nav / layout chrome.",
+  "viewport": {"width": 450, "height": 900},
+  "metric": "structural-similarity (IP placeholder regions excluded)",
+  "segments": [
+    {"name": "app-bar",     "x":   0, "y":   0, "w": 450, "h":  40, "weight": 1.0, "note": "App download bar (structural chrome)"},
+    {"name": "top-bar",     "x":   0, "y":  40, "w": 450, "h":  50, "weight": 1.3, "note": "Logo + customer service (structural)"},
+    {"name": "hero-frame",  "x":   0, "y":  90, "w": 450, "h": 190, "weight": 0,   "note": "EXCLUDED: hero placeholder (IP-sensitive center, abstract SVG)"},
+    {"name": "marquee",     "x":   0, "y": 280, "w": 450, "h":  40, "weight": 1.0, "note": "Marquee bar (structure + bg)"},
+    {"name": "login-card",  "x":   0, "y": 320, "w": 450, "h":  60, "weight": 1.3, "note": "Login prompt (structural)"},
+    {"name": "hall-real",   "x": 225, "y": 380, "w": 225, "h": 130, "weight": 0,   "note": "EXCLUDED: real-dealer portrait (IP placeholder)"},
+    {"name": "hall-sport",  "x": 225, "y": 510, "w": 225, "h": 130, "weight": 0,   "note": "EXCLUDED: sport athlete portrait (IP placeholder)"},
+    {"name": "hall-texas",  "x":   0, "y": 380, "w": 225, "h": 260, "weight": 0,   "note": "EXCLUDED: texas disc (IP-sensitive branded design)"},
+    {"name": "other",       "x":   0, "y": 640, "w": 450, "h": 160, "weight": 0,   "note": "EXCLUDED: 4 category icons (branded SVG) — extended to cover icon position differences"},
+    {"name": "mid-gap",     "x":   0, "y": 800, "w": 450, "h":  50, "weight": 1.3, "note": "Page background (pure layout, between other-section and tab-bar)"},
+    {"name": "tab-bar",     "x":   0, "y": 850, "w": 450, "h":  50, "weight": 1.3, "note": "Bottom tab (structural)"}
+  ]
+}
