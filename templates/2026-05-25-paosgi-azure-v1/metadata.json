@@ -8,11 +8,11 @@
   "captureDate": "2026-05-25",
   "rewriteDate": "2026-05-27",
   "viewport": {
-    "width": 450,
-    "height": 1592
+    "width": 390,
+    "height": 1192
   },
   "primaryColor": "#3066ff",
-  "mode": "mobile 450w layout reference — IP-clean generic gambling-genre visuals",
+  "mode": "mobile-native layout — sticky top bar + hero + balance + quicknav + vertical tiles + sticky bottom tab bar",
   "assetCount": 0,
   "selfDrawnSvgs": [
     "brand-mark (gradient rounded-square + abstract 'S' swirl)",
@@ -36,7 +36,7 @@
     "whiteRatio_clone": 75.4,
     "method": "scripts/compare.sh — origin captured at mobile viewport (paosgi non-responsive, renders 1204×3416 at 450 viewport)"
   },
-  "similarityNote": "Mobile 450 viewport（對齊 gallery 其他 9 個 mobile template）。原站 paosgi 非 responsive，mobile viewport 仍渲染 1204×3416 固定寬度。SSIM 88.8% 是 IP-clean 生成式天花板——再往上必須匹配 paosgi 真人/品牌特定視覺內容，已逾越紅線。視覺豐富度（金幣堆/拉霸/卡片扇 SVG）保留作為 template 使用情境豐富度。",
+  "similarityNote": "Mobile-native structure aligned with paosgi mobile UX (per user-shared screenshot of paosgi at iPhone DevTools emulation). Layout patterns are universal mobile gambling/lottery genre conventions. All visual content (coin medallion / K-Q-J card fan / slot reels '777' / soccer star / fish outline) is original SVG drawn from scratch — no paosgi-specific creative content reproduced.",
   "sectionOrder": [
     "top-bar (0–88)",
     "hero-promo (88–788)",
@@ -44,5 +44,14 @@
     "hot-games title + nav + 3-card row + dots (1457–2285)",
     "app-download title + dual-CTA + phone illu (2285–2842)",
     "site-footer columns + extra row + copyright (2842–3442)"
+  ],
+  "layoutPattern": [
+    "Sticky top bar (48h): brand mark + brand text / customer-service icon + 下載 button",
+    "Big hero (260h): gradient bg + decorative SVG (coin medallion + card pair + chip + coin stack) + overlay title/badges",
+    "Account row (overlap -28): avatar + balance display + 存款/提款 pill buttons",
+    "Quicknav (4 circular icons): 存款 / 提款 / 客服 / 下載",
+    "Vertical category tiles ×5 (120h each): 體育 / 真人 / 電子 / 棋牌彩票 / 捕魚 — each tile has gradient bg + decorative SVG + title + EN sublabel + 立即進入 CTA pill",
+    "Footer (compact text)",
+    "Sticky bottom tab bar (56h): 首頁 / 活動 / 客服 / 我的"
   ]
 }
