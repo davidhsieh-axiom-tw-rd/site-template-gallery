@@ -1,292 +1,285 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-Hant">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=450,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>Paosgi Azure V1</title>
-<link rel="stylesheet" href="style.css?v=20260525">
-<!-- Flutter: origin is Nuxt 3 SPA (paosgi.com). No HTML→Flutter widget token mapping needed; see docs/flutter-token-mapping.md. line-height: 1.3 set in style.css. -->
-<style>/* line-height: 1.3 (set via style.css) */</style>
-<!-- All visual SVGs below are ORIGINAL generic geometric primitives drawn from scratch.
-     They are wireframe samples, NOT derivatives of any third-party brand asset. -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1204" />
+<title>Paosgi Azure V1 — Desktop Layout Reference</title>
+<link rel="stylesheet" href="style.css?v=20260527-desktop-v1" />
 </head>
 <body>
-
-<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
-  <defs>
-    <linearGradient id="g-brand" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#4FA0E8"/>
-      <stop offset="100%" stop-color="#2D6FB0"/>
-    </linearGradient>
-    <linearGradient id="g-brand-light" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#92C4F0"/>
-      <stop offset="100%" stop-color="#6AAFE0"/>
-    </linearGradient>
-    <linearGradient id="g-hero" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#2D5B9C"/>
-      <stop offset="100%" stop-color="#4A8FE7"/>
-    </linearGradient>
-
-    <!-- Mark: gradient circle + inner ring + monogram S wave (original geometric design) -->
-    <symbol id="logo-mark" viewBox="0 0 40 40">
-      <circle cx="20" cy="20" r="18" fill="url(#g-brand)"/>
-      <circle cx="20" cy="20" r="17" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
-      <path d="M20 7 L33 20 L20 33 L7 20 Z" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1.2"/>
-      <path d="M14 15 Q14 12 18 12 L24 12 Q26 12 26 14 Q26 16 24 16 L18 16 Q14 16 14 19 Q14 22 16 22 L22 22 Q26 22 26 25 Q26 28 22 28 L16 28 Q14 28 14 26"
-            fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-    </symbol>
-
-    <!-- Horizontal logo lockup: mark + abstract "BRAND" wordmark -->
-    <symbol id="logo-horizontal" viewBox="0 0 130 32">
-      <circle cx="16" cy="16" r="14" fill="url(#g-brand)"/>
-      <path d="M16 5 L27 16 L16 27 L5 16 Z" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1"/>
-      <path d="M11 13 Q11 11 13 11 L19 11 Q21 11 21 12.5 Q21 14 19 14 L13 14 Q11 14 11 16 Q11 18 13 18 L17 18 Q21 18 21 20 Q21 22 17 22 L13 22"
-            fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <g fill="#2D5B9C">
-        <path d="M37 9 L37 23 L43 23 Q47 23 47 20.5 Q47 18.5 45 18 Q47 17.5 47 15 Q47 12.5 43 12.5 L43 9 Z M40 12 L43 12 Q45 12 45 13.5 Q45 15 43 15 L40 15 Z M40 17 L43.5 17 Q45.5 17 45.5 19 Q45.5 21 43.5 21 L40 21 Z"/>
-        <path d="M50 9 L50 23 L52.5 23 L52.5 18 L54 18 L56 23 L58.8 23 L56.5 17.5 Q58 16.7 58 14.3 Q58 11 54.5 11 L50 11 Z M52.5 12.5 L54.5 12.5 Q55.6 12.5 55.6 14.3 Q55.6 16 54.5 16 L52.5 16 Z"/>
-        <path d="M61 23 L62 19 L65.6 19 L66.6 23 L69 23 L65 9 L62.6 9 L58.5 23 Z M62.5 17 L65.1 17 L63.8 12 Z"/>
-        <path d="M71 9 L71 23 L73.3 23 L73.3 13.5 L77.5 23 L79.8 23 L79.8 9 L77.5 9 L77.5 18.5 L73.3 9 Z"/>
-        <path d="M82 9 L82 23 L86.5 23 Q91 23 91 16 Q91 9 86.5 9 Z M84.5 12 L86 12 Q88.5 12 88.5 16 Q88.5 20 86 20 L84.5 20 Z"/>
-      </g>
-    </symbol>
-
-    <!-- Generic game category icons (self-drawn primitives, no brand) -->
-    <symbol id="ic-lottery" viewBox="0 0 64 64">
-      <circle cx="32" cy="32" r="22" fill="#FFFFFF" stroke="#2D5B9C" stroke-width="2.5"/>
-      <text x="32" y="38" font-family="Arial" font-size="16" font-weight="700" fill="#2D5B9C" text-anchor="middle">6</text>
-      <circle cx="32" cy="32" r="22" fill="none" stroke="rgba(45,91,156,0.3)" stroke-width="1" stroke-dasharray="3 2"/>
-    </symbol>
-    <symbol id="ic-live" viewBox="0 0 64 64">
-      <circle cx="32" cy="24" r="10" fill="#4A8FE7"/>
-      <path d="M14 56 Q14 38 32 38 Q50 38 50 56 Z" fill="#4A8FE7"/>
-      <circle cx="32" cy="24" r="3" fill="rgba(255,255,255,0.5)"/>
-    </symbol>
-    <symbol id="ic-sport" viewBox="0 0 64 64">
-      <circle cx="32" cy="32" r="20" fill="#FFFFFF" stroke="#2D5B9C" stroke-width="2.5"/>
-      <path d="M32 12 L38 28 L52 30 L42 40 L46 56 L32 48 L18 56 L22 40 L12 30 L26 28 Z" fill="#4A8FE7"/>
-    </symbol>
-    <symbol id="ic-slots" viewBox="0 0 64 64">
-      <rect x="10" y="14" width="44" height="36" rx="4" fill="#FFFFFF" stroke="#2D5B9C" stroke-width="2"/>
-      <rect x="16" y="20" width="9" height="24" fill="#4A8FE7"/>
-      <rect x="27.5" y="20" width="9" height="24" fill="#4A8FE7"/>
-      <rect x="39" y="20" width="9" height="24" fill="#4A8FE7"/>
-      <circle cx="20.5" cy="32" r="2.5" fill="#FFFFFF"/>
-      <circle cx="32" cy="32" r="2.5" fill="#FFFFFF"/>
-      <circle cx="43.5" cy="32" r="2.5" fill="#FFFFFF"/>
-    </symbol>
-    <symbol id="ic-cards" viewBox="0 0 64 64">
-      <rect x="14" y="18" width="22" height="34" rx="3" fill="#FFFFFF" stroke="#2D5B9C" stroke-width="2" transform="rotate(-12 25 35)"/>
-      <rect x="28" y="14" width="22" height="34" rx="3" fill="#FFFFFF" stroke="#2D5B9C" stroke-width="2" transform="rotate(8 39 31)"/>
-      <path d="M37 27 L40 24 L43 27 L40 32 Z" fill="#4A8FE7"/>
-    </symbol>
-    <symbol id="ic-fishing" viewBox="0 0 64 64">
-      <path d="M14 32 Q14 20 26 18 L46 26 Q54 30 54 36 Q54 42 46 46 L26 50 Q14 48 14 36 Z" fill="#4A8FE7"/>
-      <circle cx="22" cy="32" r="3" fill="#FFFFFF"/>
-      <path d="M46 26 L58 22 L54 32 L58 42 L46 38" fill="#2D5B9C"/>
-      <path d="M14 32 L6 28 M14 36 L6 40" stroke="#2D5B9C" stroke-width="2"/>
-    </symbol>
-
-    <!-- Self-drawn dealer figure (monochromatic blue palette) -->
-    <symbol id="il-dealer" viewBox="0 0 120 150">
-      <path d="M30 38 Q30 18 60 18 Q90 18 90 38 L94 72 L86 64 L84 50 L36 50 L34 64 L26 72 Z" fill="#2D5B9C"/>
-      <ellipse cx="60" cy="42" rx="17" ry="21" fill="#C8DCF4"/>
-      <path d="M44 30 Q52 20 60 20 Q68 20 76 30 L76 36 Q68 30 60 30 Q52 30 44 36 Z" fill="#2D5B9C"/>
-      <rect x="54" y="58" width="12" height="10" fill="#C8DCF4"/>
-      <path d="M28 92 Q28 70 60 68 Q92 70 92 92 L98 132 L22 132 Z" fill="#4A8FE7"/>
-      <path d="M52 70 L60 88 L68 70 L64 70 L60 80 L56 70 Z" fill="#FAFCFF"/>
-      <ellipse cx="34" cy="107" rx="8" ry="20" fill="#4A8FE7" transform="rotate(-18 34 107)"/>
-      <ellipse cx="86" cy="107" rx="8" ry="20" fill="#4A8FE7" transform="rotate(18 86 107)"/>
-      <circle cx="36" cy="126" r="6" fill="#C8DCF4"/>
-      <circle cx="84" cy="126" r="6" fill="#C8DCF4"/>
-      <rect x="48" y="114" width="24" height="18" fill="#FFFFFF" stroke="#2D5B9C" stroke-width="1.2" rx="2"/>
-      <circle cx="60" cy="123" r="3" fill="#4A8FE7"/>
-    </symbol>
-
-    <symbol id="il-athlete" viewBox="0 0 120 150">
-      <circle cx="62" cy="28" r="13" fill="#C8DCF4"/>
-      <path d="M50 22 Q50 14 62 14 Q74 14 74 22 L74 28 Q68 22 62 22 Q56 22 50 28 Z" fill="#2D5B9C"/>
-      <path d="M40 50 Q40 44 62 42 Q84 44 84 50 L90 96 L80 100 L80 60 L44 60 L44 100 L34 96 Z" fill="#4A8FE7"/>
-      <path d="M56 42 L62 50 L68 42 Z" fill="#FAFCFF"/>
-      <rect x="44" y="72" width="36" height="5" fill="#2D5B9C" opacity="0.55"/>
-      <path d="M44 96 L80 96 L82 120 L66 120 L62 105 L58 120 L42 120 Z" fill="#FAFCFF"/>
-      <path d="M58 120 L52 144 L48 150 L44 150 L46 142 L52 120 Z" fill="#C8DCF4"/>
-      <path d="M66 120 L82 126 L96 112 L93 108 L82 118 L66 112 Z" fill="#C8DCF4"/>
-      <ellipse cx="30" cy="72" rx="6" ry="16" fill="#4A8FE7" transform="rotate(-25 30 72)"/>
-      <ellipse cx="94" cy="80" rx="6" ry="14" fill="#4A8FE7" transform="rotate(35 94 80)"/>
-      <circle cx="102" cy="108" r="10" fill="#FAFCFF" stroke="#2D5B9C" stroke-width="2"/>
-      <path d="M97 104 L107 104 M102 98 L102 118 M95 110 L109 110" stroke="#2D5B9C" stroke-width="1.2"/>
-    </symbol>
-
-    <!-- Hero scene: abstract chip + token + dice (no specific brand assets) -->
-    <symbol id="ph-hero-objects" viewBox="0 0 240 130">
-      <g opacity="0.85" transform="translate(40, 30)">
-        <circle r="32" cx="32" cy="40" fill="url(#g-brand)" stroke="rgba(255,255,255,0.7)" stroke-width="2"/>
-        <text x="32" y="50" font-family="Arial" font-size="28" font-weight="700" fill="#FFFFFF" text-anchor="middle">$</text>
-      </g>
-      <g opacity="0.85" transform="translate(140, 55)">
-        <ellipse cx="0" cy="30" rx="22" ry="6" fill="#2D5B9C"/>
-        <rect x="-22" y="20" width="44" height="10" fill="#4A8FE7"/>
-        <ellipse cx="0" cy="20" rx="22" ry="6" fill="#92C4F0"/>
-        <ellipse cx="0" cy="10" rx="20" ry="5.5" fill="#2D5B9C"/>
-        <rect x="-20" y="0" width="40" height="10" fill="#4A8FE7"/>
-        <ellipse cx="0" cy="0" rx="20" ry="5.5" fill="#92C4F0"/>
-      </g>
-    </symbol>
-
-    <!-- Search icon -->
-    <symbol id="ic-search" viewBox="0 0 24 24">
-      <circle cx="10" cy="10" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
-      <line x1="15" y1="15" x2="20" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-    </symbol>
-    <!-- Customer service icon -->
-    <symbol id="ic-cs" viewBox="0 0 24 24">
-      <circle cx="12" cy="12" r="9" fill="#4A8FE7"/>
-      <text x="12" y="16" font-family="Arial" font-size="10" font-weight="700" fill="#FFFFFF" text-anchor="middle">24H</text>
-    </symbol>
-  </defs>
-</svg>
-
 <div class="page">
 
-  <!-- Top bar: brand + tag-line + register / login -->
   <header class="top-bar">
-    <div class="top-brand">
-      <svg class="logo-horizontal-svg" viewBox="0 0 130 32" aria-label="Sample brand"><use href="#logo-horizontal"/></svg>
-      <div class="tagline">Sample Tagline · 業務端可替換</div>
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true"></div>
+      <span class="brand-text">Sample Brand</span>
     </div>
+    <nav class="top-nav">
+      <a class="top-nav-item active">首頁</a>
+      <a class="top-nav-item">體育</a>
+      <a class="top-nav-item">真人</a>
+      <a class="top-nav-item">電子</a>
+      <a class="top-nav-item">棋牌</a>
+      <a class="top-nav-item">捕魚</a>
+      <a class="top-nav-item">彩票</a>
+    </nav>
     <div class="top-actions">
-      <button class="btn-outline">登入</button>
-      <button class="btn-primary">註冊</button>
+      <button class="btn btn-ghost">登入</button>
+      <button class="btn btn-primary">註冊</button>
     </div>
   </header>
 
-  <!-- Tab bar: horizontal scroll game categories -->
-  <nav class="tab-nav">
-    <a class="tab-nav-item active">首頁</a>
-    <a class="tab-nav-item">彩票</a>
-    <a class="tab-nav-item">視訊</a>
-    <a class="tab-nav-item">電子</a>
-    <a class="tab-nav-item">體育</a>
-    <a class="tab-nav-item">棋牌</a>
-    <a class="tab-nav-item">捕魚</a>
-  </nav>
-
-  <!-- Hero banner -->
-  <section class="hero">
-    <svg class="hero-objects" viewBox="0 0 240 130" preserveAspectRatio="xMidYMid slice" aria-label="Sample hero objects"><use href="#ph-hero-objects"/></svg>
-    <div class="hero-text">
-      <div class="hero-title">主視覺標題</div>
-      <div class="hero-subtitle">Sample · Hero Banner</div>
-      <button class="hero-cta">立即體驗</button>
+  <section class="hero-promo">
+    <div class="promo-card-wrap">
+      <div class="promo-card-left">
+        <div class="logo-placeholder">
+          <span>Sample Logo</span>
+        </div>
+        <div class="notice-block">
+          <h3>公告通知</h3>
+          <ul>
+            <li>樣本公告第一行：請替換為您的內容</li>
+            <li>樣本公告第二行：佔位文字示意</li>
+            <li>樣本公告第三行：佔位文字示意</li>
+            <li>樣本公告第四行：佔位文字示意</li>
+          </ul>
+          <label class="notice-check"><input type="checkbox" />今日不再彈出</label>
+        </div>
+      </div>
+      <div class="promo-card-right">
+        <div class="promo-text">
+          <h2>Sample Tagline</h2>
+          <p>Sub-tagline placeholder — 文字內容請替換</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- 6 categories grid (3x2) -->
-  <section class="cat-section">
-    <div class="cat-section-title">
-      <span class="cat-title-text">遊戲大廳</span>
-      <span class="cat-title-sub">精選熱品 · 業務端配置</span>
+  <section class="game-lobby">
+    <div class="section-title">
+      <h2 class="title-zh">遊戲大廳</h2>
+      <p class="title-en">SAMPLE · GAME HALL</p>
     </div>
-    <div class="cat-grid">
-      <a class="cat-card cat-lottery">
-        <div class="cat-card-icon"><svg viewBox="0 0 64 64"><use href="#ic-lottery"/></svg></div>
-        <div class="cat-card-text">
-          <div class="cat-card-name">彩票</div>
-          <div class="cat-card-sub">LOTTERY</div>
+
+    <div class="content-box">
+      <div class="left-part">
+        <div class="name-container">
+          <h3 class="name">遊戲類別示例</h3>
+          <p class="left-des">業界通用遊戲類別佔位文字（請替換為您的描述）</p>
         </div>
-      </a>
-      <a class="cat-card cat-live">
-        <div class="cat-card-icon"><svg viewBox="0 0 64 64"><use href="#ic-live"/></svg></div>
-        <div class="cat-card-text">
-          <div class="cat-card-name">真人</div>
-          <div class="cat-card-sub">LIVE</div>
+        <div class="icon-group">
+          <div class="icon-avatar-wrap">
+            <svg class="img" viewBox="0 0 110 108" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="55" cy="42" r="28" fill="#cfdcf4" />
+              <text x="55" y="50" text-anchor="middle" font-size="22" fill="#3066ff" font-family="sans-serif" font-weight="700">6</text>
+            </svg>
+            <span class="name">LOTTERY</span>
+          </div>
+          <div class="icon-avatar-wrap">
+            <svg class="img" viewBox="0 0 110 108" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="55" cy="36" r="14" fill="#cfdcf4" />
+              <path d="M30 80 Q55 50 80 80 L80 92 L30 92 Z" fill="#cfdcf4" />
+            </svg>
+            <span class="name">LIVE</span>
+          </div>
+          <div class="icon-avatar-wrap">
+            <svg class="img" viewBox="0 0 110 108" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="55,18 65,42 90,42 70,58 78,82 55,68 32,82 40,58 20,42 45,42" fill="#cfdcf4" />
+            </svg>
+            <span class="name">SPORTS</span>
+          </div>
         </div>
-      </a>
-      <a class="cat-card cat-sport">
-        <div class="cat-card-icon"><svg viewBox="0 0 64 64"><use href="#ic-sport"/></svg></div>
-        <div class="cat-card-text">
-          <div class="cat-card-name">體育</div>
-          <div class="cat-card-sub">SPORTS</div>
+      </div>
+      <div class="right-part">
+        <div class="hero-banner-placeholder">
+          <span>Hero Banner Placeholder · 600 × 398</span>
         </div>
-      </a>
-      <a class="cat-card cat-slots">
-        <div class="cat-card-icon"><svg viewBox="0 0 64 64"><use href="#ic-slots"/></svg></div>
-        <div class="cat-card-text">
-          <div class="cat-card-name">電子</div>
-          <div class="cat-card-sub">SLOTS</div>
+      </div>
+    </div>
+
+    <div class="tab-bar-wrap">
+      <div class="tab-bar active">
+        <span class="tab-icon" data-icon="lottery">
+          <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="14" fill="none" stroke="currentColor" stroke-width="2"/><text x="18" y="22" text-anchor="middle" font-size="13" font-weight="700" fill="currentColor">6</text></svg>
+        </span>
+        <div class="title-wrap">
+          <p class="title-zh">彩票</p>
+          <p class="title-en">LOTTERY</p>
         </div>
-      </a>
-      <a class="cat-card cat-poker">
-        <div class="cat-card-icon"><svg viewBox="0 0 64 64"><use href="#ic-cards"/></svg></div>
-        <div class="cat-card-text">
-          <div class="cat-card-name">棋牌</div>
-          <div class="cat-card-sub">POKER</div>
+      </div>
+      <div class="tab-bar">
+        <span class="tab-icon" data-icon="live">
+          <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="13" r="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 28 Q18 20 28 28 L28 32 L8 32 Z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        </span>
+        <div class="title-wrap">
+          <p class="title-zh">真人</p>
+          <p class="title-en">LIVE</p>
         </div>
-      </a>
-      <a class="cat-card cat-fishing">
-        <div class="cat-card-icon"><svg viewBox="0 0 64 64"><use href="#ic-fishing"/></svg></div>
-        <div class="cat-card-text">
-          <div class="cat-card-name">捕魚</div>
-          <div class="cat-card-sub">FISHING</div>
+      </div>
+      <div class="tab-bar">
+        <span class="tab-icon" data-icon="sports">
+          <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><polygon points="18,4 22,14 33,14 24,20 27,31 18,25 9,31 12,20 3,14 14,14" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        </span>
+        <div class="title-wrap">
+          <p class="title-zh">體育賽事</p>
+          <p class="title-en">SPORTS</p>
         </div>
-      </a>
+      </div>
+      <div class="tab-bar">
+        <span class="tab-icon" data-icon="electron">
+          <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="10" width="24" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><line x1="12" y1="14" x2="12" y2="22" stroke="currentColor" stroke-width="2"/><line x1="8" y1="18" x2="16" y2="18" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="18" r="2" fill="currentColor"/></svg>
+        </span>
+        <div class="title-wrap">
+          <p class="title-zh">電子</p>
+          <p class="title-en">SLOTS</p>
+        </div>
+      </div>
+      <div class="tab-bar">
+        <span class="tab-icon" data-icon="chess">
+          <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="6" width="14" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><rect x="16" y="10" width="14" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        </span>
+        <div class="title-wrap">
+          <p class="title-zh">棋牌</p>
+          <p class="title-en">POKER</p>
+        </div>
+      </div>
+      <div class="tab-bar">
+        <span class="tab-icon" data-icon="fishing">
+          <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><path d="M4 18 Q12 8 22 18 Q12 28 4 18 Z M22 18 L30 14 L30 22 Z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="10" cy="17" r="1.5" fill="currentColor"/></svg>
+        </span>
+        <div class="title-wrap">
+          <p class="title-zh">捕魚</p>
+          <p class="title-en">FISHING</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Hot games carousel (3 illustrative sample cards) -->
-  <section class="hot-section">
-    <div class="hot-title">熱門遊戲<span class="hot-title-sub">SAMPLE · 業務端配置</span></div>
-    <div class="hot-tabs">
-      <a class="hot-tab active">真人遊戲</a>
-      <a class="hot-tab">彩票遊戲</a>
-      <a class="hot-tab">電子遊戲</a>
-      <a class="hot-tab">體育賽事</a>
+  <section class="hot-games">
+    <div class="section-title">
+      <h2 class="title-zh">熱門遊戲</h2>
+      <p class="title-en">SAMPLE · HOT GAMES</p>
     </div>
+    <nav class="hot-nav">
+      <span class="nav-item active">真人遊戲</span>
+      <span class="nav-item">彩票遊戲</span>
+      <span class="nav-item">電子遊戲</span>
+      <span class="nav-item">體育賽事</span>
+      <span class="nav-item">捕魚遊戲</span>
+    </nav>
     <div class="hot-cards">
-      <a class="hot-card">
-        <div class="hot-card-img"><svg viewBox="0 0 120 150" preserveAspectRatio="xMidYMax meet" aria-label="Sample dealer"><use href="#il-dealer"/></svg></div>
-        <div class="hot-card-label">SW01 · 桌面</div>
-      </a>
-      <a class="hot-card">
-        <div class="hot-card-img"><svg viewBox="0 0 120 150" preserveAspectRatio="xMidYMax meet" aria-label="Sample dealer"><use href="#il-dealer"/></svg></div>
-        <div class="hot-card-label">SW02 · 桌面</div>
-      </a>
-      <a class="hot-card">
-        <div class="hot-card-img"><svg viewBox="0 0 120 150" preserveAspectRatio="xMidYMax meet" aria-label="Sample dealer"><use href="#il-dealer"/></svg></div>
-        <div class="hot-card-label">SW03 · 桌面</div>
-      </a>
+      <article class="hot-card">
+        <div class="hot-card-img">
+          <svg viewBox="0 0 670 600" xmlns="http://www.w3.org/2000/svg">
+            <rect width="670" height="600" fill="#e2ebf7" />
+            <rect x="60" y="60" width="550" height="420" rx="18" fill="#ffffff66" stroke="#88a4cc" stroke-width="2" stroke-dasharray="8 6" />
+            <text x="335" y="280" text-anchor="middle" font-family="sans-serif" font-size="36" fill="#3066ff" font-weight="700">SW01</text>
+            <text x="335" y="320" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#7188a8">Sample Game Image</text>
+            <text x="335" y="350" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#7188a8">670 × 600</text>
+          </svg>
+        </div>
+        <p class="hot-card-name">範例 SW01 · 桌台</p>
+      </article>
+      <article class="hot-card">
+        <div class="hot-card-img">
+          <svg viewBox="0 0 670 600" xmlns="http://www.w3.org/2000/svg">
+            <rect width="670" height="600" fill="#dfe9f6" />
+            <rect x="60" y="60" width="550" height="420" rx="18" fill="#ffffff66" stroke="#88a4cc" stroke-width="2" stroke-dasharray="8 6" />
+            <text x="335" y="280" text-anchor="middle" font-family="sans-serif" font-size="36" fill="#3066ff" font-weight="700">SW02</text>
+            <text x="335" y="320" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#7188a8">Sample Game Image</text>
+            <text x="335" y="350" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#7188a8">670 × 600</text>
+          </svg>
+        </div>
+        <p class="hot-card-name">範例 SW02 · 桌台</p>
+      </article>
+      <article class="hot-card">
+        <div class="hot-card-img">
+          <svg viewBox="0 0 670 600" xmlns="http://www.w3.org/2000/svg">
+            <rect width="670" height="600" fill="#dee7f3" />
+            <rect x="60" y="60" width="550" height="420" rx="18" fill="#ffffff66" stroke="#88a4cc" stroke-width="2" stroke-dasharray="8 6" />
+            <text x="335" y="280" text-anchor="middle" font-family="sans-serif" font-size="36" fill="#3066ff" font-weight="700">SW03</text>
+            <text x="335" y="320" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#7188a8">Sample Game Image</text>
+            <text x="335" y="350" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#7188a8">670 × 600</text>
+          </svg>
+        </div>
+        <p class="hot-card-name">範例 SW03 · 桌台</p>
+      </article>
     </div>
-    <div class="hot-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+    <div class="hot-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
   </section>
 
-  <!-- App download -->
-  <section class="app-section">
-    <div class="app-text">
-      <div class="app-title">精彩遊戲 · 隨時隨地</div>
-      <div class="app-sub">公平公正 · Sample 文案</div>
+  <section class="app-download">
+    <div class="section-title">
+      <h2 class="title-zh">APP下載</h2>
+      <p class="title-en">SAMPLE · APP DOWNLOAD</p>
     </div>
-    <div class="app-buttons">
-      <button class="app-btn app-ios">
-        <span class="app-btn-icon">⌘</span>
-        <div class="app-btn-text">下載<br><b>iPhone</b></div>
-      </button>
-      <button class="app-btn app-android">
-        <span class="app-btn-icon">▷</span>
-        <div class="app-btn-text">下載<br><b>Android</b></div>
-      </button>
+    <div class="app-row">
+      <div class="app-text">
+        <h3>精彩遊戲 隨時隨地</h3>
+        <p>佔位文字：示範 APP 下載區段的雙欄結構。請替換為您的宣傳內容。</p>
+        <div class="app-btns">
+          <button class="app-btn">
+            <span class="app-btn-icon" data-icon="apple">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M16 1.5c-.1 1.1-.6 2.1-1.4 2.9-.7.7-1.9 1.3-2.9 1.2-.1-1 .4-2.1 1.2-2.9.7-.8 1.9-1.4 3.1-1.2zM19.4 17.1c-.5 1.2-1.1 2.4-2 3.4-.7.9-1.7 1.9-2.9 2-1.2 0-1.6-.8-3-.8-1.4 0-1.8.8-3 .8-1.2 0-2.1-1-2.8-2C3.5 18.2 2.5 13.5 4.6 10.5c1.3-1.9 3.6-2.4 5.1-1.5 1 .6 1.6.6 2.7 0 1.5-.9 4-1.6 5.6 1-2.5 1.4-2.3 4.7 1.4 7.1z"/></svg>
+            </span>
+            <span class="app-btn-text"><small>下載</small><strong>iPhone</strong></span>
+          </button>
+          <button class="app-btn">
+            <span class="app-btn-icon" data-icon="android">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><circle cx="7" cy="14" r="1.2"/><circle cx="17" cy="14" r="1.2"/><path d="M4 10c.5-3 3.8-5 8-5s7.5 2 8 5H4zm-.5 1.5h17v6c0 .8-.7 1.5-1.5 1.5h-2v3a1 1 0 0 1-2 0v-3H9v3a1 1 0 0 1-2 0v-3H5c-.8 0-1.5-.7-1.5-1.5v-6zM6.5 6l-1.4-2M17.5 6l1.4-2" stroke="currentColor" stroke-width="0.8" fill="currentColor"/></svg>
+            </span>
+            <span class="app-btn-text"><small>下載</small><strong>Android</strong></span>
+          </button>
+        </div>
+      </div>
+      <div class="app-illu">
+        <div class="phone-placeholder">
+          <div class="phone-screen">
+            <div class="phone-bar"></div>
+            <div class="phone-grid">
+              <div></div><div></div><div></div><div></div>
+              <div></div><div></div><div></div><div></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-title">關於我們</div>
-    <div class="footer-links">
-      <a>關於</a><span>·</span><a>合作</a><span>·</span><a>客服</a><span>·</span><a>條款</a>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>關於我們</h4>
+        <ul><li>關於</li><li>合作</li><li>客服</li><li>條款</li></ul>
+      </div>
+      <div class="footer-col">
+        <h4>遊戲服務</h4>
+        <ul><li>真人</li><li>體育</li><li>電子</li><li>棋牌</li></ul>
+      </div>
+      <div class="footer-col">
+        <h4>幫助中心</h4>
+        <ul><li>FAQ</li><li>存款</li><li>提款</li><li>規則</li></ul>
+      </div>
+      <div class="footer-col footer-providers">
+        <h4>合作平台</h4>
+        <div class="provider-grid">
+          <div class="provider-block"></div><div class="provider-block"></div>
+          <div class="provider-block"></div><div class="provider-block"></div>
+          <div class="provider-block"></div><div class="provider-block"></div>
+          <div class="provider-block"></div><div class="provider-block"></div>
+        </div>
+      </div>
     </div>
-    <div class="footer-copy">© 2026 Sample Brand · 業務端版權資訊</div>
+    <div class="footer-extra">
+      <div class="footer-pay-block"></div><div class="footer-pay-block"></div>
+      <div class="footer-pay-block"></div><div class="footer-pay-block"></div>
+      <div class="footer-pay-block"></div><div class="footer-pay-block"></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Sample Brand · Layout Reference Template for Site Template Gallery</p>
+      <p class="footer-meta">本頁面為 layout 結構參考，所有素材均為自製通用佔位元素</p>
+    </div>
   </footer>
-
 </div>
 </body>
 </html>

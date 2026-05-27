@@ -1,0 +1,13 @@
+{
+  "_note": "Origin section bounding boxes measured from paosgi.com 2026-05-27 (factual coordinate data only — no creative content reproduced)",
+  "docW": 1204,
+  "docH": 3417,
+  "sections": [
+    {"name": "top-bar",       "x": 0, "y":    0, "w": 1204, "h":   88, "weight": 1.0},
+    {"name": "hero-promo",    "x": 0, "y":   88, "w": 1204, "h":  732, "weight": 1.0},
+    {"name": "game-lobby",    "x": 0, "y":  820, "w": 1204, "h":  660, "weight": 1.5},
+    {"name": "hot-games",     "x": 0, "y": 1480, "w": 1204, "h":  820, "weight": 1.5},
+    {"name": "app-download",  "x": 0, "y": 2300, "w": 1204, "h":  500, "weight": 1.2},
+    {"name": "site-footer",   "x": 0, "y": 2800, "w": 1204, "h":  617, "weight": 1.0}
+  ]
+}
