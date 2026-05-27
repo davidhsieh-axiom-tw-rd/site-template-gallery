@@ -1,20 +1,19 @@
-/* Paosgi Azure V1 — Mobile-Native Layout (390 wide)
-   Mobile UX pattern: small top bar / big hero / balance row /
-   quicknav icons / vertical category tiles / sticky bottom tab bar.
-   Generic gambling/lottery genre — all SVG original, all CSS from scratch. */
+/* Paosgi Azure V1 — Round 6: faithful structure + maximized visual similarity */
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --primary: #3066ff;
-  --primary-2: #22a3ff;
-  --primary-grad: linear-gradient(91deg, #3066ff -20%, #22a3ff 152%);
-  --text-1: #1a2b3f;
-  --text-2: #6a7c95;
-  --text-3: #94a4ba;
-  --line: #e0e8f2;
-  --page-bg: #f4f7fc;
-  --tabbar-h: 56px;
+  --blue-1:  #5cb8fb;
+  --blue-2:  #3d88ed;
+  --blue-3:  #2563c7;
+  --teal:    #4ecdc4;
+  --teal-2:  #36b8b0;
+  --text-1:  #1a2b3f;
+  --text-2:  #6a7c95;
+  --text-3:  #9aacbe;
+  --line:    #e0e8f2;
+  --page-bg: #f2f5fb;
+  --tabbar-h: 60px;
 }
 
 html, body {
@@ -23,6 +22,7 @@ html, body {
   color: var(--text-1);
   font-size: 13px;
   line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
 }
 
 .page {
@@ -33,224 +33,418 @@ html, body {
   min-height: 100vh;
 }
 
-/* ===== 1. Top bar (sticky, ~48px) ===== */
+/* ───────────────────────────────────────────────
+   1. Top bar  (blue gradient, 2 rows, sticky)
+   ─────────────────────────────────────────────── */
 .m-topbar {
-  height: 48px;
-  display: flex;
-  align-items: center;
-  padding: 0 12px;
-  gap: 8px;
-  background: #fff;
-  border-bottom: 1px solid var(--line);
-  position: sticky; top: 0; z-index: 50;
-}
-.m-brand { display: flex; align-items: center; gap: 6px; flex: 1; }
-.m-brand-mark { width: 28px; height: 28px; }
-.m-brand-mark svg { width: 100%; height: 100%; display: block; }
-.m-brand-text {
-  font-size: 16px; font-weight: 800;
-  background: var(--primary-grad);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-}
-.m-topbar-actions { display: flex; align-items: center; gap: 8px; }
-.m-icon-btn {
-  width: 32px; height: 32px;
-  background: #f0f4fa;
-  border: none; border-radius: 50%;
-  color: var(--primary);
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-}
-.m-icon-btn svg { width: 18px; height: 18px; }
-.m-text-btn {
-  height: 28px; padding: 0 12px;
-  background: var(--primary-grad);
-  color: #fff;
-  border: none; border-radius: 14px;
-  font-size: 12px; font-weight: 700;
-  cursor: pointer;
+  background: linear-gradient(160deg, var(--blue-1) 0%, var(--blue-2) 100%);
+  padding: 10px 14px 8px;
+  position: sticky;
+  top: 0;
+  z-index: 60;
 }
 
-/* ===== 2. Hero promo ===== */
-.m-hero {
-  position: relative;
-  height: 260px;
-  overflow: hidden;
-  margin: 0;
-}
-.m-hero-bg { position: absolute; inset: 0; }
-.m-hero-bg svg { width: 100%; height: 100%; display: block; }
-.m-hero-content {
-  position: relative; z-index: 1;
-  padding: 24px 18px 0;
-  color: #fff;
-  max-width: 220px;
-}
-.m-hero-title {
-  font-size: 24px;
-  font-weight: 900;
-  line-height: 1.15;
-  text-shadow: 0 2px 10px #00000044;
-  margin-bottom: 6px;
-}
-.m-hero-sub {
-  font-size: 12px;
-  opacity: 0.95;
-  letter-spacing: 1.5px;
-  margin-bottom: 12px;
-}
-.m-hero-badges { display: flex; gap: 6px; flex-wrap: wrap; }
-.m-badge {
-  padding: 3px 10px;
-  background: #ffffff33;
-  backdrop-filter: blur(8px);
-  border: 1px solid #ffffff66;
-  border-radius: 12px;
-  font-size: 11px;
-  color: #fff;
-  font-weight: 600;
-}
-
-/* ===== 3. Account / balance row ===== */
-.m-account {
-  margin: -28px 12px 0;
-  background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 6px 20px #0036d018;
-  padding: 12px 14px;
-  position: relative;
-  z-index: 2;
+.m-topbar-r1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.m-brand {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.m-brand-icon {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+}
+
+.m-brand-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.m-brand-name {
+  font-size: 18px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: 0.2px;
+}
+
+.m-dl-btn {
+  height: 26px;
+  padding: 0 14px;
+  background: rgba(255,255,255,0.22);
+  border: 1.5px solid rgba(255,255,255,0.7);
+  border-radius: 13px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  letter-spacing: 0.3px;
+}
+
+.m-topbar-r2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+
+.m-soc-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 10.5px;
+  color: rgba(255,255,255,0.88);
+  white-space: nowrap;
+}
+
+.m-soc-item svg {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+}
+
+.m-soc-dot {
+  color: rgba(255,255,255,0.4);
+  font-size: 12px;
+}
+
+.m-soc-agent {
+  background: rgba(255,255,255,0.2);
+  padding: 1px 8px;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+/* ───────────────────────────────────────────────
+   2. Hero banner  (seamless continuation of topbar)
+   ─────────────────────────────────────────────── */
+.m-hero {
+  position: relative;
+  height: 170px;
+  overflow: hidden;
+  background: linear-gradient(160deg, var(--blue-1) 0%, var(--blue-2) 100%);
+}
+
+.m-hero-bg-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.m-hero-promo {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: right;
+  color: #fff;
+  z-index: 1;
+}
+
+.m-hero-box {
+  background: rgba(255,255,255,0.18);
+  border: 1.5px solid rgba(255,255,255,0.45);
+  border-radius: 14px;
+  padding: 10px 12px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+}
+
+.m-hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #ffd700;
+  letter-spacing: 1.5px;
+  margin-bottom: 5px;
+}
+
+.m-hero-tag svg {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+}
+
+.m-hero-h1 {
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1.2;
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.18);
+  margin-bottom: 7px;
+}
+
+.m-hero-url {
+  font-size: 10.5px;
+  color: rgba(255,255,255,0.88);
+  background: rgba(0,0,0,0.18);
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 9px;
+  letter-spacing: 0.5px;
+}
+
+/* ───────────────────────────────────────────────
+   3. Account / balance row
+   ─────────────────────────────────────────────── */
+.m-account {
+  background: #fff;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
   gap: 10px;
 }
-.m-account-info { display: flex; align-items: center; gap: 10px; }
-.m-account-avatar { width: 36px; height: 36px; flex-shrink: 0; }
-.m-account-avatar svg { width: 100%; height: 100%; display: block; }
-.m-account-meta { display: flex; flex-direction: column; line-height: 1.15; }
-.m-account-label { font-size: 11px; color: var(--text-3); }
-.m-account-balance {
+
+.m-account-l {
+  flex-shrink: 0;
+}
+
+.m-uname {
+  font-size: 11px;
+  color: var(--text-2);
+  margin-bottom: 1px;
+}
+
+.m-bal {
   font-size: 22px;
   font-weight: 800;
   color: var(--text-1);
-  font-family: -apple-system, "SF Pro Display", system-ui, sans-serif;
+  letter-spacing: -0.5px;
 }
-.m-account-actions { display: flex; gap: 6px; }
-.m-pill-btn {
-  height: 30px; padding: 0 14px;
-  border: none; border-radius: 15px;
-  font-size: 12px; font-weight: 700;
-  cursor: pointer;
-}
-.m-pill-btn.primary { background: var(--primary-grad); color: #fff; }
-.m-pill-btn.ghost { background: #f0f4fa; color: var(--primary); }
 
-/* ===== 4. Quick service icons (4 circles) ===== */
-.m-quicknav {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  padding: 14px 12px 4px;
-  background: var(--page-bg);
-}
-.m-quicknav-item {
-  display: flex; flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  cursor: pointer;
-  text-decoration: none;
+.m-bal-unit {
+  font-size: 14px;
   color: var(--text-2);
+  font-weight: 600;
 }
-.m-quicknav-icon { width: 44px; height: 44px; }
-.m-quicknav-icon svg { width: 100%; height: 100%; display: block; }
-.m-quicknav-item span { font-size: 11px; font-weight: 500; }
 
-/* ===== 5. Vertical category tiles ===== */
-.m-tiles {
-  padding: 10px 12px 8px;
-  display: flex; flex-direction: column;
-  gap: 10px;
+.m-account-r {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.m-ac-pill {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 9px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  font-size: 11px;
+  color: var(--text-2);
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  background: #f8faff;
+}
+
+.m-ac-pill.tg {
+  border-color: #54a8e8;
+  color: #54a8e8;
+  font-size: 10px;
+  background: #eef7ff;
+}
+
+/* ───────────────────────────────────────────────
+   4. Asymmetric game grid
+   ─────────────────────────────────────────────── */
+.m-grid {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 4px;
+  padding: 4px;
   background: var(--page-bg);
 }
-.m-tile {
-  position: relative;
-  height: 120px;
-  background: #fff;
-  border-radius: 14px;
+
+.m-tile-tall {
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 14px #0036d010;
+  display: block;
   text-decoration: none;
+  box-shadow: 0 4px 16px rgba(0,50,160,0.14);
+  grid-row: 1;
+}
+
+.m-tile-tall svg {
+  width: 100%;
   display: block;
 }
-.m-tile-bg { position: absolute; inset: 0; }
-.m-tile-bg svg { width: 100%; height: 100%; display: block; }
-.m-tile-content {
-  position: relative;
-  padding: 18px 16px;
-  z-index: 1;
-  max-width: 60%;
-}
-.m-tile-title {
-  font-size: 20px;
-  font-weight: 800;
-  color: var(--text-1);
-  margin-bottom: 3px;
-  text-shadow: 0 1px 6px #ffffff80;
-}
-.m-tile-en {
-  font-size: 10px;
-  color: var(--text-2);
-  letter-spacing: 1.2px;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-.m-tile-cta {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--primary);
-  background: #fff;
-  padding: 4px 12px;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px #0036d020;
+
+.m-tiles-r {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-/* ===== Footer ===== */
+.m-tile-half {
+  border-radius: 12px;
+  overflow: hidden;
+  display: block;
+  text-decoration: none;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+  background: #fff;
+  flex: 1;
+}
+
+.m-tile-half svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ───────────────────────────────────────────────
+   5. Category mini icons
+   ─────────────────────────────────────────────── */
+.m-cats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 12px 8px 10px;
+  background: #fff;
+  margin-top: 4px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.m-cat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 2px 0;
+}
+
+.m-cat-ico {
+  width: 46px;
+  height: 46px;
+}
+
+.m-cat-ico svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.m-cat span {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--text-1);
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ───────────────────────────────────────────────
+   Footer
+   ─────────────────────────────────────────────── */
 .m-footer {
-  padding: 16px 12px 8px;
+  padding: 14px 14px 8px;
   text-align: center;
   color: var(--text-3);
   font-size: 10px;
 }
-.m-footer-meta { margin-top: 3px; opacity: 0.85; }
 
-.m-tab-spacer { height: var(--tabbar-h); }
+.m-spacer {
+  height: calc(var(--tabbar-h) + 12px);
+}
 
-/* ===== 6. Bottom tab bar (sticky) ===== */
+/* ───────────────────────────────────────────────
+   6. Bottom tab bar  (5 tabs + teal T-FAB)
+   ─────────────────────────────────────────────── */
 .m-tabbar {
   position: fixed;
   bottom: 0;
-  width: 390px;
   left: 50%;
   transform: translateX(-50%);
+  width: 390px;
   height: var(--tabbar-h);
   background: #fff;
   border-top: 1px solid var(--line);
+  box-shadow: 0 -3px 14px rgba(0,0,0,0.07);
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr 1fr 72px 1fr 1fr;
+  align-items: end;
   z-index: 100;
-  box-shadow: 0 -2px 12px #0036d010;
 }
+
 .m-tab {
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  height: 100%;
   color: var(--text-3);
   text-decoration: none;
   cursor: pointer;
+  transition: color 0.15s;
 }
-.m-tab-icon { width: 22px; height: 22px; }
-.m-tab-icon svg { width: 100%; height: 100%; display: block; }
-.m-tab span { font-size: 10px; font-weight: 500; }
-.m-tab.active { color: var(--primary); }
-.m-tab.active span { font-weight: 700; }
+
+.m-tab svg {
+  width: 22px;
+  height: 22px;
+}
+
+.m-tab span {
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.m-tab.is-active {
+  color: var(--blue-2);
+}
+
+.m-tab.is-active span {
+  font-weight: 700;
+}
+
+/* T-FAB slot: overflows above the tab bar */
+.m-fab-slot {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 4px;
+  position: relative;
+}
+
+.m-fab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  position: relative;
+  bottom: 6px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.m-fab svg {
+  width: 50px;
+  height: 50px;
+  filter: drop-shadow(0 4px 10px rgba(54,184,176,0.55));
+}
+
+.m-fab span {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--teal-2);
+}
