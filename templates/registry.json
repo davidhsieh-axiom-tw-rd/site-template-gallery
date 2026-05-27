@@ -281,10 +281,13 @@
       "date": "2026-05-25",
       "rewriteDate": "2026-05-27",
       "source": "paosgi",
-      "description": "paosgi.com 桌面版結構參考 - 中藍漸層主題（6 區段：Top bar / Hero promo / 遊戲大廳 + Tab Bar / 熱門遊戲 + 3 卡 carousel / APP 下載雙 CTA / Footer）。Desktop 1204×3417 layout-only template，全 inline SVG + CSS 自製。",
+      "description": "Desktop 1204×3442 layout reference — paosgi.com 結構對齊 + 自製 generic gambling-genre 視覺（金幣堆/撲克牌扇/拉霸滾輪/裝飾性 hero）",
       "primaryColor": "#3066ff",
-      "mode": "desktop layout reference — fully original assets",
-      "viewport": { "width": 1204, "height": 3417 },
+      "mode": "desktop layout reference — generic gambling-genre visuals (original)",
+      "viewport": {
+        "width": 1204,
+        "height": 3417
+      },
       "features": [
         "Top bar 含 Sample Brand + 7 nav + 登入/註冊（高度 88）",
         "Hero promo 雙欄（公告卡 + Tagline 區，高度 ~700）",
@@ -310,7 +313,7 @@
       "similarity": 97.17,
       "similarityMode": "Layout Structure Similarity",
       "similarityBreakdown": {
-        "docWidth": 100.00,
+        "docWidth": 100.0,
         "docHeight": 99.27,
         "top-bar": 100.0,
         "hero-promo": 97.8,
@@ -320,7 +323,7 @@
         "site-footer": 91.3,
         "method": "scripts/layout-similarity.py — section bounding-box IoU (y 35% + w 15% + h 30% + ar 20%) weighted by importance"
       },
-      "similarityNote": "Desktop 1204×3417 layout-only template. Section positions/dimensions measured from paosgi.com (factual coordinate data); rebuilt from scratch with original HTML/CSS and self-drawn geometric SVG placeholders. Score reflects structural fidelity, not pixel-level content match. Intended use: business team replaces placeholders with their own brand assets."
+      "similarityNote": "Layout 結構相似度 97.17%（區塊位置/尺寸對齊 paosgi）。視覺內容為自製 generic gambling-genre 美術，刻意不對齊 paosgi 視覺風格——這是 IP-clean template，可放心用作自家站台設計起點。"
     }
   ]
 }
