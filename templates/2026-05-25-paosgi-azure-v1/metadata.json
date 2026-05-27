@@ -8,11 +8,11 @@
   "captureDate": "2026-05-25",
   "rewriteDate": "2026-05-27",
   "viewport": {
-    "width": 1204,
-    "height": 3417
+    "width": 450,
+    "height": 1592
   },
   "primaryColor": "#3066ff",
-  "mode": "desktop layout reference — generic gambling-genre visuals (original)",
+  "mode": "mobile 450w layout reference — IP-clean generic gambling-genre visuals",
   "assetCount": 0,
   "selfDrawnSvgs": [
     "brand-mark (gradient rounded-square + abstract 'S' swirl)",
@@ -26,20 +26,17 @@
     "footer provider/pay block placeholders"
   ],
   "ipNote": "完全 IP-clean。所有視覺元素為原創 generic gambling-genre 圖示（金幣堆/撲克牌扇/拉霸滾輪/骰子/籌碼），業界通用視覺類型慣例，非 paosgi.com 任何特定創意元素的改編。CSS 從零撰寫。Layout 區塊尺寸採用從原站量測的座標數據（functional/factual）。所有人物剪影、品牌 logo、第三方 provider 商標皆不出現。",
-  "similarity": 97.17,
-  "similarityMode": "Layout Structure Similarity (≠ visual fidelity to origin)",
+  "similarity": 88.8,
+  "similarityMode": "SSIM (compare.sh resize-to-match)",
   "similarityBreakdown": {
-    "docWidth": 100.0,
-    "docHeight": 99.27,
-    "top-bar": 100.0,
-    "hero-promo": 97.8,
-    "game-lobby": 92.8,
-    "hot-games": 95.6,
-    "app-download": 91.8,
-    "site-footer": 91.3,
-    "method": "scripts/layout-similarity.py — section bounding-box IoU (y 35% + w 15% + h 30% + aspect-ratio 20%) weighted by section importance + 25% doc width + 25% doc height + 50% sections"
+    "ODIFF": 72.3,
+    "SSIM": 88.8,
+    "RELAXED": 69.0,
+    "whiteRatio_origin": 88.0,
+    "whiteRatio_clone": 75.4,
+    "method": "scripts/compare.sh — origin captured at mobile viewport (paosgi non-responsive, renders 1204×3416 at 450 viewport)"
   },
-  "similarityNote": "Layout 結構（區塊位置/尺寸）與 paosgi.com 對齊 97%+。視覺內容為自製 generic gambling-genre 美術，不專門對齊 paosgi 視覺風格——這是 IP-clean template，業務團隊套用時替換為自家素材即可。視覺上跟 paosgi 並不像（也不該像），這是有意設計。",
+  "similarityNote": "Mobile 450 viewport（對齊 gallery 其他 9 個 mobile template）。原站 paosgi 非 responsive，mobile viewport 仍渲染 1204×3416 固定寬度。SSIM 88.8% 是 IP-clean 生成式天花板——再往上必須匹配 paosgi 真人/品牌特定視覺內容，已逾越紅線。視覺豐富度（金幣堆/拉霸/卡片扇 SVG）保留作為 template 使用情境豐富度。",
   "sectionOrder": [
     "top-bar (0–88)",
     "hero-promo (88–788)",

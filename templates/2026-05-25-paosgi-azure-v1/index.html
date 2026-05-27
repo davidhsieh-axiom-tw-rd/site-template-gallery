@@ -2,9 +2,9 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=1204" />
-<title>Paosgi Azure V1 — Desktop Layout Reference</title>
-<link rel="stylesheet" href="style.css?v=20260527-desktop-v2" />
+<meta name="viewport" content="width=450,initial-scale=1,maximum-scale=1,user-scalable=no" />
+<title>Paosgi Azure V1 — Mobile Layout Reference</title>
+<link rel="stylesheet" href="style.css?v=20260527-mobile-v3" />
 </head>
 <body>
 <div class="page">
@@ -19,114 +19,87 @@
               <stop offset="1" stop-color="#3066ff"/>
             </linearGradient>
           </defs>
-          <rect width="40" height="40" rx="10" fill="url(#bm-grad)"/>
+          <rect width="40" height="40" rx="9" fill="url(#bm-grad)"/>
           <path d="M14 12 Q20 8 26 12 Q22 18 20 20 Q18 22 14 28 Q20 24 26 28 Q24 22 20 20 Q16 18 14 12 Z" fill="#fff" opacity="0.95"/>
         </svg>
       </div>
       <span class="brand-text">Sample Brand</span>
     </div>
-    <nav class="top-nav">
-      <a class="top-nav-item active">首頁</a>
-      <a class="top-nav-item">體育</a>
-      <a class="top-nav-item">真人</a>
-      <a class="top-nav-item">電子</a>
-      <a class="top-nav-item">棋牌</a>
-      <a class="top-nav-item">捕魚</a>
-      <a class="top-nav-item">彩票</a>
-    </nav>
     <div class="top-actions">
       <button class="btn btn-ghost">登入</button>
       <button class="btn btn-primary">註冊</button>
     </div>
   </header>
 
+  <nav class="sub-nav">
+    <a class="sub-nav-item active">首頁</a>
+    <a class="sub-nav-item">體育</a>
+    <a class="sub-nav-item">真人</a>
+    <a class="sub-nav-item">電子</a>
+    <a class="sub-nav-item">棋牌</a>
+    <a class="sub-nav-item">捕魚</a>
+    <a class="sub-nav-item">彩票</a>
+  </nav>
+
   <section class="hero-promo">
-    <div class="promo-card-wrap">
-      <div class="promo-card-left">
-        <div class="logo-placeholder">
-          <svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="lp-grad" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0" stop-color="#3066ff"/>
-                <stop offset="1" stop-color="#22a3ff"/>
-              </linearGradient>
-            </defs>
-            <rect x="6" y="10" width="36" height="32" rx="8" fill="url(#lp-grad)"/>
-            <path d="M14 18 Q24 14 30 22 Q24 28 14 22 Q22 26 24 30 Q18 32 14 26 Z" fill="#fff" opacity="0.9"/>
-            <text x="54" y="32" font-family="sans-serif" font-size="18" font-weight="800" fill="#1a2b3f">SAMPLE</text>
-            <text x="54" y="44" font-family="sans-serif" font-size="9" fill="#6a7c95" letter-spacing="2">BRAND · LOGO</text>
-          </svg>
-        </div>
-        <div class="notice-block">
-          <h3>公告通知</h3>
-          <ul>
-            <li>樣本公告第一行：請替換為您的內容</li>
-            <li>樣本公告第二行：佔位文字示意</li>
-            <li>樣本公告第三行：佔位文字示意</li>
-            <li>樣本公告第四行：佔位文字示意</li>
-          </ul>
-          <label class="notice-check"><input type="checkbox" />今日不再彈出</label>
-        </div>
+    <div class="hero-card">
+      <div class="hero-decor" aria-hidden="true">
+        <svg viewBox="0 0 410 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="hd-bg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#3066ff"/>
+              <stop offset="1" stop-color="#22a3ff"/>
+            </linearGradient>
+            <linearGradient id="hd-coin" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ffd95a"/>
+              <stop offset="1" stop-color="#bf8412"/>
+            </linearGradient>
+            <radialGradient id="hd-spot" cx="0.3" cy="0.5" r="0.5">
+              <stop offset="0" stop-color="#fff" stop-opacity="0.35"/>
+              <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="410" height="200" fill="url(#hd-bg)"/>
+          <ellipse cx="120" cy="110" rx="130" ry="80" fill="url(#hd-spot)"/>
+          <!-- Right side: coin stack -->
+          <g transform="translate(310 130)">
+            <ellipse cx="0" cy="50" rx="62" ry="14" fill="#000" opacity="0.2"/>
+            <ellipse cx="0" cy="22" rx="56" ry="13" fill="url(#hd-coin)" stroke="#7a4d05" stroke-width="2"/>
+            <ellipse cx="0" cy="6" rx="56" ry="13" fill="url(#hd-coin)" stroke="#7a4d05" stroke-width="2"/>
+            <ellipse cx="0" cy="-10" rx="56" ry="13" fill="url(#hd-coin)" stroke="#7a4d05" stroke-width="2"/>
+            <text x="0" y="-5" text-anchor="middle" font-family="serif" font-size="20" font-weight="800" fill="#7a4d05">$</text>
+          </g>
+          <!-- dice -->
+          <g transform="translate(240 35) rotate(15)">
+            <rect width="40" height="40" rx="6" fill="#fff" stroke="#7188a8" stroke-width="1.5"/>
+            <circle cx="13" cy="13" r="3" fill="#3066ff"/>
+            <circle cx="27" cy="13" r="3" fill="#3066ff"/>
+            <circle cx="20" cy="20" r="3" fill="#3066ff"/>
+            <circle cx="13" cy="27" r="3" fill="#3066ff"/>
+            <circle cx="27" cy="27" r="3" fill="#3066ff"/>
+          </g>
+          <!-- chip -->
+          <g transform="translate(50 60)">
+            <circle r="32" fill="#d03434" stroke="#fff" stroke-width="3"/>
+            <circle r="32" fill="none" stroke="#fff" stroke-width="1.5" stroke-dasharray="6 5"/>
+            <circle r="16" fill="#fff"/>
+            <text y="5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="800" fill="#d03434">10K</text>
+          </g>
+        </svg>
       </div>
-      <div class="promo-card-right">
-        <div class="promo-decor" aria-hidden="true">
-          <svg viewBox="0 0 600 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-            <defs>
-              <radialGradient id="rdg1" cx="0.7" cy="0.5" r="0.7">
-                <stop offset="0" stop-color="#a5c8ff" stop-opacity="0.5"/>
-                <stop offset="1" stop-color="#3066ff" stop-opacity="0"/>
-              </radialGradient>
-              <linearGradient id="coin-g" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#ffd95a"/>
-                <stop offset="1" stop-color="#e8a022"/>
-              </linearGradient>
-              <linearGradient id="coin-g2" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#fff"/>
-                <stop offset="1" stop-color="#cfdcf4"/>
-              </linearGradient>
-            </defs>
-            <rect width="600" height="500" fill="url(#rdg1)"/>
-            <!-- Floating geometric coin stack -->
-            <ellipse cx="170" cy="380" rx="80" ry="22" fill="#3066ff" opacity="0.15"/>
-            <ellipse cx="170" cy="310" rx="62" ry="18" fill="url(#coin-g)" stroke="#bf8412" stroke-width="2"/>
-            <ellipse cx="170" cy="290" rx="62" ry="18" fill="url(#coin-g)" stroke="#bf8412" stroke-width="2"/>
-            <ellipse cx="170" cy="270" rx="62" ry="18" fill="url(#coin-g)" stroke="#bf8412" stroke-width="2"/>
-            <ellipse cx="170" cy="250" rx="62" ry="18" fill="url(#coin-g)" stroke="#bf8412" stroke-width="2"/>
-            <!-- big floating coin with $ -->
-            <circle cx="370" cy="180" r="72" fill="url(#coin-g)" stroke="#bf8412" stroke-width="3"/>
-            <circle cx="370" cy="180" r="58" fill="none" stroke="#bf8412" stroke-width="1.5" stroke-dasharray="3 3"/>
-            <text x="370" y="200" text-anchor="middle" font-family="sans-serif" font-size="60" font-weight="800" fill="#7a4d05">$</text>
-            <!-- dice -->
-            <g transform="translate(440 320) rotate(15)">
-              <rect width="60" height="60" rx="10" fill="url(#coin-g2)" stroke="#7188a8" stroke-width="2"/>
-              <circle cx="18" cy="18" r="4" fill="#3066ff"/>
-              <circle cx="42" cy="18" r="4" fill="#3066ff"/>
-              <circle cx="30" cy="30" r="4" fill="#3066ff"/>
-              <circle cx="18" cy="42" r="4" fill="#3066ff"/>
-              <circle cx="42" cy="42" r="4" fill="#3066ff"/>
-            </g>
-            <!-- card -->
-            <g transform="translate(290 320) rotate(-12)">
-              <rect width="50" height="70" rx="6" fill="#fff" stroke="#7188a8" stroke-width="2"/>
-              <text x="10" y="22" font-family="serif" font-size="16" font-weight="700" fill="#d03434">A</text>
-              <path d="M25 30 L18 38 Q18 46 25 46 Q32 46 32 38 Z" fill="#d03434"/>
-              <text x="42" y="62" font-family="serif" font-size="14" font-weight="700" fill="#d03434" transform="rotate(180 42 58)">A</text>
-            </g>
-            <!-- chip -->
-            <g transform="translate(50 200)">
-              <circle cx="0" cy="0" r="44" fill="#d03434" stroke="#fff" stroke-width="4"/>
-              <circle cx="0" cy="0" r="44" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="10 8"/>
-              <circle cx="0" cy="0" r="22" fill="#fff"/>
-              <text y="6" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="800" fill="#d03434">10K</text>
-            </g>
-          </svg>
-        </div>
-        <div class="promo-text">
-          <h2>Sample Tagline</h2>
-          <p>Sub-tagline placeholder — 請替換為您的宣傳文字</p>
-          <button class="promo-cta">立即體驗</button>
-        </div>
+      <div class="hero-text">
+        <h2>Sample Tagline</h2>
+        <p>佔位文字 — 請替換</p>
+        <button class="hero-cta">立即體驗</button>
       </div>
+    </div>
+    <div class="hero-notice">
+      <h3>公告通知</h3>
+      <ul>
+        <li>樣本公告第一行：請替換為您的內容</li>
+        <li>樣本公告第二行：佔位文字</li>
+        <li>樣本公告第三行：佔位文字</li>
+      </ul>
     </div>
   </section>
 
@@ -135,131 +108,96 @@
       <h2 class="title-zh">遊戲大廳</h2>
       <p class="title-en">SAMPLE · GAME HALL</p>
     </div>
-
-    <div class="content-box">
-      <div class="left-part">
-        <div class="name-container">
-          <h3 class="name">遊戲類別示例</h3>
-          <p class="left-des">業界通用遊戲類別佔位文字（請替換為您的描述）</p>
-        </div>
-        <div class="icon-group">
-          <div class="icon-avatar-wrap" data-color="lottery">
-            <svg class="img" viewBox="0 0 110 108" xmlns="http://www.w3.org/2000/svg">
-              <defs><linearGradient id="ic-l-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dfeaff"/><stop offset="1" stop-color="#a5c8ff"/></linearGradient></defs>
-              <circle cx="55" cy="42" r="34" fill="url(#ic-l-g)"/>
-              <circle cx="55" cy="42" r="28" fill="none" stroke="#3066ff" stroke-width="2" stroke-dasharray="3 2"/>
-              <text x="55" y="52" text-anchor="middle" font-size="26" fill="#3066ff" font-family="sans-serif" font-weight="800">6</text>
-            </svg>
-            <span class="name">LOTTERY</span>
-          </div>
-          <div class="icon-avatar-wrap" data-color="live">
-            <svg class="img" viewBox="0 0 110 108" xmlns="http://www.w3.org/2000/svg">
-              <defs><linearGradient id="ic-v-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe0e8"/><stop offset="1" stop-color="#ffa5c0"/></linearGradient></defs>
-              <circle cx="55" cy="42" r="34" fill="url(#ic-v-g)"/>
-              <circle cx="55" cy="34" r="10" fill="#d03477"/>
-              <path d="M37 60 Q55 48 73 60 L73 70 L37 70 Z" fill="#d03477"/>
-            </svg>
-            <span class="name">LIVE</span>
-          </div>
-          <div class="icon-avatar-wrap" data-color="sports">
-            <svg class="img" viewBox="0 0 110 108" xmlns="http://www.w3.org/2000/svg">
-              <defs><linearGradient id="ic-s-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dff7e6"/><stop offset="1" stop-color="#7fd99c"/></linearGradient></defs>
-              <circle cx="55" cy="42" r="34" fill="url(#ic-s-g)"/>
-              <polygon points="55,18 64,38 86,38 68,52 76,72 55,60 34,72 42,52 24,38 46,38" fill="#0a7d3d"/>
-            </svg>
-            <span class="name">SPORTS</span>
-          </div>
-        </div>
-      </div>
-      <div class="right-part">
-        <div class="right-decor" aria-hidden="true">
-          <svg viewBox="0 0 600 398" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-            <defs>
-              <linearGradient id="rp-g" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#3066ff"/>
-                <stop offset="0.5" stop-color="#22a3ff"/>
-                <stop offset="1" stop-color="#7fd9ff"/>
-              </linearGradient>
-              <linearGradient id="rp-coin" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#ffd95a"/>
-                <stop offset="1" stop-color="#bf8412"/>
-              </linearGradient>
-            </defs>
-            <rect width="600" height="398" fill="url(#rp-g)"/>
-            <!-- decorative circles -->
-            <circle cx="120" cy="80" r="50" fill="#fff" opacity="0.18"/>
-            <circle cx="500" cy="320" r="80" fill="#fff" opacity="0.15"/>
-            <circle cx="80" cy="320" r="30" fill="#fff" opacity="0.2"/>
-            <!-- 3 stacked coins -->
-            <ellipse cx="380" cy="270" rx="120" ry="28" fill="#000" opacity="0.18"/>
-            <ellipse cx="380" cy="220" rx="100" ry="26" fill="url(#rp-coin)" stroke="#7a4d05" stroke-width="3"/>
-            <ellipse cx="380" cy="190" rx="100" ry="26" fill="url(#rp-coin)" stroke="#7a4d05" stroke-width="3"/>
-            <ellipse cx="380" cy="160" rx="100" ry="26" fill="url(#rp-coin)" stroke="#7a4d05" stroke-width="3"/>
-            <text x="380" y="170" text-anchor="middle" font-family="sans-serif" font-size="34" font-weight="800" fill="#7a4d05">$</text>
-            <!-- title overlay text -->
-            <text x="60" y="100" font-family="sans-serif" font-size="40" font-weight="800" fill="#fff">SAMPLE</text>
-            <text x="60" y="140" font-family="sans-serif" font-size="22" fill="#fff" opacity="0.85">Hero Banner · 600 × 398</text>
-            <text x="60" y="166" font-family="sans-serif" font-size="14" fill="#fff" opacity="0.7">Replace this area with your own promotional banner</text>
+    <div class="lobby-grid">
+      <a class="lobby-item" data-color="lottery">
+        <div class="lobby-icon">
+          <svg viewBox="0 0 110 108" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="li-l-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dfeaff"/><stop offset="1" stop-color="#a5c8ff"/></linearGradient></defs>
+            <circle cx="55" cy="48" r="34" fill="url(#li-l-g)"/>
+            <circle cx="55" cy="48" r="28" fill="none" stroke="#3066ff" stroke-width="2" stroke-dasharray="3 2"/>
+            <text x="55" y="58" text-anchor="middle" font-size="26" fill="#3066ff" font-family="sans-serif" font-weight="800">6</text>
           </svg>
         </div>
-      </div>
-    </div>
-
-    <div class="tab-bar-wrap">
-      <div class="tab-bar active">
-        <span class="tab-icon" data-icon="lottery">
-          <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="14" fill="none" stroke="currentColor" stroke-width="2"/><text x="18" y="22" text-anchor="middle" font-size="13" font-weight="700" fill="currentColor">6</text></svg>
-        </span>
-        <div class="title-wrap">
-          <p class="title-zh">彩票</p>
-          <p class="title-en">LOTTERY</p>
+        <div class="lobby-label">
+          <span class="lobby-zh">彩票</span>
+          <span class="lobby-en">LOTTERY</span>
         </div>
-      </div>
-      <div class="tab-bar">
-        <span class="tab-icon" data-icon="live">
-          <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="13" r="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 28 Q18 20 28 28 L28 32 L8 32 Z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-        </span>
-        <div class="title-wrap">
-          <p class="title-zh">真人</p>
-          <p class="title-en">LIVE</p>
+      </a>
+      <a class="lobby-item" data-color="live">
+        <div class="lobby-icon">
+          <svg viewBox="0 0 110 108" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="li-v-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe0e8"/><stop offset="1" stop-color="#ffa5c0"/></linearGradient></defs>
+            <circle cx="55" cy="48" r="34" fill="url(#li-v-g)"/>
+            <circle cx="55" cy="40" r="10" fill="#d03477"/>
+            <path d="M37 66 Q55 54 73 66 L73 76 L37 76 Z" fill="#d03477"/>
+          </svg>
         </div>
-      </div>
-      <div class="tab-bar">
-        <span class="tab-icon" data-icon="sports">
-          <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><polygon points="18,4 22,14 33,14 24,20 27,31 18,25 9,31 12,20 3,14 14,14" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-        </span>
-        <div class="title-wrap">
-          <p class="title-zh">體育賽事</p>
-          <p class="title-en">SPORTS</p>
+        <div class="lobby-label">
+          <span class="lobby-zh">真人</span>
+          <span class="lobby-en">LIVE</span>
         </div>
-      </div>
-      <div class="tab-bar">
-        <span class="tab-icon" data-icon="electron">
-          <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="10" width="24" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><line x1="12" y1="14" x2="12" y2="22" stroke="currentColor" stroke-width="2"/><line x1="8" y1="18" x2="16" y2="18" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="18" r="2" fill="currentColor"/></svg>
-        </span>
-        <div class="title-wrap">
-          <p class="title-zh">電子</p>
-          <p class="title-en">SLOTS</p>
+      </a>
+      <a class="lobby-item" data-color="sports">
+        <div class="lobby-icon">
+          <svg viewBox="0 0 110 108" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="li-s-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dff7e6"/><stop offset="1" stop-color="#7fd99c"/></linearGradient></defs>
+            <circle cx="55" cy="48" r="34" fill="url(#li-s-g)"/>
+            <polygon points="55,24 64,44 86,44 68,58 76,78 55,66 34,78 42,58 24,44 46,44" fill="#0a7d3d"/>
+          </svg>
         </div>
-      </div>
-      <div class="tab-bar">
-        <span class="tab-icon" data-icon="chess">
-          <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="6" width="14" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><rect x="16" y="10" width="14" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-        </span>
-        <div class="title-wrap">
-          <p class="title-zh">棋牌</p>
-          <p class="title-en">POKER</p>
+        <div class="lobby-label">
+          <span class="lobby-zh">體育</span>
+          <span class="lobby-en">SPORTS</span>
         </div>
-      </div>
-      <div class="tab-bar">
-        <span class="tab-icon" data-icon="fishing">
-          <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><path d="M4 18 Q12 8 22 18 Q12 28 4 18 Z M22 18 L30 14 L30 22 Z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="10" cy="17" r="1.5" fill="currentColor"/></svg>
-        </span>
-        <div class="title-wrap">
-          <p class="title-zh">捕魚</p>
-          <p class="title-en">FISHING</p>
+      </a>
+      <a class="lobby-item" data-color="electron">
+        <div class="lobby-icon">
+          <svg viewBox="0 0 110 108" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="li-e-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eee0ff"/><stop offset="1" stop-color="#b599ff"/></linearGradient></defs>
+            <circle cx="55" cy="48" r="34" fill="url(#li-e-g)"/>
+            <rect x="32" y="36" width="46" height="28" rx="6" fill="#5a2bd2"/>
+            <line x1="42" y1="44" x2="42" y2="56" stroke="#fff" stroke-width="3"/>
+            <line x1="36" y1="50" x2="48" y2="50" stroke="#fff" stroke-width="3"/>
+            <circle cx="66" cy="46" r="3" fill="#fff"/>
+            <circle cx="72" cy="54" r="3" fill="#fff"/>
+          </svg>
         </div>
-      </div>
+        <div class="lobby-label">
+          <span class="lobby-zh">電子</span>
+          <span class="lobby-en">SLOTS</span>
+        </div>
+      </a>
+      <a class="lobby-item" data-color="chess">
+        <div class="lobby-icon">
+          <svg viewBox="0 0 110 108" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="li-c-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff0d8"/><stop offset="1" stop-color="#ffc488"/></linearGradient></defs>
+            <circle cx="55" cy="48" r="34" fill="url(#li-c-g)"/>
+            <rect x="32" y="28" width="22" height="32" rx="3" fill="#fff" stroke="#bf6d12" stroke-width="2"/>
+            <text x="43" y="42" text-anchor="middle" font-family="serif" font-size="12" font-weight="700" fill="#d03434">A</text>
+            <rect x="50" y="34" width="22" height="32" rx="3" fill="#fff" stroke="#bf6d12" stroke-width="2"/>
+            <text x="61" y="48" text-anchor="middle" font-family="serif" font-size="12" font-weight="700" fill="#1a2b3f">K</text>
+          </svg>
+        </div>
+        <div class="lobby-label">
+          <span class="lobby-zh">棋牌</span>
+          <span class="lobby-en">POKER</span>
+        </div>
+      </a>
+      <a class="lobby-item" data-color="fishing">
+        <div class="lobby-icon">
+          <svg viewBox="0 0 110 108" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="li-f-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dff4ff"/><stop offset="1" stop-color="#7fc9ff"/></linearGradient></defs>
+            <circle cx="55" cy="48" r="34" fill="url(#li-f-g)"/>
+            <path d="M32 48 Q48 32 68 48 Q48 64 32 48 Z" fill="#0a6dad"/>
+            <path d="M68 48 L82 40 L82 56 Z" fill="#0a6dad"/>
+            <circle cx="42" cy="46" r="2" fill="#fff"/>
+          </svg>
+        </div>
+        <div class="lobby-label">
+          <span class="lobby-zh">捕魚</span>
+          <span class="lobby-en">FISHING</span>
+        </div>
+      </a>
     </div>
   </section>
 
@@ -269,41 +207,26 @@
       <p class="title-en">SAMPLE · HOT GAMES</p>
     </div>
     <nav class="hot-nav">
-      <span class="nav-item active">真人遊戲</span>
-      <span class="nav-item">彩票遊戲</span>
-      <span class="nav-item">電子遊戲</span>
-      <span class="nav-item">體育賽事</span>
-      <span class="nav-item">捕魚遊戲</span>
+      <span class="hot-nav-item active">真人</span>
+      <span class="hot-nav-item">彩票</span>
+      <span class="hot-nav-item">電子</span>
+      <span class="hot-nav-item">體育</span>
+      <span class="hot-nav-item">捕魚</span>
     </nav>
     <div class="hot-cards">
       <article class="hot-card">
         <div class="hot-card-img">
           <svg viewBox="0 0 670 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
             <defs>
-              <linearGradient id="hc1-bg" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#fff5d6"/>
-                <stop offset="1" stop-color="#ffc857"/>
-              </linearGradient>
-              <radialGradient id="hc1-spot" cx="0.5" cy="0.45" r="0.5">
-                <stop offset="0" stop-color="#fff" stop-opacity="0.8"/>
-                <stop offset="1" stop-color="#fff" stop-opacity="0"/>
-              </radialGradient>
+              <linearGradient id="hc1-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff5d6"/><stop offset="1" stop-color="#ffc857"/></linearGradient>
+              <radialGradient id="hc1-spot" cx="0.5" cy="0.45" r="0.5"><stop offset="0" stop-color="#fff" stop-opacity="0.8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
             </defs>
             <rect width="670" height="600" fill="url(#hc1-bg)"/>
             <circle cx="335" cy="270" r="220" fill="url(#hc1-spot)"/>
-            <!-- decorative coins arc -->
-            <g transform="translate(335 360)">
-              <ellipse cx="-180" cy="0" rx="36" ry="10" fill="#bf8412" opacity="0.6"/>
-              <ellipse cx="-120" cy="20" rx="42" ry="12" fill="#bf8412" opacity="0.7"/>
-              <ellipse cx="120" cy="20" rx="42" ry="12" fill="#bf8412" opacity="0.7"/>
-              <ellipse cx="180" cy="0" rx="36" ry="10" fill="#bf8412" opacity="0.6"/>
-            </g>
-            <!-- center medallion -->
             <circle cx="335" cy="270" r="110" fill="#bf8412" stroke="#7a4d05" stroke-width="4"/>
             <circle cx="335" cy="270" r="92" fill="#ffd95a" stroke="#7a4d05" stroke-width="2"/>
             <text x="335" y="290" text-anchor="middle" font-family="serif" font-size="80" font-weight="800" fill="#7a4d05">$</text>
-            <text x="335" y="500" text-anchor="middle" font-family="sans-serif" font-size="22" font-weight="700" fill="#7a4d05">PREMIUM 01</text>
-            <text x="335" y="528" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#7a4d05" opacity="0.8">Sample game preview</text>
+            <text x="335" y="500" text-anchor="middle" font-family="sans-serif" font-size="26" font-weight="700" fill="#7a4d05">PREMIUM 01</text>
           </svg>
         </div>
         <p class="hot-card-name">範例桌台 · Premium 01</p>
@@ -312,28 +235,19 @@
         <div class="hot-card-img">
           <svg viewBox="0 0 670 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
             <defs>
-              <linearGradient id="hc2-bg" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#ffe0e8"/>
-                <stop offset="1" stop-color="#d03477"/>
-              </linearGradient>
-              <radialGradient id="hc2-spot" cx="0.5" cy="0.4" r="0.55">
-                <stop offset="0" stop-color="#fff" stop-opacity="0.8"/>
-                <stop offset="1" stop-color="#fff" stop-opacity="0"/>
-              </radialGradient>
+              <linearGradient id="hc2-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe0e8"/><stop offset="1" stop-color="#d03477"/></linearGradient>
+              <radialGradient id="hc2-spot" cx="0.5" cy="0.4" r="0.55"><stop offset="0" stop-color="#fff" stop-opacity="0.8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
             </defs>
             <rect width="670" height="600" fill="url(#hc2-bg)"/>
             <circle cx="335" cy="240" r="220" fill="url(#hc2-spot)"/>
-            <!-- table felt arc -->
             <ellipse cx="335" cy="500" rx="280" ry="60" fill="#7d1e4a" opacity="0.7"/>
             <ellipse cx="335" cy="480" rx="240" ry="48" fill="#a02860"/>
-            <!-- 3 cards fan -->
             <g transform="translate(335 360)">
-              <g transform="rotate(-15)"><rect x="-40" y="-60" width="80" height="110" rx="8" fill="#fff" stroke="#3a1226" stroke-width="2"/><text x="0" y="-30" text-anchor="middle" font-family="serif" font-size="22" font-weight="700" fill="#d03434">K</text><path d="M0 0 L-12 16 Q-12 30 0 30 Q12 30 12 16 Z" fill="#1a2b3f"/></g>
-              <g transform="rotate(0) translate(0 -10)"><rect x="-40" y="-60" width="80" height="110" rx="8" fill="#fff" stroke="#3a1226" stroke-width="2"/><text x="0" y="-30" text-anchor="middle" font-family="serif" font-size="22" font-weight="700" fill="#d03434">Q</text><path d="M0 0 L-12 16 Q-12 30 0 30 Q12 30 12 16 Z" fill="#d03434"/></g>
-              <g transform="rotate(15)"><rect x="-40" y="-60" width="80" height="110" rx="8" fill="#fff" stroke="#3a1226" stroke-width="2"/><text x="0" y="-30" text-anchor="middle" font-family="serif" font-size="22" font-weight="700" fill="#1a2b3f">J</text><circle cx="0" cy="12" r="14" fill="#1a2b3f"/></g>
+              <g transform="rotate(-15)"><rect x="-40" y="-60" width="80" height="110" rx="8" fill="#fff" stroke="#3a1226" stroke-width="2"/><text x="0" y="-30" text-anchor="middle" font-family="serif" font-size="22" font-weight="700" fill="#d03434">K</text></g>
+              <g transform="translate(0 -10)"><rect x="-40" y="-60" width="80" height="110" rx="8" fill="#fff" stroke="#3a1226" stroke-width="2"/><text x="0" y="-30" text-anchor="middle" font-family="serif" font-size="22" font-weight="700" fill="#d03434">Q</text></g>
+              <g transform="rotate(15)"><rect x="-40" y="-60" width="80" height="110" rx="8" fill="#fff" stroke="#3a1226" stroke-width="2"/><text x="0" y="-30" text-anchor="middle" font-family="serif" font-size="22" font-weight="700" fill="#1a2b3f">J</text></g>
             </g>
-            <text x="335" y="540" text-anchor="middle" font-family="sans-serif" font-size="22" font-weight="700" fill="#fff">CARDS 02</text>
-            <text x="335" y="565" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#fff" opacity="0.85">Sample card-game preview</text>
+            <text x="335" y="540" text-anchor="middle" font-family="sans-serif" font-size="26" font-weight="700" fill="#fff">CARDS 02</text>
           </svg>
         </div>
         <p class="hot-card-name">範例桌台 · Cards 02</p>
@@ -342,18 +256,11 @@
         <div class="hot-card-img">
           <svg viewBox="0 0 670 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
             <defs>
-              <linearGradient id="hc3-bg" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#dff0fe"/>
-                <stop offset="1" stop-color="#3066ff"/>
-              </linearGradient>
-              <radialGradient id="hc3-spot" cx="0.5" cy="0.45" r="0.55">
-                <stop offset="0" stop-color="#fff" stop-opacity="0.7"/>
-                <stop offset="1" stop-color="#fff" stop-opacity="0"/>
-              </radialGradient>
+              <linearGradient id="hc3-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dff0fe"/><stop offset="1" stop-color="#3066ff"/></linearGradient>
+              <radialGradient id="hc3-spot" cx="0.5" cy="0.45" r="0.55"><stop offset="0" stop-color="#fff" stop-opacity="0.7"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
             </defs>
             <rect width="670" height="600" fill="url(#hc3-bg)"/>
             <circle cx="335" cy="270" r="240" fill="url(#hc3-spot)"/>
-            <!-- 3 reels -->
             <g transform="translate(335 300)">
               <rect x="-180" y="-100" width="100" height="200" rx="14" fill="#1a2b3f"/>
               <rect x="-170" y="-90" width="80" height="180" rx="8" fill="#fff"/>
@@ -365,8 +272,7 @@
               <rect x="90" y="-90" width="80" height="180" rx="8" fill="#fff"/>
               <text x="130" y="20" text-anchor="middle" font-family="serif" font-size="44" font-weight="800" fill="#d03434">7</text>
             </g>
-            <text x="335" y="530" text-anchor="middle" font-family="sans-serif" font-size="22" font-weight="700" fill="#fff">SLOTS 03</text>
-            <text x="335" y="558" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#fff" opacity="0.85">Sample slots preview</text>
+            <text x="335" y="540" text-anchor="middle" font-family="sans-serif" font-size="26" font-weight="700" fill="#fff">SLOTS 03</text>
           </svg>
         </div>
         <p class="hot-card-name">範例桌台 · Slots 03</p>
@@ -376,14 +282,10 @@
   </section>
 
   <section class="app-download">
-    <div class="section-title">
-      <h2 class="title-zh">APP下載</h2>
-      <p class="title-en">SAMPLE · APP DOWNLOAD</p>
-    </div>
-    <div class="app-row">
+    <div class="app-card">
       <div class="app-text">
         <h3>精彩遊戲 隨時隨地</h3>
-        <p>佔位文字：示範 APP 下載區段的雙欄結構。請替換為您的宣傳內容。</p>
+        <p>佔位文字示範 APP 下載區段</p>
         <div class="app-btns">
           <button class="app-btn">
             <span class="app-btn-icon">
@@ -393,89 +295,63 @@
           </button>
           <button class="app-btn">
             <span class="app-btn-icon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><circle cx="7" cy="14" r="1.2"/><circle cx="17" cy="14" r="1.2"/><path d="M4 10c.5-3 3.8-5 8-5s7.5 2 8 5H4zm-.5 1.5h17v6c0 .8-.7 1.5-1.5 1.5h-2v3a1 1 0 0 1-2 0v-3H9v3a1 1 0 0 1-2 0v-3H5c-.8 0-1.5-.7-1.5-1.5v-6zM6.5 6l-1.4-2M17.5 6l1.4-2" stroke="currentColor" stroke-width="0.8" fill="currentColor"/></svg>
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><circle cx="7" cy="14" r="1.2"/><circle cx="17" cy="14" r="1.2"/><path d="M4 10c.5-3 3.8-5 8-5s7.5 2 8 5H4zm-.5 1.5h17v6c0 .8-.7 1.5-1.5 1.5h-2v3a1 1 0 0 1-2 0v-3H9v3a1 1 0 0 1-2 0v-3H5c-.8 0-1.5-.7-1.5-1.5v-6z" fill="currentColor"/></svg>
             </span>
             <span class="app-btn-text"><small>下載</small><strong>Android</strong></span>
           </button>
         </div>
       </div>
-      <div class="app-illu">
-        <svg viewBox="0 0 320 480" xmlns="http://www.w3.org/2000/svg">
+      <div class="app-illu" aria-hidden="true">
+        <svg viewBox="0 0 140 220" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="phn-body" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#1a2b3f"/>
-              <stop offset="1" stop-color="#3a5170"/>
-            </linearGradient>
-            <linearGradient id="phn-screen" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#3066ff"/>
-              <stop offset="1" stop-color="#22a3ff"/>
-            </linearGradient>
+            <linearGradient id="m-phn-body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a2b3f"/><stop offset="1" stop-color="#3a5170"/></linearGradient>
+            <linearGradient id="m-phn-screen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3066ff"/><stop offset="1" stop-color="#22a3ff"/></linearGradient>
           </defs>
-          <rect x="40" y="20" width="240" height="440" rx="36" fill="url(#phn-body)"/>
-          <rect x="56" y="36" width="208" height="408" rx="24" fill="url(#phn-screen)"/>
-          <!-- screen top bar -->
-          <rect x="76" y="56" width="56" height="6" rx="3" fill="#fff" opacity="0.4"/>
-          <rect x="200" y="54" width="50" height="10" rx="3" fill="#fff" opacity="0.3"/>
-          <!-- hero on screen -->
-          <rect x="76" y="80" width="168" height="56" rx="8" fill="#fff" opacity="0.18"/>
-          <circle cx="106" cy="108" r="14" fill="#ffd95a"/>
-          <text x="106" y="113" text-anchor="middle" font-family="serif" font-size="16" font-weight="800" fill="#7a4d05">$</text>
-          <text x="130" y="104" font-family="sans-serif" font-size="10" font-weight="700" fill="#fff">SAMPLE BONUS</text>
-          <text x="130" y="118" font-family="sans-serif" font-size="8" fill="#fff" opacity="0.8">Placeholder text</text>
-          <!-- 2x4 grid -->
-          <g transform="translate(76 152)">
-            <rect width="40" height="40" rx="6" fill="#fff" opacity="0.18"/>
-            <rect x="48" width="40" height="40" rx="6" fill="#fff" opacity="0.18"/>
-            <rect x="96" width="40" height="40" rx="6" fill="#fff" opacity="0.18"/>
-            <rect x="144" width="40" height="40" rx="6" fill="#fff" opacity="0.18"/>
-            <rect y="48" width="40" height="40" rx="6" fill="#fff" opacity="0.18"/>
-            <rect x="48" y="48" width="40" height="40" rx="6" fill="#fff" opacity="0.18"/>
-            <rect x="96" y="48" width="40" height="40" rx="6" fill="#fff" opacity="0.18"/>
-            <rect x="144" y="48" width="40" height="40" rx="6" fill="#fff" opacity="0.18"/>
+          <rect x="10" y="6" width="120" height="208" rx="22" fill="url(#m-phn-body)"/>
+          <rect x="18" y="14" width="104" height="192" rx="14" fill="url(#m-phn-screen)"/>
+          <rect x="30" y="26" width="32" height="4" rx="2" fill="#fff" opacity="0.4"/>
+          <rect x="30" y="38" width="84" height="28" rx="5" fill="#fff" opacity="0.18"/>
+          <circle cx="45" cy="52" r="8" fill="#ffd95a"/>
+          <text x="45" y="56" text-anchor="middle" font-family="serif" font-size="10" font-weight="800" fill="#7a4d05">$</text>
+          <g transform="translate(30 78)">
+            <rect width="18" height="18" rx="3" fill="#fff" opacity="0.18"/><rect x="22" width="18" height="18" rx="3" fill="#fff" opacity="0.18"/><rect x="44" width="18" height="18" rx="3" fill="#fff" opacity="0.18"/><rect x="66" width="18" height="18" rx="3" fill="#fff" opacity="0.18"/>
+            <rect y="22" width="18" height="18" rx="3" fill="#fff" opacity="0.18"/><rect x="22" y="22" width="18" height="18" rx="3" fill="#fff" opacity="0.18"/><rect x="44" y="22" width="18" height="18" rx="3" fill="#fff" opacity="0.18"/><rect x="66" y="22" width="18" height="18" rx="3" fill="#fff" opacity="0.18"/>
           </g>
-          <!-- ribbons -->
-          <rect x="76" y="264" width="168" height="52" rx="8" fill="#ffd95a" opacity="0.5"/>
-          <rect x="76" y="324" width="168" height="52" rx="8" fill="#fff" opacity="0.18"/>
-          <rect x="76" y="384" width="168" height="52" rx="8" fill="#fff" opacity="0.18"/>
-          <!-- home indicator -->
-          <rect x="140" y="446" width="40" height="4" rx="2" fill="#fff" opacity="0.6"/>
+          <rect x="30" y="130" width="84" height="22" rx="4" fill="#ffd95a" opacity="0.5"/>
+          <rect x="30" y="156" width="84" height="22" rx="4" fill="#fff" opacity="0.18"/>
+          <rect x="30" y="182" width="84" height="22" rx="4" fill="#fff" opacity="0.18"/>
         </svg>
       </div>
     </div>
   </section>
 
   <footer class="site-footer">
-    <div class="footer-inner">
+    <div class="footer-cols">
       <div class="footer-col">
         <h4>關於我們</h4>
         <ul><li>關於</li><li>合作</li><li>客服</li><li>條款</li></ul>
       </div>
       <div class="footer-col">
-        <h4>遊戲服務</h4>
-        <ul><li>真人</li><li>體育</li><li>電子</li><li>棋牌</li></ul>
-      </div>
-      <div class="footer-col">
         <h4>幫助中心</h4>
         <ul><li>FAQ</li><li>存款</li><li>提款</li><li>規則</li></ul>
       </div>
-      <div class="footer-col footer-providers">
-        <h4>合作平台</h4>
-        <div class="provider-grid">
-          <div class="provider-block"></div><div class="provider-block"></div>
-          <div class="provider-block"></div><div class="provider-block"></div>
-          <div class="provider-block"></div><div class="provider-block"></div>
-          <div class="provider-block"></div><div class="provider-block"></div>
-        </div>
+    </div>
+    <div class="footer-providers">
+      <h4>合作平台</h4>
+      <div class="provider-grid">
+        <div class="provider-block"></div><div class="provider-block"></div>
+        <div class="provider-block"></div><div class="provider-block"></div>
+        <div class="provider-block"></div><div class="provider-block"></div>
+        <div class="provider-block"></div><div class="provider-block"></div>
       </div>
     </div>
-    <div class="footer-extra">
-      <div class="footer-pay-block"></div><div class="footer-pay-block"></div>
+    <div class="footer-pay">
       <div class="footer-pay-block"></div><div class="footer-pay-block"></div>
       <div class="footer-pay-block"></div><div class="footer-pay-block"></div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 Sample Brand · Layout Reference Template for Site Template Gallery</p>
-      <p class="footer-meta">本頁面為 layout 結構參考，所有素材均為自製通用佔位元素</p>
+      <p>© 2026 Sample Brand</p>
+      <p class="footer-meta">Layout Reference Template · 自製通用佔位</p>
     </div>
   </footer>
 </div>
